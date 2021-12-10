@@ -4,7 +4,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "Data", menuName = "Samples/Collection")]
+[CreateAssetMenu(fileName = "Data", menuName = "Game Data/Collection")]
 public class Collection : ScriptableObject
 {
     [BoxGroup("Information")]
