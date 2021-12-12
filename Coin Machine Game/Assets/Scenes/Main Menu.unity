@@ -9428,8 +9428,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1060444199}
   m_HandleRect: {fileID: 1060444198}
   m_Direction: 2
-  m_Value: 0.9999997
-  m_Size: 0.7000052
+  m_Value: 1
+  m_Size: 0.70000523
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -11185,7 +11185,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1906690646}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.22685501
+  m_Size: 0.22685502
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -11396,7 +11396,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1384771963}
   - component: {fileID: 1384771962}
-  - component: {fileID: 1384771964}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -11446,21 +11445,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1384771964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1384771961}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 508a9177181c3294f9fbe9293f86f8c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BaseCoin: 10
-  upgradesHave: 3
-  buildingHaveFree: 0
 --- !u!1 &1385064183
 GameObject:
   m_ObjectHideFlags: 0
