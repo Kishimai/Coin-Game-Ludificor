@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4514007, g: 0.5008931, b: 0.5723126, a: 1}
+  m_IndirectSpecularColor: {r: 0.45140034, g: 0.5008928, b: 0.5723122, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2074,7 +2074,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Current Upgrade Value | 99999999
+  m_Text: Current Buy Value | 99999999
 --- !u!222 &384199458
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11451,6 +11451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1384771963}
   - component: {fileID: 1384771962}
+  - component: {fileID: 1384771964}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -11500,6 +11501,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1384771964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384771961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b773ebf47be974c9d705ace5917a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placeholder_data:
+  - {fileID: 1893032594}
+  - {fileID: 1660775163}
+  - {fileID: 1816452400}
+  - {fileID: 1178401411}
+  - {fileID: 2109299202}
+  - {fileID: 1268948152}
+  - {fileID: 74114151}
+  - {fileID: 1348614371}
+  - {fileID: 560554689}
+  - {fileID: 2057954698}
+  - {fileID: 1997780171}
+  - {fileID: 1266657801}
 --- !u!1 &1385064183
 GameObject:
   m_ObjectHideFlags: 0

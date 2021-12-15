@@ -23,4 +23,10 @@ public class CoinData : ScriptableObject
     [TextArea(8, 8)]
     public string CoinDescription;
 
+    [BoxGroup("Current Information")]
+    public float currentCost;
+    [BoxGroup("Current Information")]
+    public float currentValue;
+
+
 }
