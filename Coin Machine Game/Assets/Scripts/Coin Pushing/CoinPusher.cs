@@ -26,7 +26,7 @@ public class CoinPusher : MonoBehaviour
     // Holds the object for the coin pusher itself
     public GameObject coinPusher;
     // Holds the layer for the stationary machine parts (walls, back drop, floor, etc)
-    private int stationaryPartsLayer = 7;
+    private int stationaryPartsLayer = 8;
     // Used to stop the coin pusher from moving during events or gameplay states/phases
     public bool allowingMovement;
 
@@ -37,14 +37,14 @@ public class CoinPusher : MonoBehaviour
         pusherRb = GetComponent<Rigidbody>();
 
         // Makes sure collision with machine parts cannot occour (otherwise the coin pusher locks up and cannot move)
-        Physics.IgnoreLayerCollision(stationaryPartsLayer, 8);
+        Physics.IgnoreLayerCollision(stationaryPartsLayer, 7);
 
         // Gathers the coin pusher object
         coinPusher = gameObject;
 
         // Gathers the starting position (can be changed if desired)
         //startingPosition = positionA;
-        startingPosition = positionB;
+        startingPosition = new Vector3(coinPusher.transform.position.x, coinPusher.transform.position.y, positionB.z);
 
         // Sets the starting position of the coin pusher
         coinPusher.transform.position = startingPosition;

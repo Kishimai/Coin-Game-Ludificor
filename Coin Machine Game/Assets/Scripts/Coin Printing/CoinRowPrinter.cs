@@ -130,12 +130,12 @@ public class CoinRowPrinter : MonoBehaviour
             // If newOffset equals offset, set newOffset to 0 (returns printer to orignal position)
             if (Mathf.Approximately(newOffset, offset))
             {
-                newOffset = 0;
+                newOffset = currentPlane.transform.position.x;
             }
             // Else, set newOffset equal to offset (moves printer to new position)
             else
             {
-                newOffset = offset;
+                newOffset = currentPlane.transform.position.x + offset;
             }
 
             // Moves printer bar, taking into account the X offset, and the new Z position
@@ -213,7 +213,7 @@ public class CoinRowPrinter : MonoBehaviour
                 Vector3 positionalNoise = new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(0, 0.1f), Random.Range(-0.2f, 0.2f));
 
                 // Creates the current coin/item at the extruder's position, plus the random margin
-                Instantiate(currentItem, extruder.transform.position + positionalNoise, Quaternion.Euler(new Vector3(-90, 0, 0)));
+                Instantiate(currentItem, extruder.transform.position + positionalNoise, Quaternion.identity);
             }
         }
     }

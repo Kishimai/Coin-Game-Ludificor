@@ -27,6 +27,10 @@ public class CoinPlacement : MonoBehaviour
     private int dropZoneLayer = 6;
     // The layer mask is used to ensure that the mouse cursor is ONLY looking for the "Drop Zone" when the player is placing coins
     public LayerMask dropZoneLayerMask;
+    // Responsible for preventing the player from dropping coins rapidly
+    private float dropCooldown;
+    // Drop cooldown gets its value from maxCooldown (set maxCooldown to the wanted value depending on game states, events, or other situations)
+    public float maxCooldown;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +39,7 @@ public class CoinPlacement : MonoBehaviour
         gameplayIsReady = false;
 
         // Creates the coinGuide object (Change this so that the coinGuide constantly reflects the currently selected coin)!
-        coinGuide = Instantiate(testCoin, gameObject.transform.position, Quaternion.identity);
+        coinGuide = Instantiate(testCoin, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
 
         // Disables the coinGuide object so its not constantly shown in the scene
         coinGuide.SetActive(false);
@@ -52,6 +56,10 @@ public class CoinPlacement : MonoBehaviour
         // Runs if gameplay is ready
         if (gameplayIsReady)
         {
+            if (dropCooldown > 0)
+            {
+                dropCooldown -= Time.deltaTime;
+            }
             MouseTracking();
         }
 
@@ -74,20 +82,10 @@ public class CoinPlacement : MonoBehaviour
             // Ensures that the coin guide's position is always where the mouse cursor is
             coinGuide.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z + 0.25f);
 
-            // Runs if the player presses the shift button (used only for testing purposes and should be removed)!
-            if (Input.GetButtonDown("Fire3"))
-            {
-                // Makes five of the currently selected coin for each shift button press
-                for (int i = 0; i < 5; i++)
-                {
-                    Instantiate(selectedCoin, new Vector3(hit.point.x, hit.point.y, hit.point.z + 0.25f), Quaternion.identity);
-                }
-            }
             // Runs if the player clicks the left mouse button
             if (Input.GetButtonDown("Fire1"))
             {
-                // Places the currently selected coin
-                Instantiate(selectedCoin, new Vector3(hit.point.x, hit.point.y, hit.point.z + 0.25f), Quaternion.identity);
+                DropLogic(hit.point);
             }
 
         }
@@ -97,6 +95,16 @@ public class CoinPlacement : MonoBehaviour
         {
             // Disables the coin guide
             coinGuide.SetActive(false);
+        }
+    }
+
+    void DropLogic(Vector3 hit)
+    {
+        if (dropCooldown <= 0)
+        {
+            // Places the currently selected coin
+            Instantiate(selectedCoin, new Vector3(hit.x, hit.y, hit.z + 0.25f), Quaternion.Euler(90, 0, 0));
+            dropCooldown = maxCooldown;
         }
     }
 }
