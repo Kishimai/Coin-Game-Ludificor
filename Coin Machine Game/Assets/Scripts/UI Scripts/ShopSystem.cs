@@ -18,7 +18,6 @@ public class ShopSystem : MonoBehaviour
 
     public void Start() {
         Update_Data();
-        Debug.Log("Test");
     }
 
     public void Update_Data(){ // Updates the Data's
@@ -40,7 +39,13 @@ public class ShopSystem : MonoBehaviour
     }
 
     public void Update_Information(GameObject _data){ // Update Information About the Coin
-        
+        var _Title = _data.GetComponent<Data_Interp>().data.Name;
+        var _Price = _data.GetComponent<Data_Interp>().data.currentCost;
+        var _Value = _data.GetComponent<Data_Interp>().data.currentValue;
+        _data.transform.GetChild(3).GetComponent<Text>().text = _Title;
+        _data.transform.GetChild(2).GetComponent<Text>().text = $"Current Buy Price | {_Price}";
+        _data.transform.GetChild(4).GetComponent<Text>().text = $"Current Coin Value | {_Value}";
+
     }
 
 }
