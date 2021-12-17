@@ -12,7 +12,7 @@ public class UI_Manager : MonoBehaviour
     public GameObject background;
 
     [BoxGroup("UI")] // for panels of the player
-    public GameObject Selection, Settings, Collectibles, InGame, PausedGame, ShopInGame;
+    public GameObject Selection, Settings, Collectibles, InGame, PausedGame, ShopInGame, ShopButton;
     [BoxGroup("UI")]
     public Slider _music, _sfx;
     [BoxGroup("UI")]
@@ -93,6 +93,7 @@ public class UI_Manager : MonoBehaviour
         switch(functionToUse){
             case "OpenOrClose":
                 ShopInGame.SetActive(!ShopInGame.activeSelf);
+                ShopButton.SetActive(!ShopButton.activeSelf);
                 break;
         }
     }
