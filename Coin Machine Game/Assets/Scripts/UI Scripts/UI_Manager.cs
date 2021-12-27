@@ -98,4 +98,8 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
+    public void QuitGame(){
+        Application.Quit();
+    }
+
 }

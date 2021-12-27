@@ -29,6 +29,9 @@ public class CoinData : ScriptableObject
     public float currentValue;
     [BoxGroup("Current Information")]
     public bool Unlocked;
-
+    [BoxGroup("Current Information")]
+    public int CurrentLevel; // Max 5 current is one once passed upgraded
+    [BoxGroup("Current Information")]
+    public int levelsForFree;
 
 }
