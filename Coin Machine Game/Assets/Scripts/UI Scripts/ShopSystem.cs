@@ -8,13 +8,15 @@ public class ShopSystem : MonoBehaviour
 {
     [BoxGroup("Core Input")]
     public List<GameObject> placeholder_data = new List<GameObject>();
-    [BoxGroup("Current Data's")]
-    public bool FirstDataSet = false;
+    [BoxGroup("Core Input")]
+    public UI_Manager _manager;
+    [BoxGroup("Current Data")]
+    public bool FirstDataSet = false;    
 
     /// <sumamry>
     /// Calculates the next Total pay rate using the Algorithm
     /// </summary>
-    public float CalculatePayRate(float BaseUp, float UpgradesHave, float FreeUpgrades){ // Calculates value or? Price
+    public float CalculatePayRate(float BaseUp, float UpgradesHave, float FreeUpgrades){
         return BaseUp *= 1.15f * UpgradesHave - FreeUpgrades;
     }
 
@@ -46,7 +48,7 @@ public class ShopSystem : MonoBehaviour
                     _object.SetActive(false); // Disables Progression
                 }
             } else{
-                placeholder_data.Remove(_object); // First Passing // Removes GameObject that doesnt have CoinData from List
+                placeholder_data.Remove(_object); // First Passing, Removes GameObject that doesnt have CoinData from List
                 Debug.LogError($"{_data.name} from List has no Coin Data.");
             }
         }
@@ -62,14 +64,10 @@ public class ShopSystem : MonoBehaviour
         _data.transform.GetChild(4).GetComponent<Text>().text = $"Current Coin Value | {_Value:0}";
     }
 
-    public void UpgradeCoin(GameObject Data){
-        var _data = Data.transform.parent.GetComponent<Data_Interp>().data;
-        if(_data.CurrentLevel < 5){
-            _data.CurrentLevel += 1;
-            _data.currentCost = CalculatePayRate(_data.BaseCost, _data.CurrentLevel, 0);
-            _data.currentValue += _data.AddPerLevel;
-            Update_Information(Data.transform.parent.gameObject);
-        } else {
+    public void Check_Datas(GameObject _Object){
+        var _data = _Object.transform.parent.GetComponent<Data_Interp>().data;
+
+        if(_data.CurrentLevel == 4){
             foreach(GameObject _object in placeholder_data){
                 var object_data = _object.GetComponent<Data_Interp>().data;
                 if(_data.Order + 1 == object_data.Order){
@@ -77,6 +75,22 @@ public class ShopSystem : MonoBehaviour
                     Update_Data();
                 }
             }
+        }
+    }
+
+    public void UpgradeCoin(GameObject Data){
+        var _data = Data.transform.parent.GetComponent<Data_Interp>().data;
+        if(_manager._currentCoin >= _data.currentCost){
+
+            if(_data.CurrentLevel < 5){
+                _data.CurrentLevel += 1;
+                _data.currentCost = CalculatePayRate(_data.BaseCost, _data.CurrentLevel, 0);
+                _data.currentValue += _data.AddPerLevel;
+                Update_Information(Data.transform.parent.gameObject);
+                _manager._currentCoin -= _data.currentCost;
+            }
+            
+            Check_Datas(Data);
         }
     }
 

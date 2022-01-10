@@ -22,6 +22,9 @@ public class DeleteCoins : MonoBehaviour
     // Every time this number gets +X, give +X to the number stored in the player inventory script
     public int coinCounter;
 
+    // Manager Script used for getting Coin Variable
+    public UI_Manager _manager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +38,7 @@ public class DeleteCoins : MonoBehaviour
         if (gameplayIsReady)
         {
             // TRACK COINS GATHERED IN HERE! NOT IN COLLISION EVENTS!
+            
         }
     }
 
@@ -47,6 +51,8 @@ public class DeleteCoins : MonoBehaviour
             Destroy(other.gameObject.transform.parent.gameObject);
             // Increases coin counter by one (Remove this and put it in update)
             ++coinCounter;
+
+            _manager._currentCoin++;
         }
     }
 

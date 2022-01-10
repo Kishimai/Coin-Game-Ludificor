@@ -19,12 +19,17 @@ public class UI_Manager : MonoBehaviour
     public Text _musicText, _sfxText;
     [BoxGroup("UI")]
     public Toggle _muteAllToggle;
+    [BoxGroup("UI")]
+    public Text _CoinText;
 
     [BoxGroup("Settings")]
     public bool _muteAll = false;
     [BoxGroup("Settings")]
     [Range(1, 100)]
     public float _musicVolume, _sfxVoume;
+
+    [BoxGroup("Current Datas")]
+    public float _currentCoin;
 
 
     public void Update_UI(int data){
@@ -62,7 +67,7 @@ public class UI_Manager : MonoBehaviour
                 InGame.SetActive(true);
                 PausedGame.SetActive(false);
                 break;
-            case 5: // 
+            case 5: //
                 Selection.SetActive(false);
                 Collectibles.SetActive(false);
                 Settings.SetActive(false);
@@ -83,6 +88,7 @@ public class UI_Manager : MonoBehaviour
         _sfxText.text = _sfxVoume.ToString("0");
         _musicText.text = _musicVolume.ToString("0");
         _muteAll = _muteAllToggle.enabled;
+        _CoinText.text = $"✰ {_currentCoin.ToString("0")}";
     }
 
     /// <summary>

@@ -60,6 +60,7 @@ public class CoinPlacement : MonoBehaviour
             {
                 dropCooldown -= Time.deltaTime;
             }
+                               
             MouseTracking();
         }
 
