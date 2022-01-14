@@ -45,6 +45,7 @@ public class EventsManager : MonoBehaviour
     // If events work based on random chance: If event should happen 25% of the time, add 25 instances of it to the array
     // Randomly pick an element from the array
     public string[] possibleEvents = new string[100];
+    //public List<string> possibleEvents = new List<string>();
     public string chosenEvent = "";
 
     // Number of times these events will appear in the array of possible events
@@ -64,6 +65,8 @@ public class EventsManager : MonoBehaviour
 
     // Used during the blitz event to alter the coin placement cooldown so coins can be placed faster
     public float coinPlacementCooldown;
+
+    public float surgePusherSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -146,10 +149,9 @@ public class EventsManager : MonoBehaviour
         {
             timeUntilNextEventCheck -= Time.deltaTime;
 
-            // temporary
-            // Used to deactivate the blitz event when the event duration reaches 0
-            // Ideally would have system to use the currentEvent to change this
             playerCamera.GetComponent<CoinPlacement>().blitzEvent = false;
+            coinPusher.GetComponent<CoinPusher>().surgeEvent = false;
+
         }
         // If an event is going on, decrease its remaining duration
         else
@@ -177,10 +179,6 @@ public class EventsManager : MonoBehaviour
         // If events should be chosen randomly;
         // List should have a max size of 100
 
-        // Defines the new coin placement cooldown which will be used during the blitz event
-        //coinPlacementCooldown = X;
-        playerCamera.GetComponent<CoinPlacement>().blitzCooldown = coinPlacementCooldown;
-
         for (int i = 0; i < possibleEvents.Length; ++i)
         {
             // work through each event
@@ -196,8 +194,22 @@ public class EventsManager : MonoBehaviour
             // !!!!MAKE SURE OF THIS!!!!
             // The string added to the array MUST EXACTLY match the method name of the event
             // So if the CoinBlitz() event should run, the string should be "CoinBlitz" NOT "coinblitz", "coinBlitz", "Coin Blitz", etc.
+            // Remember that the combined value of all event probability variables cannot exceed 100, or events wont appear as often as desired
+            // For example: coinblitz cannot be 60 if power surge is going to be 50, what will happen is coin blitz will have a 60% chance, and power surge will get a 40% chance
 
-            possibleEvents[i] = "CoinBlitz";
+            // First populates possibleEvents array with coin blitz events
+            if (coinBlitzProbability > 0)
+            {
+                --coinBlitzProbability;
+                possibleEvents[i] = "CoinBlitz";
+            }
+            // Then populates possibleEvents array with power surge events
+            else if (powerSurgeProbability > 0)
+            {
+                --powerSurgeProbability;
+                possibleEvents[i] = "PowerSurge";
+            }
+            // Continues to do this for each event type
         }
     }
 
@@ -211,8 +223,20 @@ public class EventsManager : MonoBehaviour
 
     void CoinBlitz()
     {
+        // Defines the new coin placement cooldown which will be used during the blitz event
+        //coinPlacementCooldown = X;
+        playerCamera.GetComponent<CoinPlacement>().blitzCooldown = coinPlacementCooldown;
+
         playerCamera.GetComponent<CoinPlacement>().blitzEvent = true;
         currentEventDuration = coinBlitzDuration;
+    }
+
+    void PowerSurge()
+    {
+        coinPusher.GetComponent<CoinPusher>().surgeSpeed = surgePusherSpeed;
+
+        coinPusher.GetComponent<CoinPusher>().surgeEvent = true;
+        currentEventDuration = powerSurgeDuration;
     }
 
 }

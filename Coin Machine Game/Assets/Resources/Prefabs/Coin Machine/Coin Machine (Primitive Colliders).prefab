@@ -125,7 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45067b231dc6d9242b0413c3bbfd54c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pusherSpeed: 2.5
+  pusherSpeed: 0
+  defaultSpeed: 2.5
   startingPosition: {x: 0, y: 0, z: 0}
   currentPosition: {x: 0, y: 0, z: 0}
   positionA: {x: 0, y: 0, z: -11.9}
@@ -133,6 +134,8 @@ MonoBehaviour:
   pusherRb: {fileID: 0}
   coinPusher: {fileID: 0}
   allowingMovement: 0
+  surgeEvent: 0
+  surgeSpeed: 0
 --- !u!1 &3817609648644266057
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ public class CoinPusher : MonoBehaviour
 
     // Used to speed up or slow down the coin pusher
     public float pusherSpeed;
+    public float defaultSpeed;
     // Used to determine the coin pusher's starting position
     public Vector3 startingPosition;
     // Used to measure the coin pusher's current position
@@ -29,6 +30,9 @@ public class CoinPusher : MonoBehaviour
     private int stationaryPartsLayer = 8;
     // Used to stop the coin pusher from moving during events or gameplay states/phases
     public bool allowingMovement;
+
+    public bool surgeEvent;
+    public float surgeSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +53,7 @@ public class CoinPusher : MonoBehaviour
         // Sets the starting position of the coin pusher
         coinPusher.transform.position = startingPosition;
 
+        pusherSpeed = defaultSpeed;
     }
 
     // Update is called once per frame
@@ -63,7 +68,27 @@ public class CoinPusher : MonoBehaviour
         // Runs if the coin pusher is allowed to move
         if (allowingMovement)
         {
+            if (surgeEvent)
+            {
+                pusherSpeed = surgeSpeed;
+            }
+            else
+            {
+                pusherSpeed = defaultSpeed;
+            }
+
             MovePusher();
+            
+            // Used to ensure the pusher's speed is modified right away when a surge event happens
+            // Previously it would only set the speed when the pusher reached point a or point b, even when the event was supposed to be happening
+            if (surgeEvent && pusherRb.velocity.z > 0)
+            {
+                pusherRb.velocity = new Vector3(0, 0, pusherSpeed);
+            }
+            else if (surgeEvent && pusherRb.velocity.z < 0)
+            {
+                pusherRb.velocity = new Vector3(0, 0, -pusherSpeed);
+            }
         }
     }
 
