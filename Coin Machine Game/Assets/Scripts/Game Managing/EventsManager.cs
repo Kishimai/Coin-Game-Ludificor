@@ -36,6 +36,34 @@ public class EventsManager : MonoBehaviour
     // Used to stop the pusher from moving during initialization phase, or any specific event which requires it
     public bool allowPusherMovements;
 
+    // Time until next event check should occour
+    public float timeUntilNextEventCheck;
+    // After event check occours, reset its value to waitTime
+    public float waitTime;
+
+    // Possible events given 100 total elements
+    // If events work based on random chance: If event should happen 25% of the time, add 25 instances of it to the array
+    // Randomly pick an element from the array
+    public string[] possibleEvents = new string[100];
+    public string chosenEvent = "";
+
+    // Number of times these events will appear in the array of possible events
+    public int coinBlitzProbability;
+    public int itemRainProbability;
+    public int powerSurgeProbability;
+    public int jackpotProbability;
+
+    // Remaining duration of current running event
+    public float currentEventDuration;
+
+    // Total duration of these events
+    public float coinBlitzDuration;
+    public float itemRainDuration;
+    public float powerSurgeDuration;
+    public float jackpotDuration;
+
+    // Used during the blitz event to alter the coin placement cooldown so coins can be placed faster
+    public float coinPlacementCooldown;
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +79,8 @@ public class EventsManager : MonoBehaviour
 
         // Enables the initialization phase
         initializationPhase = true;
+        timeUntilNextEventCheck = waitTime;
+        CompileEvents();
     }
 
     // Update is called once per frame
@@ -110,6 +140,79 @@ public class EventsManager : MonoBehaviour
         playerCamera.GetComponent<CoinPlacement>().gameplayIsReady = true;
         // Tells the coin destroyer to start tracking coins that fall into it so the player can gather money
         coinDestroyer.GetComponent<DeleteCoins>().gameplayIsReady = true;
+
+        // If an event is still going on, the time until next event will not decrease
+        if (currentEventDuration <= 0)
+        {
+            timeUntilNextEventCheck -= Time.deltaTime;
+
+            // temporary
+            // Used to deactivate the blitz event when the event duration reaches 0
+            // Ideally would have system to use the currentEvent to change this
+            playerCamera.GetComponent<CoinPlacement>().blitzEvent = false;
+        }
+        // If an event is going on, decrease its remaining duration
+        else
+        {
+            currentEventDuration -= Time.deltaTime;
+        }
+
+        // Runs if it is time to cause a game event
+        if (timeUntilNextEventCheck <= 0)
+        {
+            // IF random number rolled is a certain value, run PlayEvent(), otherwise dont
+            if (true)
+            {
+                PlayEvent();
+            }
+            
+            timeUntilNextEventCheck = waitTime;
+        }
+
+    }
+
+    void CompileEvents()
+    {
+        // Add all possible events
+        // If events should be chosen randomly;
+        // List should have a max size of 100
+
+        // Defines the new coin placement cooldown which will be used during the blitz event
+        //coinPlacementCooldown = X;
+        playerCamera.GetComponent<CoinPlacement>().blitzCooldown = coinPlacementCooldown;
+
+        for (int i = 0; i < possibleEvents.Length; ++i)
+        {
+            // work through each event
+            // if coin blitz should happen 25% of the time, set coinBlitzProbability to 25
+
+            // add coin blitz a total of 25 times
+            // add item rain a total of X times
+            // add power surge a total of Y times
+            // add jackpot a total of Z times
+
+            // For testing purposes right now, add coin blitz 100 times
+
+            // !!!!MAKE SURE OF THIS!!!!
+            // The string added to the array MUST EXACTLY match the method name of the event
+            // So if the CoinBlitz() event should run, the string should be "CoinBlitz" NOT "coinblitz", "coinBlitz", "Coin Blitz", etc.
+
+            possibleEvents[i] = "CoinBlitz";
+        }
+    }
+
+    void PlayEvent()
+    {
+        // Randomly picks an event from the array of possible events
+        // Can include logic to deny an event if its already been chosen or do something similar if desired
+        chosenEvent = possibleEvents[Random.Range(0, possibleEvents.Length)];
+        Invoke(chosenEvent, 0);
+    }
+
+    void CoinBlitz()
+    {
+        playerCamera.GetComponent<CoinPlacement>().blitzEvent = true;
+        currentEventDuration = coinBlitzDuration;
     }
 
 }

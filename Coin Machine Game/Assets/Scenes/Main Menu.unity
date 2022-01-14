@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45140034, g: 0.5008928, b: 0.5723122, a: 1}
+  m_IndirectSpecularColor: {r: 0.4514007, g: 0.5008931, b: 0.5723126, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -11195,6 +11195,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 959413843}
     m_Modifications:
+    - target: {fileID: 5981882643148413060, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
+      propertyPath: waitTime
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981882643148413060, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
+      propertyPath: coinBlitzDuration
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981882643148413060, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
+      propertyPath: coinPlacementCooldown
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5981882643148413061, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
       propertyPath: m_RootOrder
       value: 4

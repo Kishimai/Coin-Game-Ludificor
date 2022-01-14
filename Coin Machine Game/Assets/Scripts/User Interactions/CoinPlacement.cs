@@ -32,6 +32,9 @@ public class CoinPlacement : MonoBehaviour
     // Drop cooldown gets its value from maxCooldown (set maxCooldown to the wanted value depending on game states, events, or other situations)
     public float maxCooldown;
 
+    public bool blitzEvent = false;
+    public float blitzCooldown;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -101,11 +104,16 @@ public class CoinPlacement : MonoBehaviour
 
     void DropLogic(Vector3 hit)
     {
-        if (dropCooldown <= 0)
+        if (dropCooldown <= 0 && blitzEvent == false)
         {
             // Places the currently selected coin
             Instantiate(selectedCoin, new Vector3(hit.x, hit.y, hit.z + 0.25f), Quaternion.Euler(90, 0, 0));
             dropCooldown = maxCooldown;
+        }
+        else if (dropCooldown <= 0 && blitzEvent == true)
+        {
+            Instantiate(selectedCoin, new Vector3(hit.x, hit.y, hit.z + 0.25f), Quaternion.Euler(90, 0, 0));
+            dropCooldown = blitzCooldown;
         }
     }
 }
