@@ -18,6 +18,8 @@ public class CoinRowPrinter : MonoBehaviour
 
     // -------------------------------------------------------- //
 
+
+    public CoinGeneration generation;
     // Holds the printer object itself
     public GameObject printerBar;
     // Holds all print surfaces for coins and items
@@ -212,6 +214,7 @@ public class CoinRowPrinter : MonoBehaviour
                 // Randomly alters the position of the coin/item by a slight margin (allows for more unique locations)
                 Vector3 positionalNoise = new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(0, 0.1f), Random.Range(-0.2f, 0.2f));
 
+                generation.returnObject();
                 // Creates the current coin/item at the extruder's position, plus the random margin
                 Instantiate(currentItem, extruder.transform.position + positionalNoise, Quaternion.identity);
             }

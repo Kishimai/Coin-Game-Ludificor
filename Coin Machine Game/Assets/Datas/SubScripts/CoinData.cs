@@ -18,7 +18,7 @@ public class CoinData : ScriptableObject
     [BoxGroup("Core Information")]
     public int Order; // Order by which they are Unlocked
     [BoxGroup("Core Information")]
-    public Sprite Art;
+    public Material materialColor;
     [BoxGroup("Core Information")]
     [TextArea(8, 8)]
     public string CoinDescription;

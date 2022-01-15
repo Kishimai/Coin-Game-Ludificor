@@ -47,12 +47,15 @@ public class DeleteCoins : MonoBehaviour
         // Runs if object that collides with Coin Destroyer is a coin
         if (other.gameObject.tag == "coin")
         {
+            
+
             // Destroys the coin in the most recent collision event
             Destroy(other.gameObject.transform.parent.gameObject);
             // Increases coin counter by one (Remove this and put it in update)
-            ++coinCounter;
 
-            _manager._currentCoin++;
+            Debug.Log(other.gameObject.GetComponent<Data_Interp>());
+            _manager._currentCoin += other.gameObject.transform.parent.GetComponent<Data_Interp>().data.currentValue;
+            ++coinCounter;
         }
     }
 

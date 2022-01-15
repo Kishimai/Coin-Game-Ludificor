@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - CamMovement
     - CoinData
     - CoinExtruder
+    - CoinGeneration
     - CoinPlacement
     - CoinPusher
     - CoinRowPrinter
@@ -19,7 +20,6 @@ ScriptsOnlyBuild:
     - Sirenix.OdinInspector.Editor.GeneralDrawerConfig
     - Sirenix.OdinInspector.Editor.ImportSettingsConfig
     - Sirenix.OdinInspector.Editor.InspectorConfig
-    - Sirenix.OdinInspector.Editor.OdinEditor
     - Sirenix.Serialization.AOTGenerationConfig
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -81,61 +81,63 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1496}
+      Script: {instanceID: 12726}
     - Class: 114
-      Script: {instanceID: 1566}
+      Script: {instanceID: 12794}
     - Class: 114
-      Script: {instanceID: 1592}
+      Script: {instanceID: 12820}
     - Class: 114
-      Script: {instanceID: 1642}
+      Script: {instanceID: 12870}
     - Class: 114
-      Script: {instanceID: 2062}
+      Script: {instanceID: 13290}
     - Class: 114
-      Script: {instanceID: 2170}
+      Script: {instanceID: 13398}
     - Class: 114
-      Script: {instanceID: 2342}
+      Script: {instanceID: 13570}
     - Class: 114
-      Script: {instanceID: 2438}
+      Script: {instanceID: 13666}
     - Class: 114
-      Script: {instanceID: 2444}
+      Script: {instanceID: 13672}
     - Class: 114
-      Script: {instanceID: 2566}
+      Script: {instanceID: 13794}
     - Class: 114
-      Script: {instanceID: 2590}
+      Script: {instanceID: 13818}
     - Class: 114
-      Script: {instanceID: 2774}
+      Script: {instanceID: 14000}
     - Class: 114
-      Script: {instanceID: 2782}
+      Script: {instanceID: 14008}
     - Class: 114
-      Script: {instanceID: 2792}
+      Script: {instanceID: 14018}
     - Class: 114
-      Script: {instanceID: 2858}
+      Script: {instanceID: 14084}
     - Class: 114
-      Script: {instanceID: 3106}
+      Script: {instanceID: 14332}
     - Class: 114
-      Script: {instanceID: 3176}
+      Script: {instanceID: 14402}
     - Class: 114
-      Script: {instanceID: 3324}
+      Script: {instanceID: 14550}
     - Class: 114
-      Script: {instanceID: 3334}
+      Script: {instanceID: 14560}
     - Class: 114
-      Script: {instanceID: 3446}
+      Script: {instanceID: 14672}
     - Class: 114
-      Script: {instanceID: 3456}
+      Script: {instanceID: 14682}
     - Class: 114
-      Script: {instanceID: 3520}
+      Script: {instanceID: 14746}
     - Class: 114
-      Script: {instanceID: 3534}
+      Script: {instanceID: 14760}
     - Class: 114
-      Script: {instanceID: 3582}
+      Script: {instanceID: 14808}
     - Class: 114
-      Script: {instanceID: 3630}
+      Script: {instanceID: 14856}
     - Class: 114
-      Script: {instanceID: 3658}
+      Script: {instanceID: 14884}
     - Class: 114
-      Script: {instanceID: 4212}
+      Script: {instanceID: 15434}
     - Class: 114
-      Script: {instanceID: 4336}
+      Script: {instanceID: 15558}
+    - Class: 114
+      Script: {instanceID: 21334}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -605,7 +607,7 @@ ScriptsOnlyBuild:
     className: TMP_SubMesh
   - hash:
       serializedVersion: 2
-      Hash: 2ba86563c3d4320bd0384f633a6605e4
+      Hash: 6211a5eae4f3a5e7f4ab085fd5e3bbff
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ShopSystem
@@ -689,7 +691,7 @@ ScriptsOnlyBuild:
     className: BaseInput
   - hash:
       serializedVersion: 2
-      Hash: 6e5a73ef09573273451cd5ae817f70af
+      Hash: 54f88e961e6e6847ed8e91589fde6343
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CoinPusher
@@ -731,13 +733,13 @@ ScriptsOnlyBuild:
     className: AudioPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 3d0e47b1decbc13527b8375d988e7788
+      Hash: f1ae4ca6a8f6753f271fcfcc70388e5a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UI_Manager
   - hash:
       serializedVersion: 2
-      Hash: 8c1cd5503fe8c3ee7c369e6480b53c89
+      Hash: b49c18f09598809081440f9da52a2f35
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CoinData
@@ -773,7 +775,7 @@ ScriptsOnlyBuild:
     className: FalsePusher
   - hash:
       serializedVersion: 2
-      Hash: df66b1b5ad0ebadccf55b13042bccff1
+      Hash: f389a9acc5d8d65ca0a0c22a1e14e692
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EventsManager
@@ -797,7 +799,7 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: 320939d82607f1ce6c1fb5d8853c805c
+      Hash: 9b7018b8b22480863d281317ae8d686a
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: DeleteCoins
@@ -809,7 +811,7 @@ ScriptsOnlyBuild:
     className: ControlTrack
   - hash:
       serializedVersion: 2
-      Hash: 0b4f9c8aaf282359c6a02b9ed83353bc
+      Hash: 86dc39bf5cb0c0b48dfaa9b874d3477d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CoinPlacement
@@ -875,7 +877,7 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
-      Hash: a27cd05f4151c445481a53aa81338341
+      Hash: caf6da3c3339d092592fc9f2c18ba504
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CoinRowPrinter
@@ -903,6 +905,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: 478d96e1c431f952db8e9d710d355c39
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CoinGeneration
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main Menu.unity

@@ -10,6 +10,8 @@ public class ShopSystem : MonoBehaviour
     public List<GameObject> placeholder_data = new List<GameObject>();
     [BoxGroup("Core Input")]
     public UI_Manager _manager;
+    [BoxGroup("Core Input")]
+    public CoinGeneration generation;
     [BoxGroup("Current Data")]
     public bool FirstDataSet = false;    
 
@@ -22,6 +24,12 @@ public class ShopSystem : MonoBehaviour
 
     public void Start() {
         Update_Data();
+    }
+
+    private void Update() {
+        if(Input.GetKey(KeyCode.BackQuote)){
+            _manager._currentCoin += 100;
+        }
     }
 
     public void Update_Data(){ // Updates the Data's
@@ -43,6 +51,7 @@ public class ShopSystem : MonoBehaviour
                     if(_object.activeInHierarchy == false){ // Enables Progression, Adds Information
                         _object.SetActive(true);
                         Update_Information(_object.gameObject);
+                        generation.CoinsAvail.Add(_data);
                     }
                 } else{
                     _object.SetActive(false); // Disables Progression
