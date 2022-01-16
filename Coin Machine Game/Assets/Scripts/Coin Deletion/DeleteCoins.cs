@@ -22,6 +22,9 @@ public class DeleteCoins : MonoBehaviour
     // Every time this number gets +X, give +X to the number stored in the player inventory script
     public int coinCounter;
 
+    // Modifier for coin value (items like midas shard/relic affect this)
+    public float valueModifier = 1.0f;
+
     // Manager Script used for getting Coin Variable
     public UI_Manager _manager;
 
@@ -54,7 +57,7 @@ public class DeleteCoins : MonoBehaviour
             // Increases coin counter by one (Remove this and put it in update)
 
             Debug.Log(other.gameObject.GetComponent<Data_Interp>());
-            _manager._currentCoin += other.gameObject.transform.parent.GetComponent<Data_Interp>().data.currentValue;
+            _manager._currentCoin += other.gameObject.transform.parent.GetComponent<Data_Interp>().data.currentValue * valueModifier;
             ++coinCounter;
         }
     }
