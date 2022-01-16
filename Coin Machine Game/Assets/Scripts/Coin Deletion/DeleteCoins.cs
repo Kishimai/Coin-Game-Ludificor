@@ -25,6 +25,8 @@ public class DeleteCoins : MonoBehaviour
     // Modifier for coin value (items like midas shard/relic affect this)
     public float valueModifier = 1.0f;
 
+    public int itemLayer = 9;
+
     // Manager Script used for getting Coin Variable
     public UI_Manager _manager;
 
@@ -59,6 +61,15 @@ public class DeleteCoins : MonoBehaviour
             Debug.Log(other.gameObject.GetComponent<Data_Interp>());
             _manager._currentCoin += other.gameObject.transform.parent.GetComponent<Data_Interp>().data.currentValue * valueModifier;
             ++coinCounter;
+        }
+
+        if (other.gameObject.layer == itemLayer)
+        {
+
+            // Tell UI system to show player item selection menu
+
+            // Destroy item capsule
+            Destroy(other.gameObject);
         }
     }
 
