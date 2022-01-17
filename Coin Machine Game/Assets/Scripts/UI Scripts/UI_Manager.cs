@@ -12,7 +12,7 @@ public class UI_Manager : MonoBehaviour
     public GameObject background;
 
     [BoxGroup("UI")] // for panels of the player
-    public GameObject Selection, Settings, Collectibles, InGame, PausedGame, ShopInGame, ShopButton;
+    public GameObject Selection, Settings, Collectibles, InGame, PausedGame, ShopInGame, ShopButton, CapsuleItemSelection;
     [BoxGroup("UI")]
     public Slider _music, _sfx;
     [BoxGroup("UI")]
@@ -30,7 +30,6 @@ public class UI_Manager : MonoBehaviour
 
     [BoxGroup("Current Datas")]
     public float _currentCoin;
-
 
     public void Update_UI(int data){
         switch(data){
@@ -66,6 +65,10 @@ public class UI_Manager : MonoBehaviour
                 background.SetActive(false);
                 InGame.SetActive(true);
                 PausedGame.SetActive(false);
+
+                CapsuleItemSelection.SetActive(false);
+                gameObject.GetComponent<ItemCapsuleSelection>().selectingItem = false;
+
                 break;
             case 5: //
                 Selection.SetActive(false);
@@ -74,6 +77,9 @@ public class UI_Manager : MonoBehaviour
                 background.SetActive(true);
                 InGame.SetActive(false);
                 PausedGame.SetActive(true);
+                break;
+            case 6:
+                CapsuleItemSelection.SetActive(true);
                 break;
         }
     }

@@ -27,6 +27,8 @@ public class DeleteCoins : MonoBehaviour
 
     public int itemLayer = 9;
 
+    public GameObject gameManager;
+
     // Manager Script used for getting Coin Variable
     public UI_Manager _manager;
 
@@ -35,6 +37,8 @@ public class DeleteCoins : MonoBehaviour
     {
         // Ensures that this script knows that gameplay is not yet ready
         gameplayIsReady = false;
+
+        gameManager = GameObject.FindGameObjectWithTag("game_manager");
     }
 
     // Update is called once per frame
@@ -66,7 +70,8 @@ public class DeleteCoins : MonoBehaviour
         if (other.gameObject.layer == itemLayer)
         {
 
-            // Tell UI system to show player item selection menu
+            // Tells the ItemCapsuleSelection script that the player should now pick an item from the menu (script is attached to the Game Manager)
+            gameManager.GetComponent<ItemCapsuleSelection>().selectingItem = true;
 
             // Destroy item capsule
             Destroy(other.gameObject);
