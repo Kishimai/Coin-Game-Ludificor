@@ -27,6 +27,6 @@ public class ItemButton : MonoBehaviour
 
     public void GetItem()
     {
-        GameObject.FindGameObjectWithTag("game_manager").GetComponent<ItemInventory>().collectedItems.Add(selectedItem);
+        GameObject.FindGameObjectWithTag("game_manager").GetComponent<ItemInventory>().newItem = selectedItem;
     }
 }
