@@ -40,6 +40,9 @@ public class UI_Manager : MonoBehaviour
                 InGame.SetActive(false);
                 background.SetActive(true);
                 PausedGame.SetActive(false);
+
+                Debug.Log("Case: 1");
+
                 break;
             case 2: // Collectibles UI Panel
                 Collectibles.SetActive(true);
@@ -48,6 +51,9 @@ public class UI_Manager : MonoBehaviour
                 InGame.SetActive(false);
                 background.SetActive(true);
                 PausedGame.SetActive(false);
+
+                Debug.Log("Case: 2");
+
                 break;
             case 3: // Selection UI Panel
                 Selection.SetActive(true);
@@ -57,6 +63,9 @@ public class UI_Manager : MonoBehaviour
                 background.SetActive(true);
                 PausedGame.SetActive(false);
                 ShopInGame.SetActive(false);
+
+                Debug.Log("Case: 3");
+
                 break;
             case 4: // InGame UI Panel
                 Selection.SetActive(false);
@@ -67,7 +76,8 @@ public class UI_Manager : MonoBehaviour
                 PausedGame.SetActive(false);
 
                 CapsuleItemSelection.SetActive(false);
-                gameObject.GetComponent<ItemCapsuleSelection>().selectingItem = false;
+
+                Debug.Log("Case: 4");
 
                 break;
             case 5: //
@@ -77,9 +87,15 @@ public class UI_Manager : MonoBehaviour
                 background.SetActive(true);
                 InGame.SetActive(false);
                 PausedGame.SetActive(true);
+
+                Debug.Log("Case: 5");
+
                 break;
             case 6:
                 CapsuleItemSelection.SetActive(true);
+
+                Debug.Log("Case: 6");
+
                 break;
         }
     }
