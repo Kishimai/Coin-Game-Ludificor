@@ -152,6 +152,8 @@ public class EventsManager : MonoBehaviour
             playerCamera.GetComponent<CoinPlacement>().blitzEvent = false;
             coinPusher.GetComponent<CoinPusher>().surgeEvent = false;
 
+            chosenEvent = "";
+
         }
         // If an event is going on, decrease its remaining duration
         else

@@ -11673,6 +11673,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: The Focking Coin Overseer
       objectReference: {fileID: 0}
+    - target: {fileID: 5981882643148413306, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
+      propertyPath: m_TagString
+      value: gameplay_event_system
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
 --- !u!1 &854395752
@@ -26871,6 +26875,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06860ce1504cfb44f9b89be789f33291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventManager: {fileID: 0}
+  currentEvent: {fileID: 0}
 --- !u!114 &1968757403
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -63,6 +63,9 @@ public class CoinPlacement : MonoBehaviour
             {
                 dropCooldown -= Time.deltaTime;
             }
+
+            // Makes coin guide appear like the selected coin (Need to strip all properties and physics interactions from the guide!)
+            //coinGuide = selectedCoin;
                                
             MouseTracking();
         }
@@ -80,8 +83,16 @@ public class CoinPlacement : MonoBehaviour
         // Runs only if the mouse cursor is currently hovering over the "Drop Zone" object
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, dropZoneLayerMask))
         {
-            // Enables the coinGuide object so that the player can see where they are about to place a coin
-            coinGuide.SetActive(true);
+            // If coin is on cooldown, the coin guide dissapears
+            if (dropCooldown <= 0)
+            {
+                // Enables the coinGuide object so that the player can see where they are about to place a coin
+                coinGuide.SetActive(true);
+            }
+            else
+            {
+                coinGuide.SetActive(false);
+            }
 
             // Ensures that the coin guide's position is always where the mouse cursor is
             coinGuide.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z + 0.25f);
