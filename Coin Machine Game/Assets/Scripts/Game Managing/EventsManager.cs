@@ -33,6 +33,9 @@ public class EventsManager : MonoBehaviour
 
     // Used to track when the coin printer is finished filling the game board
     public bool printerIsFinished;
+
+    public bool itemBuilderIsFinished = true;
+
     // Used to stop the pusher from moving during initialization phase, or any specific event which requires it
     public bool allowPusherMovements;
 
@@ -110,7 +113,7 @@ public class EventsManager : MonoBehaviour
     void InitializeGameBoard()
     {
         // Runs if printer has finished making coins
-        if (printerIsFinished)
+        if (printerIsFinished && itemBuilderIsFinished)
         {
             // Ensures gravity is enabled
             Physics.gravity = new Vector3(0, -20, 0);

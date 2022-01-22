@@ -6582,12 +6582,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   builder: {fileID: 0}
   currentPlane: {fileID: 0}
-  printerPlanes: []
-  currentItems: {fileID: 0}
-  planeIndex: 0
+  allPrinterPlanes: []
+  playerMachinePlanes: []
+  itemCapsules:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  itemsToBuild: 0
+  initialBuild: 0
   newPosition: {x: 0, y: 0, z: 0}
-  startPosition: {x: 0, y: 0, z: 0}
-  endPosition: {x: 0, y: 0, z: 0}
+  planeBoundry: {x: 0, y: 0, z: 0}
 --- !u!4 &497224523
 Transform:
   m_ObjectHideFlags: 0
@@ -10618,6 +10627,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752068812}
   m_Mesh: {fileID: -5495902117074765545, guid: 44b3953cb4abab94eaca3ea40736fbe9, type: 3}
+--- !u!1 &753856358 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c440fcf019a1c6a41b1aba2764dfa384, type: 3}
+  m_PrefabInstance: {fileID: 1322044648}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &753856359
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753856358}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0114
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &763408138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18551,15 +18578,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c440fcf019a1c6a41b1aba2764dfa384, type: 3}
       propertyPath: m_LocalScale.x
-      value: 100
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c440fcf019a1c6a41b1aba2764dfa384, type: 3}
       propertyPath: m_LocalScale.y
-      value: 100
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c440fcf019a1c6a41b1aba2764dfa384, type: 3}
       propertyPath: m_LocalScale.z
-      value: 100
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c440fcf019a1c6a41b1aba2764dfa384, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18567,7 +18594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c440fcf019a1c6a41b1aba2764dfa384, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.91
+      value: 2.59
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c440fcf019a1c6a41b1aba2764dfa384, type: 3}
       propertyPath: m_LocalPosition.z

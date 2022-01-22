@@ -8,69 +8,98 @@ public class ItemBuilder : MonoBehaviour
     public GameObject builder;
 
     public GameObject currentPlane;
-    public GameObject[] printerPlanes;
+    public GameObject[] allPrinterPlanes;
+    public List<GameObject> playerMachinePlanes = new List<GameObject>();
 
-    public GameObject currentItems;
+    public GameObject[] itemCapsules;
 
-    public int planeIndex;
+    public int itemsToBuild;
+
+    public bool initialBuild;
 
     // Holds the position for the new printer surface
     public Vector3 newPosition;
-    // Holds the position for the starting location the printer should be moved to
-    public Vector3 startPosition;
-    // Holds the position for the ending location the printer should be moved to
-    public Vector3 endPosition;
 
+    public Vector3 planeBoundry;
 
     // Start is called before the first frame update
     void Start()
     {
         builder = gameObject;
-        printerPlanes = GameObject.FindGameObjectsWithTag("printer_plane");
+        allPrinterPlanes = GameObject.FindGameObjectsWithTag("printer_plane");
+        initialBuild = true;
+
+        // Search through allPrinterPlanes to find the planes of the player's coin machine
+        for (int i = 0; i < allPrinterPlanes.Length; ++i)
+        {
+            // If the plane's X position is 0, add it to playerMachinePlanes
+            if (Mathf.Approximately(allPrinterPlanes[i].transform.position.x, 0) || allPrinterPlanes[i].transform.position.x == 0)
+            {
+                playerMachinePlanes.Add(allPrinterPlanes[i]);
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // Order of actions
+        // Initialization phase:
+        // Determine boundry
+        // Start by building item capsules on all planes
+
+        // Gameplay phase:
+        // After that, work only within the boundry of the real coin machine's printer planes for the remainder of the game
+    }
+
+    private void FixedUpdate()
+    {
+        if (initialBuild)
+        {
+            for (int i = 0; i < allPrinterPlanes.Length; ++i)
+            {
+                DetermineBoundry(i);
+                InitialItemBuild();
+            }
+
+            initialBuild = false;
+        }
     }
 
     // Determines the new printer position, build surface, build surface area, and start/end positions
-    public void DeterminePositions()
+    public void DetermineBoundry(int index)
     {
         // Assigns the current plane from the array of printer planes
-        currentPlane = printerPlanes[planeIndex];
+        currentPlane = allPrinterPlanes[index];
 
         // Gets the current plane's position
         Vector3 planePosition = currentPlane.transform.position;
         // Gets plane scale to determine area which coins can be printed in
         Vector3 planeScale = currentPlane.transform.localScale;
-        // Gets printer bar scale to determine the distance from plane's edge the printer bar must be, in order to prevent clipping or overlapping
-        Vector3 printerScale = builder.transform.localScale;
 
-        // Note that the printer only currently operates on the Z axis (starts at a lower Z value and moves to a greater Z value)
-        // Temporarily stores Z start position
-        float newStartZ;
-        // Temporarily stores Z end position
-        float newEndZ;
 
         // Starts by moving printer bar to chosen plane's center
-        builder.transform.position = currentPlane.transform.position;
+        builder.transform.position = planePosition;
 
-        // Determines start position (increases y pos so that coins are above surface)
-        newStartZ = planePosition.z - (planeScale.z / 2) + (printerScale.z / 2);
-        startPosition = new Vector3(builder.transform.position.x, builder.transform.position.y + 0.1f, newStartZ);
+        planeBoundry = new Vector3(planeScale.x - 0.2f, 0, planeScale.z - 0.2f);
 
-        // Determines end position (increases y pos so that coins are above surface)
-        newEndZ = planePosition.z + (planeScale.z / 2) + (printerScale.z / 2);
-        endPosition = new Vector3(builder.transform.position.x, builder.transform.position.y + 0.1f, newEndZ);
+    }
 
-        // Moves printer bar to starting position
-        builder.transform.position = startPosition;
+    public void InitialItemBuild()
+    {
+        itemsToBuild = Random.Range(1, 4);
 
-        // Determine new position's starting value (just above this, printer bar is set to the correct start position, so newPosition becomes that value
-        newPosition = builder.transform.position;
+        for (int i = 0; i < itemsToBuild + 1; ++i)
+        {
+            // Picks random X position within the boundry of the plane
+            float randomXPosition = Random.Range(-planeBoundry.x, planeBoundry.x);
+            // Picks random Z position within the boundry of the plane
+            float randomZPosition = Random.Range(-planeBoundry.z, planeBoundry.z);
 
+            //Instantiate Item
+            GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            sphere.transform.position = new Vector3(randomXPosition, 0, randomZPosition);
+        }
     }
 
 }
