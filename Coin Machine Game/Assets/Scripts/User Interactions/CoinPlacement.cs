@@ -95,7 +95,7 @@ public class CoinPlacement : MonoBehaviour
             }
 
             // Ensures that the coin guide's position is always where the mouse cursor is
-            coinGuide.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z + 0.25f);
+            coinGuide.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z + 0.1f);
 
             // Runs if the player clicks the left mouse button
             if (Input.GetButtonDown("Fire1"))
@@ -118,12 +118,12 @@ public class CoinPlacement : MonoBehaviour
         if (dropCooldown <= 0 && blitzEvent == false)
         {
             // Places the currently selected coin
-            Instantiate(selectedCoin, new Vector3(hit.x, hit.y, hit.z + 0.25f), Quaternion.Euler(90, 0, 0));
+            Instantiate(selectedCoin, new Vector3(hit.x, hit.y, hit.z + 0.1f), Quaternion.Euler(90, 0, 0));
             dropCooldown = maxCooldown;
         }
         else if (dropCooldown <= 0 && blitzEvent == true)
         {
-            Instantiate(selectedCoin, new Vector3(hit.x, hit.y, hit.z + 0.25f), Quaternion.Euler(90, 0, 0));
+            Instantiate(selectedCoin, new Vector3(hit.x, hit.y, hit.z + 0.1f), Quaternion.Euler(90, 0, 0));
             dropCooldown = blitzCooldown;
         }
     }

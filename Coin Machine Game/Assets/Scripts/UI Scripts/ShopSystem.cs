@@ -91,12 +91,15 @@ public class ShopSystem : MonoBehaviour
         var _data = Data.transform.parent.GetComponent<Data_Interp>().data;
         if(_manager._currentCoin >= _data.currentCost){
 
+            // Saves cost of current upgrade to subtract currentCoin (fixes bug where currentCoin went into negative value)
+            float temp = _data.currentCost;
+
             if(_data.CurrentLevel < 5){
                 _data.CurrentLevel += 1;
                 _data.currentCost = CalculatePayRate(_data.BaseCost, _data.CurrentLevel, 0);
                 _data.currentValue += _data.AddPerLevel;
                 Update_Information(Data.transform.parent.gameObject);
-                _manager._currentCoin -= _data.currentCost;
+                _manager._currentCoin -= temp;
             }
             
             Check_Datas(Data);
