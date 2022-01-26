@@ -183,12 +183,8 @@ public class EventsManager : MonoBehaviour
         // Runs if it is time to cause a game event
         if (timeUntilNextEventCheck <= 0)
         {
-            // IF random number rolled is a certain value, run PlayEvent(), otherwise dont
-            if (true)
-            {
-                PlayEvent();
-            }
-            
+            PlayEvent();
+
             timeUntilNextEventCheck = waitTime;
         }
 
@@ -230,6 +226,11 @@ public class EventsManager : MonoBehaviour
                 --powerSurgeProbability;
                 possibleEvents[i] = "PowerSurge";
             }
+            else if (itemRainProbability > 0)
+            {
+                --itemRainProbability;
+                possibleEvents[i] = "ItemRain";
+            }
             // Continues to do this for each event type
         }
     }
@@ -258,6 +259,32 @@ public class EventsManager : MonoBehaviour
 
         coinPusher.GetComponent<CoinPusher>().surgeEvent = true;
         currentEventDuration = powerSurgeDuration;
+    }
+
+    void ItemRain()
+    {
+        Debug.LogWarning("Item Rain Woot Woot!");
+
+        // DO SOMETHING LIKE THIS BUT INSTEAD RUN ITS ITEM RAIN METHOD WITH THE PARAMETER BEING THE EVENT DURATION AS AN INTEGER
+        //itemBuilder.GetComponent<ItemBuilder>().itemRainEvent = true;
+
+        StartCoroutine(itemBuilder.GetComponent<ItemBuilder>().ItemRain(Mathf.FloorToInt(itemRainDuration)));
+
+        // item builder clock equal to integer
+        // item builder build order equal to integer
+        // integer taken as parameter
+
+        currentEventDuration = itemRainDuration;
+
+        //instantiate 1 item every second
+
+        //tell item builder to build items
+
+        //every second of time in the item duration adds 1 item to the itemBuilder's build order
+
+        //item builder will make an item every second (use deltaTime)
+
+        //item rain duration directly affects the number of items that will be built (1 every second for X seconds)
     }
 
 }

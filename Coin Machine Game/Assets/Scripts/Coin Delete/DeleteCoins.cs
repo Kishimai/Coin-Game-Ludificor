@@ -70,14 +70,14 @@ public class DeleteCoins : MonoBehaviour
             ++coinCounter;
         }
 
-        if (other.gameObject.layer == itemLayer)
+        if (other.gameObject.tag == "item" && eventManager.GetComponent<EventsManager>().playerIsReady)
         {
 
             // Tells the ItemCapsuleSelection script that the player should now pick an item from the menu (script is attached to the Game Manager)
             gameManager.GetComponent<ItemCapsuleSelection>().selectingItem = true;
 
             // Destroy item capsule
-            Destroy(other.gameObject);
+            Destroy(other.gameObject.transform.parent.gameObject);
         }
     }
 

@@ -17,6 +17,8 @@ public class ItemBuilder : MonoBehaviour
 
     public bool initialBuildFinished;
 
+    public bool itemRainEvent;
+
     // Holds the position for the new printer surface
     public Vector3 newPosition;
 
@@ -37,7 +39,6 @@ public class ItemBuilder : MonoBehaviour
             if (Mathf.Approximately(allPrinterPlanes[i].transform.position.y, 0))// || allPrinterPlanes[i].transform.position.x == 0 && allPrinterPlanes[i].transform.position.y == 0)
             {
                 temp.Add(allPrinterPlanes[i]);
-                //playerMachinePlanes.Add(allPrinterPlanes[i]);
             }
         }
 
@@ -54,6 +55,7 @@ public class ItemBuilder : MonoBehaviour
 
         // Gameplay phase:
         // After that, work only within the boundry of the real coin machine's printer planes for the remainder of the game
+
     }
 
     private void FixedUpdate()
@@ -67,6 +69,11 @@ public class ItemBuilder : MonoBehaviour
             }
 
             initialBuildFinished = true;
+        }
+
+        else
+        {
+
         }
     }
 
@@ -108,6 +115,59 @@ public class ItemBuilder : MonoBehaviour
             //sphere.transform.position = new Vector3(planePos.x + randomXPosition / 2, 0, planePos.z + randomZPosition / 2);
 
             Instantiate(itemCapsules[0], new Vector3(planePos.x + randomXPosition / 2, 6, planePos.z + randomZPosition / 2), Quaternion.identity);
+        }
+    }
+
+    public void BuildItems(int numItems)
+    {
+        int newNum = 0;
+        float duration = 1;
+        Vector3 planePos = playerMachinePlane.transform.position;
+        Vector3 planeScale = playerMachinePlane.transform.localScale;
+
+        Vector3 boundry = new Vector3(planeScale.x - 1, 0, planeScale.z - 1);
+
+        while (newNum < numItems + 1)
+        {
+            if (duration > 0)
+            {
+                duration -= Time.fixedDeltaTime;
+            }
+            else
+            {
+                // Picks random X position within the boundry of the plane
+                float randomXPosition = Random.Range(-boundry.x, boundry.x);
+                // Picks random Z position within the boundry of the plane
+                float randomZPosition = Random.Range(-boundry.z, boundry.z);
+
+                Instantiate(itemCapsules[0], new Vector3(planePos.x + randomXPosition / 2, 6, planePos.z + randomZPosition / 2), Quaternion.identity);
+
+                duration = 1;
+                ++newNum;
+            }
+        }
+    }
+
+    public IEnumerator ItemRain(int numItems)
+    {
+        int newNum = 0;
+        Vector3 planePos = playerMachinePlane.transform.position;
+        Vector3 planeScale = playerMachinePlane.transform.localScale;
+
+        Vector3 boundry = new Vector3(planeScale.x - 1, 0, planeScale.z - 1);
+
+        while (newNum < numItems)
+        {
+            // Picks random X position within the boundry of the plane
+            float randomXPosition = Random.Range(-boundry.x, boundry.x);
+            // Picks random Z position within the boundry of the plane
+            float randomZPosition = Random.Range(-boundry.z, boundry.z);
+
+            Instantiate(itemCapsules[0], new Vector3(planePos.x + randomXPosition / 2, 6, planePos.z + randomZPosition / 2), Quaternion.identity);
+
+            ++newNum;
+
+            yield return new WaitForSeconds(1f);
         }
     }
 

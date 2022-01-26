@@ -1982,6 +1982,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 762913120609709109, guid: 6d60ef0f5065a0445a89f2f035a5bf60, type: 3}
   m_PrefabInstance: {fileID: 1472811270}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &143139277 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7248836236222821734, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
+  m_PrefabInstance: {fileID: 959413842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &143822280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11699,12 +11704,20 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5981882643148413060, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
+      propertyPath: itemRainDuration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981882643148413060, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
       propertyPath: coinBlitzDuration
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5981882643148413060, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
       propertyPath: powerSurgeDuration
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981882643148413060, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
+      propertyPath: itemRainProbability
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5981882643148413060, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
       propertyPath: coinBlitzProbability
@@ -11716,7 +11729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5981882643148413060, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
       propertyPath: powerSurgeProbability
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5981882643148413061, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
       propertyPath: m_RootOrder
@@ -29593,6 +29606,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8091604206496765972, guid: f798086d4b7640e4f96ea1748ecb619a, type: 3}
+      propertyPath: playerMachinePlane
+      value: 
+      objectReference: {fileID: 143139277}
     - target: {fileID: 8091604206496765973, guid: f798086d4b7640e4f96ea1748ecb619a, type: 3}
       propertyPath: m_RootOrder
       value: 3
