@@ -9,13 +9,13 @@ public class ItemBuilder : MonoBehaviour
 
     public GameObject currentPlane;
     public GameObject[] allPrinterPlanes;
-    public List<GameObject> playerMachinePlanes = new List<GameObject>();
+    public GameObject playerMachinePlane;
 
     public GameObject[] itemCapsules;
 
     public int itemsToBuild;
 
-    public bool initialBuild;
+    public bool initialBuildFinished;
 
     // Holds the position for the new printer surface
     public Vector3 newPosition;
@@ -27,17 +27,21 @@ public class ItemBuilder : MonoBehaviour
     {
         builder = gameObject;
         allPrinterPlanes = GameObject.FindGameObjectsWithTag("printer_plane");
-        initialBuild = true;
+
+        List<GameObject> temp = new List<GameObject>();
 
         // Search through allPrinterPlanes to find the planes of the player's coin machine
         for (int i = 0; i < allPrinterPlanes.Length; ++i)
         {
             // If the plane's X position is 0, add it to playerMachinePlanes
-            if (Mathf.Approximately(allPrinterPlanes[i].transform.position.x, 0) || allPrinterPlanes[i].transform.position.x == 0)
+            if (Mathf.Approximately(allPrinterPlanes[i].transform.position.y, 0))// || allPrinterPlanes[i].transform.position.x == 0 && allPrinterPlanes[i].transform.position.y == 0)
             {
-                playerMachinePlanes.Add(allPrinterPlanes[i]);
+                temp.Add(allPrinterPlanes[i]);
+                //playerMachinePlanes.Add(allPrinterPlanes[i]);
             }
         }
+
+        allPrinterPlanes = temp.ToArray();
     }
 
     // Update is called once per frame
@@ -54,15 +58,15 @@ public class ItemBuilder : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (initialBuild)
+        if (!initialBuildFinished)
         {
             for (int i = 0; i < allPrinterPlanes.Length; ++i)
             {
                 DetermineBoundry(i);
-                InitialItemBuild();
+                InitialItemBuild(allPrinterPlanes[i]);
             }
 
-            initialBuild = false;
+            initialBuildFinished = true;
         }
     }
 
@@ -81,12 +85,12 @@ public class ItemBuilder : MonoBehaviour
         // Starts by moving printer bar to chosen plane's center
         builder.transform.position = planePosition;
 
-        planeBoundry = new Vector3(planeScale.x - 0.2f, 0, planeScale.z - 0.2f);
-
+        planeBoundry = new Vector3(planeScale.x - 1, 0, planeScale.z - 1);
     }
 
-    public void InitialItemBuild()
+    public void InitialItemBuild(GameObject plane)
     {
+        Vector3 planePos = plane.transform.position;
         itemsToBuild = Random.Range(1, 4);
 
         for (int i = 0; i < itemsToBuild + 1; ++i)
@@ -97,8 +101,13 @@ public class ItemBuilder : MonoBehaviour
             float randomZPosition = Random.Range(-planeBoundry.z, planeBoundry.z);
 
             //Instantiate Item
-            GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            sphere.transform.position = new Vector3(randomXPosition, 0, randomZPosition);
+
+            //GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+
+            // Finds position of build plane then picks a random point within that boundry to build item
+            //sphere.transform.position = new Vector3(planePos.x + randomXPosition / 2, 0, planePos.z + randomZPosition / 2);
+
+            Instantiate(itemCapsules[0], new Vector3(planePos.x + randomXPosition / 2, 6, planePos.z + randomZPosition / 2), Quaternion.identity);
         }
     }
 
