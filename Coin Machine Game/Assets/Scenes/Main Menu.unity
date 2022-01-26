@@ -4511,6 +4511,50 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 20, y: 0.5, z: 0.66}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &348712619
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 348712620}
+  - component: {fileID: 348712621}
+  m_Layer: 0
+  m_Name: Plinko Zone
+  m_TagString: plinko_zone
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &348712620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348712619}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: 0.060469996, y: 0, z: 0.10325}
+  m_LocalScale: {x: 0.13149999, y: 0.14999999, z: 0.003}
+  m_Children: []
+  m_Father: {fileID: 1802056324}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &348712621
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348712619}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &353258744
 GameObject:
   m_ObjectHideFlags: 0
@@ -25135,6 +25179,11 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!4 &1802056324 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7248836236154738220, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
+  m_PrefabInstance: {fileID: 959413842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1803203626
 GameObject:
   m_ObjectHideFlags: 0
@@ -29610,6 +29659,42 @@ PrefabInstance:
       propertyPath: playerMachinePlane
       value: 
       objectReference: {fileID: 143139277}
+    - target: {fileID: 8091604206496765972, guid: f798086d4b7640e4f96ea1748ecb619a, type: 3}
+      propertyPath: itemCapsules.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091604206496765972, guid: f798086d4b7640e4f96ea1748ecb619a, type: 3}
+      propertyPath: itemCapsules.Array.data[0]
+      value: 
+      objectReference: {fileID: 1969284138065000151, guid: b4a49a368425028458ced50b8b769d4b, type: 3}
+    - target: {fileID: 8091604206496765972, guid: f798086d4b7640e4f96ea1748ecb619a, type: 3}
+      propertyPath: itemCapsules.Array.data[1]
+      value: 
+      objectReference: {fileID: 2878007434485437627, guid: d3588fe08b98403428987f0b9b164ec3, type: 3}
+    - target: {fileID: 8091604206496765972, guid: f798086d4b7640e4f96ea1748ecb619a, type: 3}
+      propertyPath: itemCapsules.Array.data[2]
+      value: 
+      objectReference: {fileID: 8759680296455193874, guid: c8d144d4a3b1ef447a415309a910b8be, type: 3}
+    - target: {fileID: 8091604206496765972, guid: f798086d4b7640e4f96ea1748ecb619a, type: 3}
+      propertyPath: itemCapsules.Array.data[3]
+      value: 
+      objectReference: {fileID: 2117436431833743932, guid: 8e17d075ca82ada4596a916c3dece41f, type: 3}
+    - target: {fileID: 8091604206496765972, guid: f798086d4b7640e4f96ea1748ecb619a, type: 3}
+      propertyPath: itemCapsules.Array.data[4]
+      value: 
+      objectReference: {fileID: 5159473594181363391, guid: 50804a3e1daad334cbc772572ac5a4b9, type: 3}
+    - target: {fileID: 8091604206496765972, guid: f798086d4b7640e4f96ea1748ecb619a, type: 3}
+      propertyPath: itemCapsules.Array.data[5]
+      value: 
+      objectReference: {fileID: 3115977090343365204, guid: c12dfaa9a1322ba4bbee1bc587b1c356, type: 3}
+    - target: {fileID: 8091604206496765972, guid: f798086d4b7640e4f96ea1748ecb619a, type: 3}
+      propertyPath: itemCapsules.Array.data[6]
+      value: 
+      objectReference: {fileID: 2329296116091744413, guid: 4f65feeb9dd7e814880266d11a4005b1, type: 3}
+    - target: {fileID: 8091604206496765972, guid: f798086d4b7640e4f96ea1748ecb619a, type: 3}
+      propertyPath: itemCapsules.Array.data[7]
+      value: 
+      objectReference: {fileID: 4449341051503090681, guid: 2daf12a50ae6a304ca0f75be3345d67a, type: 3}
     - target: {fileID: 8091604206496765973, guid: f798086d4b7640e4f96ea1748ecb619a, type: 3}
       propertyPath: m_RootOrder
       value: 3

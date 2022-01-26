@@ -114,37 +114,9 @@ public class ItemBuilder : MonoBehaviour
             // Finds position of build plane then picks a random point within that boundry to build item
             //sphere.transform.position = new Vector3(planePos.x + randomXPosition / 2, 0, planePos.z + randomZPosition / 2);
 
-            Instantiate(itemCapsules[0], new Vector3(planePos.x + randomXPosition / 2, 6, planePos.z + randomZPosition / 2), Quaternion.identity);
-        }
-    }
+            int randItem = Random.Range(0, itemCapsules.Length);
 
-    public void BuildItems(int numItems)
-    {
-        int newNum = 0;
-        float duration = 1;
-        Vector3 planePos = playerMachinePlane.transform.position;
-        Vector3 planeScale = playerMachinePlane.transform.localScale;
-
-        Vector3 boundry = new Vector3(planeScale.x - 1, 0, planeScale.z - 1);
-
-        while (newNum < numItems + 1)
-        {
-            if (duration > 0)
-            {
-                duration -= Time.fixedDeltaTime;
-            }
-            else
-            {
-                // Picks random X position within the boundry of the plane
-                float randomXPosition = Random.Range(-boundry.x, boundry.x);
-                // Picks random Z position within the boundry of the plane
-                float randomZPosition = Random.Range(-boundry.z, boundry.z);
-
-                Instantiate(itemCapsules[0], new Vector3(planePos.x + randomXPosition / 2, 6, planePos.z + randomZPosition / 2), Quaternion.identity);
-
-                duration = 1;
-                ++newNum;
-            }
+            Instantiate(itemCapsules[randItem], new Vector3(planePos.x + randomXPosition / 2, 6, planePos.z + randomZPosition / 2), Quaternion.identity);
         }
     }
 
@@ -163,7 +135,9 @@ public class ItemBuilder : MonoBehaviour
             // Picks random Z position within the boundry of the plane
             float randomZPosition = Random.Range(-boundry.z, boundry.z);
 
-            Instantiate(itemCapsules[0], new Vector3(planePos.x + randomXPosition / 2, 6, planePos.z + randomZPosition / 2), Quaternion.identity);
+            int randItem = Random.Range(0, itemCapsules.Length);
+
+            Instantiate(itemCapsules[randItem], new Vector3(planePos.x + randomXPosition / 2, 27, planePos.z + randomZPosition / 2), Quaternion.identity);
 
             ++newNum;
 
