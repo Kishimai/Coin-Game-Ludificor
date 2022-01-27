@@ -65,7 +65,7 @@ public class DeleteCoins : MonoBehaviour
             Destroy(other.gameObject.transform.parent.gameObject);
             // Increases coin counter by one (Remove this and put it in update)
 
-            Debug.Log(other.gameObject.GetComponent<Data_Interp>());
+            //Debug.Log(other.gameObject.GetComponent<Data_Interp>());
             _manager._currentCoin += other.gameObject.transform.parent.GetComponent<Data_Interp>().data.currentValue * valueModifier;
             ++coinCounter;
         }

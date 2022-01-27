@@ -28,6 +28,11 @@ public class EventsManager : MonoBehaviour
     // Accesses the item builder object
     public GameObject itemBuilder;
 
+    public GameObject gameManager;
+
+    // Glass panel on the plinko part of the board
+    public GameObject glassPanel;
+
     // Initialization phase is used when the game is preparing the scene
     public bool initializationPhase;
     // Gameplay phase comes after initialization
@@ -91,6 +96,8 @@ public class EventsManager : MonoBehaviour
         // Locates and assigns the item builder to itemBuilder
         itemBuilder = GameObject.FindGameObjectWithTag("item_builder");
 
+        gameManager = GameObject.FindGameObjectWithTag("game_manager");
+
         // Enables the initialization phase
         initializationPhase = true;
         timeUntilNextEventCheck = waitTime;
@@ -136,6 +143,10 @@ public class EventsManager : MonoBehaviour
             // Switches from initialization to gameplay
             initializationPhase = false;
             gameplayPhase = true;
+
+            gameManager.GetComponent<UI_Manager>().Update_UI(3);
+            // ^ Code I moved from UI_Manager ^
+
         }
         // Runs if the printer is still working
         else
@@ -170,6 +181,8 @@ public class EventsManager : MonoBehaviour
 
             playerCamera.GetComponent<CoinPlacement>().blitzEvent = false;
             coinPusher.GetComponent<CoinPusher>().surgeEvent = false;
+
+            glassPanel.SetActive(true);
 
             chosenEvent = "";
 
@@ -251,6 +264,8 @@ public class EventsManager : MonoBehaviour
 
         playerCamera.GetComponent<CoinPlacement>().blitzEvent = true;
         currentEventDuration = coinBlitzDuration;
+
+        glassPanel.SetActive(false);
     }
 
     void PowerSurge()
@@ -263,28 +278,11 @@ public class EventsManager : MonoBehaviour
 
     void ItemRain()
     {
-        Debug.LogWarning("Item Rain Woot Woot!");
-
-        // DO SOMETHING LIKE THIS BUT INSTEAD RUN ITS ITEM RAIN METHOD WITH THE PARAMETER BEING THE EVENT DURATION AS AN INTEGER
-        //itemBuilder.GetComponent<ItemBuilder>().itemRainEvent = true;
 
         StartCoroutine(itemBuilder.GetComponent<ItemBuilder>().ItemRain(Mathf.FloorToInt(itemRainDuration)));
 
-        // item builder clock equal to integer
-        // item builder build order equal to integer
-        // integer taken as parameter
-
         currentEventDuration = itemRainDuration;
 
-        //instantiate 1 item every second
-
-        //tell item builder to build items
-
-        //every second of time in the item duration adds 1 item to the itemBuilder's build order
-
-        //item builder will make an item every second (use deltaTime)
-
-        //item rain duration directly affects the number of items that will be built (1 every second for X seconds)
     }
 
 }

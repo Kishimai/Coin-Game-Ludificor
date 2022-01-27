@@ -24,7 +24,7 @@ public class ItemBuilder : MonoBehaviour
 
     public Vector3 planeBoundry;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         builder = gameObject;
@@ -36,26 +36,13 @@ public class ItemBuilder : MonoBehaviour
         for (int i = 0; i < allPrinterPlanes.Length; ++i)
         {
             // If the plane's X position is 0, add it to playerMachinePlanes
-            if (Mathf.Approximately(allPrinterPlanes[i].transform.position.y, 0))// || allPrinterPlanes[i].transform.position.x == 0 && allPrinterPlanes[i].transform.position.y == 0)
+            if (Mathf.Approximately(allPrinterPlanes[i].transform.position.y, 0))
             {
                 temp.Add(allPrinterPlanes[i]);
             }
         }
 
         allPrinterPlanes = temp.ToArray();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // Order of actions
-        // Initialization phase:
-        // Determine boundry
-        // Start by building item capsules on all planes
-
-        // Gameplay phase:
-        // After that, work only within the boundry of the real coin machine's printer planes for the remainder of the game
-
     }
 
     private void FixedUpdate()
@@ -107,16 +94,11 @@ public class ItemBuilder : MonoBehaviour
             // Picks random Z position within the boundry of the plane
             float randomZPosition = Random.Range(-planeBoundry.z, planeBoundry.z);
 
-            //Instantiate Item
-
-            //GameObject sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-
-            // Finds position of build plane then picks a random point within that boundry to build item
-            //sphere.transform.position = new Vector3(planePos.x + randomXPosition / 2, 0, planePos.z + randomZPosition / 2);
-
+            // Picks random item capsule from list
             int randItem = Random.Range(0, itemCapsules.Length);
 
-            Instantiate(itemCapsules[randItem], new Vector3(planePos.x + randomXPosition / 2, 6, planePos.z + randomZPosition / 2), Quaternion.identity);
+            // Makes random item capsule with random position
+            Instantiate(itemCapsules[randItem], new Vector3(planePos.x + randomXPosition / 2, 2, planePos.z + randomZPosition / 2), Quaternion.identity);
         }
     }
 

@@ -10,9 +10,11 @@ public class UI_Manager : MonoBehaviour
     public GameObject CoinMachine;
     [BoxGroup("Input")]
     public GameObject background;
+    [BoxGroup("Input")]
+    public GameObject eventManager;
 
     [BoxGroup("UI")] // for panels of the player
-    public GameObject Selection, Settings, Collectibles, InGame, PausedGame, ShopInGame, ShopButton, CapsuleItemSelection;
+    public GameObject Selection, Settings, Collectibles, InGame, PausedGame, ShopInGame, ShopButton, CapsuleItemSelection, LoadingScreen;
     [BoxGroup("UI")]
     public Slider _music, _sfx;
     [BoxGroup("UI")]
@@ -41,6 +43,8 @@ public class UI_Manager : MonoBehaviour
                 background.SetActive(true);
                 PausedGame.SetActive(false);
 
+                LoadingScreen.SetActive(false);
+
                 Debug.Log("Case: 1");
 
                 break;
@@ -51,6 +55,8 @@ public class UI_Manager : MonoBehaviour
                 InGame.SetActive(false);
                 background.SetActive(true);
                 PausedGame.SetActive(false);
+
+                LoadingScreen.SetActive(false);
 
                 Debug.Log("Case: 2");
 
@@ -64,6 +70,8 @@ public class UI_Manager : MonoBehaviour
                 PausedGame.SetActive(false);
                 ShopInGame.SetActive(false);
 
+                LoadingScreen.SetActive(false);
+
                 Debug.Log("Case: 3");
 
                 break;
@@ -76,6 +84,7 @@ public class UI_Manager : MonoBehaviour
                 PausedGame.SetActive(false);
 
                 CapsuleItemSelection.SetActive(false);
+                LoadingScreen.SetActive(false);
 
                 Debug.Log("Case: 4");
 
@@ -88,20 +97,39 @@ public class UI_Manager : MonoBehaviour
                 InGame.SetActive(false);
                 PausedGame.SetActive(true);
 
+                LoadingScreen.SetActive(false);
+
                 Debug.Log("Case: 5");
 
                 break;
-            case 6:
+            case 6: // Menu for selecting item capsules
                 CapsuleItemSelection.SetActive(true);
 
                 Debug.Log("Case: 6");
+
+                break;
+            case 7: // Loading screen while game is preparing
+                Selection.SetActive(false);
+                Collectibles.SetActive(false);
+                Settings.SetActive(false);
+                background.SetActive(false);
+                InGame.SetActive(false);
+                PausedGame.SetActive(false);
+                CapsuleItemSelection.SetActive(false);
+                LoadingScreen.SetActive(true);
 
                 break;
         }
     }
 
     public void Start() {
-        Update_UI(3); // Makes Sure to make it in Starting Position First
+
+        Update_UI(7); // Makes sure game is showing "Loading" screen when coins are being set up
+
+        //Update_UI(3); // Makes Sure to make it in Starting Position First
+        //  ^ I moved this code to the EventsManager script ^
+        // When initialization phase is done, it runs Update_UI(3); and the game plays as normal
+
     }
 
     public void Update(){

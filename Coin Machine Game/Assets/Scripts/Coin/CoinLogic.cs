@@ -8,6 +8,8 @@ public class CoinLogic : MonoBehaviour
     public GameObject eventManager;
     public GameObject coin;
 
+    public bool inPlinkoZone;
+
     public int coinLayer = 11;
 
     // Start is called before the first frame update
@@ -28,26 +30,6 @@ public class CoinLogic : MonoBehaviour
         else
         {
             coinRb.constraints = RigidbodyConstraints.None;
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "plinko_zone")
-        {
-            //Physics.IgnoreLayerCollision(gameObject.layer, gameObject.layer, true);
-
-            //Physics.IgnoreCollision(gameObject.GetComponent<BoxCollider>(), coin.GetComponent<BoxCollider>(), true);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "plinko_zone")
-        {
-            //Physics.IgnoreLayerCollision(gameObject.layer, gameObject.layer, false);
-
-            //Physics.IgnoreCollision(gameObject.GetComponent<BoxCollider>(), coin.GetComponent<BoxCollider>(), false);
         }
     }
 }
