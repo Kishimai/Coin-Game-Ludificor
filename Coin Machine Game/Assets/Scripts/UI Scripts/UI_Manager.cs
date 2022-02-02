@@ -13,7 +13,7 @@ public class UI_Manager : MonoBehaviour
     [BoxGroup("Input")]
     public GameObject eventManager;
 
-    [BoxGroup("UI")] // for panels of the player
+    [BoxGroup("UI")] // UI Components Panels
     public GameObject Selection, Settings, Collectibles, InGame, PausedGame, ShopInGame, ShopButton, CapsuleItemSelection, LoadingScreen;
     [BoxGroup("UI")]
     public Slider _music, _sfx;
@@ -35,7 +35,7 @@ public class UI_Manager : MonoBehaviour
 
     public void Update_UI(int data){
         switch(data){
-            case 1: // Settings UI Panel
+            case 1: // Settings
                 Settings.SetActive(true);
                 Selection.SetActive(false);
                 Collectibles.SetActive(false);
@@ -48,7 +48,7 @@ public class UI_Manager : MonoBehaviour
                 Debug.Log("Case: 1");
 
                 break;
-            case 2: // Collectibles UI Panel
+            case 2: // Collectibles
                 Collectibles.SetActive(true);
                 Selection.SetActive(false);
                 Settings.SetActive(false);
@@ -61,7 +61,7 @@ public class UI_Manager : MonoBehaviour
                 Debug.Log("Case: 2");
 
                 break;
-            case 3: // Selection UI Panel
+            case 3: // Selection
                 Selection.SetActive(true);
                 Collectibles.SetActive(false);
                 Settings.SetActive(false);
@@ -89,7 +89,7 @@ public class UI_Manager : MonoBehaviour
                 Debug.Log("Case: 4");
 
                 break;
-            case 5: //
+            case 5: // Paused Game Panel
                 Selection.SetActive(false);
                 Collectibles.SetActive(false);
                 Settings.SetActive(false);
@@ -117,7 +117,6 @@ public class UI_Manager : MonoBehaviour
                 PausedGame.SetActive(false);
                 CapsuleItemSelection.SetActive(false);
                 LoadingScreen.SetActive(true);
-
                 break;
         }
     }
@@ -132,7 +131,7 @@ public class UI_Manager : MonoBehaviour
 
     }
 
-    public void Update(){
+    public void Update(){ // Updates Values on Setting: Probably Shouldnt be here.
         _musicVolume = _music.value;
         _sfxVoume = _sfx.value;
         _sfxText.text = _sfxVoume.ToString("0");
@@ -142,9 +141,8 @@ public class UI_Manager : MonoBehaviour
     }
 
     /// <summary>
-    /// Main Core Function of the Shop System
+    /// Used for Buttons on Shop
     /// </summary>
-    /// <param name="functionToUse">Which Function you want to use</param>
     public void Shop(string functionToUse){
         switch(functionToUse){
             case "OpenOrClose":

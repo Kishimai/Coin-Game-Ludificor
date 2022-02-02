@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CoinLogic : MonoBehaviour
 {
-    // Coin
     public Rigidbody coinRb;
     public GameObject eventManager;
     public GameObject coin;

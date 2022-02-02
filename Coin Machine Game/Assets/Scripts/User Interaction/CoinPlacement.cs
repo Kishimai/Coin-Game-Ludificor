@@ -14,8 +14,10 @@ public class CoinPlacement : MonoBehaviour
 
     // Replace this. (it is currently used to show the image of a coin, which helps the player see where they are about to place it)
     public GameObject testCoin;
-    // Holds the player's currently selected coin
+    // Holds the player's currently selected coin: >> I'll be changing its Components on each placement
     public GameObject selectedCoin;
+    // Used for generation codes
+    public CoinGeneration generation;
     // Shows the image of the currently selected coin so the player can visualize their placements better
     private GameObject coinGuide;
     // Prevents the use of this script when gameplay is not ready yet
@@ -117,12 +119,14 @@ public class CoinPlacement : MonoBehaviour
     {
         if (dropCooldown <= 0 && blitzEvent == false)
         {
-            // Places the currently selected coin
+            generation.GetPlacementData();
+            // Places the currently selected coin >> Changing its Component every placement
             Instantiate(selectedCoin, new Vector3(hit.x, hit.y, hit.z + 0.1f), Quaternion.Euler(90, 0, 0));
             dropCooldown = maxCooldown;
         }
         else if (dropCooldown <= 0 && blitzEvent == true)
         {
+            generation.GetPlacementData();
             Instantiate(selectedCoin, new Vector3(hit.x, hit.y, hit.z + 0.1f), Quaternion.Euler(90, 0, 0));
             dropCooldown = blitzCooldown;
         }
