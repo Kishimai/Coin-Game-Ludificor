@@ -73,8 +73,8 @@ public class DeleteCoins : MonoBehaviour
         if (other.gameObject.tag == "item" && eventManager.GetComponent<EventsManager>().playerIsReady)
         {
 
-            // Tells the ItemCapsuleSelection script that the player should now pick an item from the menu (script is attached to the Game Manager)
-            gameManager.GetComponent<ItemCapsuleSelection>().selectingItem = true;
+            // Adds 1 available prize to ItemInventory
+            gameManager.GetComponent<ItemInventory>().availablePrizes += 1;
 
             // Destroy item capsule
             Destroy(other.gameObject.transform.parent.gameObject);

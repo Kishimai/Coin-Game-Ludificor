@@ -14,7 +14,7 @@ public class UI_Manager : MonoBehaviour
     public GameObject eventManager;
 
     [BoxGroup("UI")] // UI Components Panels
-    public GameObject Selection, Settings, Collectibles, InGame, PausedGame, ShopInGame, ShopButton, CapsuleItemSelection, LoadingScreen;
+    public GameObject Selection, Settings, Collectibles, InGame, PausedGame, ShopInGame, ShopButton, PrizeSelection, OpenCapsuleButton, ItemSelection, LoadingScreen;
     [BoxGroup("UI")]
     public Slider _music, _sfx;
     [BoxGroup("UI")]
@@ -43,6 +43,9 @@ public class UI_Manager : MonoBehaviour
                 background.SetActive(true);
                 PausedGame.SetActive(false);
 
+                PrizeSelection.SetActive(false);
+                OpenCapsuleButton.SetActive(false);
+                ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(false);
 
                 Debug.Log("Case: 1");
@@ -56,6 +59,9 @@ public class UI_Manager : MonoBehaviour
                 background.SetActive(true);
                 PausedGame.SetActive(false);
 
+                PrizeSelection.SetActive(false);
+                OpenCapsuleButton.SetActive(false);
+                ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(false);
 
                 Debug.Log("Case: 2");
@@ -70,6 +76,9 @@ public class UI_Manager : MonoBehaviour
                 PausedGame.SetActive(false);
                 ShopInGame.SetActive(false);
 
+                PrizeSelection.SetActive(false);
+                OpenCapsuleButton.SetActive(false);
+                ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(false);
 
                 Debug.Log("Case: 3");
@@ -83,7 +92,9 @@ public class UI_Manager : MonoBehaviour
                 InGame.SetActive(true);
                 PausedGame.SetActive(false);
 
-                CapsuleItemSelection.SetActive(false);
+                PrizeSelection.SetActive(false);
+                OpenCapsuleButton.SetActive(false);
+                ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(false);
 
                 Debug.Log("Case: 4");
@@ -97,14 +108,26 @@ public class UI_Manager : MonoBehaviour
                 InGame.SetActive(false);
                 PausedGame.SetActive(true);
 
+                PrizeSelection.SetActive(false);
+                OpenCapsuleButton.SetActive(false);
+                ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(false);
 
                 Debug.Log("Case: 5");
 
                 break;
             case 6: // Menu for selecting item capsules
-                CapsuleItemSelection.SetActive(true);
+                Selection.SetActive(false);
+                Collectibles.SetActive(false);
+                Settings.SetActive(false);
+                background.SetActive(false);
+                InGame.SetActive(false);
+                PausedGame.SetActive(false);
 
+                PrizeSelection.SetActive(true);
+                OpenCapsuleButton.SetActive(true);
+                ItemSelection.SetActive(false);
+                LoadingScreen.SetActive(false);
                 Debug.Log("Case: 6");
 
                 break;
@@ -115,8 +138,25 @@ public class UI_Manager : MonoBehaviour
                 background.SetActive(false);
                 InGame.SetActive(false);
                 PausedGame.SetActive(false);
-                CapsuleItemSelection.SetActive(false);
+
+                PrizeSelection.SetActive(false);
+                OpenCapsuleButton.SetActive(false);
+                ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(true);
+                break;
+
+            case 8:
+                Selection.SetActive(false);
+                Collectibles.SetActive(false);
+                Settings.SetActive(false);
+                background.SetActive(false);
+                InGame.SetActive(false);
+                PausedGame.SetActive(false);
+
+                PrizeSelection.SetActive(true);
+                OpenCapsuleButton.SetActive(false);
+                ItemSelection.SetActive(true);
+                LoadingScreen.SetActive(false);
                 break;
         }
     }

@@ -24,6 +24,8 @@ public class ItemBuilder : MonoBehaviour
 
     public Vector3 planeBoundry;
 
+    // Used to drop item every 60 seconds
+    public float timeUntilNextItem = 60f;
 
     void Start()
     {
@@ -58,9 +60,15 @@ public class ItemBuilder : MonoBehaviour
             initialBuildFinished = true;
         }
 
-        else
+        if (timeUntilNextItem > 0 && itemRainEvent == false)
         {
+            timeUntilNextItem -= Time.fixedDeltaTime;
+        }
 
+        if (timeUntilNextItem <= 0)
+        {
+            BuildItem();
+            timeUntilNextItem = 60f;
         }
     }
 
@@ -104,6 +112,8 @@ public class ItemBuilder : MonoBehaviour
 
     public IEnumerator ItemRain(int numItems)
     {
+        itemRainEvent = true;
+
         int newNum = 0;
         Vector3 planePos = playerMachinePlane.transform.position;
         Vector3 planeScale = playerMachinePlane.transform.localScale;
@@ -125,6 +135,24 @@ public class ItemBuilder : MonoBehaviour
 
             yield return new WaitForSeconds(1f);
         }
+
+        itemRainEvent = false;
     }
 
+    public void BuildItem()
+    {
+        Vector3 planePos = playerMachinePlane.transform.position;
+        Vector3 planeScale = playerMachinePlane.transform.localScale;
+
+        Vector3 boundry = new Vector3(planeScale.x - 1, 0, planeScale.z - 1);
+
+        // Picks random X position within the boundry of the plane
+        float randomXPosition = Random.Range(-boundry.x, boundry.x);
+        // Picks random Z position within the boundry of the plane
+        float randomZPosition = Random.Range(-boundry.z, boundry.z);
+
+        int randItem = Random.Range(0, itemCapsules.Length);
+
+        Instantiate(itemCapsules[randItem], new Vector3(planePos.x + randomXPosition / 2, 27, planePos.z + randomZPosition / 2), Quaternion.identity);
+    }
 }

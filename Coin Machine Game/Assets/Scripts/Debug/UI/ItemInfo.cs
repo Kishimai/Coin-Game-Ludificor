@@ -9,6 +9,7 @@ public class ItemInfo : MonoBehaviour
     public GameObject gameManager;
 
     public Text valueModifier;
+    private float modifier;
 
     // Start is called before the first frame update
 
@@ -21,7 +22,8 @@ public class ItemInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        valueModifier.text = string.Format("Coin Value: {0}%", gameManager.GetComponent<ItemInventory>().coinValueModifier * 100);
+        modifier = gameManager.GetComponent<ItemInventory>().coinValueModifier;
+        valueModifier.text = string.Format("Coin Value: {0}%", Mathf.CeilToInt(modifier * 100));
 
 
     }
