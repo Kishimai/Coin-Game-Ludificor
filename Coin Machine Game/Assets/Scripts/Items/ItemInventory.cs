@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class ItemInventory : MonoBehaviour
 {
     // ------------------------- All possible items in the game (scripts dealing with items may pull from this) ------------------------- //
-    public string[] commonItems = new string[] { "midas_shard" };
-    public string[] uncommonItems = new string[] { "midas_crystal" };
-    public string[] rareItems = new string[] { "midas_relic" };
+    public string[] commonItems = new string[] { "midas_shard", "peg_remove_mk1" };
+    public string[] uncommonItems = new string[] { "midas_crystal", "peg_remove_mk2", "golden_peg" };
+    public string[] rareItems = new string[] { "midas_relic", "peg_remove_mk3", "diamond_peg" };
 
     // ------------------------- Item Inventory ------------------------- //
     public List<string> collectedItems = new List<string>();
@@ -72,6 +72,55 @@ public class ItemInventory : MonoBehaviour
             case "midas_relic":
                 // Increases value modifier by 10%
                 coinValueModifier += 0.1f;
+                break;
+
+            // --------------- PEG REMOVER ITEMS --------------- //
+
+            case "peg_remove_mk1":
+                // Run peg remove method in peg script and pass value of 1
+                break;
+
+            case "peg_remove_mk2":
+                // Run peg remove method in peg script and pass value of 2
+                break;
+
+            case "peg_remove_mk3":
+                // Run peg remove method in peg script and pass value of 3
+                break;
+
+            // --------------- GUILDED ITEMS --------------- //
+            case "golden_peg":
+                // Run peg modify method in peg script
+                // Peg names are pegX-pegY, where x is a number (keeps dictionary keys unique)
+                // Randomly pick peg in dictionary
+                // Value of key is a bool, true or false
+                // Take peg in question and change its value to the opposite of what it currently has
+                // Then set its active state to that bool
+
+                // First look for keys with the (false) value
+                // Compile all into new dict
+                // If new dict has at least 1 key, pick a random one
+                // Activate that peg and convert it to a golden version
+                
+                // If no pegs are found in that new dict, pick a random one in the normal dictionary and do the above process 
+                // (minus setting active state and compilation of new dict)
+                break;
+
+            case "diamond_peg":
+                // Run peg modify method in peg script
+                // Peg names are pegX-pegY, where x is a number (keeps dictionary keys unique)
+                // Randomly pick peg in dictionary
+                // Value of key is a bool, true or false
+                // Then set its active state to that bool
+                // Take peg in question and change its value to the opposite of what it currently has
+
+                // First look for keys with the (false) value
+                // Compile all into new dict
+                // If new dict has at least 1 key, pick a random one
+                // Activate that peg and convert it to a diamond version
+
+                // If no pegs are found in that new dict, pick a random one in the normal dictionary and do the above process
+                // (minus setting active state and compilation of new dict)
                 break;
 
             // --------------- TO BE ADDED ITEMS --------------- //
