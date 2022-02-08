@@ -15,7 +15,6 @@ public class EventsManager : MonoBehaviour
 
     // ------------------------------------------------------- //
 
-
     // Accesses player camera object
     // REPLACE THIS WITH A CAMERA OBJECT INSTEAD OF A GAME OBJECT
     public GameObject playerCamera;
@@ -32,6 +31,11 @@ public class EventsManager : MonoBehaviour
 
     // Glass panel on the plinko part of the board
     public GameObject glassPanel;
+
+    public string[] commonEvents = new string[] { "CoinBlitz" };
+    // Remove power surge from uncommon events and replace it with another event (maybe)
+    public string[] uncommonEvents = new string[] { "PowerSurge" };
+    public string[] rareEvents = new string[] { "ItemRain" };
 
     // Initialization phase is used when the game is preparing the scene
     public bool initializationPhase;
@@ -55,11 +59,6 @@ public class EventsManager : MonoBehaviour
     // After event check occours, reset its value to waitTime
     public float waitTime;
 
-    // Possible events given 100 total elements
-    // If events work based on random chance: If event should happen 25% of the time, add 25 instances of it to the array
-    // Randomly pick an element from the array
-    public string[] possibleEvents = new string[100];
-    //public List<string> possibleEvents = new List<string>();
     public string chosenEvent = "";
 
     // Number of times these events will appear in the array of possible events
@@ -101,7 +100,6 @@ public class EventsManager : MonoBehaviour
         // Enables the initialization phase
         initializationPhase = true;
         timeUntilNextEventCheck = waitTime;
-        CompileEvents();
     }
 
     // Update is called once per frame
@@ -174,18 +172,15 @@ public class EventsManager : MonoBehaviour
         // Tells the coin destroyer to start tracking coins that fall into it so the player can gather money
         coinDestroyer.GetComponent<DeleteCoins>().gameplayIsReady = true;
 
-        // If an event is still going on, the time until next event will not decrease
+        // If an event is not going on, decrease time until next event check
         if (currentEventDuration <= 0)
         {
             timeUntilNextEventCheck -= Time.deltaTime;
 
-            playerCamera.GetComponent<CoinPlacement>().blitzEvent = false;
-            coinPusher.GetComponent<CoinPusher>().surgeEvent = false;
-
-            glassPanel.SetActive(true);
-
-            chosenEvent = "";
-
+            if (chosenEvent != "")
+            {
+                EndEvent();
+            }
         }
         // If an event is going on, decrease its remaining duration
         else
@@ -203,57 +198,24 @@ public class EventsManager : MonoBehaviour
 
     }
 
-    void CompileEvents()
-    {
-        // Add all possible events
-        // If events should be chosen randomly;
-        // List should have a max size of 100
-
-        for (int i = 0; i < possibleEvents.Length; ++i)
-        {
-            // work through each event
-            // if coin blitz should happen 25% of the time, set coinBlitzProbability to 25
-
-            // add coin blitz a total of 25 times
-            // add item rain a total of X times
-            // add power surge a total of Y times
-            // add jackpot a total of Z times
-
-            // For testing purposes right now, add coin blitz 100 times
-
-            // !!!!MAKE SURE OF THIS!!!!
-            // The string added to the array MUST EXACTLY match the method name of the event
-            // So if the CoinBlitz() event should run, the string should be "CoinBlitz" NOT "coinblitz", "coinBlitz", "Coin Blitz", etc.
-            // Remember that the combined value of all event probability variables cannot exceed 100, or events wont appear as often as desired
-            // For example: coinblitz cannot be 60 if power surge is going to be 50, what will happen is coin blitz will have a 60% chance, and power surge will get a 40% chance
-
-            // First populates possibleEvents array with coin blitz events
-            if (coinBlitzProbability > 0)
-            {
-                --coinBlitzProbability;
-                possibleEvents[i] = "CoinBlitz";
-            }
-            // Then populates possibleEvents array with power surge events
-            else if (powerSurgeProbability > 0)
-            {
-                --powerSurgeProbability;
-                possibleEvents[i] = "PowerSurge";
-            }
-            else if (itemRainProbability > 0)
-            {
-                --itemRainProbability;
-                possibleEvents[i] = "ItemRain";
-            }
-            // Continues to do this for each event type
-        }
-    }
-
     void PlayEvent()
     {
         // Randomly picks an event from the array of possible events
         // Can include logic to deny an event if its already been chosen or do something similar if desired
-        chosenEvent = possibleEvents[Random.Range(0, possibleEvents.Length)];
+        //chosenEvent = possibleEvents[Random.Range(0, possibleEvents.Length)];
+        chosenEvent = GetComponent<EventRandomizer>().RollNewEvent();
         Invoke(chosenEvent, 0);
+    }
+
+    void EndEvent()
+    {
+
+        playerCamera.GetComponent<CoinPlacement>().blitzEvent = false;
+        coinPusher.GetComponent<CoinPusher>().surgeEvent = false;
+
+        StartCoroutine(glassPanel.GetComponent<GlassRemover>().RebuildGlass());
+
+        chosenEvent = "";
     }
 
     void CoinBlitz()
@@ -265,7 +227,7 @@ public class EventsManager : MonoBehaviour
         playerCamera.GetComponent<CoinPlacement>().blitzEvent = true;
         currentEventDuration = coinBlitzDuration;
 
-        glassPanel.SetActive(false);
+        StartCoroutine(glassPanel.GetComponent<GlassRemover>().RemoveGlass());
     }
 
     void PowerSurge()
