@@ -13,21 +13,24 @@ ScriptsOnlyBuild:
     - Data_Interp
     - DeleteCoins
     - EventInfo
+    - EventRandomizer
     - EventsManager
     - FalsePusher
+    - GlassRemover
     - ItemBuilder
     - ItemButton
     - ItemCapsule
-    - ItemCapsuleSelection
     - ItemInfo
     - ItemInventory
+    - ItemRandomizer
+    - Peg
+    - PegManager
     - ShopSystem
     - UI_Manager
     Sirenix.OdinInspector.Editor.dll:
     - Sirenix.OdinInspector.Editor.GeneralDrawerConfig
     - Sirenix.OdinInspector.Editor.ImportSettingsConfig
     - Sirenix.OdinInspector.Editor.InspectorConfig
-    - Sirenix.OdinInspector.Editor.Modules.OdinModuleConfig
     - Sirenix.Serialization.AOTGenerationConfig
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
@@ -133,129 +136,137 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1594}
     - Class: 114
-      Script: {instanceID: 12852}
+      Script: {instanceID: 1604}
     - Class: 114
-      Script: {instanceID: 13032}
+      Script: {instanceID: 1786}
     - Class: 114
-      Script: {instanceID: 13102}
+      Script: {instanceID: 1856}
     - Class: 114
-      Script: {instanceID: 13178}
+      Script: {instanceID: 1932}
     - Class: 114
-      Script: {instanceID: 13194}
+      Script: {instanceID: 1948}
     - Class: 114
-      Script: {instanceID: 13226}
+      Script: {instanceID: 1980}
     - Class: 114
-      Script: {instanceID: 13324}
+      Script: {instanceID: 2078}
     - Class: 114
-      Script: {instanceID: 13618}
+      Script: {instanceID: 2372}
     - Class: 114
-      Script: {instanceID: 13672}
+      Script: {instanceID: 2426}
     - Class: 114
-      Script: {instanceID: 13674}
+      Script: {instanceID: 2428}
     - Class: 114
-      Script: {instanceID: 13702}
+      Script: {instanceID: 2456}
     - Class: 114
-      Script: {instanceID: 14060}
+      Script: {instanceID: 2814}
     - Class: 114
-      Script: {instanceID: 14114}
+      Script: {instanceID: 2868}
     - Class: 114
-      Script: {instanceID: 14220}
+      Script: {instanceID: 2974}
     - Class: 114
-      Script: {instanceID: 14232}
+      Script: {instanceID: 2986}
     - Class: 114
-      Script: {instanceID: 14264}
+      Script: {instanceID: 3018}
     - Class: 114
-      Script: {instanceID: 14412}
+      Script: {instanceID: 3166}
     - Class: 114
-      Script: {instanceID: 14562}
+      Script: {instanceID: 3316}
     - Class: 114
-      Script: {instanceID: 14620}
+      Script: {instanceID: 3374}
     - Class: 114
-      Script: {instanceID: 14674}
+      Script: {instanceID: 3428}
     - Class: 114
-      Script: {instanceID: 14812}
+      Script: {instanceID: 3566}
     - Class: 114
-      Script: {instanceID: 14820}
+      Script: {instanceID: 3574}
     - Class: 114
-      Script: {instanceID: 14866}
+      Script: {instanceID: 3620}
     - Class: 114
-      Script: {instanceID: 14976}
+      Script: {instanceID: 3730}
     - Class: 114
-      Script: {instanceID: 15046}
+      Script: {instanceID: 3800}
     - Class: 114
-      Script: {instanceID: 15104}
+      Script: {instanceID: 3858}
     - Class: 114
-      Script: {instanceID: 15190}
+      Script: {instanceID: 3946}
     - Class: 114
-      Script: {instanceID: 15252}
+      Script: {instanceID: 4008}
     - Class: 114
-      Script: {instanceID: 15254}
+      Script: {instanceID: 4010}
     - Class: 114
-      Script: {instanceID: 15272}
+      Script: {instanceID: 4028}
     - Class: 114
-      Script: {instanceID: 15312}
+      Script: {instanceID: 4068}
     - Class: 114
-      Script: {instanceID: 15406}
+      Script: {instanceID: 4162}
     - Class: 114
-      Script: {instanceID: 15428}
+      Script: {instanceID: 4184}
     - Class: 114
-      Script: {instanceID: 15514}
+      Script: {instanceID: 4270}
     - Class: 114
-      Script: {instanceID: 15524}
+      Script: {instanceID: 4280}
     - Class: 114
-      Script: {instanceID: 15620}
+      Script: {instanceID: 4376}
     - Class: 114
-      Script: {instanceID: 15652}
+      Script: {instanceID: 4408}
     - Class: 114
-      Script: {instanceID: 15694}
+      Script: {instanceID: 4450}
     - Class: 114
-      Script: {instanceID: 15786}
+      Script: {instanceID: 4542}
     - Class: 114
-      Script: {instanceID: 15790}
+      Script: {instanceID: 4546}
     - Class: 114
-      Script: {instanceID: 15866}
+      Script: {instanceID: 4622}
     - Class: 114
-      Script: {instanceID: 15978}
+      Script: {instanceID: 4626}
     - Class: 114
-      Script: {instanceID: 16000}
+      Script: {instanceID: 4736}
     - Class: 114
-      Script: {instanceID: 16164}
+      Script: {instanceID: 4758}
     - Class: 114
-      Script: {instanceID: 16260}
+      Script: {instanceID: 4922}
     - Class: 114
-      Script: {instanceID: 16270}
+      Script: {instanceID: 5018}
     - Class: 114
-      Script: {instanceID: 16476}
+      Script: {instanceID: 5028}
     - Class: 114
-      Script: {instanceID: 16498}
+      Script: {instanceID: 5234}
     - Class: 114
-      Script: {instanceID: 16640}
+      Script: {instanceID: 5256}
     - Class: 114
-      Script: {instanceID: 16658}
+      Script: {instanceID: 5398}
     - Class: 114
-      Script: {instanceID: 16746}
+      Script: {instanceID: 5416}
     - Class: 114
-      Script: {instanceID: 16838}
+      Script: {instanceID: 5504}
     - Class: 114
-      Script: {instanceID: 16844}
+      Script: {instanceID: 5596}
     - Class: 114
-      Script: {instanceID: 16894}
+      Script: {instanceID: 5602}
     - Class: 114
-      Script: {instanceID: 16938}
+      Script: {instanceID: 5652}
     - Class: 114
-      Script: {instanceID: 17324}
+      Script: {instanceID: 5696}
     - Class: 114
-      Script: {instanceID: 17372}
+      Script: {instanceID: 6030}
     - Class: 114
-      Script: {instanceID: 17386}
+      Script: {instanceID: 6084}
     - Class: 114
-      Script: {instanceID: 17474}
+      Script: {instanceID: 6132}
     - Class: 114
-      Script: {instanceID: 17784}
+      Script: {instanceID: 6146}
     - Class: 114
-      Script: {instanceID: 17878}
+      Script: {instanceID: 6364}
     - Class: 114
-      Script: {instanceID: 18084}
+      Script: {instanceID: 6548}
+    - Class: 114
+      Script: {instanceID: 6642}
+    - Class: 114
+      Script: {instanceID: 6734}
+    - Class: 114
+      Script: {instanceID: 6850}
+    - Class: 114
+      Script: {instanceID: 6940}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -269,6 +280,10 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 198
+      Script: {instanceID: 0}
+    - Class: 199
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -751,7 +766,7 @@ ScriptsOnlyBuild:
     className: SplitToning
   - hash:
       serializedVersion: 2
-      Hash: 6f6743574878729c31a59517d38c6d5f
+      Hash: 45cc6cd539a162da376aaaba2ce12b5c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ItemButton
@@ -973,7 +988,7 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: 3f8aa86c506e973878e5b05e532a8aae
+      Hash: 9e1d817671e5e5cfbf24fdde82f00929
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CoinLogic
@@ -1093,6 +1108,12 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: 697251e8c5cc0fb4264ed94cdea25839
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Peg
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
@@ -1165,7 +1186,7 @@ ScriptsOnlyBuild:
     className: AudioPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 80540a22c1d9316d7b026bcf13a0d9f8
+      Hash: 9b5a625dbc13b372d7521a3363accb6c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UI_Manager
@@ -1213,7 +1234,7 @@ ScriptsOnlyBuild:
     className: FalsePusher
   - hash:
       serializedVersion: 2
-      Hash: daff8daa3e3b2f359201ae91a02799bc
+      Hash: a9104230798ca7cc7f76b2aeb39a4aff
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EventsManager
@@ -1303,7 +1324,7 @@ ScriptsOnlyBuild:
     className: ShadowsMidtonesHighlights
   - hash:
       serializedVersion: 2
-      Hash: 14191d78f3b4598eecdf1ca747afd3b6
+      Hash: e2836f970d5274c07788eea5eedf2e1e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ItemInventory
@@ -1363,6 +1384,12 @@ ScriptsOnlyBuild:
     className: PaniniProjection
   - hash:
       serializedVersion: 2
+      Hash: 00c06ef9a7466bc97ce4654f6d7a3cb2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PegManager
+  - hash:
+      serializedVersion: 2
       Hash: 91c66736e3507bbd3c15a9b02abea21b
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
@@ -1393,7 +1420,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerButton
   - hash:
       serializedVersion: 2
-      Hash: 5a62621498ed1b6fe8284b49b5a8edb1
+      Hash: 502bfb9d39e005811bcfc5cf16268d52
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ItemBuilder
@@ -1403,12 +1430,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Experimental.Rendering.Universal
     className: CinemachineUniversalPixelPerfect
-  - hash:
-      serializedVersion: 2
-      Hash: 52fc279e41320dca802fccbbf3c202c5
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ItemCapsuleSelection
   - hash:
       serializedVersion: 2
       Hash: fd68d84f33fad85aac38f2739c0ee270
@@ -1427,6 +1448,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_ScrollbarEventHandler
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EventRandomizer
   - hash:
       serializedVersion: 2
       Hash: 8c328a0ffa03c1bcb9332bb39f4f8453
@@ -1465,6 +1492,12 @@ ScriptsOnlyBuild:
     className: CoinRowPrinter
   - hash:
       serializedVersion: 2
+      Hash: eed474d00e18da2433b61e0a884d1682
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ItemRandomizer
+  - hash:
+      serializedVersion: 2
       Hash: 8220b46879dc5e37db1b940c938f5744
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -1487,7 +1520,13 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: b1d90e8267863a9ee7ac06fb85e82711
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GlassRemover
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main Menu.unity
-  playerPath: C:/Users/Harris/Desktop/Unity Project's/Builds/Coin Machine Game.exe
+  playerPath: I:/Unity Builds/Ludificor/Coin Game/Coin Machine Game.exe
