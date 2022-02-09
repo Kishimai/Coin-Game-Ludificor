@@ -218,7 +218,10 @@ public class EventsManager : MonoBehaviour
         playerCamera.GetComponent<CoinPlacement>().blitzEvent = false;
         coinPusher.GetComponent<CoinPusher>().surgeEvent = false;
 
-        StartCoroutine(glassPanel.GetComponent<GlassRemover>().RebuildGlass());
+        if (chosenEvent == "CoinBlitz")
+        {
+            StartCoroutine(glassPanel.GetComponent<GlassRemover>().RebuildGlass());
+        }
 
         chosenEvent = "";
     }
