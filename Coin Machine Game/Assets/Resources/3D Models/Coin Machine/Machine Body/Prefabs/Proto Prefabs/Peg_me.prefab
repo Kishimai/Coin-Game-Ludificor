@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4411754009461924752}
   - component: {fileID: 1935780020957140826}
   - component: {fileID: 4136085311042472611}
+  - component: {fileID: 4855276353349457536}
   m_Layer: 0
   m_Name: Peg_me
   m_TagString: machine_colliders
@@ -96,3 +97,15 @@ CapsuleCollider:
   m_Height: 0.02895
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4855276353349457536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134467920429151887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e9a4ec0a6c4a546bfb6e8a677df8ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

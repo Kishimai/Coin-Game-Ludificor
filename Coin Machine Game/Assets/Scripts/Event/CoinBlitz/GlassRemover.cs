@@ -10,20 +10,29 @@ public class GlassRemover : MonoBehaviour
     public Vector3 startPosition;
     public Vector3 endPosition;
 
+    public Vector3 glassPanelStartPosition;
+    public Vector3 glassPanelEndPosition;
+
     private float journeyLength;
 
     public float travelSpeed;
 
     public ParticleSystem glassEffect;
 
+    public GameObject glassObject;
+
+    private GameObject eventManager;
+
     // Start is called before the first frame update
     void Start()
     {
-        // start particle effects
+        eventManager = GameObject.FindGameObjectWithTag("gameplay_event_system");
     }
 
     public IEnumerator RemoveGlass()
     {
+        eventManager.GetComponent<EventsManager>().animationFinished = false;
+
         animatedObject.transform.localPosition = startPosition;
 
         //animatedObject.SetActive(true);
@@ -40,13 +49,13 @@ public class GlassRemover : MonoBehaviour
         {
             timeSpent += Time.deltaTime;
 
-            Debug.Log(timeSpent);
-
             float distanceCovered = (Time.time - startTime) * travelSpeed;
 
             float fractionOfJourney = distanceCovered / journeyLength;
 
             animatedObject.transform.localPosition = Vector3.Lerp(startPosition, endPosition, fractionOfJourney);
+
+            glassObject.transform.localPosition = Vector3.Lerp(glassPanelStartPosition, glassPanelEndPosition, fractionOfJourney);
 
             if (Mathf.Approximately(animatedObject.transform.localPosition.z, endPosition.z))
             {
@@ -56,11 +65,15 @@ public class GlassRemover : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        //animatedObject.SetActive(false);
+        //glassObject.SetActive(false);
+
+        eventManager.GetComponent<EventsManager>().animationFinished = true;
     }
 
     public IEnumerator RebuildGlass()
     {
+        eventManager.GetComponent<EventsManager>().animationFinished = false;
+
         animatedObject.transform.localPosition = endPosition;
 
         //animatedObject.SetActive(true);
@@ -79,6 +92,8 @@ public class GlassRemover : MonoBehaviour
 
             animatedObject.transform.localPosition = Vector3.Lerp(endPosition, startPosition, fractionOfJourney);
 
+            glassObject.transform.localPosition = Vector3.Lerp(glassPanelEndPosition, glassPanelStartPosition, fractionOfJourney);
+
             if (Mathf.Approximately(animatedObject.transform.localPosition.z, startPosition.z))
             {
                 break;
@@ -87,6 +102,8 @@ public class GlassRemover : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        //animatedObject.SetActive(false);
+        //glassObject.SetActive(true);
+
+        eventManager.GetComponent<EventsManager>().animationFinished = true;
     }
 }

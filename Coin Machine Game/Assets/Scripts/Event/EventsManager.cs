@@ -58,6 +58,8 @@ public class EventsManager : MonoBehaviour
     public float timeUntilNextEventCheck;
     // After event check occours, reset its value to waitTime
     public float waitTime;
+    // Used to stop event countdown until animations and flashy effects from event are finished
+    public bool animationFinished;
 
     public string chosenEvent = "";
 
@@ -81,6 +83,8 @@ public class EventsManager : MonoBehaviour
 
     public float surgePusherSpeed;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -100,6 +104,7 @@ public class EventsManager : MonoBehaviour
         // Enables the initialization phase
         initializationPhase = true;
         timeUntilNextEventCheck = waitTime;
+        animationFinished = true;
     }
 
     // Update is called once per frame
@@ -173,7 +178,7 @@ public class EventsManager : MonoBehaviour
         coinDestroyer.GetComponent<DeleteCoins>().gameplayIsReady = true;
 
         // If an event is not going on, decrease time until next event check
-        if (currentEventDuration <= 0)
+        if (currentEventDuration <= 0 && animationFinished)
         {
             timeUntilNextEventCheck -= Time.deltaTime;
 
@@ -183,7 +188,7 @@ public class EventsManager : MonoBehaviour
             }
         }
         // If an event is going on, decrease its remaining duration
-        else
+        else if (currentEventDuration > 0 && animationFinished)
         {
             currentEventDuration -= Time.deltaTime;
         }

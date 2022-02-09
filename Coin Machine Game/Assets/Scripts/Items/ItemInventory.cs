@@ -19,6 +19,8 @@ public class ItemInventory : MonoBehaviour
     public int availablePrizes;
     public Text availablePrizesText;
 
+    public GameObject pegManager;
+
     // Start is called before the first frame update
     void Start()
     {
