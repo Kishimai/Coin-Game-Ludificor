@@ -7,6 +7,9 @@ public class CoinLogic : MonoBehaviour
     public Rigidbody coinRb;
     public GameObject eventManager;
     public GameObject coin;
+    public GameObject guildedBumper;
+
+    public float pegValueModifier = 0;
 
     public bool inPlinkoZone;
 
@@ -31,5 +34,10 @@ public class CoinLogic : MonoBehaviour
         {
             coinRb.constraints = RigidbodyConstraints.None;
         }
+    }
+
+    public void ActivateBumper()
+    {
+        guildedBumper.SetActive(true);
     }
 }

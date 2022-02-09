@@ -13,13 +13,11 @@ public class PegManager : MonoBehaviour
 
     public List<GameObject> modifiedPegs = new List<GameObject>();
 
-    public List<GameObject> removedPegs = new List<GameObject>();
-
     public int numPegsToRemove;
 
-    public float regularPegValueModifier = 1;
-    public float goldPegValueModifier = 1.5f;
-    public float diamondPegValueModifier = 2;
+    public float regularPegValueModifier = 0;
+    public float goldPegValueModifier = 0.5f;
+    public float diamondPegValueModifier = 1f;
 
     public Material regularPegMaterial;
     public Material goldPegMaterial;
@@ -37,11 +35,6 @@ public class PegManager : MonoBehaviour
         
     }
 
-    public void ApplyItemValues()
-    {
-        ChangePegAttributes();
-    }
-
     void CompilePegsAndRows()
     {
         // Finds all child objects of peg collection (in this case its the peg rows)
@@ -54,13 +47,37 @@ public class PegManager : MonoBehaviour
                 allPegs.Add(peg.transform.gameObject);
             }
         }
+
+        foreach (GameObject peg in allPegs)
+        {
+            unmodifiedPegs.Add(peg);
+        }
     }
 
-    GameObject SelectRandomPeg(string typeOfPeg)
+    GameObject SelectUnmodifiedPeg()
     {
         GameObject chosenPeg;
 
-        chosenPeg = allPegs[Random.Range(0, allPegs.Count)];
+        chosenPeg = unmodifiedPegs[Random.Range(0, allPegs.Count)];
+
+        return chosenPeg;
+    }
+
+    GameObject SelectNonDisabledAndUnmodifiedPeg()
+    {
+        GameObject chosenPeg;
+
+        List<GameObject> nonDisabledPegs = new List<GameObject>();
+
+        foreach (GameObject peg in unmodifiedPegs)
+        {
+            if (peg.activeSelf)
+            {
+                nonDisabledPegs.Add(peg);
+            }
+        }
+
+        chosenPeg = nonDisabledPegs[Random.Range(0, nonDisabledPegs.Count)];
 
         return chosenPeg;
     }
@@ -69,26 +86,76 @@ public class PegManager : MonoBehaviour
     {
         GameObject pegToRemove;
 
-        for (int i = 0; i > numPegsToRemove; ++i)
+        for (int i = 0; i < numPegsToRemove; ++i)
         {
-            pegToRemove = SelectRandomPeg("unmodified");
-
-            removedPegs.Add(pegToRemove);
+            pegToRemove = SelectNonDisabledAndUnmodifiedPeg();
 
             pegToRemove.SetActive(false);
         }
     }
 
-    public void ReplacePegs()
+    public void ChangePegAttributes(string pegMaterialName)
     {
-
-    }
-
-    void ChangePegAttributes()
-    {
+        // pegMaterialName = "normal", "gold", "diamond"
         GameObject pegToChange;
 
-        pegToChange = SelectRandomPeg("unmodified");
+        List<GameObject> disabledPegs = new List<GameObject>();
+
+        foreach (GameObject peg in allPegs)
+        {
+            if (!peg.activeSelf)
+            {
+                disabledPegs.Add(peg);
+            }
+        }
+
+        // If there are no disabled pegs, pick a peg from the unmodified list
+        if (disabledPegs.Count == 0)
+        {
+            pegToChange = unmodifiedPegs[Random.Range(0, allPegs.Count)];
+            
+            if (pegMaterialName.Equals("gold"))
+            {
+                pegToChange.GetComponent<Peg>().ModifyPeg(goldPegValueModifier, goldPegMaterial);
+                unmodifiedPegs.Remove(pegToChange);
+            }
+            else if (pegMaterialName.Equals("diamond"))
+            {
+                pegToChange.GetComponent<Peg>().ModifyPeg(diamondPegValueModifier, diamondPegMaterial);
+                unmodifiedPegs.Remove(pegToChange);
+            }
+            else
+            {
+                // Probably not needed since there wont be items that harm the gameplay or make it harder for the player
+                Debug.Log("Convert peg to normal version");
+            }
+
+            //pegToChange.GetComponent<Peg>().ModifyPeg(VALUEMODIFIER, PEGMATERIAL);
+        }
+        // If there are disabled pegs, pick a peg from the list of disabled ones
+        else
+        {
+            pegToChange = disabledPegs[Random.Range(0, disabledPegs.Count)];
+            pegToChange.SetActive(true);
+
+            if (pegMaterialName.Equals("gold"))
+            {
+                pegToChange.GetComponent<Peg>().ModifyPeg(goldPegValueModifier, goldPegMaterial);
+                unmodifiedPegs.Remove(pegToChange);
+            }
+            else if (pegMaterialName.Equals("diamond"))
+            {
+                pegToChange.GetComponent<Peg>().ModifyPeg(diamondPegValueModifier, diamondPegMaterial);
+                unmodifiedPegs.Remove(pegToChange);
+            }
+            else
+            {
+                // Probably not needed since there wont be items that harm the gameplay or make it harder for the player
+                Debug.Log("Convert peg to normal version");
+            }
+
+            // pegToChange.GetComponent<Peg>().ModifyPeg(VALUEMODIFIER, PEGMATERIAL);
+        }
 
 
 

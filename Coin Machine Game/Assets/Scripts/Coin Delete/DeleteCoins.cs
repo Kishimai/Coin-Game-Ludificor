@@ -54,20 +54,28 @@ public class DeleteCoins : MonoBehaviour
         }
     }
 
+    // Calculates modifier for coin value
+    private float CalculateModifier(Collider other)
+    {
+        float modifier = 0;
+
+        float valueFromPegEffects = other.GetComponentInParent<CoinLogic>().pegValueModifier;
+
+        modifier = valueModifier + valueFromPegEffects;
+
+        return modifier;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         // Runs if object that collides with Coin Destroyer is a coin
         if (other.gameObject.tag == "coin" && eventManager.GetComponent<EventsManager>().playerIsReady)
         {
-            
+            Mathf.FloorToInt(_manager._currentCoin += other.GetComponentInParent<Data_Interp>().data.currentValue * CalculateModifier(other));
+            ++coinCounter;
 
             // Destroys the coin in the most recent collision event
             Destroy(other.gameObject.transform.parent.gameObject);
-            // Increases coin counter by one (Remove this and put it in update)
-
-            //Debug.Log(other.gameObject.GetComponent<Data_Interp>());
-            _manager._currentCoin += other.gameObject.transform.parent.GetComponent<Data_Interp>().data.currentValue * valueModifier;
-            ++coinCounter;
         }
 
         if (other.gameObject.tag == "item" && eventManager.GetComponent<EventsManager>().playerIsReady)

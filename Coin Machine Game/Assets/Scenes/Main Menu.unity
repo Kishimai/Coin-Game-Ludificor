@@ -19821,6 +19821,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8273043753980564935, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
+      propertyPath: goldPegMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 83599ed7d2a6d6f4abe89910c7e8f3c1, type: 2}
+    - target: {fileID: 8273043753980564935, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
+      propertyPath: diamondPegMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 6f2117ebef771ec49abee44e24c6c543, type: 2}
+    - target: {fileID: 8273043753980564935, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
+      propertyPath: regularPegMaterial
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 614ed036d645d3b44bf7785cfa29e26d, type: 3}
     - target: {fileID: 8931801586789544986, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -30939,10 +30951,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   commonItems:
   - midas_shard
+  - peg_remove_mk1
   uncommonItems:
   - midas_crystal
+  - peg_remove_mk2
+  - golden_peg
   rareItems:
   - midas_relic
+  - peg_remove_mk3
+  - diamond_peg
   collectedItems: []
   coinValueModifier: 0
   newItem: 

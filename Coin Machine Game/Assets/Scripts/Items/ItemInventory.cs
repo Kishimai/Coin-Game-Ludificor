@@ -63,35 +63,36 @@ public class ItemInventory : MonoBehaviour
             case "midas_shard":
                 // Increases value modifier by 1%
                 coinValueModifier += 0.01f;
-                break;
+                return newItem;
 
             case "midas_crystal":
                 // Increases value modifier by 5%
                 coinValueModifier += 0.05f;
-                break;
+                return newItem;
 
             // Runs if new item is midas relic
             case "midas_relic":
                 // Increases value modifier by 10%
                 coinValueModifier += 0.1f;
-                break;
+                return newItem;
 
             // --------------- PEG REMOVER ITEMS --------------- //
 
             case "peg_remove_mk1":
-                // Run peg remove method in peg script and pass value of 1
-                break;
+                pegManager.GetComponent<PegManager>().RemovePegs(1);
+                return null;
 
             case "peg_remove_mk2":
-                // Run peg remove method in peg script and pass value of 2
-                break;
+                pegManager.GetComponent<PegManager>().RemovePegs(2);
+                return null;
 
             case "peg_remove_mk3":
-                // Run peg remove method in peg script and pass value of 3
-                break;
+                pegManager.GetComponent<PegManager>().RemovePegs(3);
+                return null;
 
             // --------------- GUILDED ITEMS --------------- //
             case "golden_peg":
+                pegManager.GetComponent<PegManager>().ChangePegAttributes("gold");
                 // Run peg modify method in peg script
                 // Peg names are pegX-pegY, where x is a number (keeps dictionary keys unique)
                 // Randomly pick peg in dictionary
@@ -103,12 +104,13 @@ public class ItemInventory : MonoBehaviour
                 // Compile all into new dict
                 // If new dict has at least 1 key, pick a random one
                 // Activate that peg and convert it to a golden version
-                
+
                 // If no pegs are found in that new dict, pick a random one in the normal dictionary and do the above process 
                 // (minus setting active state and compilation of new dict)
-                break;
+                return newItem;
 
             case "diamond_peg":
+                pegManager.GetComponent<PegManager>().ChangePegAttributes("diamond");
                 // Run peg modify method in peg script
                 // Peg names are pegX-pegY, where x is a number (keeps dictionary keys unique)
                 // Randomly pick peg in dictionary
@@ -123,18 +125,18 @@ public class ItemInventory : MonoBehaviour
 
                 // If no pegs are found in that new dict, pick a random one in the normal dictionary and do the above process
                 // (minus setting active state and compilation of new dict)
-                break;
+                return newItem;
 
             // --------------- TO BE ADDED ITEMS --------------- //
 
             // Runs if new item's tag does not match a case in this switch statement
             default:
                 Debug.LogWarning("New item not known by IntakeItem() in script on: " + gameObject.name);
-                break;
+                return null;
         }
 
         // Returns the new item, assigning it to the list
-        return newItem;
+        //return newItem;
     }
 
     public void OpenCapsule()
