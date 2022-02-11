@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CoinLogic : MonoBehaviour
 {
@@ -8,8 +9,15 @@ public class CoinLogic : MonoBehaviour
     public GameObject eventManager;
     public GameObject coin;
     public GameObject guildedBumper;
+    public GameObject crystalShell;
+    public GameObject coinCanvas;
+    public Text canvasTextHead;
+    public Text canvasTextTail;
 
-    public float pegValueModifier = 0;
+    public int gildedModifier = 0;
+    public int crystalModifier = 0;
+
+    public int totalValueModifier = 0;
 
     public bool inPlinkoZone;
 
@@ -34,10 +42,30 @@ public class CoinLogic : MonoBehaviour
         {
             coinRb.constraints = RigidbodyConstraints.None;
         }
+
+        totalValueModifier = gildedModifier + crystalModifier;
+
+        if (!Mathf.Approximately(totalValueModifier, 0))
+        {
+            coinCanvas.SetActive(true);
+            canvasTextHead.text = string.Format("{0}x", totalValueModifier);
+            canvasTextTail.text = string.Format("{0}x", totalValueModifier);
+        }
+        else
+        {
+            coinCanvas.SetActive(false);
+        }
     }
 
     public void ActivateBumper()
     {
         guildedBumper.SetActive(true);
     }
+
+    public void ActivateCrystalShell()
+    {
+        crystalShell.SetActive(true);
+    }
+
+
 }

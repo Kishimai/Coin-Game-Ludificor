@@ -33,6 +33,8 @@ public class UI_Manager : MonoBehaviour
     [BoxGroup("Current Datas")]
     public float _currentCoin;
 
+    public int currentUIMenu;
+
     public void Update_UI(int data){
         switch(data){
             case 1: // Settings
@@ -50,6 +52,7 @@ public class UI_Manager : MonoBehaviour
 
                 Debug.Log("Case: 1");
 
+                currentUIMenu = 1;
                 break;
             case 2: // Collectibles
                 Collectibles.SetActive(true);
@@ -66,6 +69,7 @@ public class UI_Manager : MonoBehaviour
 
                 Debug.Log("Case: 2");
 
+                currentUIMenu = 2;
                 break;
             case 3: // Selection
                 Selection.SetActive(true);
@@ -83,6 +87,7 @@ public class UI_Manager : MonoBehaviour
 
                 Debug.Log("Case: 3");
 
+                currentUIMenu = 3;
                 break;
             case 4: // InGame UI Panel
                 Selection.SetActive(false);
@@ -99,6 +104,7 @@ public class UI_Manager : MonoBehaviour
 
                 Debug.Log("Case: 4");
 
+                currentUIMenu = 4;
                 break;
             case 5: // Paused Game Panel
                 Selection.SetActive(false);
@@ -115,6 +121,7 @@ public class UI_Manager : MonoBehaviour
 
                 Debug.Log("Case: 5");
 
+                currentUIMenu = 5;
                 break;
             case 6: // Menu for selecting item capsules
                 Selection.SetActive(false);
@@ -130,6 +137,7 @@ public class UI_Manager : MonoBehaviour
                 LoadingScreen.SetActive(false);
                 Debug.Log("Case: 6");
 
+                currentUIMenu = 6;
                 break;
             case 7: // Loading screen while game is preparing
                 Selection.SetActive(false);
@@ -143,6 +151,8 @@ public class UI_Manager : MonoBehaviour
                 OpenCapsuleButton.SetActive(false);
                 ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(true);
+
+                currentUIMenu = 7;
                 break;
 
             case 8:
@@ -157,6 +167,8 @@ public class UI_Manager : MonoBehaviour
                 OpenCapsuleButton.SetActive(false);
                 ItemSelection.SetActive(true);
                 LoadingScreen.SetActive(false);
+
+                currentUIMenu = 8;
                 break;
         }
     }

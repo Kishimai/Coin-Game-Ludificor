@@ -59,7 +59,7 @@ public class DeleteCoins : MonoBehaviour
     {
         float modifier = 0;
 
-        float valueFromPegEffects = other.GetComponentInParent<CoinLogic>().pegValueModifier;
+        float valueFromPegEffects = other.GetComponentInParent<CoinLogic>().totalValueModifier;
 
         modifier = valueModifier + valueFromPegEffects;
 

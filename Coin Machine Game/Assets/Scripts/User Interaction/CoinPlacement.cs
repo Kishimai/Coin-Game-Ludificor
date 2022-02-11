@@ -24,6 +24,8 @@ public class CoinPlacement : MonoBehaviour
     // !(EventsManager is responsible for deciding game states)!
     public bool gameplayIsReady;
 
+    private GameObject gameManager;
+
     // Drop zone layer is to be assigned to the "Drop Zone" object, which is responsible for allowing the player to place coins at all
     // When the mouse cursor is hovering over the "Drop Zone" the player will be allowed to place coins
     private int dropZoneLayer = 6;
@@ -33,6 +35,11 @@ public class CoinPlacement : MonoBehaviour
     private float dropCooldown;
     // Drop cooldown gets its value from maxCooldown (set maxCooldown to the wanted value depending on game states, events, or other situations)
     public float maxCooldown;
+
+    public float minXDropClamp;
+    public float maxXDropClamp;
+    public float yClamp;
+    public float zClamp;
 
     public bool blitzEvent = false;
     public float blitzCooldown;
@@ -53,6 +60,7 @@ public class CoinPlacement : MonoBehaviour
         // Doing this ensures that ONLY the drop zone layer is saved to the layer mask
         dropZoneLayerMask = (1 << dropZoneLayer);
 
+        gameManager = GameObject.FindGameObjectWithTag("game_manager");
     }
 
     // Update is called once per frame
@@ -68,8 +76,11 @@ public class CoinPlacement : MonoBehaviour
 
             // Makes coin guide appear like the selected coin (Need to strip all properties and physics interactions from the guide!)
             //coinGuide = selectedCoin;
-                               
-            MouseTracking();
+
+            if (gameManager.GetComponent<UI_Manager>().currentUIMenu == 4)
+            {
+                MouseTracking();
+            }
         }
 
     }
@@ -96,13 +107,19 @@ public class CoinPlacement : MonoBehaviour
                 coinGuide.SetActive(false);
             }
 
+            float clampedX = Mathf.Clamp(hit.point.x, minXDropClamp, maxXDropClamp);
+            float clampedY = Mathf.Clamp(hit.point.y, yClamp, yClamp + 0.1f);
+            float clampedZ = Mathf.Clamp(hit.point.z, zClamp, zClamp + 0.1f);
+
+            Vector3 clampedPosition = new Vector3(clampedX, clampedY, clampedZ);
+
             // Ensures that the coin guide's position is always where the mouse cursor is
-            coinGuide.transform.position = new Vector3(hit.point.x, hit.point.y, hit.point.z + 0.1f);
+            coinGuide.transform.position = clampedPosition;
 
             // Runs if the player clicks the left mouse button
             if (Input.GetButtonDown("Fire1"))
             {
-                DropLogic(hit.point);
+                DropLogic(clampedPosition);
             }
 
         }
@@ -115,19 +132,20 @@ public class CoinPlacement : MonoBehaviour
         }
     }
 
-    void DropLogic(Vector3 hit)
+    void DropLogic(Vector3 clampedPosition)
     {
         if (dropCooldown <= 0 && blitzEvent == false)
         {
             generation.GetPlacementData();
             // Places the currently selected coin >> Changing its Component every placement
-            Instantiate(selectedCoin, new Vector3(hit.x, hit.y, hit.z + 0.1f), Quaternion.Euler(90, 0, 0));
+            Instantiate(selectedCoin, clampedPosition, Quaternion.Euler(90, 0, 0));
             dropCooldown = maxCooldown;
         }
         else if (dropCooldown <= 0 && blitzEvent == true)
         {
             generation.GetPlacementData();
-            Instantiate(selectedCoin, new Vector3(hit.x, hit.y, hit.z + 0.1f), Quaternion.Euler(90, 0, 0));
+            Vector3 blitzPosition = new Vector3(clampedPosition.x, clampedPosition.y, clampedPosition.z + 1.1f);
+            Instantiate(selectedCoin, blitzPosition, Quaternion.Euler(90, 0, 0));
             dropCooldown = blitzCooldown;
         }
     }

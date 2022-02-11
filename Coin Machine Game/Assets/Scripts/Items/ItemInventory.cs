@@ -55,6 +55,19 @@ public class ItemInventory : MonoBehaviour
     // Responsible for determining the item the player chose, and altering values based on that
     string IntakeItem()
     {
+        --availablePrizes;
+
+        if (availablePrizes <= 0)
+        {
+            availablePrizes = 0;
+            GetComponent<UI_Manager>().Update_UI(4);
+        }
+        else
+        {
+            GetComponent<UI_Manager>().Update_UI(6);
+            GetComponent<UI_Manager>().Update_UI(8);
+        }
+
         switch (newItem)
         {
             // --------------- MIDAS ITEMS --------------- //
@@ -141,11 +154,13 @@ public class ItemInventory : MonoBehaviour
 
     public void OpenCapsule()
     {
+
         if (availablePrizes > 0)
         {
-            --availablePrizes;
+            //--availablePrizes;
             GetComponent<UI_Manager>().Update_UI(8);
         }
+
     }
 
 }

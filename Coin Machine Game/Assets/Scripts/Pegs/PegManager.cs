@@ -16,12 +16,8 @@ public class PegManager : MonoBehaviour
     public int numPegsToRemove;
 
     public float regularPegValueModifier = 0;
-    public float goldPegValueModifier = 0.5f;
-    public float diamondPegValueModifier = 1f;
-
-    public Material regularPegMaterial;
-    public Material goldPegMaterial;
-    public Material diamondPegMaterial;
+    private int goldPegValueModifier = 2;
+    private int diamondPegValueModifier = 3;
 
     // Start is called before the first frame update
     void Start()
@@ -96,6 +92,9 @@ public class PegManager : MonoBehaviour
 
     public void ChangePegAttributes(string pegMaterialName)
     {
+        // CONVERT DISABLED PEGS TO A GLOBAL OBJECT
+        // MIGHT BE WHERE ISSUE IS LOCATED
+
         // pegMaterialName = "normal", "gold", "diamond"
         GameObject pegToChange;
 
@@ -116,13 +115,13 @@ public class PegManager : MonoBehaviour
             
             if (pegMaterialName.Equals("gold"))
             {
-                pegToChange.GetComponent<Peg>().ModifyPeg(goldPegValueModifier, goldPegMaterial);
-                unmodifiedPegs.Remove(pegToChange);
+                // Modifies peg with values: valueModifier, pegMaterial, isGolden, isDiamond
+                pegToChange.GetComponent<Peg>().ModifyPeg(goldPegValueModifier, "gold", true, false);
             }
             else if (pegMaterialName.Equals("diamond"))
             {
-                pegToChange.GetComponent<Peg>().ModifyPeg(diamondPegValueModifier, diamondPegMaterial);
-                unmodifiedPegs.Remove(pegToChange);
+                // Modifies peg with values: valueModifier, pegMaterial, isGolden, isDiamond
+                pegToChange.GetComponent<Peg>().ModifyPeg(diamondPegValueModifier, "diamond", false, true);
             }
             else
             {
@@ -140,13 +139,13 @@ public class PegManager : MonoBehaviour
 
             if (pegMaterialName.Equals("gold"))
             {
-                pegToChange.GetComponent<Peg>().ModifyPeg(goldPegValueModifier, goldPegMaterial);
-                unmodifiedPegs.Remove(pegToChange);
+                // Modifies peg with values: valueModifier, pegMaterial, isGolden, isDiamond
+                pegToChange.GetComponent<Peg>().ModifyPeg(goldPegValueModifier, "gold", true, false);
             }
             else if (pegMaterialName.Equals("diamond"))
             {
-                pegToChange.GetComponent<Peg>().ModifyPeg(diamondPegValueModifier, diamondPegMaterial);
-                unmodifiedPegs.Remove(pegToChange);
+                // Modifies peg with values: valueModifier, pegMaterial, isGolden, isDiamond
+                pegToChange.GetComponent<Peg>().ModifyPeg(diamondPegValueModifier, "diamond", false, true);
             }
             else
             {
@@ -157,7 +156,7 @@ public class PegManager : MonoBehaviour
             // pegToChange.GetComponent<Peg>().ModifyPeg(VALUEMODIFIER, PEGMATERIAL);
         }
 
-
+        unmodifiedPegs.Remove(pegToChange);
 
         //pegToChange.GetComponent<Peg>().ModifyPeg(chosenPegValue, chosenMaterial);
     }
