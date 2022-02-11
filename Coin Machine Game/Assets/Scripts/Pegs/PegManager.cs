@@ -16,8 +16,8 @@ public class PegManager : MonoBehaviour
     public int numPegsToRemove;
 
     public float regularPegValueModifier = 0;
-    private int goldPegValueModifier = 2;
-    private int diamondPegValueModifier = 3;
+    private int goldPegValueModifier = 3;
+    private int diamondPegValueModifier = 4;
 
     // Start is called before the first frame update
     void Start()
@@ -90,7 +90,7 @@ public class PegManager : MonoBehaviour
         }
     }
 
-    public void ChangePegAttributes(string pegMaterialName)
+    public void ChangePegAttributes(string pegTyping)
     {
         // CONVERT DISABLED PEGS TO A GLOBAL OBJECT
         // MIGHT BE WHERE ISSUE IS LOCATED
@@ -113,12 +113,12 @@ public class PegManager : MonoBehaviour
         {
             pegToChange = unmodifiedPegs[Random.Range(0, allPegs.Count)];
             
-            if (pegMaterialName.Equals("gold"))
+            if (pegTyping.Equals("gold"))
             {
                 // Modifies peg with values: valueModifier, pegMaterial, isGolden, isDiamond
                 pegToChange.GetComponent<Peg>().ModifyPeg(goldPegValueModifier, "gold", true, false);
             }
-            else if (pegMaterialName.Equals("diamond"))
+            else if (pegTyping.Equals("diamond"))
             {
                 // Modifies peg with values: valueModifier, pegMaterial, isGolden, isDiamond
                 pegToChange.GetComponent<Peg>().ModifyPeg(diamondPegValueModifier, "diamond", false, true);
@@ -137,12 +137,12 @@ public class PegManager : MonoBehaviour
             pegToChange = disabledPegs[Random.Range(0, disabledPegs.Count)];
             pegToChange.SetActive(true);
 
-            if (pegMaterialName.Equals("gold"))
+            if (pegTyping.Equals("gold"))
             {
                 // Modifies peg with values: valueModifier, pegMaterial, isGolden, isDiamond
                 pegToChange.GetComponent<Peg>().ModifyPeg(goldPegValueModifier, "gold", true, false);
             }
-            else if (pegMaterialName.Equals("diamond"))
+            else if (pegTyping.Equals("diamond"))
             {
                 // Modifies peg with values: valueModifier, pegMaterial, isGolden, isDiamond
                 pegToChange.GetComponent<Peg>().ModifyPeg(diamondPegValueModifier, "diamond", false, true);

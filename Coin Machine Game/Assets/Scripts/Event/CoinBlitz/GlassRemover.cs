@@ -29,6 +29,8 @@ public class GlassRemover : MonoBehaviour
         eventManager = GameObject.FindGameObjectWithTag("gameplay_event_system");
     }
 
+    // MAKE PEGS RECEDE INTO MACHINE WHEN BLITZ HAPPENS
+
     public IEnumerator RemoveGlass()
     {
         eventManager.GetComponent<EventsManager>().animationFinished = false;

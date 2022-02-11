@@ -16,6 +16,7 @@ public class CoinLogic : MonoBehaviour
 
     public int gildedModifier = 0;
     public int crystalModifier = 0;
+    public int comboMultiplier = 0;
 
     public int totalValueModifier = 0;
 
@@ -43,13 +44,13 @@ public class CoinLogic : MonoBehaviour
             coinRb.constraints = RigidbodyConstraints.None;
         }
 
-        totalValueModifier = gildedModifier + crystalModifier;
+        totalValueModifier = gildedModifier + crystalModifier + comboMultiplier;
 
         if (!Mathf.Approximately(totalValueModifier, 0))
         {
             coinCanvas.SetActive(true);
-            canvasTextHead.text = string.Format("{0}x", totalValueModifier);
-            canvasTextTail.text = string.Format("{0}x", totalValueModifier);
+            canvasTextHead.text = string.Format("{0}{1}", totalValueModifier, "x");
+            canvasTextTail.text = string.Format("{0}{1}", totalValueModifier, "x");
         }
         else
         {
@@ -57,15 +58,28 @@ public class CoinLogic : MonoBehaviour
         }
     }
 
-    public void ActivateBumper()
+    public void ActivateBumper(int multiplier)
     {
+        gildedModifier = multiplier;
         guildedBumper.SetActive(true);
     }
 
-    public void ActivateCrystalShell()
+    public void ActivateCrystalShell(int multiplier)
     {
+        crystalModifier = multiplier;
         crystalShell.SetActive(true);
     }
 
+    public void ComboMultiplier()
+    {
+        if (comboMultiplier == 0)
+        {
+            comboMultiplier = 2;
+        }
+        else
+        {
+            comboMultiplier += comboMultiplier;
+        }
+    }
 
 }

@@ -12,6 +12,7 @@ public class Peg : MonoBehaviour
     public GameObject goldAppearance;
     public GameObject diamondAppearance;
     public GameObject comboAppearance;
+    public GameObject selectionHighligter;
 
     // Used to prevent coins from constantly stacking modifiers if they bounce slightly off of this peg (Applies only to combo pegs)
     private List<GameObject> recentlyUpgradedCoins = new List<GameObject>();
@@ -21,6 +22,8 @@ public class Peg : MonoBehaviour
     private bool amModified;
     private bool amGolden;
     private bool amDiamond;
+    private bool amCombo;
+
 
     void Start()
     {
@@ -69,12 +72,15 @@ public class Peg : MonoBehaviour
     
     public void ConvertToCombo()
     {
-        //Activate combo text
         standardAppearance.SetActive(false);
+        goldAppearance.SetActive(false);
+        diamondAppearance.SetActive(false);
         comboAppearance.SetActive(true);
-        coinValueModifier = 1;
+        coinValueModifier = 2;
+        amModified = true;
         amGolden = false;
         amDiamond = false;
+        amCombo = true;
     }
 
     void USEFORCOMBOFUNCTIONALITYINSTEAD(Collider other)
@@ -95,14 +101,17 @@ public class Peg : MonoBehaviour
         if (amGolden)
         {
             // Activate gilded bumper on coin and apply value modifier
-            other.gameObject.GetComponentInParent<CoinLogic>().ActivateBumper();
-            other.gameObject.transform.parent.GetComponent<CoinLogic>().gildedModifier = coinValueModifier;
+            other.gameObject.GetComponentInParent<CoinLogic>().ActivateBumper(coinValueModifier);
         }
         else if (amDiamond)
         {
             // Activate crystal shell on coin and apply value modifier
-            other.gameObject.GetComponentInParent<CoinLogic>().ActivateCrystalShell();
-            other.gameObject.transform.parent.GetComponent<CoinLogic>().crystalModifier = coinValueModifier;
+            other.gameObject.GetComponentInParent<CoinLogic>().ActivateCrystalShell(coinValueModifier);
+        }
+        else if (amCombo)
+        {
+            // Multiply coin's current combo multiplier by itself
+            other.gameObject.GetComponentInParent<CoinLogic>().ComboMultiplier();
         }
     }
 
@@ -112,6 +121,43 @@ public class Peg : MonoBehaviour
         if (other.gameObject.tag == "coin" && amModified)
         {
             AttemptUpgradeOnCoin(other);
+        }
+        if (other.gameObject.tag == "pegSelectionTool")
+        {
+            standardAppearance.SetActive(false);
+            goldAppearance.SetActive(false);
+            diamondAppearance.SetActive(false);
+            comboAppearance.SetActive(false);
+
+            selectionHighligter.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "pegSelectionTool")
+        {
+            selectionHighligter.SetActive(false);
+
+            if (amModified)
+            {
+                if (amGolden)
+                {
+                    goldAppearance.SetActive(true);
+                }
+                else if (amDiamond)
+                {
+                    diamondAppearance.SetActive(true);
+                }
+                else
+                {
+                    comboAppearance.SetActive(true);
+                }
+            }
+            else
+            {
+                standardAppearance.SetActive(true);
+            }
         }
     }
 }

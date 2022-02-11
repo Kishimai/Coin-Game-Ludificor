@@ -23,6 +23,7 @@ public class CoinPlacement : MonoBehaviour
     // Prevents the use of this script when gameplay is not ready yet
     // !(EventsManager is responsible for deciding game states)!
     public bool gameplayIsReady;
+    private bool gameplayPaused;
 
     private GameObject gameManager;
 
@@ -66,8 +67,17 @@ public class CoinPlacement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameManager.GetComponent<UI_Manager>().currentUIMenu != 4)
+        {
+            gameplayPaused = true;
+        }
+        else
+        {
+            gameplayPaused = false;
+        }
+
         // Runs if gameplay is ready
-        if (gameplayIsReady)
+        if (gameplayIsReady && !gameplayPaused)
         {
             if (dropCooldown > 0)
             {
@@ -77,10 +87,7 @@ public class CoinPlacement : MonoBehaviour
             // Makes coin guide appear like the selected coin (Need to strip all properties and physics interactions from the guide!)
             //coinGuide = selectedCoin;
 
-            if (gameManager.GetComponent<UI_Manager>().currentUIMenu == 4)
-            {
-                MouseTracking();
-            }
+            MouseTracking();
         }
 
     }
@@ -144,7 +151,7 @@ public class CoinPlacement : MonoBehaviour
         else if (dropCooldown <= 0 && blitzEvent == true)
         {
             generation.GetPlacementData();
-            Vector3 blitzPosition = new Vector3(clampedPosition.x, clampedPosition.y, clampedPosition.z + 1.1f);
+            Vector3 blitzPosition = new Vector3(clampedPosition.x, clampedPosition.y, clampedPosition.z + 1.25f);
             Instantiate(selectedCoin, blitzPosition, Quaternion.Euler(90, 0, 0));
             dropCooldown = blitzCooldown;
         }

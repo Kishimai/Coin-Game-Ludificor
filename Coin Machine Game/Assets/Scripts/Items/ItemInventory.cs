@@ -7,7 +7,7 @@ public class ItemInventory : MonoBehaviour
 {
     // ------------------------- All possible items in the game (scripts dealing with items may pull from this) ------------------------- //
     public string[] commonItems = new string[] { "midas_shard", "peg_remove_mk1" };
-    public string[] uncommonItems = new string[] { "midas_crystal", "peg_remove_mk2", "golden_peg" };
+    public string[] uncommonItems = new string[] { "midas_crystal", "peg_remove_mk2", "golden_peg", "combo_peg" };
     public string[] rareItems = new string[] { "midas_relic", "peg_remove_mk3", "diamond_peg" };
 
     // ------------------------- Item Inventory ------------------------- //
@@ -103,7 +103,7 @@ public class ItemInventory : MonoBehaviour
                 pegManager.GetComponent<PegManager>().RemovePegs(3);
                 return null;
 
-            // --------------- GUILDED ITEMS --------------- //
+            // --------------- PEG ALTERING ITEMS --------------- //
             case "golden_peg":
                 pegManager.GetComponent<PegManager>().ChangePegAttributes("gold");
                 // Run peg modify method in peg script
@@ -140,12 +140,15 @@ public class ItemInventory : MonoBehaviour
                 // (minus setting active state and compilation of new dict)
                 return newItem;
 
+            case "combo_peg":
+                return newItem;
+
             // --------------- TO BE ADDED ITEMS --------------- //
 
             // Runs if new item's tag does not match a case in this switch statement
             default:
                 Debug.LogWarning("New item not known by IntakeItem() in script on: " + gameObject.name);
-                return null;
+                return string.Format("Unknown Item: {0}", newItem);
         }
 
         // Returns the new item, assigning it to the list
