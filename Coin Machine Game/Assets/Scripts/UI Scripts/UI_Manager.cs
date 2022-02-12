@@ -14,7 +14,8 @@ public class UI_Manager : MonoBehaviour
     public GameObject eventManager;
 
     [BoxGroup("UI")] // UI Components Panels
-    public GameObject Selection, Settings, Collectibles, InGame, PausedGame, ShopInGame, ShopButton, PrizeSelection, OpenCapsuleButton, ItemSelection, LoadingScreen;
+    public GameObject Selection, Settings, Collectibles, InGame, PausedGame, ShopInGame, ShopButton, 
+        PrizeSelection, OpenCapsuleButton, ItemSelection, LoadingScreen, ComboPegSelection;
     [BoxGroup("UI")]
     public Slider _music, _sfx;
     [BoxGroup("UI")]
@@ -56,6 +57,7 @@ public class UI_Manager : MonoBehaviour
                 OpenCapsuleButton.SetActive(false);
                 ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(false);
+                ComboPegSelection.SetActive(false);
 
                 Debug.Log("Case: 1");
                 isPaused = true;
@@ -74,6 +76,7 @@ public class UI_Manager : MonoBehaviour
                 OpenCapsuleButton.SetActive(false);
                 ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(false);
+                ComboPegSelection.SetActive(false);
 
                 Debug.Log("Case: 2");
                 isPaused = false;
@@ -93,6 +96,7 @@ public class UI_Manager : MonoBehaviour
                 OpenCapsuleButton.SetActive(false);
                 ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(false);
+                ComboPegSelection.SetActive(false);
 
                 Debug.Log("Case: 3");
                 // isPaused = true;  Disabled So Depending on where last layer was from it will be paused or not
@@ -111,6 +115,7 @@ public class UI_Manager : MonoBehaviour
                 OpenCapsuleButton.SetActive(false);
                 ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(false);
+                ComboPegSelection.SetActive(false);
 
                 Debug.Log("Case: 4");
                 isPaused = false;
@@ -129,6 +134,7 @@ public class UI_Manager : MonoBehaviour
                 OpenCapsuleButton.SetActive(false);
                 ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(false);
+                ComboPegSelection.SetActive(false);
 
                 Debug.Log("Case: 5");
                 isPaused = true;
@@ -147,6 +153,7 @@ public class UI_Manager : MonoBehaviour
                 OpenCapsuleButton.SetActive(true);
                 ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(false);
+                ComboPegSelection.SetActive(false);
 
                 Debug.Log("Case: 6");
                 isPaused = false;
@@ -165,6 +172,7 @@ public class UI_Manager : MonoBehaviour
                 OpenCapsuleButton.SetActive(false);
                 ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(true);
+                ComboPegSelection.SetActive(false);
 
                 currentUIMenu = 7;
                 break;
@@ -181,6 +189,7 @@ public class UI_Manager : MonoBehaviour
                 OpenCapsuleButton.SetActive(false);
                 ItemSelection.SetActive(true);
                 LoadingScreen.SetActive(false);
+                ComboPegSelection.SetActive(true);
 
                 isPaused = true;
 
