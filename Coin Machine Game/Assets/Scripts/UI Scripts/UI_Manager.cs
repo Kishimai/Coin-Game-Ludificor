@@ -14,8 +14,7 @@ public class UI_Manager : MonoBehaviour
     public GameObject eventManager;
 
     [BoxGroup("UI")] // UI Components Panels
-    public GameObject Selection, Settings, Collectibles, InGame, PausedGame, ShopInGame, ShopButton,
-        PrizeSelection, OpenCapsuleButton, ItemSelection, LoadingScreen, ComboPegSelection;
+    public GameObject Selection, Settings, Collectibles, InGame, PausedGame, ShopInGame, ShopButton, PrizeSelection, OpenCapsuleButton, ItemSelection, LoadingScreen;
     [BoxGroup("UI")]
     public Slider _music, _sfx;
     [BoxGroup("UI")]
@@ -43,10 +42,8 @@ public class UI_Manager : MonoBehaviour
     [BoxGroup("Loading")]
     public List<string> loading_statements = new List<string>();
 
-    public void Update_UI(int data)
-    {
-        switch (data)
-        {
+    public void Update_UI(int data){
+        switch(data){
             case 1: // Settings
                 Settings.SetActive(true);
                 Selection.SetActive(false);
@@ -59,7 +56,6 @@ public class UI_Manager : MonoBehaviour
                 OpenCapsuleButton.SetActive(false);
                 ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(false);
-                ComboPegSelection.SetActive(false);
 
                 Debug.Log("Case: 1");
                 isPaused = true;
@@ -78,7 +74,6 @@ public class UI_Manager : MonoBehaviour
                 OpenCapsuleButton.SetActive(false);
                 ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(false);
-                ComboPegSelection.SetActive(false);
 
                 Debug.Log("Case: 2");
                 isPaused = false;
@@ -98,7 +93,6 @@ public class UI_Manager : MonoBehaviour
                 OpenCapsuleButton.SetActive(false);
                 ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(false);
-                ComboPegSelection.SetActive(false);
 
                 Debug.Log("Case: 3");
                 // isPaused = true;  Disabled So Depending on where last layer was from it will be paused or not
@@ -117,7 +111,6 @@ public class UI_Manager : MonoBehaviour
                 OpenCapsuleButton.SetActive(false);
                 ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(false);
-                ComboPegSelection.SetActive(false);
 
                 Debug.Log("Case: 4");
                 isPaused = false;
@@ -136,7 +129,6 @@ public class UI_Manager : MonoBehaviour
                 OpenCapsuleButton.SetActive(false);
                 ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(false);
-                ComboPegSelection.SetActive(false);
 
                 Debug.Log("Case: 5");
                 isPaused = true;
@@ -155,7 +147,6 @@ public class UI_Manager : MonoBehaviour
                 OpenCapsuleButton.SetActive(true);
                 ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(false);
-                ComboPegSelection.SetActive(false);
 
                 Debug.Log("Case: 6");
                 isPaused = false;
@@ -174,7 +165,6 @@ public class UI_Manager : MonoBehaviour
                 OpenCapsuleButton.SetActive(false);
                 ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(true);
-                ComboPegSelection.SetActive(false);
 
                 currentUIMenu = 7;
                 break;
@@ -191,7 +181,6 @@ public class UI_Manager : MonoBehaviour
                 OpenCapsuleButton.SetActive(false);
                 ItemSelection.SetActive(true);
                 LoadingScreen.SetActive(false);
-                ComboPegSelection.SetActive(true);
 
                 isPaused = true;
 
@@ -200,32 +189,27 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
-    public void Start()
-    {
+    public void Start() {
 
         Update_UI(7); // Makes sure game is showing "Loading" screen when coins are being set up
 
         LoadLoadingStatement();
     }
 
-    public void LoadLoadingStatement()
-    {
+    public void LoadLoadingStatement(){
         var picked = Random.Range(1, loading_statements.Count);
         var counted = 0;
 
-
-        foreach (string _text in loading_statements)
-        {
+        
+        foreach(string _text in loading_statements){
             counted++;
-            if (counted == picked)
-            {
+            if(counted == picked){
                 LoadingText.text = _text;
             }
         }
     }
 
-    public void Update()
-    { // Updates Values on Setting: Probably Shouldnt be here.
+    public void Update(){ // Updates Values on Setting: Probably Shouldnt be here.
         _musicVolume = _music.value;
         _sfxVoume = _sfx.value;
         _sfxText.text = _sfxVoume.ToString("0");
@@ -233,23 +217,16 @@ public class UI_Manager : MonoBehaviour
         _muteAll = _muteAllToggle.enabled;
         _CoinText.text = $"✰ {_currentCoin.ToString("0")}";
 
-        if (isPaused == true)
-        {
+        if(isPaused == true){
             Time.timeScale = 0;
-        }
-        else
-        {
+        } else {
             Time.timeScale = 1;
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (currentUIMenu == 5)
-            {
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            if(currentUIMenu == 5){
                 Update_UI(4);
-            }
-            else
-            {
+            } else {
                 Update_UI(5);
             }
         }
@@ -258,10 +235,8 @@ public class UI_Manager : MonoBehaviour
     /// <summary>
     /// Used for Buttons on Shop
     /// </summary>
-    public void Shop(string functionToUse)
-    {
-        switch (functionToUse)
-        {
+    public void Shop(string functionToUse){
+        switch(functionToUse){
             case "OpenOrClose":
                 ShopInGame.SetActive(!ShopInGame.activeSelf);
                 ShopButton.SetActive(!ShopButton.activeSelf);
@@ -269,8 +244,7 @@ public class UI_Manager : MonoBehaviour
         }
     }
 
-    public void QuitGame()
-    {
+    public void QuitGame(){
         Application.Quit();
     }
 
