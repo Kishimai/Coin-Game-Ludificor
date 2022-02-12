@@ -116,6 +116,8 @@ public class EventsManager : MonoBehaviour
 
         itemBuilderIsFinished = itemBuilder.GetComponent<ItemBuilder>().initialBuildFinished;
 
+        int currentMenu = gameManager.GetComponent<UI_Manager>().currentUIMenu;
+
         // Runs the initialization method
         if (initializationPhase)
         {
@@ -123,7 +125,7 @@ public class EventsManager : MonoBehaviour
         }
 
         // Runs the gameplay method
-        if (gameplayPhase)
+        if (gameplayPhase && currentMenu != 9)
         {
             GameplayPhase();
         }
@@ -168,6 +170,28 @@ public class EventsManager : MonoBehaviour
     public void ReadyUp()
     {
         playerIsReady = true;
+    }
+
+    public void PauseMachine()
+    {
+        coinPusher.GetComponent<CoinPusher>().allowingMovement = false;
+        GameObject[] allCoins = GameObject.FindGameObjectsWithTag("whole_coin");
+
+        foreach (GameObject coin in allCoins)
+        {
+            coin.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+        }
+    }
+
+    public void ResumeMachine()
+    {
+        coinPusher.GetComponent<CoinPusher>().allowingMovement = true;
+        GameObject[] allCoins = GameObject.FindGameObjectsWithTag("whole_coin");
+
+        foreach (GameObject coin in allCoins)
+        {
+            coin.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        }
     }
 
     void GameplayPhase()

@@ -19,7 +19,8 @@ public class Peg : MonoBehaviour
 
     private float timeUntilObjectRemoval;
 
-    private bool amModified;
+    public bool amModified;
+    public bool amDisabled;
     private bool amGolden;
     private bool amDiamond;
     private bool amCombo;
@@ -28,6 +29,7 @@ public class Peg : MonoBehaviour
     void Start()
     {
         amModified = false;
+        amDisabled = false;
         coinValueModifier = defaultCoinValueModifier;
     }
 
@@ -42,57 +44,51 @@ public class Peg : MonoBehaviour
         }
     }
 
-    public void ModifyPeg(int pegValueModifier, string pegType, bool golden, bool diamond)
+    public void ConvertToGilded(int pegValueModifier)
     {
-        DeterminePegType(pegType);
-        coinValueModifier = pegValueModifier;
-        amModified = true;
-        amGolden = golden;
-        amDiamond = diamond;
+        DeterminePegType("gold", pegValueModifier);
     }
 
-    private void DeterminePegType(string pegType)
+    public void ConvertToDiamond(int pegValueModifier)
     {
+        DeterminePegType("diamond", pegValueModifier);
+    }
+
+    public void ConvertToCombo()
+    {
+        DeterminePegType("combo");
+    }
+
+    public void ConvertToDisabled()
+    {
+        // Replace this with a amDisabled variable which stops normal function and swaps collider for a trigger
+        // Coins wont interact with trigger but selection tool MUST!
+        gameObject.SetActive(false);
+        amDisabled = true;
+    }
+
+    private void DeterminePegType(string pegType, int modifier = 0)
+    {
+        amModified = true;
+
         if (pegType.Equals("gold"))
         {
+            amGolden = true;
             standardAppearance.SetActive(false);
             goldAppearance.SetActive(true);
         }
         else if (pegType.Equals("diamond"))
         {
+            amDiamond = true;
             standardAppearance.SetActive(false);
             diamondAppearance.SetActive(true);
         }
         else if (pegType.Equals("combo"))
         {
+            amCombo = true;
             standardAppearance.SetActive(false);
             comboAppearance.SetActive(true);
         }
-    }
-    
-    public void ConvertToCombo()
-    {
-        standardAppearance.SetActive(false);
-        goldAppearance.SetActive(false);
-        diamondAppearance.SetActive(false);
-        comboAppearance.SetActive(true);
-        coinValueModifier = 2;
-        amModified = true;
-        amGolden = false;
-        amDiamond = false;
-        amCombo = true;
-    }
-
-    void USEFORCOMBOFUNCTIONALITYINSTEAD(Collider other)
-    {
-        // Runs if the collided coin does NOT exist in the list of recently upgraded coins
-        if (!recentlyUpgradedCoins.Contains(other.gameObject.transform.parent.gameObject))
-        {
-            recentlyUpgradedCoins.Add(other.gameObject.transform.parent.gameObject);
-            // multiply combo
-            // combo value starts at 2x
-        }
-
     }
 
     void AttemptUpgradeOnCoin(Collider other)

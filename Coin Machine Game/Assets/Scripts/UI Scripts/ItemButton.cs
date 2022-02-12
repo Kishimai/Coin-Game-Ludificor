@@ -9,7 +9,7 @@ public class ItemButton : MonoBehaviour
 
     public Text buttonText;
 
-    private void OnEnable()
+    public void RollNew()
     {
         selectedItem = GameObject.FindGameObjectWithTag("game_manager").GetComponent<ItemRandomizer>().RollNewItem();
         buttonText.text = selectedItem;

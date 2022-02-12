@@ -21,6 +21,11 @@ public class IngamePointer : MonoBehaviour
     // The layer mask is used to ensure that the mouse cursor is ONLY looking for the "Drop Zone" when the player is placing coins
     public LayerMask dropZoneLayerMask;
 
+    private void OnDisable()
+    {
+        pegSelectionTool.transform.position = new Vector3(0, 10, 0);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,24 +77,15 @@ public class IngamePointer : MonoBehaviour
 
         selectedPeg = pegSelectionTool.GetComponent<PointerCollision>().collidedPeg;
 
-        if (Input.GetButtonDown("Fire1") && selectedPeg != null)
+        if (Input.GetButtonDown("Fire1") && selectedPeg != null && !selectedPeg.GetComponent<Peg>().amModified)
         {
-            CheckInventory();
+            RequestConstructionOfComboPeg();
         }
     }
 
-    void CheckInventory()
+    void RequestConstructionOfComboPeg()
     {
-        if (gameManager.GetComponent<ItemInventory>().collectedItems.Contains("combo_peg"))
-        {
-            ConstructComboPeg();
-        }
-    }
-
-    void ConstructComboPeg()
-    {
-        gameManager.GetComponent<ItemInventory>().collectedItems.Remove("combo_peg");
-
-        selectedPeg.GetComponent<Peg>().ConvertToCombo();
+        gameManager.GetComponent<ItemInventory>().PlayerInput();
+        selectedPeg.GetComponentInParent<PegManager>().ChangePegAttributes("combo", selectedPeg);
     }
 }

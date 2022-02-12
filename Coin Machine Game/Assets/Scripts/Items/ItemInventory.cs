@@ -21,12 +21,21 @@ public class ItemInventory : MonoBehaviour
 
     public GameObject pegManager;
 
+    public GameObject playerCamera;
+
+    private bool playerInput;
+
+    public GameObject[] itemButtons;
+
+    private GameObject eventManager;
+
     // Start is called before the first frame update
     void Start()
     {
         availablePrizes = 0;
         coinValueModifier = 1.0f;
         collector = GameObject.FindGameObjectWithTag("coin_destroyer");
+        eventManager = GameObject.FindGameObjectWithTag("gameplay_event_system");
     }
 
     // Update is called once per frame
@@ -41,8 +50,17 @@ public class ItemInventory : MonoBehaviour
         // Runs if player picks an item from the 3 choices that the item capsule gives them
         if (newItem != "")
         {
+            foreach (GameObject button in itemButtons)
+            {
+                button.GetComponent<ItemButton>().RollNew();
+            }
+
+            --availablePrizes;
+
             // Adds returned item to list of collected items
             collectedItems.Add(IntakeItem());
+
+            CheckRemainingPrizes();
 
             // Makes sure to remove item from newItem after its been added to the list
             newItem = "";
@@ -55,18 +73,6 @@ public class ItemInventory : MonoBehaviour
     // Responsible for determining the item the player chose, and altering values based on that
     string IntakeItem()
     {
-        --availablePrizes;
-
-        if (availablePrizes <= 0)
-        {
-            availablePrizes = 0;
-            GetComponent<UI_Manager>().Update_UI(4);
-        }
-        else
-        {
-            GetComponent<UI_Manager>().Update_UI(6);
-            GetComponent<UI_Manager>().Update_UI(8);
-        }
 
         switch (newItem)
         {
@@ -92,15 +98,15 @@ public class ItemInventory : MonoBehaviour
             // --------------- PEG REMOVER ITEMS --------------- //
 
             case "peg_remove_mk1":
-                pegManager.GetComponent<PegManager>().RemovePegs(1);
+                pegManager.GetComponent<PegManager>().DisablePegs(1);
                 return null;
 
             case "peg_remove_mk2":
-                pegManager.GetComponent<PegManager>().RemovePegs(2);
+                pegManager.GetComponent<PegManager>().DisablePegs(2);
                 return null;
 
             case "peg_remove_mk3":
-                pegManager.GetComponent<PegManager>().RemovePegs(3);
+                pegManager.GetComponent<PegManager>().DisablePegs(3);
                 return null;
 
             // --------------- PEG ALTERING ITEMS --------------- //
@@ -150,16 +156,59 @@ public class ItemInventory : MonoBehaviour
                 Debug.LogWarning("New item not known by IntakeItem() in script on: " + gameObject.name);
                 return string.Format("Unknown Item: {0}", newItem);
         }
+    }
 
-        // Returns the new item, assigning it to the list
-        //return newItem;
+    public void CheckRemainingPrizes()
+    {
 
-        // At the end of intake, if remaining items is 0, open the combo placing UI IF the player has at least 1 combo item
-        // If they have one item, activate the combo placing script and run through it until they have no combo items left
-        // When player places one and it removes it from item list, recompile and check if any are left
-        // If none are left, return to ui 4
+        if (availablePrizes <= 0)
+        {
+            availablePrizes = 0;
 
-        // Replace combo item removal and have it located within the function which compiles those items as stated above
+            if (collectedItems.Contains("combo_peg"))
+            {
+                StartCoroutine(UseComboPegs());
+            }
+            else
+            {
+                GetComponent<UI_Manager>().Update_UI(4);
+            }
+        }
+
+    }
+
+    public void PlayerInput()
+    {
+        playerInput = true;
+    }
+
+    IEnumerator UseComboPegs()
+    {
+        // activate pointer
+        IngamePointer pointer = playerCamera.GetComponent<IngamePointer>();
+
+        pointer.enabled = enabled;
+
+        GetComponent<UI_Manager>().Update_UI(9);
+
+        eventManager.GetComponent<EventsManager>().PauseMachine();
+
+        while (collectedItems.Contains("combo_peg"))
+        {
+            if (playerInput)
+            {
+                playerInput = false;
+                collectedItems.Remove("combo_peg");
+            }
+
+            yield return null;
+        }
+
+        pointer.enabled = !enabled;
+
+        eventManager.GetComponent<EventsManager>().ResumeMachine();
+
+        GetComponent<UI_Manager>().Update_UI(4);
     }
 
     public void OpenCapsule()
@@ -167,8 +216,12 @@ public class ItemInventory : MonoBehaviour
 
         if (availablePrizes > 0)
         {
-            //--availablePrizes;
             GetComponent<UI_Manager>().Update_UI(8);
+
+            foreach (GameObject button in itemButtons)
+            {
+                button.GetComponent<ItemButton>().RollNew();
+            }
         }
 
     }

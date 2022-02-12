@@ -13,11 +13,13 @@ public class PegManager : MonoBehaviour
 
     public List<GameObject> modifiedPegs = new List<GameObject>();
 
-    public int numPegsToRemove;
+    public List<GameObject> disabledPegs = new List<GameObject>();
 
     public float regularPegValueModifier = 0;
     private int goldPegValueModifier = 3;
     private int diamondPegValueModifier = 4;
+    // Not currently used
+    private int comboValueModifier = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -50,114 +52,185 @@ public class PegManager : MonoBehaviour
         }
     }
 
-    GameObject SelectUnmodifiedPeg()
+    public void ChangePegAttributes(string pegTyping, GameObject playerSelectedPeg = null)
     {
-        GameObject chosenPeg;
+        // if pegToChange is null, it knows to choose randomly, else, choose the peg within that variable
 
-        chosenPeg = unmodifiedPegs[Random.Range(0, allPegs.Count)];
+        GameObject selectedPeg = null;
 
-        return chosenPeg;
-    }
-
-    GameObject SelectNonDisabledAndUnmodifiedPeg()
-    {
-        GameObject chosenPeg;
-
-        List<GameObject> nonDisabledPegs = new List<GameObject>();
-
-        foreach (GameObject peg in unmodifiedPegs)
+        // Runs if no specific peg was passed, will tell SelectUnmodified to make a random choice
+        if (playerSelectedPeg == null)
         {
-            if (peg.activeSelf)
-            {
-                nonDisabledPegs.Add(peg);
-            }
+            selectedPeg = SelectUnmodified();
         }
-
-        chosenPeg = nonDisabledPegs[Random.Range(0, nonDisabledPegs.Count)];
-
-        return chosenPeg;
-    }
-
-    public void RemovePegs(int numPegsToRemove)
-    {
-        GameObject pegToRemove;
-
-        for (int i = 0; i < numPegsToRemove; ++i)
-        {
-            pegToRemove = SelectNonDisabledAndUnmodifiedPeg();
-
-            pegToRemove.SetActive(false);
-        }
-    }
-
-    public void ChangePegAttributes(string pegTyping)
-    {
-        // CONVERT DISABLED PEGS TO A GLOBAL OBJECT
-        // MIGHT BE WHERE ISSUE IS LOCATED
-
-        // pegMaterialName = "normal", "gold", "diamond"
-        GameObject pegToChange;
-
-        List<GameObject> disabledPegs = new List<GameObject>();
-
-        foreach (GameObject peg in allPegs)
-        {
-            if (!peg.activeSelf)
-            {
-                disabledPegs.Add(peg);
-            }
-        }
-
-        // If there are no disabled pegs, pick a peg from the unmodified list
-        if (disabledPegs.Count == 0)
-        {
-            pegToChange = unmodifiedPegs[Random.Range(0, allPegs.Count)];
-            
-            if (pegTyping.Equals("gold"))
-            {
-                // Modifies peg with values: valueModifier, pegMaterial, isGolden, isDiamond
-                pegToChange.GetComponent<Peg>().ModifyPeg(goldPegValueModifier, "gold", true, false);
-            }
-            else if (pegTyping.Equals("diamond"))
-            {
-                // Modifies peg with values: valueModifier, pegMaterial, isGolden, isDiamond
-                pegToChange.GetComponent<Peg>().ModifyPeg(diamondPegValueModifier, "diamond", false, true);
-            }
-            else
-            {
-                // Probably not needed since there wont be items that harm the gameplay or make it harder for the player
-                Debug.Log("Convert peg to normal version");
-            }
-
-            //pegToChange.GetComponent<Peg>().ModifyPeg(VALUEMODIFIER, PEGMATERIAL);
-        }
-        // If there are disabled pegs, pick a peg from the list of disabled ones
+        // Runs if player selected a peg themselves
         else
         {
-            pegToChange = disabledPegs[Random.Range(0, disabledPegs.Count)];
-            pegToChange.SetActive(true);
-
-            if (pegTyping.Equals("gold"))
+            // Makes sure to check if player is picking an unmodified peg
+            if (unmodifiedPegs.Contains(playerSelectedPeg))
             {
-                // Modifies peg with values: valueModifier, pegMaterial, isGolden, isDiamond
-                pegToChange.GetComponent<Peg>().ModifyPeg(goldPegValueModifier, "gold", true, false);
-            }
-            else if (pegTyping.Equals("diamond"))
-            {
-                // Modifies peg with values: valueModifier, pegMaterial, isGolden, isDiamond
-                pegToChange.GetComponent<Peg>().ModifyPeg(diamondPegValueModifier, "diamond", false, true);
+                selectedPeg = SelectUnmodified(playerSelectedPeg);
             }
             else
             {
-                // Probably not needed since there wont be items that harm the gameplay or make it harder for the player
-                Debug.Log("Convert peg to normal version");
+                Debug.Log("Cannot pick a modified peg to replace! (yet)");
             }
-
-            // pegToChange.GetComponent<Peg>().ModifyPeg(VALUEMODIFIER, PEGMATERIAL);
         }
 
-        unmodifiedPegs.Remove(pegToChange);
+        if (selectedPeg != null)
+        {
+            DeterminePegOutcome(pegTyping, selectedPeg);
+        }
+        else
+        {
+            Debug.Log("No peg was returned to selectedPeg, player tried to select modified peg OR something went wrong");
+        }
 
-        //pegToChange.GetComponent<Peg>().ModifyPeg(chosenPegValue, chosenMaterial);
     }
+
+    private void DeterminePegOutcome(string pegTyping, GameObject selectedPeg)
+    {
+        if (pegTyping == "gold")
+        {
+            AddToModified(selectedPeg);
+            selectedPeg.GetComponent<Peg>().ConvertToGilded(goldPegValueModifier);
+        }
+        else if (pegTyping == "diamond")
+        {
+            AddToModified(selectedPeg);
+            selectedPeg.GetComponent<Peg>().ConvertToDiamond(diamondPegValueModifier);
+        }
+        else if (pegTyping == "combo")
+        {
+            AddToModified(selectedPeg);
+            selectedPeg.GetComponent<Peg>().ConvertToCombo();
+        }
+    }
+
+    public void DisablePegs(int numToDisable)
+    {
+        GameObject pegToDisable;
+
+        for (int i = 0; i < numToDisable; ++i)
+        {
+            // Calls SelectUnmodified without passing peg typing or object
+            // If no peg typing is passed, it assumes it should be disabled
+
+            if (unmodifiedPegs.Count > 0)
+            {
+                pegToDisable = SelectUnmodifiedToDisable();
+
+
+
+                AddToDisabled(pegToDisable);
+
+
+                // Player should be able to select a disabled peg, so do not set to inactive anymore
+                // instead pass isDisabled to the peg's script so it turns off its own functionality but can still collide with the pointer
+                // use a trigger collision box instead? coins shouldnt bounce off of disabled pegs.
+                //pegToDisable.SetActive(false);
+                pegToDisable.GetComponent<Peg>().ConvertToDisabled();
+            }
+        }
+    }
+
+    private GameObject SelectUnmodified(GameObject highlightedPeg = null)
+    {
+        GameObject chosenPeg = null;
+
+        // Makes sure there are pegs left to modify
+        if (unmodifiedPegs.Count > 0 )
+        {
+            // If no peg was highlighted or selected, choose randomly
+            if (highlightedPeg == null)
+            {
+                // Checks list of disabled pegs to see if there are any, if not it will choose from unmodifiedPegs list
+                if (disabledPegs.Count > 0)
+                {
+                    chosenPeg = disabledPegs[Random.Range(0, disabledPegs.Count)];
+                }
+                else
+                {
+                    chosenPeg = unmodifiedPegs[Random.Range(0, unmodifiedPegs.Count)];
+                }
+            }
+            // If a peg was highlighted or selected, pick that selected peg
+            else
+            {
+                // First checks to see if player selected a disabled peg
+                foreach (GameObject peg in disabledPegs)
+                {
+                    if (peg.name == highlightedPeg.name)
+                    {
+                        chosenPeg = peg;
+                        break;
+                    }
+                }
+
+                // If player did not select a disabled peg, it checks the list of unmodified pegs
+                if (chosenPeg == null)
+                {
+                    // Look through the list of unmodified pegs and find the peg whos name matches the one that the player selected
+                    foreach (GameObject peg in unmodifiedPegs)
+                    {
+                        // When that peg is found, pass it to chosenPeg
+                        if (peg.name == highlightedPeg.name)
+                        {
+                            chosenPeg = peg;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("No Pegs left in unmodifiedPegs");
+        }
+
+        return chosenPeg;
+    }
+
+    private GameObject SelectUnmodifiedToDisable()
+    {
+        GameObject chosenPeg;
+
+        chosenPeg = unmodifiedPegs[Random.Range(0, unmodifiedPegs.Count)];
+
+        return chosenPeg;
+    }
+
+    // Likely not used
+    private GameObject SelectModified()
+    {
+        return null;
+    }
+
+    // Likely not used
+    private void AddToUnmodified(GameObject pegToUnmod)
+    {
+
+    }
+
+    private void AddToModified(GameObject pegToMod)
+    {
+        unmodifiedPegs.Remove(pegToMod);
+
+        modifiedPegs.Add(pegToMod);
+
+
+        if (disabledPegs.Contains(pegToMod))
+        {
+            disabledPegs.Remove(pegToMod);
+        }
+    }
+
+    private void AddToDisabled(GameObject pegToDis)
+    {
+        // Finds and removes peg from unmodified list
+        unmodifiedPegs.Remove(pegToDis);
+        // Adds peg to disabled list
+        disabledPegs.Add(pegToDis);
+    }
+
 }
