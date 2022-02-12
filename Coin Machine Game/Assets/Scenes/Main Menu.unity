@@ -869,6 +869,50 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 5, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &57330589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 57330590}
+  - component: {fileID: 57330591}
+  m_Layer: 5
+  m_Name: Combo Selection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &57330590
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57330589}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1100760980}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.00440979, y: 0.000008171}
+  m_SizeDelta: {x: 1200, y: 600}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &57330591
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57330589}
+  m_CullTransparentMesh: 1
 --- !u!4 &58878673 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 762913120609709109, guid: 6d60ef0f5065a0445a89f2f035a5bf60, type: 3}
@@ -1500,7 +1544,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &100934968
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27322,6 +27366,7 @@ RectTransform:
   - {fileID: 1329720532}
   - {fileID: 1233759363}
   - {fileID: 1877087314}
+  - {fileID: 57330590}
   m_Father: {fileID: 737685605}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -31484,6 +31529,7 @@ MonoBehaviour:
   OpenCapsuleButton: {fileID: 923423735}
   ItemSelection: {fileID: 100934967}
   LoadingScreen: {fileID: 1877087313}
+  ComboPegSelection: {fileID: 57330589}
   _music: {fileID: 2050898131}
   _sfx: {fileID: 1336412992}
   _musicText: {fileID: 116581965}
@@ -31599,6 +31645,11 @@ MonoBehaviour:
   availablePrizes: 0
   availablePrizesText: {fileID: 529297605}
   pegManager: {fileID: 1052648224}
+  playerCamera: {fileID: 1512764389}
+  itemButtons:
+  - {fileID: 1099760233}
+  - {fileID: 1536958886}
+  - {fileID: 292603401}
 --- !u!114 &1384771969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38168,7 +38219,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1512764389}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5833226d0c1be9543890caa45679f6fb, type: 3}
   m_Name: 

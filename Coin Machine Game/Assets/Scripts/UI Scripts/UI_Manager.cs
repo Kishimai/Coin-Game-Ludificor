@@ -189,11 +189,30 @@ public class UI_Manager : MonoBehaviour
                 OpenCapsuleButton.SetActive(false);
                 ItemSelection.SetActive(true);
                 LoadingScreen.SetActive(false);
-                ComboPegSelection.SetActive(true);
+                ComboPegSelection.SetActive(false);
 
                 isPaused = true;
 
                 currentUIMenu = 8;
+                break;
+
+            case 9:
+                Selection.SetActive(false);
+                Collectibles.SetActive(false);
+                Settings.SetActive(false);
+                background.SetActive(false);
+                InGame.SetActive(false);
+                PausedGame.SetActive(false);
+
+                PrizeSelection.SetActive(false);
+                OpenCapsuleButton.SetActive(false);
+                ItemSelection.SetActive(false);
+                LoadingScreen.SetActive(false);
+                ComboPegSelection.SetActive(true);
+
+                isPaused = false;
+
+                currentUIMenu = 9;
                 break;
         }
     }

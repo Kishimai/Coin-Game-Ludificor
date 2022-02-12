@@ -42,7 +42,7 @@ public class IngamePointer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameManager.GetComponent<UI_Manager>().currentUIMenu != 4)
+        if (gameManager.GetComponent<UI_Manager>().currentUIMenu != 9)
         {
             gameplayPaused = true;
         }
@@ -71,6 +71,8 @@ public class IngamePointer : MonoBehaviour
             float clampedZ = Mathf.Clamp(hit.point.z, -6.2f, -6.25f);
 
             Vector3 clampedPosition = new Vector3(clampedX, clampedY, clampedZ);
+
+            Debug.Log(hit);
 
             pegSelectionTool.transform.position = clampedPosition;
         }

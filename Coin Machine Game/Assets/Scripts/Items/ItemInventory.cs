@@ -167,6 +167,7 @@ public class ItemInventory : MonoBehaviour
 
             if (collectedItems.Contains("combo_peg"))
             {
+                GetComponent<UI_Manager>().Update_UI(9);
                 StartCoroutine(UseComboPegs());
             }
             else
@@ -189,9 +190,9 @@ public class ItemInventory : MonoBehaviour
 
         pointer.enabled = enabled;
 
-        GetComponent<UI_Manager>().Update_UI(9);
+        //GetComponent<UI_Manager>().Update_UI(9);
 
-        eventManager.GetComponent<EventsManager>().PauseMachine();
+        //eventManager.GetComponent<EventsManager>().PauseMachine();
 
         while (collectedItems.Contains("combo_peg"))
         {
@@ -206,7 +207,7 @@ public class ItemInventory : MonoBehaviour
 
         pointer.enabled = !enabled;
 
-        eventManager.GetComponent<EventsManager>().ResumeMachine();
+        //eventManager.GetComponent<EventsManager>().ResumeMachine();
 
         GetComponent<UI_Manager>().Update_UI(4);
     }
