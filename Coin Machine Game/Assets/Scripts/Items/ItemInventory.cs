@@ -153,6 +153,13 @@ public class ItemInventory : MonoBehaviour
 
         // Returns the new item, assigning it to the list
         //return newItem;
+
+        // At the end of intake, if remaining items is 0, open the combo placing UI IF the player has at least 1 combo item
+        // If they have one item, activate the combo placing script and run through it until they have no combo items left
+        // When player places one and it removes it from item list, recompile and check if any are left
+        // If none are left, return to ui 4
+
+        // Replace combo item removal and have it located within the function which compiles those items as stated above
     }
 
     public void OpenCapsule()

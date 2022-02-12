@@ -17,6 +17,7 @@ ScriptsOnlyBuild:
     - EventsManager
     - FalsePusher
     - GlassRemover
+    - IngamePointer
     - ItemBuilder
     - ItemButton
     - ItemCapsule
@@ -25,9 +26,11 @@ ScriptsOnlyBuild:
     - ItemRandomizer
     - Peg
     - PegManager
+    - PointerCollision
     - ShopSystem
     - UI_Manager
     Sirenix.OdinInspector.Editor.dll:
+    - Sirenix.OdinInspector.Editor.GeneralDrawerConfig
     - Sirenix.OdinInspector.Editor.ImportSettingsConfig
     - Sirenix.OdinInspector.Editor.InspectorConfig
     - Sirenix.Serialization.AOTGenerationConfig
@@ -229,43 +232,47 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 5028}
     - Class: 114
-      Script: {instanceID: 5234}
+      Script: {instanceID: 5126}
     - Class: 114
-      Script: {instanceID: 5256}
+      Script: {instanceID: 5236}
     - Class: 114
-      Script: {instanceID: 5398}
+      Script: {instanceID: 5258}
     - Class: 114
-      Script: {instanceID: 5416}
+      Script: {instanceID: 5400}
     - Class: 114
-      Script: {instanceID: 5504}
+      Script: {instanceID: 5418}
     - Class: 114
-      Script: {instanceID: 5596}
+      Script: {instanceID: 5506}
     - Class: 114
-      Script: {instanceID: 5602}
+      Script: {instanceID: 5598}
     - Class: 114
-      Script: {instanceID: 5652}
+      Script: {instanceID: 5604}
     - Class: 114
-      Script: {instanceID: 5696}
+      Script: {instanceID: 5654}
     - Class: 114
-      Script: {instanceID: 6030}
+      Script: {instanceID: 5698}
     - Class: 114
-      Script: {instanceID: 6084}
+      Script: {instanceID: 6032}
     - Class: 114
-      Script: {instanceID: 6132}
+      Script: {instanceID: 6086}
     - Class: 114
-      Script: {instanceID: 6146}
+      Script: {instanceID: 6134}
     - Class: 114
-      Script: {instanceID: 6364}
+      Script: {instanceID: 6148}
     - Class: 114
-      Script: {instanceID: 6548}
+      Script: {instanceID: 6366}
     - Class: 114
-      Script: {instanceID: 6642}
+      Script: {instanceID: 6550}
     - Class: 114
-      Script: {instanceID: 6734}
+      Script: {instanceID: 6622}
     - Class: 114
-      Script: {instanceID: 6850}
+      Script: {instanceID: 6646}
     - Class: 114
-      Script: {instanceID: 6940}
+      Script: {instanceID: 6738}
+    - Class: 114
+      Script: {instanceID: 6854}
+    - Class: 114
+      Script: {instanceID: 6944}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -987,7 +994,7 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: 9e1d817671e5e5cfbf24fdde82f00929
+      Hash: 85cc1a2f08115002c78912b0f7ed3942
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CoinLogic
@@ -1107,7 +1114,7 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 697251e8c5cc0fb4264ed94cdea25839
+      Hash: 73aa7ef8fe9f6df51af6277cc3555327
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Peg
@@ -1185,7 +1192,7 @@ ScriptsOnlyBuild:
     className: AudioPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 9b5a625dbc13b372d7521a3363accb6c
+      Hash: 702c28b14c3f36ae5a89cc2d8d62020d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UI_Manager
@@ -1213,6 +1220,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
     className: ColorAdjustments
+  - hash:
+      serializedVersion: 2
+      Hash: 4ed37e38b5e600c1fb8f1e958259d80d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: IngamePointer
   - hash:
       serializedVersion: 2
       Hash: a81d4c2c1cf3ad164d277d927a193679
@@ -1293,7 +1306,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerPersistentCanvas
   - hash:
       serializedVersion: 2
-      Hash: b68f540681f39ee7dcf60f6f66c21b04
+      Hash: 120fe1eb3706719f026c762a8f8cf3af
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CoinPlacement
@@ -1383,7 +1396,7 @@ ScriptsOnlyBuild:
     className: PaniniProjection
   - hash:
       serializedVersion: 2
-      Hash: 00c06ef9a7466bc97ce4654f6d7a3cb2
+      Hash: bb9d9a820c0d8d46a3862d57b7db7d23
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PegManager
@@ -1485,6 +1498,12 @@ ScriptsOnlyBuild:
     className: UniversalRenderPipelineEditorResources
   - hash:
       serializedVersion: 2
+      Hash: 9ac1a37a9817a165978ee5a89ba51c10
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PointerCollision
+  - hash:
+      serializedVersion: 2
       Hash: caf6da3c3339d092592fc9f2c18ba504
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1528,4 +1547,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main Menu.unity
-  playerPath: I:/Unity Builds/Ludificor/Coin Game/Coin Machine Game.exe
+  playerPath: I:/Unity Builds/Ludificor/Coin Game 2-11-22/Coin Machine Game.exe
