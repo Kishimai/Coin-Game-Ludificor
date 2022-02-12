@@ -29,11 +29,18 @@ public class UI_Manager : MonoBehaviour
     [BoxGroup("Settings")]
     [Range(1, 100)]
     public float _musicVolume, _sfxVoume;
+    [BoxGroup("Settings")]
+    public bool isPaused = false;
 
     [BoxGroup("Current Datas")]
     public float _currentCoin;
-
+    [BoxGroup("Current Datas")]
     public int currentUIMenu;
+
+    [BoxGroup("Loading")]
+    public Text LoadingText;
+    [BoxGroup("Loading")]
+    public List<string> loading_statements = new List<string>();
 
     public void Update_UI(int data){
         switch(data){
@@ -51,6 +58,7 @@ public class UI_Manager : MonoBehaviour
                 LoadingScreen.SetActive(false);
 
                 Debug.Log("Case: 1");
+                isPaused = true;
 
                 currentUIMenu = 1;
                 break;
@@ -68,6 +76,7 @@ public class UI_Manager : MonoBehaviour
                 LoadingScreen.SetActive(false);
 
                 Debug.Log("Case: 2");
+                isPaused = false;
 
                 currentUIMenu = 2;
                 break;
@@ -86,6 +95,7 @@ public class UI_Manager : MonoBehaviour
                 LoadingScreen.SetActive(false);
 
                 Debug.Log("Case: 3");
+                // isPaused = true;  Disabled So Depending on where last layer was from it will be paused or not
 
                 currentUIMenu = 3;
                 break;
@@ -103,6 +113,7 @@ public class UI_Manager : MonoBehaviour
                 LoadingScreen.SetActive(false);
 
                 Debug.Log("Case: 4");
+                isPaused = false;
 
                 currentUIMenu = 4;
                 break;
@@ -120,6 +131,7 @@ public class UI_Manager : MonoBehaviour
                 LoadingScreen.SetActive(false);
 
                 Debug.Log("Case: 5");
+                isPaused = true;
 
                 currentUIMenu = 5;
                 break;
@@ -135,7 +147,9 @@ public class UI_Manager : MonoBehaviour
                 OpenCapsuleButton.SetActive(true);
                 ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(false);
+
                 Debug.Log("Case: 6");
+                isPaused = false;
 
                 currentUIMenu = 6;
                 break;
@@ -155,7 +169,7 @@ public class UI_Manager : MonoBehaviour
                 currentUIMenu = 7;
                 break;
 
-            case 8:
+            case 8: // Item Capsule Selection
                 Selection.SetActive(false);
                 Collectibles.SetActive(false);
                 Settings.SetActive(false);
@@ -168,6 +182,8 @@ public class UI_Manager : MonoBehaviour
                 ItemSelection.SetActive(true);
                 LoadingScreen.SetActive(false);
 
+                isPaused = true;
+
                 currentUIMenu = 8;
                 break;
         }
@@ -177,10 +193,20 @@ public class UI_Manager : MonoBehaviour
 
         Update_UI(7); // Makes sure game is showing "Loading" screen when coins are being set up
 
-        //Update_UI(3); // Makes Sure to make it in Starting Position First
-        //  ^ I moved this code to the EventsManager script ^
-        // When initialization phase is done, it runs Update_UI(3); and the game plays as normal
+        LoadLoadingStatement();
+    }
 
+    public void LoadLoadingStatement(){
+        var picked = Random.Range(1, loading_statements.Count);
+        var counted = 0;
+
+        
+        foreach(string _text in loading_statements){
+            counted++;
+            if(counted == picked){
+                LoadingText.text = _text;
+            }
+        }
     }
 
     public void Update(){ // Updates Values on Setting: Probably Shouldnt be here.
@@ -190,6 +216,20 @@ public class UI_Manager : MonoBehaviour
         _musicText.text = _musicVolume.ToString("0");
         _muteAll = _muteAllToggle.enabled;
         _CoinText.text = $"✰ {_currentCoin.ToString("0")}";
+
+        if(isPaused == true){
+            Time.timeScale = 0;
+        } else {
+            Time.timeScale = 1;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            if(currentUIMenu == 5){
+                Update_UI(4);
+            } else {
+                Update_UI(5);
+            }
+        }
     }
 
     /// <summary>
