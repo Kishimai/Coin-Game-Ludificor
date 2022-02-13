@@ -196,7 +196,7 @@ public class UI_Manager : MonoBehaviour
                 currentUIMenu = 8;
                 break;
 
-            case 9:
+            case 9: // Combo peg placement
                 Selection.SetActive(false);
                 Collectibles.SetActive(false);
                 Settings.SetActive(false);

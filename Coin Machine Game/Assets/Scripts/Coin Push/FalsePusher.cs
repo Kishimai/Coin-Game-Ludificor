@@ -28,9 +28,11 @@ public class FalsePusher : MonoBehaviour
     // Holds the layer for the stationary machine parts (walls, back drop, floor, etc)
     private int stationaryPartsLayer = 8;
     // Used to stop the coin pusher from moving during events or gameplay states/phases
-    private bool allowingMovement;
+    public bool allowingMovement;
 
     public float timer;
+
+    private float savedSpeed;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +55,7 @@ public class FalsePusher : MonoBehaviour
 
         timer = Random.Range(1.0f, 3.0f);
 
+        allowingMovement = true;
     }
 
     // Update is called once per frame
@@ -62,25 +65,41 @@ public class FalsePusher : MonoBehaviour
         {
             timer -= Time.deltaTime;
         }
-        else
-        {
-            allowingMovement = true;
-        }
-
     }
 
     private void FixedUpdate()
     {
         // Runs if the coin pusher is allowed to move
-        if (allowingMovement)
+        if (timer <= 0)
         {
-            MovePusher();
+            if (allowingMovement)
+            {
+                MovePusher();
+            }
+            else
+            {
+                savedSpeed = pusherRb.velocity.z;
+                pusherRb.velocity = Vector3.zero;
+            }
         }
     }
 
     // Responsible for moving the coin pusher between two positions (A and B)
     void MovePusher()
     {
+        if (savedSpeed < 0)
+        {
+            pusherRb.velocity = new Vector3(0, 0, -pusherSpeed);
+            savedSpeed = 0;
+            coinPusher.transform.position = new Vector3(coinPusher.transform.position.x, coinPusher.transform.position.y, coinPusher.transform.position.z + 0.1f);
+        }
+        else if (savedSpeed > 0)
+        {
+            pusherRb.velocity = new Vector3(0, 0, pusherSpeed);
+            savedSpeed = 0;
+            coinPusher.transform.position = new Vector3(coinPusher.transform.position.x, coinPusher.transform.position.y, coinPusher.transform.position.z + -0.1f);
+        }
+
         // Constantly gathers the pusher's current position for comparing
         currentPosition = coinPusher.transform.position;
 

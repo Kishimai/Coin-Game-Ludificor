@@ -896,7 +896,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1778378005}
   m_Father: {fileID: 1100760980}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15075,6 +15076,7 @@ MonoBehaviour:
   positionB: {x: 0, y: 0, z: -8.5}
   pusherRb: {fileID: 0}
   coinPusher: {fileID: 0}
+  allowingMovement: 0
   timer: 0
 --- !u!54 &726751112
 Rigidbody:
@@ -17398,6 +17400,14 @@ PrefabInstance:
       propertyPath: glassPanel
       value: 
       objectReference: {fileID: 1055047236}
+    - target: {fileID: 5981882643148413060, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
+      propertyPath: falsePusher1
+      value: 
+      objectReference: {fileID: 726751109}
+    - target: {fileID: 5981882643148413060, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
+      propertyPath: falsePusher2
+      value: 
+      objectReference: {fileID: 1366691005}
     - target: {fileID: 5981882643148413060, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
       propertyPath: itemRainDuration
       value: 2
@@ -30977,6 +30987,7 @@ MonoBehaviour:
   positionB: {x: 0, y: 0, z: -8.5}
   pusherRb: {fileID: 0}
   coinPusher: {fileID: 0}
+  allowingMovement: 0
   timer: 0
 --- !u!54 &1366691008
 Rigidbody:
@@ -31548,10 +31559,10 @@ MonoBehaviour:
   - a cat was a mayor once.
   - loading..
   - burnt pizza.. is still pizza.
-  - heh. ass.
+  - heh.
   - a barber just named my hair "I tried"
   - we're technically walking golems
-  - your a borrito
+  - you're a burrito
   - theres a 7.9 inch cockroach. I hate the world
   - you. cute.
   - "\xAC\u203F\xAC "
@@ -31633,11 +31644,11 @@ MonoBehaviour:
   - midas_crystal
   - peg_remove_mk2
   - golden_peg
-  - combo_peg
   rareItems:
   - midas_relic
   - peg_remove_mk3
   - diamond_peg
+  - combo_peg
   collectedItems: []
   coinValueModifier: 0
   newItem: 
@@ -41650,6 +41661,85 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d60ef0f5065a0445a89f2f035a5bf60, type: 3}
+--- !u!1 &1778378004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1778378005}
+  - component: {fileID: 1778378007}
+  - component: {fileID: 1778378006}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1778378005
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778378004}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 57330590}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.000015016, y: 267.57956}
+  m_SizeDelta: {x: 1200, y: 64.8409}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1778378006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778378004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 40
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 4
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Place Combo Pegs
+--- !u!222 &1778378007
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778378004}
+  m_CullTransparentMesh: 1
 --- !u!4 &1779650130 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 762913120609709109, guid: 6d60ef0f5065a0445a89f2f035a5bf60, type: 3}

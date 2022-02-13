@@ -32,6 +32,9 @@ public class EventsManager : MonoBehaviour
     // Glass panel on the plinko part of the board
     public GameObject glassPanel;
 
+    public GameObject falsePusher1;
+    public GameObject falsePusher2;
+
     public string[] commonEvents = new string[] { "CoinBlitz" };
     // Remove power surge from uncommon events and replace it with another event (maybe)
     public string[] uncommonEvents = new string[] { "PowerSurge" };
@@ -125,7 +128,7 @@ public class EventsManager : MonoBehaviour
         }
 
         // Runs the gameplay method
-        if (gameplayPhase && currentMenu != 9)
+        if (gameplayPhase && currentMenu != 9 && currentMenu != 8 && currentMenu != 6)
         {
             GameplayPhase();
         }
@@ -186,6 +189,10 @@ public class EventsManager : MonoBehaviour
     public void PauseMachine()
     {
         coinPusher.GetComponent<CoinPusher>().allowingMovement = false;
+
+        falsePusher1.GetComponent<FalsePusher>().allowingMovement = false;
+        falsePusher2.GetComponent<FalsePusher>().allowingMovement = false;
+
         GameObject[] allCoins = GameObject.FindGameObjectsWithTag("whole_coin");
 
         foreach (GameObject coin in allCoins)
@@ -198,6 +205,10 @@ public class EventsManager : MonoBehaviour
     public void ResumeMachine()
     {
         coinPusher.GetComponent<CoinPusher>().allowingMovement = true;
+
+        falsePusher1.GetComponent<FalsePusher>().allowingMovement = true;
+        falsePusher2.GetComponent<FalsePusher>().allowingMovement = true;
+
         GameObject[] allCoins = GameObject.FindGameObjectsWithTag("whole_coin");
 
         foreach (GameObject coin in allCoins)
