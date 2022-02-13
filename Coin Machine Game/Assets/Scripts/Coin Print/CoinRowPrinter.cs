@@ -97,6 +97,7 @@ public class CoinRowPrinter : MonoBehaviour
         else if (initializeCoins && planeIndex >= printerPlanes.Length && !extruding)
         {
             initialBuildFinished = true;
+            gameObject.SetActive(false);
         }
     }
 
@@ -217,6 +218,10 @@ public class CoinRowPrinter : MonoBehaviour
                 generation.returnObject();
                 // Creates the current coin/item at the extruder's position, plus the random margin
                 Instantiate(currentItem, extruder.transform.position + positionalNoise, Quaternion.identity);
+
+                Rigidbody coinRb = currentItem.GetComponent<Rigidbody>();
+
+                coinRb.constraints = RigidbodyConstraints.FreezePosition;
             }
         }
     }

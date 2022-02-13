@@ -72,8 +72,6 @@ public class IngamePointer : MonoBehaviour
 
             Vector3 clampedPosition = new Vector3(clampedX, clampedY, clampedZ);
 
-            Debug.Log(hit);
-
             pegSelectionTool.transform.position = clampedPosition;
         }
 

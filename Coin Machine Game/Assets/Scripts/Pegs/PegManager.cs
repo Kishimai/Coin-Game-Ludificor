@@ -163,7 +163,7 @@ public class PegManager : MonoBehaviour
                     if (peg.name == highlightedPeg.name)
                     {
                         chosenPeg = peg;
-                        break;
+                        //break;
                     }
                 }
 
@@ -177,7 +177,7 @@ public class PegManager : MonoBehaviour
                         if (peg.name == highlightedPeg.name)
                         {
                             chosenPeg = peg;
-                            break;
+                            //break;
                         }
                     }
                 }
@@ -214,23 +214,30 @@ public class PegManager : MonoBehaviour
 
     private void AddToModified(GameObject pegToMod)
     {
-        unmodifiedPegs.Remove(pegToMod);
-
-        modifiedPegs.Add(pegToMod);
-
-
         if (disabledPegs.Contains(pegToMod))
         {
             disabledPegs.Remove(pegToMod);
+
+            modifiedPegs.Add(pegToMod);
         }
+        else
+        {
+            unmodifiedPegs.Remove(pegToMod);
+
+            modifiedPegs.Add(pegToMod);
+        }
+
     }
 
     private void AddToDisabled(GameObject pegToDis)
     {
         // Finds and removes peg from unmodified list
-        unmodifiedPegs.Remove(pegToDis);
-        // Adds peg to disabled list
-        disabledPegs.Add(pegToDis);
+        if (unmodifiedPegs.Contains(pegToDis))
+        {
+            unmodifiedPegs.Remove(pegToDis);
+            // Adds peg to disabled list
+            disabledPegs.Add(pegToDis);
+        }
     }
 
 }

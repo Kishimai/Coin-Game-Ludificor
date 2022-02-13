@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Peg : MonoBehaviour
 {
-    public int coinValueModifier;
+    private int coinValueModifier;
     private int defaultCoinValueModifier = 1;
-    public int startingComboMultiplier = 2;
+    private int startingComboMultiplier = 2;
 
     public GameObject standardAppearance;
     public GameObject goldAppearance;
@@ -70,6 +70,12 @@ public class Peg : MonoBehaviour
     private void DeterminePegType(string pegType, int modifier = 0)
     {
         amModified = true;
+
+        coinValueModifier = modifier;
+
+        // Replace this with a amDisabled variable which stops normal function and swaps collider for a trigger
+        // Coins wont interact with trigger but selection tool MUST!
+        gameObject.SetActive(true);
 
         if (pegType.Equals("gold"))
         {

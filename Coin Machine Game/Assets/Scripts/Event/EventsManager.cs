@@ -145,6 +145,15 @@ public class EventsManager : MonoBehaviour
             // Forces the coin printer to stop with its initialization phase
             coinPrinter.GetComponent<CoinRowPrinter>().initializeCoins = false;
 
+            GameObject[] coins = GameObject.FindGameObjectsWithTag("whole_coin");
+
+            // Re-enables movement on all coins after initialization is over
+            foreach (GameObject coin in coins)
+            {
+                Rigidbody coinRb = coin.GetComponent<Rigidbody>();
+                coinRb.constraints = RigidbodyConstraints.None;
+            }
+
             // Switches from initialization to gameplay
             initializationPhase = false;
             gameplayPhase = true;
@@ -172,6 +181,8 @@ public class EventsManager : MonoBehaviour
         playerIsReady = true;
     }
 
+    // PAUSE EVENT FUNCTIONALITY DURING THIS TIME
+    // ALSO PAUSE MOVEMENT OF ITEM CAPSULES!
     public void PauseMachine()
     {
         coinPusher.GetComponent<CoinPusher>().allowingMovement = false;
@@ -179,7 +190,8 @@ public class EventsManager : MonoBehaviour
 
         foreach (GameObject coin in allCoins)
         {
-            coin.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+            Rigidbody coinRb = coin.GetComponent<Rigidbody>();
+            coinRb.constraints = RigidbodyConstraints.FreezeAll;
         }
     }
 
@@ -190,7 +202,8 @@ public class EventsManager : MonoBehaviour
 
         foreach (GameObject coin in allCoins)
         {
-            coin.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            Rigidbody coinRb = coin.GetComponent<Rigidbody>();
+            coinRb.constraints = RigidbodyConstraints.None;
         }
     }
 

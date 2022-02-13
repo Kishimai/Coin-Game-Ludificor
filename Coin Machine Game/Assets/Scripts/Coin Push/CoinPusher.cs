@@ -15,6 +15,7 @@ public class CoinPusher : MonoBehaviour
     // Used to speed up or slow down the coin pusher
     public float pusherSpeed;
     public float defaultSpeed;
+    private float savedSpeed;
     // Used to determine the coin pusher's starting position
     public Vector3 startingPosition;
     // Used to measure the coin pusher's current position
@@ -29,7 +30,7 @@ public class CoinPusher : MonoBehaviour
     // Holds the layer for the stationary machine parts (walls, back drop, floor, etc)
     private int stationaryPartsLayer = 8;
     // Used to stop the coin pusher from moving during events or gameplay states/phases
-    public bool allowingMovement;
+    public bool allowingMovement = true;
 
     public bool surgeEvent;
     public float surgeSpeed;
@@ -56,18 +57,13 @@ public class CoinPusher : MonoBehaviour
         pusherSpeed = defaultSpeed;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-
-    }
-
     private void FixedUpdate()
     {
+
         // Runs if the coin pusher is allowed to move
         if (allowingMovement)
         {
+
             if (surgeEvent)
             {
                 pusherSpeed = surgeSpeed;
@@ -90,11 +86,29 @@ public class CoinPusher : MonoBehaviour
                 pusherRb.velocity = new Vector3(0, 0, -pusherSpeed);
             }
         }
+        else
+        {
+            savedSpeed = pusherRb.velocity.z;
+            pusherRb.velocity = Vector3.zero;
+        }
     }
 
     // Responsible for moving the coin pusher between two positions (A and B)
     void MovePusher()
     {
+        if (savedSpeed < 0)
+        {
+            pusherRb.velocity = new Vector3(0, 0, -pusherSpeed);
+            savedSpeed = 0;
+            coinPusher.transform.position = new Vector3(coinPusher.transform.position.x, coinPusher.transform.position.y, coinPusher.transform.position.z + 0.1f);
+        }
+        else if (savedSpeed > 0)
+        {
+            pusherRb.velocity = new Vector3(0, 0, pusherSpeed);
+            savedSpeed = 0;
+            coinPusher.transform.position = new Vector3(coinPusher.transform.position.x, coinPusher.transform.position.y, coinPusher.transform.position.z + -0.1f);
+        }
+
         // Constantly gathers the pusher's current position for comparing
         currentPosition = coinPusher.transform.position;
 

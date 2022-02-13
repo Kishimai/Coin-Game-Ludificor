@@ -14,9 +14,9 @@ public class CoinLogic : MonoBehaviour
     public Text canvasTextHead;
     public Text canvasTextTail;
 
-    public int gildedModifier = 0;
-    public int crystalModifier = 0;
-    public int comboMultiplier = 0;
+    private int gildedModifier = 0;
+    private int crystalModifier = 0;
+    private int comboMultiplier = 0;
 
     public int totalValueModifier = 0;
 
@@ -29,20 +29,12 @@ public class CoinLogic : MonoBehaviour
     {
         coinRb = GetComponent<Rigidbody>();
         eventManager = GameObject.FindGameObjectWithTag("gameplay_event_system");
+        coinRb.constraints = RigidbodyConstraints.None;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Stops coins from flying around randomly when the game is still in initialization phase
-        if (eventManager.GetComponent<EventsManager>().initializationPhase)
-        {
-            coinRb.constraints = RigidbodyConstraints.FreezeAll;
-        }
-        else
-        {
-            coinRb.constraints = RigidbodyConstraints.None;
-        }
 
         totalValueModifier = gildedModifier + crystalModifier + comboMultiplier;
 

@@ -189,7 +189,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 14
   m_CollisionDetection: 0
 --- !u!114 &-1847676537838378648
 MonoBehaviour:
@@ -224,9 +224,6 @@ MonoBehaviour:
   coinCanvas: {fileID: 7381652128472962006}
   canvasTextHead: {fileID: 636044497169198058}
   canvasTextTail: {fileID: 4341668346377864067}
-  gildedModifier: 0
-  crystalModifier: 0
-  comboMultiplier: 0
   totalValueModifier: 0
   inPlinkoZone: 0
   coinLayer: 11
@@ -410,7 +407,7 @@ GameObject:
   - component: {fileID: 636556718633079155}
   - component: {fileID: 3196643030899386205}
   m_Layer: 0
-  m_Name: DestroySphere
+  m_Name: InteractionSphere
   m_TagString: coin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
