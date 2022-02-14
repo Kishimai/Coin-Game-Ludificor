@@ -76,9 +76,8 @@ public class ShopSystem : MonoBehaviour
         var _Price = _data.GetComponent<Data_Interp>().data.currentCost;
         var _Value = _data.GetComponent<Data_Interp>().data.currentValue;
 
-        _data.transform.GetChild(3).GetComponent<Text>().text = _Title; // Adding Values
-        _data.transform.GetChild(2).GetComponent<Text>().text = $"Current Buy Price | {_Price:0}";
-        _data.transform.GetChild(4).GetComponent<Text>().text = $"Current Coin Value | {_Value:0}";
+        _data.transform.GetChild(2).GetComponent<Text>().text = $"{_Title}"; // Adding Values
+        _data.transform.GetChild(1).GetComponentInChildren<Text>().text = $"BUY ✰ {_Price:0}";
     }
 
     /// <summary>
@@ -88,7 +87,7 @@ public class ShopSystem : MonoBehaviour
     public void Check_Datas(GameObject _Object){
         var _data = _Object.transform.parent.GetComponent<Data_Interp>().data;
 
-        if(_data.CurrentLevel == 4){
+        if(_data.CurrentLevel == 8){
             foreach(GameObject _object in placeholder_data){
                 var object_data = _object.GetComponent<Data_Interp>().data;
                 if(_data.Order + 1 == object_data.Order){
@@ -97,6 +96,12 @@ public class ShopSystem : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void VisualLevel(int Lvl, GameObject data){ // Not the most Efficient way of Coding Visual Level Will be changed
+        var Levels = data.transform.GetChild(4);
+        Levels.GetChild(Lvl -= 1).gameObject.SetActive(true);
+        Debug.Log("Passed");
     }
 
 
@@ -111,7 +116,7 @@ public class ShopSystem : MonoBehaviour
             // Saves cost of current upgrade to subtract currentCoin (fixes bug where currentCoin went into negative value)
             float temp = _data.currentCost;
 
-            if(_data.CurrentLevel < 5){
+            if(_data.CurrentLevel < 10){
                 _data.CurrentLevel += 1;
                 _data.currentCost = CalculatePayRate(_data.BaseCost, _data.CurrentLevel, 0);
                 _data.currentValue += _data.AddPerLevel;
@@ -120,6 +125,7 @@ public class ShopSystem : MonoBehaviour
             }
             
             Check_Datas(Data);
+            VisualLevel(_data.CurrentLevel, Data);
         }
     }
 
