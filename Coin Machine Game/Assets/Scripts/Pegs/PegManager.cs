@@ -15,6 +15,9 @@ public class PegManager : MonoBehaviour
 
     public List<GameObject> disabledPegs = new List<GameObject>();
 
+    private GameObject eventManager;
+
+    public bool allowPegEvent = false;
     public float regularPegValueModifier = 0;
     private int goldPegValueModifier = 3;
     private int diamondPegValueModifier = 4;
@@ -24,6 +27,7 @@ public class PegManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        eventManager = GameObject.FindGameObjectWithTag("gameplay_event_system");
         CompilePegsAndRows();
     }
 
@@ -238,6 +242,44 @@ public class PegManager : MonoBehaviour
             // Adds peg to disabled list
             disabledPegs.Add(pegToDis);
         }
+    }
+
+    public IEnumerator ComboEvent(float eventDuration)
+    {
+        float timeUntilEnd = eventDuration;
+        // Iterate through each peg in all pegs
+        // Run method within that peg which:
+        // Deactivates all abilities of that peg and records its current state
+
+
+        // !IMPORTANT!
+        // During any paused state of the game, the event must be paused AND:
+        // All pegs need to be reactivated so they can be properly interacted with again for item capsules and combo placements
+        // When the game is unpaused, the event must continue, starting again by recording the current state of each peg and deactivating their abilities
+
+        foreach (GameObject peg in allPegs)
+        {
+            peg.GetComponent<Peg>().ConvertToComboEventPeg();
+        }
+
+        while (timeUntilEnd > 0)
+        {
+            if (allowPegEvent)
+            {
+                timeUntilEnd -= Time.fixedDeltaTime;
+                yield return new WaitForFixedUpdate();
+            }
+            else
+            {
+                yield return null;
+            }
+        }
+
+        foreach (GameObject peg in allPegs)
+        {
+            peg.GetComponent<Peg>().RevertToRecordedAttributes();
+        }
+        // Iterate again, this time running a method which returns peg's state to its recorded value
     }
 
 }

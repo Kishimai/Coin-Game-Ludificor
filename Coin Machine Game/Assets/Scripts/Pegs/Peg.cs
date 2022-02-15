@@ -117,6 +117,21 @@ public class Peg : MonoBehaviour
         }
     }
 
+    private void RecordCurrentAttributes()
+    {
+
+    }
+
+    public void RevertToRecordedAttributes()
+    {
+
+    }
+
+    public void ConvertToComboEventPeg()
+    {
+
+    }
+
     void OnTriggerEnter(Collider other)
     {
         // Runs if colliding with coin and this peg is modified

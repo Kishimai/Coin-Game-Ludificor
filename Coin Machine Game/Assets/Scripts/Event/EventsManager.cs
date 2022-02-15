@@ -27,6 +27,8 @@ public class EventsManager : MonoBehaviour
     // Accesses the item builder object
     public GameObject itemBuilder;
 
+    public GameObject pegManager;
+
     public GameObject gameManager;
 
     // Glass panel on the plinko part of the board
@@ -38,7 +40,7 @@ public class EventsManager : MonoBehaviour
     public string[] commonEvents = new string[] { "CoinBlitz" };
     // Remove power surge from uncommon events and replace it with another event (maybe)
     public string[] uncommonEvents = new string[] { "PowerSurge" };
-    public string[] rareEvents = new string[] { "ItemRain" };
+    public string[] rareEvents = new string[] { "ItemRain", "PegCombo" };
 
     // Initialization phase is used when the game is preparing the scene
     public bool initializationPhase;
@@ -66,12 +68,6 @@ public class EventsManager : MonoBehaviour
 
     public string chosenEvent = "";
 
-    // Number of times these events will appear in the array of possible events
-    public int coinBlitzProbability;
-    public int itemRainProbability;
-    public int powerSurgeProbability;
-    public int jackpotProbability;
-
     // Remaining duration of current running event
     public float currentEventDuration;
 
@@ -79,6 +75,7 @@ public class EventsManager : MonoBehaviour
     public float coinBlitzDuration;
     public float itemRainDuration;
     public float powerSurgeDuration;
+    public float pegComboDuration;
     public float jackpotDuration;
 
     // Used during the blitz event to alter the coin placement cooldown so coins can be placed faster
@@ -193,6 +190,8 @@ public class EventsManager : MonoBehaviour
         falsePusher1.GetComponent<FalsePusher>().allowingMovement = false;
         falsePusher2.GetComponent<FalsePusher>().allowingMovement = false;
 
+        pegManager.GetComponent<PegManager>().allowPegEvent = true;
+
         GameObject[] allCoins = GameObject.FindGameObjectsWithTag("whole_coin");
 
         foreach (GameObject coin in allCoins)
@@ -208,6 +207,8 @@ public class EventsManager : MonoBehaviour
 
         falsePusher1.GetComponent<FalsePusher>().allowingMovement = true;
         falsePusher2.GetComponent<FalsePusher>().allowingMovement = true;
+
+        pegManager.GetComponent<PegManager>().allowPegEvent = false;
 
         GameObject[] allCoins = GameObject.FindGameObjectsWithTag("whole_coin");
 
@@ -303,4 +304,10 @@ public class EventsManager : MonoBehaviour
 
     }
 
+    void PegCombo()
+    {
+        StartCoroutine(pegManager.GetComponent<PegManager>().ComboEvent(pegComboDuration));
+
+        currentEventDuration = pegComboDuration;
+    }
 }
