@@ -43,6 +43,10 @@ public class UI_Manager : MonoBehaviour
     [BoxGroup("Loading")]
     public List<string> loading_statements = new List<string>();
 
+    /// <summary>
+    /// Uses for Changing Panel.
+    /// </summary>
+    /// <param name="data">Specific Change to Panel</param>
     public void Update_UI(int data){
         switch(data){
             case 1: // Settings
