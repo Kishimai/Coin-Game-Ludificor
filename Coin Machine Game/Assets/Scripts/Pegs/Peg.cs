@@ -5,8 +5,6 @@ using UnityEngine;
 public class Peg : MonoBehaviour
 {
     private int coinValueModifier;
-    private int defaultCoinValueModifier = 1;
-    private int startingComboMultiplier = 2;
 
     public GameObject standardAppearance;
     public GameObject goldAppearance;
@@ -14,23 +12,34 @@ public class Peg : MonoBehaviour
     public GameObject comboAppearance;
     public GameObject selectionHighligter;
 
+    public GameObject comboEventAppearance;
+
     // Used to prevent coins from constantly stacking modifiers if they bounce slightly off of this peg (Applies only to combo pegs)
     private List<GameObject> recentlyUpgradedCoins = new List<GameObject>();
 
     private float timeUntilObjectRemoval;
 
-    public bool amModified;
-    public bool amDisabled;
-    private bool amGolden;
-    private bool amDiamond;
-    private bool amCombo;
+    public bool amModified = false;
+    private bool amDisabled = false;
+    private bool amGolden = false;
+    private bool amDiamond = false;
+    private bool amCombo = false;
+
+    private bool amComboEvent;
+
+    private int recordedValueModifier = 0;
+    private bool recordedAmModified = false;
+    private bool recordedAmDisabled = false;
+    private bool recordedAmGolden = false;
+    private bool recordedAmDiamond = false;
+    private bool recordedAmCombo = false;
+    private bool recordingTaken = false;
 
 
     void Start()
     {
         amModified = false;
         amDisabled = false;
-        coinValueModifier = defaultCoinValueModifier;
     }
 
     void Update()
@@ -63,8 +72,15 @@ public class Peg : MonoBehaviour
     {
         // Replace this with a amDisabled variable which stops normal function and swaps collider for a trigger
         // Coins wont interact with trigger but selection tool MUST!
-        gameObject.SetActive(false);
-        amDisabled = true;
+        //gameObject.SetActive(false);
+        if (amComboEvent)
+        {
+            amDisabled = true;
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void DeterminePegType(string pegType, int modifier = 0)
@@ -115,20 +131,106 @@ public class Peg : MonoBehaviour
             // Multiply coin's current combo multiplier by itself
             other.gameObject.GetComponentInParent<CoinLogic>().ComboMultiplier();
         }
+        else if (amComboEvent)
+        {
+            other.gameObject.GetComponentInParent<CoinLogic>().ComboEvent();
+        }
     }
 
-    private void RecordCurrentAttributes()
+    // Records current state of peg to return to after an event, item, or spell interaction
+    public void RecordCurrentAttributes()
     {
+        recordedValueModifier = coinValueModifier;
+        recordedAmModified = amModified;
+        recordedAmDisabled = amDisabled;
 
+        if (amGolden)
+        {
+            recordedAmGolden = amGolden;
+        }
+        else if (amDiamond)
+        {
+            recordedAmDiamond = amDiamond;
+        }
+        else if (amCombo)
+        {
+            recordedAmCombo = amCombo;
+        }
+
+        recordingTaken = true;
     }
 
+    // Returns peg to its previously recorded state after an event, spell, or item's influence ends
     public void RevertToRecordedAttributes()
     {
 
+        // If an actual recording was taken, returns peg to that recorded state
+        // (prevents issues or bugs resulting from no recording being taken)
+        if (recordingTaken)
+        {
+            coinValueModifier = recordedValueModifier;
+            amComboEvent = false;
+            amModified = recordedAmModified;
+            amDisabled = recordedAmDisabled;
+
+            if (amDisabled)
+            {
+                gameObject.SetActive(false);
+            }
+
+            if (recordedAmGolden)
+            {
+                amGolden = recordedAmGolden;
+                comboEventAppearance.SetActive(false);
+                goldAppearance.SetActive(true);
+            }
+            else if (recordedAmDiamond)
+            {
+                amDiamond = recordedAmDiamond;
+                comboEventAppearance.SetActive(false);
+                diamondAppearance.SetActive(true);
+            }
+            else if (recordedAmCombo)
+            {
+                amCombo = recordedAmCombo;
+                comboEventAppearance.SetActive(false);
+                comboAppearance.SetActive(true);
+            }
+            else
+            {
+                comboEventAppearance.SetActive(false);
+                standardAppearance.SetActive(true);
+            }
+        }
+        // If no recording was taken but this method was called, it throws an error and lists the object
+        else
+        {
+            Debug.LogWarning("Cannot revert to recorded attributes, as nothing has been recorded (did you call RecordCurrentAttributes() beforehand?): " + gameObject.name);
+        }
+
+        // Resets the recordingTaken value to false since it just used that recording
+        recordingTaken = false;
     }
 
+    // Converts peg to combo event peg which lasts until combo event is over
     public void ConvertToComboEventPeg()
     {
+        RecordCurrentAttributes();
+
+        amModified = false;
+        amDisabled = false;
+        amGolden = false;
+        amDiamond = false;
+        amCombo = false;
+
+        amComboEvent = true;
+
+        standardAppearance.SetActive(false);
+        goldAppearance.SetActive(false);
+        diamondAppearance.SetActive(false);
+        comboAppearance.SetActive(false);
+
+        comboEventAppearance.SetActive(true);
 
     }
 
@@ -136,6 +238,10 @@ public class Peg : MonoBehaviour
     {
         // Runs if colliding with coin and this peg is modified
         if (other.gameObject.tag == "coin" && amModified)
+        {
+            AttemptUpgradeOnCoin(other);
+        }
+        if (other.gameObject.tag == "coin" && amComboEvent)
         {
             AttemptUpgradeOnCoin(other);
         }
@@ -171,7 +277,7 @@ public class Peg : MonoBehaviour
                     comboAppearance.SetActive(true);
                 }
             }
-            else
+            else if (!comboEventAppearance.activeSelf)
             {
                 standardAppearance.SetActive(true);
             }

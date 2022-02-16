@@ -247,10 +247,8 @@ public class PegManager : MonoBehaviour
     public IEnumerator ComboEvent(float eventDuration)
     {
         float timeUntilEnd = eventDuration;
-        // Iterate through each peg in all pegs
-        // Run method within that peg which:
-        // Deactivates all abilities of that peg and records its current state
 
+        allowPegEvent = true;
 
         // !IMPORTANT!
         // During any paused state of the game, the event must be paused AND:
@@ -280,6 +278,31 @@ public class PegManager : MonoBehaviour
             peg.GetComponent<Peg>().RevertToRecordedAttributes();
         }
         // Iterate again, this time running a method which returns peg's state to its recorded value
+    }
+
+    public void PauseComboEvent()
+    {
+        allowPegEvent = false;
+
+        // iterate over all pegs, reverting them to their recorded value
+
+        foreach (GameObject peg in allPegs)
+        {
+            peg.GetComponent<Peg>().RevertToRecordedAttributes();
+        }
+    }
+
+    public void ResumeComboEvent()
+    {
+
+        // iterate over all pegs, recording their now current value, then turning them to event value
+
+        foreach (GameObject peg in allPegs)
+        {
+            peg.GetComponent<Peg>().ConvertToComboEventPeg();
+        }
+
+        allowPegEvent = true;
     }
 
 }

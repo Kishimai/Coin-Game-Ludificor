@@ -170,9 +170,11 @@ public class ItemInventory : MonoBehaviour
                 GetComponent<UI_Manager>().Update_UI(9);
                 StartCoroutine(UseComboPegs());
             }
+            // If no available prizes and player did NOT get combo peg, resume machine so it doesnt remain paused when menu is forcefully closed
             else
             {
                 GetComponent<UI_Manager>().Update_UI(4);
+                eventManager.GetComponent<EventsManager>().ResumeMachine();
             }
         }
 
@@ -190,7 +192,7 @@ public class ItemInventory : MonoBehaviour
 
         pointer.enabled = enabled;
 
-        eventManager.GetComponent<EventsManager>().PauseMachine();
+        //eventManager.GetComponent<EventsManager>().PauseMachine();
 
         while (collectedItems.Contains("combo_peg"))
         {

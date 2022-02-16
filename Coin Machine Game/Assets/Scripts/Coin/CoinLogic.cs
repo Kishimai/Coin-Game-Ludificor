@@ -17,6 +17,7 @@ public class CoinLogic : MonoBehaviour
     private int gildedModifier = 0;
     private int crystalModifier = 0;
     private int comboMultiplier = 0;
+    private int comboEventMultiplier = 0;
 
     public int totalValueModifier = 0;
 
@@ -36,9 +37,9 @@ public class CoinLogic : MonoBehaviour
     void Update()
     {
 
-        totalValueModifier = gildedModifier + crystalModifier + comboMultiplier;
+        totalValueModifier = gildedModifier + crystalModifier + comboMultiplier + comboEventMultiplier;
 
-        if (!Mathf.Approximately(totalValueModifier, 0))
+        if (totalValueModifier != 0)
         {
             coinCanvas.SetActive(true);
             canvasTextHead.text = string.Format("{0}{1}", totalValueModifier, "x");
@@ -72,6 +73,13 @@ public class CoinLogic : MonoBehaviour
         {
             comboMultiplier += comboMultiplier;
         }
+    }
+
+    public void ComboEvent()
+    {
+        guildedBumper.SetActive(true);
+
+        comboEventMultiplier += 2;
     }
 
 }

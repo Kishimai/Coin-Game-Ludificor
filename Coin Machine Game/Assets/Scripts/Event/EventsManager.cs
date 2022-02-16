@@ -190,7 +190,10 @@ public class EventsManager : MonoBehaviour
         falsePusher1.GetComponent<FalsePusher>().allowingMovement = false;
         falsePusher2.GetComponent<FalsePusher>().allowingMovement = false;
 
-        pegManager.GetComponent<PegManager>().allowPegEvent = true;
+        if (chosenEvent.Equals("PegCombo"))
+        {
+            pegManager.GetComponent<PegManager>().PauseComboEvent();
+        }
 
         GameObject[] allCoins = GameObject.FindGameObjectsWithTag("whole_coin");
 
@@ -208,7 +211,10 @@ public class EventsManager : MonoBehaviour
         falsePusher1.GetComponent<FalsePusher>().allowingMovement = true;
         falsePusher2.GetComponent<FalsePusher>().allowingMovement = true;
 
-        pegManager.GetComponent<PegManager>().allowPegEvent = false;
+        if (chosenEvent.Equals("PegCombo"))
+        {
+            pegManager.GetComponent<PegManager>().ResumeComboEvent();
+        }
 
         GameObject[] allCoins = GameObject.FindGameObjectsWithTag("whole_coin");
 
