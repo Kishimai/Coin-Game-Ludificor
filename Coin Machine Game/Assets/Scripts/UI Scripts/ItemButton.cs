@@ -7,12 +7,17 @@ public class ItemButton : MonoBehaviour
 {
     public string selectedItem;
 
+    public GameObject descriptionObject;
+
     public Text buttonText;
+
+    public Text description;
 
     public void RollNew()
     {
-        selectedItem = GameObject.FindGameObjectWithTag("game_manager").GetComponent<ItemRandomizer>().RollNewItem();
+        //selectedItem = GameObject.FindGameObjectWithTag("game_manager").GetComponent<ItemRandomizer>().RollNewItem();
         buttonText.text = selectedItem;
+        //description.text = 
     }
 
     public void GetItem()

@@ -6,9 +6,13 @@ using UnityEngine.UI;
 public class ItemInventory : MonoBehaviour
 {
     // ------------------------- All possible items in the game (scripts dealing with items may pull from this) ------------------------- //
-    public string[] commonItems = new string[] { "midas_shard", "peg_remove_mk1" };
-    public string[] uncommonItems = new string[] { "midas_crystal", "peg_remove_mk2", "golden_peg", "combo_peg" };
-    public string[] rareItems = new string[] { "midas_relic", "peg_remove_mk3", "diamond_peg" };
+    //public string[] commonItems = new string[] { "midas_shard", "peg_remove_mk1" };
+    //public string[] uncommonItems = new string[] { "midas_crystal", "peg_remove_mk2", "golden_peg", "combo_peg" };
+    //public string[] rareItems = new string[] { "midas_relic", "peg_remove_mk3", "diamond_peg" };
+
+    public Dictionary<string, string> commonItems;
+    public Dictionary<string, string> uncommonItems;
+    public Dictionary<string, string> rareItems;
 
     // ------------------------- Item Inventory ------------------------- //
     public List<string> collectedItems = new List<string>();
@@ -36,6 +40,7 @@ public class ItemInventory : MonoBehaviour
         coinValueModifier = 1.0f;
         collector = GameObject.FindGameObjectWithTag("coin_destroyer");
         eventManager = GameObject.FindGameObjectWithTag("gameplay_event_system");
+        CompileItems();
     }
 
     // Update is called once per frame
@@ -68,6 +73,30 @@ public class ItemInventory : MonoBehaviour
         }
 
         collector.GetComponent<DeleteCoins>().valueModifier = coinValueModifier;
+    }
+
+    void CompileItems()
+    {
+        commonItems = new Dictionary<string, string>
+        {
+            { "midas_shard", "Increases value of all coins by 1%" },
+            {"peg_remove_mk1", "Removes 1 normal peg from the backboard" }
+        };
+
+        uncommonItems = new Dictionary<string, string>
+        {
+            { "midas_crystal", "Increases value of all coins by 5%" },
+            { "peg_remove_mk2", "Removes 2 normal pegs from the backboard" },
+            { "golden_peg", "Converts 1 normal peg to a gilded version, doubling value of coins that touch it" }
+        };
+
+        rareItems = new Dictionary<string, string>()
+        {
+            { "midas_relic", "Increases value of all coins by 10%" },
+            { "peg_remove_mk3", "Removes 3 normal pegs from the backboard" },
+            { "diamond_peg", "Converts 1 normal peg to a diamond version, tripling value of coins that touch it" },
+            { "combo_peg", "Converts 1 normal peg to a combo version, doubling value of coins that touch it (Effect stacks with other combo pegs)" }
+        };
     }
 
     // Responsible for determining the item the player chose, and altering values based on that
