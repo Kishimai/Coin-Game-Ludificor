@@ -81,5 +81,4 @@ public class CoinLogic : MonoBehaviour
 
         comboEventMultiplier += 2;
     }
-
 }

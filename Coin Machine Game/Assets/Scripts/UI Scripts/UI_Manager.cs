@@ -63,7 +63,6 @@ public class UI_Manager : MonoBehaviour
                 LoadingScreen.SetActive(false);
                 ComboPegSelection.SetActive(false);
 
-                Debug.Log("Case: 1");
                 isPaused = true;
 
                 currentUIMenu = 1;
@@ -82,7 +81,6 @@ public class UI_Manager : MonoBehaviour
                 LoadingScreen.SetActive(false);
                 ComboPegSelection.SetActive(false);
 
-                Debug.Log("Case: 2");
                 isPaused = false;
 
                 currentUIMenu = 2;
@@ -102,7 +100,6 @@ public class UI_Manager : MonoBehaviour
                 LoadingScreen.SetActive(false);
                 ComboPegSelection.SetActive(false);
 
-                Debug.Log("Case: 3");
                 // isPaused = true;  Disabled So Depending on where last layer was from it will be paused or not
 
                 currentUIMenu = 3;
@@ -121,7 +118,6 @@ public class UI_Manager : MonoBehaviour
                 LoadingScreen.SetActive(false);
                 ComboPegSelection.SetActive(false);
 
-                Debug.Log("Case: 4");
                 isPaused = false;
 
                 currentUIMenu = 4;
@@ -140,7 +136,6 @@ public class UI_Manager : MonoBehaviour
                 LoadingScreen.SetActive(false);
                 ComboPegSelection.SetActive(false);
 
-                Debug.Log("Case: 5");
                 isPaused = true;
 
                 currentUIMenu = 5;
@@ -159,7 +154,6 @@ public class UI_Manager : MonoBehaviour
                 LoadingScreen.SetActive(false);
                 ComboPegSelection.SetActive(false);
 
-                Debug.Log("Case: 6");
                 isPaused = false;
 
                 currentUIMenu = 6;

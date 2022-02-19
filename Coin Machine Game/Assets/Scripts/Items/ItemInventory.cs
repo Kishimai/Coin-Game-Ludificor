@@ -90,12 +90,12 @@ public class ItemInventory : MonoBehaviour
             { "golden_peg", "Converts 1 normal peg to a gilded version, doubling value of coins that touch it" }
         };
 
-        rareItems = new Dictionary<string, string>()
+        rareItems = new Dictionary<string, string>
         {
             { "midas_relic", "Increases value of all coins by 10%" },
             { "peg_remove_mk3", "Removes 3 normal pegs from the backboard" },
             { "diamond_peg", "Converts 1 normal peg to a diamond version, tripling value of coins that touch it" },
-            { "combo_peg", "Converts 1 normal peg to a combo version, doubling value of coins that touch it (Effect stacks with other combo pegs)" }
+            { "combo_peg", "Converts 1 normal peg to a combo version, doubling value of coins that touch it (Effect stacks)" }
         };
     }
 

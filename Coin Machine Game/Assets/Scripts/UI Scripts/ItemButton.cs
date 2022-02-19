@@ -7,6 +7,8 @@ public class ItemButton : MonoBehaviour
 {
     public string selectedItem;
 
+    public Dictionary<string, string> selectedItemDict;
+
     public GameObject descriptionObject;
 
     public Text buttonText;
@@ -15,9 +17,14 @@ public class ItemButton : MonoBehaviour
 
     public void RollNew()
     {
-        //selectedItem = GameObject.FindGameObjectWithTag("game_manager").GetComponent<ItemRandomizer>().RollNewItem();
-        buttonText.text = selectedItem;
-        //description.text = 
+        selectedItemDict = GameObject.FindGameObjectWithTag("game_manager").GetComponent<ItemRandomizer>().RollNewItem();
+        foreach (KeyValuePair<string, string> item in selectedItemDict)
+        {
+            buttonText.text = item.Key;
+            description.text = item.Value;
+
+            selectedItem = item.Key;
+        }
     }
 
     public void GetItem()

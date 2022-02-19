@@ -185,10 +185,10 @@ public class EventsManager : MonoBehaviour
     // ALSO PAUSE MOVEMENT OF ITEM CAPSULES!
     public void PauseMachine()
     {
-        coinPusher.GetComponent<CoinPusher>().allowingMovement = false;
+        coinPusher.GetComponent<CoinPusher>().PausePusher();
 
-        falsePusher1.GetComponent<FalsePusher>().allowingMovement = false;
-        falsePusher2.GetComponent<FalsePusher>().allowingMovement = false;
+        falsePusher1.GetComponent<FalsePusher>().PausePusher();
+        falsePusher2.GetComponent<FalsePusher>().PausePusher();
 
         if (chosenEvent.Equals("PegCombo"))
         {
@@ -201,15 +201,16 @@ public class EventsManager : MonoBehaviour
         {
             Rigidbody coinRb = coin.GetComponent<Rigidbody>();
             coinRb.constraints = RigidbodyConstraints.FreezeAll;
+            coinRb.detectCollisions = false;
         }
     }
 
     public void ResumeMachine()
     {
-        coinPusher.GetComponent<CoinPusher>().allowingMovement = true;
+        coinPusher.GetComponent<CoinPusher>().UnpausePusher();
 
-        falsePusher1.GetComponent<FalsePusher>().allowingMovement = true;
-        falsePusher2.GetComponent<FalsePusher>().allowingMovement = true;
+        falsePusher1.GetComponent<FalsePusher>().UnpausePusher();
+        falsePusher2.GetComponent<FalsePusher>().UnpausePusher();
 
         if (chosenEvent.Equals("PegCombo"))
         {
@@ -222,6 +223,7 @@ public class EventsManager : MonoBehaviour
         {
             Rigidbody coinRb = coin.GetComponent<Rigidbody>();
             coinRb.constraints = RigidbodyConstraints.None;
+            coinRb.detectCollisions = true;
         }
     }
 

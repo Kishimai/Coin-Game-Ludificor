@@ -23,6 +23,8 @@ public class CoinPusher : MonoBehaviour
     // Used to determine the positions that the coin pusher will move between
     public Vector3 positionA;
     public Vector3 positionB;
+    private Vector3 relativeStart;
+    private Vector3 relativeEnd;
     // Holds the rigid body of the pusher object so that force can be applied to it and it can be moved
     public Rigidbody pusherRb;
     // Holds the object for the coin pusher itself
@@ -31,6 +33,12 @@ public class CoinPusher : MonoBehaviour
     private int stationaryPartsLayer = 8;
     // Used to stop the coin pusher from moving during events or gameplay states/phases
     public bool allowingMovement = true;
+
+    private bool targetAReached;
+    private bool targetBReached;
+
+    public float desiredDuration;
+    private float elapsedTime;
 
     public bool surgeEvent;
     public float surgeSpeed;
@@ -51,81 +59,96 @@ public class CoinPusher : MonoBehaviour
         //startingPosition = positionA;
         startingPosition = new Vector3(coinPusher.transform.position.x, coinPusher.transform.position.y, positionB.z);
 
+        relativeStart = startingPosition;
+        relativeEnd = positionA;
+
         // Sets the starting position of the coin pusher
-        coinPusher.transform.position = startingPosition;
+        coinPusher.transform.position = relativeStart;
 
         pusherSpeed = defaultSpeed;
     }
 
     private void FixedUpdate()
     {
-
-        // Runs if the coin pusher is allowed to move
         if (allowingMovement)
         {
-
-            if (surgeEvent)
-            {
-                pusherSpeed = surgeSpeed;
-            }
-            else
-            {
-                pusherSpeed = defaultSpeed;
-            }
-
             MovePusher();
-            
-            // Used to ensure the pusher's speed is modified right away when a surge event happens
-            // Previously it would only set the speed when the pusher reached point a or point b, even when the event was supposed to be happening
-            if (surgeEvent && pusherRb.velocity.z > 0)
-            {
-                pusherRb.velocity = new Vector3(0, 0, pusherSpeed);
-            }
-            else if (surgeEvent && pusherRb.velocity.z < 0)
-            {
-                pusherRb.velocity = new Vector3(0, 0, -pusherSpeed);
-            }
-        }
-        else
-        {
-            savedSpeed = pusherRb.velocity.z;
-            pusherRb.velocity = Vector3.zero;
         }
     }
 
-    // Responsible for moving the coin pusher between two positions (A and B)
     void MovePusher()
     {
-        if (savedSpeed < 0)
+
+        if (surgeEvent)
         {
-            pusherRb.velocity = new Vector3(0, 0, -pusherSpeed);
-            savedSpeed = 0;
-            coinPusher.transform.position = new Vector3(coinPusher.transform.position.x, coinPusher.transform.position.y, coinPusher.transform.position.z + 0.1f);
+            pusherSpeed = surgeSpeed;
         }
-        else if (savedSpeed > 0)
+        else
+        {
+            pusherSpeed = defaultSpeed;
+        }
+
+        // Used to ensure the pusher's speed is modified right away when a surge event happens
+        // Previously it would only set the speed when the pusher reached point a or point b, even when the event was supposed to be happening
+        if (surgeEvent && pusherRb.velocity.z > 0)
         {
             pusherRb.velocity = new Vector3(0, 0, pusherSpeed);
-            savedSpeed = 0;
-            coinPusher.transform.position = new Vector3(coinPusher.transform.position.x, coinPusher.transform.position.y, coinPusher.transform.position.z + -0.1f);
+        }
+        else if (surgeEvent && pusherRb.velocity.z < 0)
+        {
+            pusherRb.velocity = new Vector3(0, 0, -pusherSpeed);
         }
 
         // Constantly gathers the pusher's current position for comparing
         currentPosition = coinPusher.transform.position;
 
-        // Runs if the coin pusher is at OR past position A
-        // Mathf.approximately is used because floats and doubles shouldn't be compared with ==
-        if (Mathf.Approximately(currentPosition.z, positionA.z) || currentPosition.z < positionA.z)
+        // if pusher is within 0.2 units of pos a
+        if (currentPosition.z < positionA.z + 0.05f)
         {
-            // Moves pusher in the positive Z direction, expecting to reach position B
+            // Current position equal to posA plus 0.35 (makes it slightly further away from posA)
+            currentPosition.z = positionA.z + 0.1f;
+
+            elapsedTime = 0;
+
+            relativeStart = currentPosition;
+            relativeEnd = new Vector3(currentPosition.x, currentPosition.y, positionB.z);
+
+            transform.position = relativeStart;
+
+            pusherSpeed = Mathf.Abs(pusherSpeed);
+
+            pusherRb.velocity = new Vector3(0, 0, pusherSpeed);
+
+        }
+        // if pusher is within 0.2 unis of pos b
+        else if (currentPosition.z > positionB.z - 0.05f)
+        {
+            // Current position equal to posB minus 0.35 (makes it slightly further away from posB)
+            currentPosition.z = positionB.z - 0.1f;
+
+            elapsedTime = 0;
+
+            relativeStart = currentPosition;
+            relativeEnd = new Vector3(currentPosition.x, currentPosition.y, positionA.z);
+
+            transform.position = relativeStart;
+
+            pusherSpeed = -pusherSpeed;
+
             pusherRb.velocity = new Vector3(0, 0, pusherSpeed);
         }
+        
+    }
 
-        // Runs if the coin pusher is at OR past position B
-        // Mathf.approximately is used because floats and doubles shouldn't be compared with ==
-        if (Mathf.Approximately(currentPosition.z, positionB.z) || currentPosition.z > positionB.z)
-        {
-            // Moves pusher in the positive Z direction, expecting to reach position A
-            pusherRb.velocity = new Vector3(0, 0, -pusherSpeed);
-        }
+    public void PausePusher()
+    {
+        savedSpeed = pusherRb.velocity.z;
+        pusherRb.velocity = Vector3.zero;
+        allowingMovement = false;
+    }
+    public void UnpausePusher()
+    {
+        pusherRb.velocity = new Vector3(0, 0, savedSpeed);
+        allowingMovement = true;
     }
 }

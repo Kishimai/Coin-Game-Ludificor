@@ -59,9 +59,10 @@ public class ItemRandomizer : MonoBehaviour
             {
                 if (chosenKey.Equals(item.Key))
                 {
-                    // return dictionary of chosen item plus its description
-                    // take those into item button and use them
-                    //chosenItem = { item.Key, item.Value };
+                    chosenItem = new Dictionary<string, string>
+                    {
+                        { item.Key, item.Value }
+                    };
                 }
             }
 
@@ -69,10 +70,41 @@ public class ItemRandomizer : MonoBehaviour
         }
         else if (rarity <= 89)
         {
+
+            string[] uncommonDictKeys = uncommonItems.Keys.ToArray();
+
+            string chosenKey = uncommonDictKeys[Random.Range(0, uncommonDictKeys.Length)];
+
+            foreach (KeyValuePair<string, string> item in uncommonItems)
+            {
+                if (chosenKey.Equals(item.Key))
+                {
+                    chosenItem = new Dictionary<string, string>
+                    {
+                        { item.Key, item.Value }
+                    };
+                }
+            }
+
             //chosenItem = uncommonItems[Random.Range(0, uncommonItems.Length)];
         }
         else if (rarity <= 99)
         {
+
+            string[] rareDictKeys = rareItems.Keys.ToArray();
+
+            string chosenKey = rareDictKeys[Random.Range(0, rareDictKeys.Length)];
+
+            foreach (KeyValuePair<string, string> item in rareItems)
+            {
+                if (chosenKey.Equals(item.Key))
+                {
+                    chosenItem = new Dictionary<string, string>
+                    {
+                        { item.Key, item.Value }
+                    };
+                }
+            }
             //chosenItem = rareItems[Random.Range(0, rareItems.Length)];
         }
 

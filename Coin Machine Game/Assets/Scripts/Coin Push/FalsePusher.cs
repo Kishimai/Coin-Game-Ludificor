@@ -21,6 +21,8 @@ public class FalsePusher : MonoBehaviour
     // Used to determine the positions that the coin pusher will move between
     public Vector3 positionA;
     public Vector3 positionB;
+    private Vector3 relativeStart;
+    private Vector3 relativeEnd;
     // Holds the rigid body of the pusher object so that force can be applied to it and it can be moved
     public Rigidbody pusherRb;
     // Holds the object for the coin pusher itself
@@ -50,8 +52,11 @@ public class FalsePusher : MonoBehaviour
         //startingPosition = positionA;
         startingPosition = new Vector3(coinPusher.transform.position.x, coinPusher.transform.position.y, positionA.z);
 
+        relativeStart = startingPosition;
+        relativeEnd = positionA;
+
         // Sets the starting position of the coin pusher
-        coinPusher.transform.position = startingPosition;
+        coinPusher.transform.position = relativeStart;
 
         timer = Random.Range(1.0f, 3.0f);
 
@@ -69,55 +74,62 @@ public class FalsePusher : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Runs if the coin pusher is allowed to move
-        if (timer <= 0)
+        if (timer <= 0 && allowingMovement)
         {
-            if (allowingMovement)
-            {
-                MovePusher();
-            }
-            else
-            {
-                savedSpeed = pusherRb.velocity.z;
-                pusherRb.velocity = Vector3.zero;
-            }
+            MovePusher();
         }
     }
 
-    // Responsible for moving the coin pusher between two positions (A and B)
     void MovePusher()
     {
-        if (savedSpeed < 0)
-        {
-            pusherRb.velocity = new Vector3(0, 0, -pusherSpeed);
-            savedSpeed = 0;
-            coinPusher.transform.position = new Vector3(coinPusher.transform.position.x, coinPusher.transform.position.y, coinPusher.transform.position.z + 0.1f);
-        }
-        else if (savedSpeed > 0)
-        {
-            pusherRb.velocity = new Vector3(0, 0, pusherSpeed);
-            savedSpeed = 0;
-            coinPusher.transform.position = new Vector3(coinPusher.transform.position.x, coinPusher.transform.position.y, coinPusher.transform.position.z + -0.1f);
-        }
 
         // Constantly gathers the pusher's current position for comparing
         currentPosition = coinPusher.transform.position;
 
-        // Runs if the coin pusher is at OR past position A
-        // Mathf.approximately is used because floats and doubles shouldn't be compared with ==
-        if (Mathf.Approximately(currentPosition.z, positionA.z) || currentPosition.z < positionA.z)
+        // if pusher is within 0.2 units of pos a
+        if (currentPosition.z < positionA.z + 0.05f)
         {
-            // Moves pusher in the positive Z direction, expecting to reach position B
+            // Current position equal to posA plus 0.35 (makes it slightly further away from posA)
+            currentPosition.z = positionA.z + 0.1f;
+
+            relativeStart = currentPosition;
+            relativeEnd = new Vector3(currentPosition.x, currentPosition.y, positionB.z);
+
+            transform.position = relativeStart;
+
+            pusherSpeed = Mathf.Abs(pusherSpeed);
+
+            pusherRb.velocity = new Vector3(0, 0, pusherSpeed);
+
+        }
+        // if pusher is within 0.2 unis of pos b
+        else if (currentPosition.z > positionB.z - 0.05f)
+        {
+            // Current position equal to posB minus 0.35 (makes it slightly further away from posB)
+            currentPosition.z = positionB.z - 0.1f;
+
+            relativeStart = currentPosition;
+            relativeEnd = new Vector3(currentPosition.x, currentPosition.y, positionA.z);
+
+            transform.position = relativeStart;
+
+            pusherSpeed = -pusherSpeed;
+
             pusherRb.velocity = new Vector3(0, 0, pusherSpeed);
         }
 
-        // Runs if the coin pusher is at OR past position B
-        // Mathf.approximately is used because floats and doubles shouldn't be compared with ==
-        if (Mathf.Approximately(currentPosition.z, positionB.z) || currentPosition.z > positionB.z)
-        {
-            // Moves pusher in the positive Z direction, expecting to reach position A
-            pusherRb.velocity = new Vector3(0, 0, -pusherSpeed);
-        }
+    }
+
+    public void PausePusher()
+    {
+        savedSpeed = pusherRb.velocity.z;
+        pusherRb.velocity = Vector3.zero;
+        allowingMovement = false;
+    }
+    public void UnpausePusher()
+    {
+        pusherRb.velocity = new Vector3(0, 0, savedSpeed);
+        allowingMovement = true;
     }
 }
 

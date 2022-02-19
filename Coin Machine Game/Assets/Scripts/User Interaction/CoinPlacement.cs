@@ -67,7 +67,7 @@ public class CoinPlacement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameManager.GetComponent<UI_Manager>().currentUIMenu != 4)
+        if (gameManager.GetComponent<UI_Manager>().currentUIMenu != 4 || gameManager.GetComponent<UI_Manager>().ShopInGame.activeSelf)
         {
             gameplayPaused = true;
         }
