@@ -87,20 +87,6 @@ public class DeleteCoins : MonoBehaviour
             // Destroy item capsule
             Destroy(other.gameObject.transform.parent.gameObject);
         }
-
-        if (other.gameObject.tag == "bomb_coin" && eventManager.GetComponent<EventsManager>().playerIsReady)
-        {
-            gameManager.GetComponent<ItemInventory>().collectedSpells.Add("bomb");
-
-            Destroy(other.gameObject.transform.parent.gameObject);
-        }
-
-        if (other.gameObject.tag == "tremor_coin" && eventManager.GetComponent<EventsManager>().playerIsReady)
-        {
-            gameManager.GetComponent<ItemInventory>().collectedSpells.Add("tremor");
-
-            Destroy(other.gameObject.transform.parent.gameObject);
-        }
     }
 
     private void OnCollisionStay(Collision collision)

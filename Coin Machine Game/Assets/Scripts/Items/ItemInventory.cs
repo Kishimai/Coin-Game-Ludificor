@@ -14,11 +14,8 @@ public class ItemInventory : MonoBehaviour
     public Dictionary<string, string> uncommonItems;
     public Dictionary<string, string> rareItems;
 
-    public List<string> allSpells = new List<string>() { "bomb", "tremor" };
-
     // ------------------------- Item Inventory ------------------------- //
     public List<string> collectedItems = new List<string>();
-    public List<string> collectedSpells = new List<string>();
     public float coinValueModifier;
     public string newItem = "";
     public GameObject collector;
@@ -257,18 +254,6 @@ public class ItemInventory : MonoBehaviour
             }
         }
 
-    }
-
-    public void GetSpell()
-    {
-        if (collectedSpells.Count > 0)
-        {
-            string randomSpell = collectedSpells[Random.Range(0, collectedSpells.Count)];
-
-            playerCamera.GetComponent<CoinPlacement>().UseSpell(randomSpell);
-
-            collectedSpells.Remove(randomSpell);
-        }
     }
 
 }

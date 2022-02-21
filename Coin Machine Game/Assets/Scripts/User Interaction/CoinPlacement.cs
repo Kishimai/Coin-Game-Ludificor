@@ -16,12 +16,6 @@ public class CoinPlacement : MonoBehaviour
     public GameObject testCoin;
     // Holds the player's currently selected coin: >> I'll be changing its Components on each placement
     public GameObject selectedCoin;
-
-    public GameObject spellCoin;
-    public GameObject bombCoin;
-    public GameObject tremorCoin;
-    public GameObject detonateButton;
-
     // Used for generation codes
     public CoinGeneration generation;
     // Shows the image of the currently selected coin so the player can visualize their placements better
@@ -30,8 +24,6 @@ public class CoinPlacement : MonoBehaviour
     // !(EventsManager is responsible for deciding game states)!
     public bool gameplayIsReady;
     private bool gameplayPaused;
-
-    private bool usingSpell = false;
 
     private GameObject gameManager;
 
@@ -149,49 +141,19 @@ public class CoinPlacement : MonoBehaviour
 
     void DropLogic(Vector3 clampedPosition)
     {
-        if (usingSpell)
+        if (dropCooldown <= 0 && blitzEvent == false)
         {
-            usingSpell = false;
-
-            Instantiate(spellCoin, clampedPosition, Quaternion.Euler(90, 0, 0));
-
-            Transform identification = spellCoin.transform.GetChild(0);
-
-            if (identification.gameObject.tag == "bomb_coin")
-            {
-                detonateButton.SetActive(true);
-            }
+            generation.GetPlacementData();
+            // Places the currently selected coin >> Changing its Component every placement
+            Instantiate(selectedCoin, clampedPosition, Quaternion.Euler(90, 0, 0));
+            dropCooldown = maxCooldown;
         }
-        else
+        else if (dropCooldown <= 0 && blitzEvent == true)
         {
-            if (dropCooldown <= 0 && blitzEvent == false)
-            {
-                generation.GetPlacementData();
-                // Places the currently selected coin >> Changing its Component every placement
-                Instantiate(selectedCoin, clampedPosition, Quaternion.Euler(90, 0, 0));
-                dropCooldown = maxCooldown;
-            }
-            else if (dropCooldown <= 0 && blitzEvent == true)
-            {
-                generation.GetPlacementData();
-                Vector3 blitzPosition = new Vector3(clampedPosition.x, clampedPosition.y, clampedPosition.z + 1.25f);
-                Instantiate(selectedCoin, blitzPosition, Quaternion.Euler(90, 0, 0));
-                dropCooldown = blitzCooldown;
-            }
-        }
-    }
-
-    public void UseSpell(string spell)
-    {
-        usingSpell = true;
-
-        if (spell.Equals("bomb"))
-        {
-            spellCoin = bombCoin;
-        }
-        else if (spell.Equals("tremor"))
-        {
-            spellCoin = tremorCoin;
+            generation.GetPlacementData();
+            Vector3 blitzPosition = new Vector3(clampedPosition.x, clampedPosition.y, clampedPosition.z + 1.25f);
+            Instantiate(selectedCoin, blitzPosition, Quaternion.Euler(90, 0, 0));
+            dropCooldown = blitzCooldown;
         }
     }
 }
