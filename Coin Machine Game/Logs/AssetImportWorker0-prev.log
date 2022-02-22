@@ -15,11 +15,11 @@ I:/Github/Coin Game/Coin-Game-Ludificor/Coin Machine Game
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-59502
+61406
 Successfully changed project path to: I:/Github/Coin Game/Coin-Game-Ludificor/Coin Machine Game
 I:/Github/Coin Game/Coin-Game-Ludificor/Coin Machine Game
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 51.67 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 46.95 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.10f1 (297d780c91bc)
 [Subsystems] Discovering subsystems at path S:/Unity Editor/2020.3.10f1/Editor/Data/Resources/UnitySubsystems
@@ -36,106 +36,58 @@ Initialize mono
 Mono path[0] = 'S:/Unity Editor/2020.3.10f1/Editor/Data/Managed'
 Mono path[1] = 'S:/Unity Editor/2020.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'S:/Unity Editor/2020.3.10f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56392
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56564
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: S:/Unity Editor/2020.3.10f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
 Register platform support module: S:/Unity Editor/2020.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: S:/Unity Editor/2020.3.10f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
-Registered in 0.001479 seconds.
+Registered in 0.001224 seconds.
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 47.65 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 47.84 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.321 seconds
+- Completed reload, in  1.202 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.005465 seconds.
+Registered in 0.004713 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 60.51 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 64.16 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.054 seconds
+- Completed reload, in  1.435 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.10 seconds
-Refreshing native plugins compatible for Editor in 0.82 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 0.75 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2765 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 209.4 MB.
-System memory in use after: 209.6 MB.
+System memory in use before: 209.5 MB.
+System memory in use after: 209.7 MB.
 
 Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 3253.
-Total: 30.313400 ms (FindLiveObjects: 0.406000 ms CreateObjectMapping: 0.077100 ms MarkObjects: 29.698100 ms  DeleteObjects: 0.129700 ms)
+Total: 25.626100 ms (FindLiveObjects: 0.387800 ms CreateObjectMapping: 0.073800 ms MarkObjects: 25.055300 ms  DeleteObjects: 0.107200 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Scripts/Items/ItemInventory.cs
-  artifactKey: Guid(4968c73efcbf32c4a80c13d1c5721eaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Items/ItemInventory.cs using Guid(4968c73efcbf32c4a80c13d1c5721eaa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eeec5c0ded50687ab41fd6b43c147887') in 0.033979 seconds
-  Import took 0.040153 seconds .
+  path: Assets/URP
+  artifactKey: Guid(b3760742b609ade4098849e391c610f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/URP using Guid(b3760742b609ade4098849e391c610f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28b15a67828b9e2b537998141d70cc9a') in 0.011876 seconds
+  Import took 0.017499 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 2.964993 seconds.
-  path: Assets/Scripts/User Interaction/CoinPlacement.cs
-  artifactKey: Guid(be481a9ae8a353d43a2d1a63952df9cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/User Interaction/CoinPlacement.cs using Guid(be481a9ae8a353d43a2d1a63952df9cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '390adf1d0314775ad664386bffcfc238') in 0.008585 seconds
-  Import took 0.013644 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.343401 seconds.
-  path: Assets/Scripts/Spells
-  artifactKey: Guid(c8794680f98b38f4683d13f059da6bdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Spells using Guid(c8794680f98b38f4683d13f059da6bdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '408f7eb79f67b7c1b2c0e47dc7f88ef7') in 0.006015 seconds
-  Import took 0.011109 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.809926 seconds.
-  path: Assets/Scripts/Spells/Bomb
-  artifactKey: Guid(e460af30aebd9dd40be2266231234284) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Spells/Bomb using Guid(e460af30aebd9dd40be2266231234284) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2cdef258fd3b9981e5d628c72bba34af') in 0.007355 seconds
-  Import took 0.011678 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.518275 seconds.
-  path: Assets/Scripts/Spells/Bomb/BombCoin.cs
-  artifactKey: Guid(1cf11d22e04305e4f9bf0e9425d97259) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Spells/Bomb/BombCoin.cs using Guid(1cf11d22e04305e4f9bf0e9425d97259) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ffc4ceee351f8f202b0d060d886f10d1') in 0.005776 seconds
-  Import took 0.010083 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.111140 seconds.
-  path: Assets/Scripts/Spells/Bomb/BombCoinExplosion.cs
-  artifactKey: Guid(45129af473b147640a1bbe6da94b8a20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Spells/Bomb/BombCoinExplosion.cs using Guid(45129af473b147640a1bbe6da94b8a20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2cb8c5a55b641bfc59dfe399db72a86') in 0.006639 seconds
-  Import took 0.011911 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.831576 seconds.
-  path: Assets/Scripts/Spells/Bomb/Kaboom.cs
-  artifactKey: Guid(364ad121184d141468799ff961b47f63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Spells/Bomb/Kaboom.cs using Guid(364ad121184d141468799ff961b47f63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4364669d38ece7ca4ef3bf43a59a2316') in 0.006423 seconds
-  Import took 0.011239 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 29.855308 seconds.
-  path: Assets/Resources/Prefabs/Camera/Main Camera.prefab
-  artifactKey: Guid(41330f36fd730654ba5aa70502f6974c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Camera/Main Camera.prefab using Guid(41330f36fd730654ba5aa70502f6974c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa77c3a996100848176c4b1437521c24') in 0.008489 seconds
-  Import took 0.013693 seconds .
+  Time since last request: 1.856781 seconds.
+  path: Assets/URP/UniversalRenderPipelineAsset.asset
+  artifactKey: Guid(2561d99a1b8855141898527d5ec3dc4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/URP/UniversalRenderPipelineAsset.asset using Guid(2561d99a1b8855141898527d5ec3dc4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cac277dbcd66cf3258e864fcd0a43933') in 0.029367 seconds
+  Import took 0.034064 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

@@ -4,21 +4,31 @@ using UnityEngine;
 
 public class BombCoinExplosion : MonoBehaviour
 {
+    public float explosionDuration;
 
-    public float durationOfExplosion;
+    private float elapsedTime;
 
-    // Start is called before the first frame update
-    void Start()
+    public float radiusOfExplosion;
+
+    private Vector3 startRadius = Vector3.zero;
+    private Vector3 endRadius;
+
+    private void Start()
     {
-        
+        gameObject.transform.localScale = startRadius;
+        endRadius = new Vector3(radiusOfExplosion, radiusOfExplosion, radiusOfExplosion);
     }
 
     // Update is called once per frame
     void Update()
     {
-        durationOfExplosion -= Time.deltaTime;
+        elapsedTime += Time.deltaTime;
 
-        if (durationOfExplosion <= 0)
+        float fractComplete = elapsedTime / explosionDuration;
+
+        gameObject.transform.localScale = Vector3.Lerp(startRadius, endRadius, fractComplete);
+
+        if (gameObject.transform.localScale.x > endRadius.x - 0.1)
         {
             Destroy(gameObject);
         }
