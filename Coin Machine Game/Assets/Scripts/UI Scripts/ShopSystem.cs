@@ -7,17 +7,18 @@ using Sirenix.OdinInspector;
 
 public class ShopSystem : MonoBehaviour
 {
-    [BoxGroup("Input - Main")]
+    [BoxGroup("Input")]
     public List<GameObject> Coin_list = new List<GameObject>();
+    
 
     public void Start(){
-        UnlockVisualLevel(null, 10);
+        ApplyInfoData();
     }
     
-    public void ApplyInfoData(){
+    public void ApplyInfoData(){ // Setting infos of Each Coin Data
         foreach(GameObject _object in Coin_list){
             CoinData dataInterp = _object.GetComponent<Data_Interp>().data;
-            _object.transform.GetChild(0).GetComponent<Image>().material = dataInterp.materialColor;
+            _object.transform.GetChild(0).GetComponent<Image>().color = dataInterp.CoinColor;
             _object.transform.GetChild(2).GetComponent<TMP_Text>().text = dataInterp.Name;
             _object.transform.GetChild(3).GetComponent<TMP_Text>().text = dataInterp.StartingValue.ToString();
             
@@ -27,8 +28,18 @@ public class ShopSystem : MonoBehaviour
         }
     }
 
-    public void UnlockVisualLevel(GameObject Object, int UnlockTill){
+    public void UnlockVisualLevel(GameObject Object, int UnlockTill){ // Will unlock Levels Trying to figure out how to set the level and it'll recognize it
         
     }
+
+    public void UpgradeCoin(GameObject _object){
+        
+    }
+
+    public float CalculateValue(float BaseUpgrade, float UpdgradesHave, float FreeUpgrades){
+        return BaseUpgrade *= 1.15f * UpdgradesHave - FreeUpgrades;
+    }
+
+        
     
 }
