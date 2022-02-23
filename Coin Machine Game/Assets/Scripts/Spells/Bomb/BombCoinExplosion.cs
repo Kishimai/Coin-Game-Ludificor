@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class BombCoinExplosion : MonoBehaviour
 {
+    public GameObject forceBubble;
+
     public float explosionDuration;
+    public float forceDuration;
 
     private float elapsedTime;
 
     public float radiusOfExplosion;
+    public float radiusOfForce;
 
     private Vector3 startRadius = Vector3.zero;
     private Vector3 endRadius;
+    private Vector3 endRadiusForForce;
 
     private void Start()
     {
         gameObject.transform.localScale = startRadius;
         endRadius = new Vector3(radiusOfExplosion, radiusOfExplosion, radiusOfExplosion);
+        endRadiusForForce = new Vector3(radiusOfForce, radiusOfForce, radiusOfForce);
     }
 
     // Update is called once per frame
@@ -25,8 +31,15 @@ public class BombCoinExplosion : MonoBehaviour
         elapsedTime += Time.deltaTime;
 
         float fractComplete = elapsedTime / explosionDuration;
+        float fractCompleteForForce = elapsedTime / forceDuration;
 
         gameObject.transform.localScale = Vector3.Lerp(startRadius, endRadius, fractComplete);
+        forceBubble.transform.localScale = Vector3.Lerp(startRadius, endRadiusForForce, fractCompleteForForce);
+
+        if (forceBubble.transform.localScale.x > endRadiusForForce.x - 0.1)
+        {
+            forceBubble.SetActive(false);
+        }
 
         if (gameObject.transform.localScale.x > endRadius.x - 0.1)
         {

@@ -68,6 +68,16 @@ public class ItemInventory : MonoBehaviour
             // Adds returned item to list of collected items
             collectedItems.Add(IntakeItem());
 
+
+            if (newItem.Equals("bomb_voucher"))
+            {
+                collectedSpells.Add("bomb");
+            }
+            else if (newItem.Equals("tremor_voucher"))
+            {
+                collectedSpells.Add("tremor");
+            }
+
             CheckRemainingPrizes();
 
             // Makes sure to remove item from newItem after its been added to the list
@@ -98,7 +108,9 @@ public class ItemInventory : MonoBehaviour
             { "midas_relic", "Increases value of all coins by 10%" },
             { "peg_remove_mk3", "Removes 3 normal pegs from the backboard" },
             { "diamond_peg", "Converts 1 normal peg to a diamond version, tripling value of coins that touch it" },
-            { "combo_peg", "Converts 1 normal peg to a combo version, doubling value of coins that touch it (Effect stacks)" }
+            { "combo_peg", "Converts 1 normal peg to a combo version, doubling value of coins that touch it (Effect stacks)" },
+            { "bomb_voucher", "Gives bomb coin which can be detonated" },
+            { "tremor_voucher", "Gives tremor coin which will shake the machine when placed" }
         };
     }
 
@@ -181,7 +193,13 @@ public class ItemInventory : MonoBehaviour
             case "combo_peg":
                 return newItem;
 
-            // --------------- TO BE ADDED ITEMS --------------- //
+            // --------------- SPELL ITEMS --------------- //
+
+            case "bomb_voucher":
+                return newItem;
+
+            case "tremor_voucher":
+                return newItem;
 
             // Runs if new item's tag does not match a case in this switch statement
             default:

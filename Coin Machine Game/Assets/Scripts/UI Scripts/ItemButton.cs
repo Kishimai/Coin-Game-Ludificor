@@ -18,12 +18,43 @@ public class ItemButton : MonoBehaviour
     public void RollNew()
     {
         selectedItemDict = GameObject.FindGameObjectWithTag("game_manager").GetComponent<ItemRandomizer>().RollNewItem();
-        foreach (KeyValuePair<string, string> item in selectedItemDict)
+
+        Dictionary<string, string> unformattedDict = selectedItemDict;
+        Dictionary<string, string> formattedDict;
+        string itemScriptName = "";
+        string itemName = "";
+        string itemDescription = "";
+
+        foreach (KeyValuePair<string, string> dict in unformattedDict)
         {
+            itemScriptName = dict.Key;
+            itemName = dict.Key;
+            itemDescription = dict.Value;
+        }
+
+        string[] words = itemName.Split('_');
+
+        for (int i = 0; i < words.Length; ++i)
+        {
+            string capitalizedWord = char.ToUpper(words[i][0]) + words[i].Substring(1);
+            words[i] = capitalizedWord;
+        }
+
+        itemName = string.Join(" ", words);
+
+        formattedDict = new Dictionary<string, string>
+        {
+            {itemName, itemDescription}
+        };
+        
+
+        foreach (KeyValuePair<string, string> item in formattedDict)
+        {
+
             buttonText.text = item.Key;
             description.text = item.Value;
 
-            selectedItem = item.Key;
+            selectedItem = itemScriptName;
         }
     }
 

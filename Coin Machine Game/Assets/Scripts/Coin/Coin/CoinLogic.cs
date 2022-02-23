@@ -81,4 +81,25 @@ public class CoinLogic : MonoBehaviour
 
         comboEventMultiplier += 2;
     }
+
+    public IEnumerator Tremor(float tremorDuration, float tremorPower)
+    {
+        float duration = tremorDuration;
+
+        while (duration > 0)
+        {
+            duration -= Time.deltaTime;
+
+            float xForce = Random.Range(-tremorPower, tremorPower);
+            float yForce = Random.Range(0.5f, 0.5f);
+            float zForce = Random.Range(-tremorPower, tremorPower);
+
+            Vector3 randomForce = new Vector3(xForce, 1f, zForce);
+
+            coinRb.AddForce(randomForce);
+
+            yield return new WaitForFixedUpdate();
+
+        }
+    }
 }
