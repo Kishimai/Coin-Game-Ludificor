@@ -11,7 +11,6 @@ public class TremorShake : MonoBehaviour
     public float tremorDuration;
 
     public float sinkDuration;
-    private float pilesDuration;
 
     public void Shake(Vector3 spotOfDirt)
     {
@@ -21,30 +20,27 @@ public class TremorShake : MonoBehaviour
 
         foreach (GameObject coin in allCoins)
         {
-            StartCoroutine(coin.GetComponentInParent<CoinLogic>().Tremor(tremorDuration, tremorPower));
+            if (coin != null)
+            {
+                StartCoroutine(coin.GetComponentInParent<CoinLogic>().Tremor(tremorDuration, tremorPower));
+            }
         }
 
     }
 
     public IEnumerator DirtyDirtThatsDirtingDirty(Vector3 theSpot)
     {
+
+        StartCoroutine(DirtPiles());
+
         float duration = tremorDuration;
 
-        bool moveUp = true;
-
         float elapsedTime = 0;
-        float secondElapsedTime = 0;
 
         theDirt.SetActive(true);
-        dirtFriends.SetActive(true);
 
         Vector3 startSpot = new Vector3(theSpot.x, 1, theSpot.z);
         Vector3 endSpot = new Vector3(theSpot.x, -1, theSpot.z);
-
-        Vector3 dirtPilesStart = Vector3.zero;
-        Vector3 dirtPilesEnd = new Vector3(0, -2, 0);
-
-        pilesDuration = sinkDuration / 4;
 
         GameObject dirt = Instantiate(theDirt, theSpot, Quaternion.identity);
 
@@ -60,32 +56,58 @@ public class TremorShake : MonoBehaviour
 
             dirt.transform.position = Vector3.Lerp(startSpot, endSpot, fractComplete);
 
-            dirtFriends.transform.position = dirtPilesEnd;
-
-            if (secondElapsedTime >= pilesDuration || Mathf.Approximately(secondElapsedTime, pilesDuration))
-            {
-                moveUp = false;
-                secondElapsedTime = 0;
-                relativeStart = dirtFriends.transform.position;
-            }
-
-            if (moveUp)
-            {
-                secondElapsedTime += Time.deltaTime;
-                float secondFractComplete = elapsedTime / pilesDuration;
-                dirtFriends.transform.position = Vector3.Lerp(dirtPilesEnd, dirtPilesStart, secondFractComplete);
-            }
-            else
-            {
-                secondElapsedTime += Time.deltaTime;
-                float secondFractComplete = elapsedTime / pilesDuration;
-                dirtFriends.transform.position = Vector3.Lerp(relativeStart, dirtPilesEnd, secondFractComplete);
-            }
-
             yield return new WaitForFixedUpdate();
         }
 
         Destroy(dirt);
+    }
+
+    public IEnumerator DirtPiles()
+    {
+        Vector3 dirtPilesStart = Vector3.zero;
+        Vector3 dirtPilesEnd = new Vector3(0, -2, 0);
+
+        dirtFriends.SetActive(true);
+
+        float elapsedTime = 0;
+
+        float travelDuration = tremorDuration / 4;
+        float idleDuration = tremorDuration / 2;
+
+        dirtFriends.transform.position = dirtPilesEnd;
+
+        while (elapsedTime < travelDuration)
+        {
+            elapsedTime += Time.deltaTime;
+
+            float fractComplete = elapsedTime / travelDuration;
+
+            dirtFriends.transform.position = Vector3.Lerp(dirtPilesEnd, dirtPilesStart, fractComplete);
+
+            yield return new WaitForFixedUpdate();
+        }
+
+        elapsedTime = 0;
+
+        while (elapsedTime < idleDuration)
+        {
+            elapsedTime += Time.deltaTime;
+
+            yield return new WaitForFixedUpdate();
+        }
+
+        elapsedTime = 0;
+
+        while (elapsedTime < travelDuration)
+        {
+            elapsedTime += Time.deltaTime;
+
+            float fractComplete = elapsedTime / travelDuration;
+
+            dirtFriends.transform.position = Vector3.Lerp(dirtPilesStart, dirtPilesEnd, fractComplete);
+
+            yield return new WaitForFixedUpdate();
+        }
 
         dirtFriends.SetActive(false);
     }

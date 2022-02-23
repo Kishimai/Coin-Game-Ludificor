@@ -86,7 +86,7 @@ public class CoinLogic : MonoBehaviour
     {
         float duration = tremorDuration;
 
-        while (duration > 0)
+        while (duration > 0 && gameObject != null)
         {
             duration -= Time.deltaTime;
 
