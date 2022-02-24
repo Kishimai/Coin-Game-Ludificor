@@ -51,6 +51,7 @@ public class CoinPusher : MonoBehaviour
 
         // Makes sure collision with machine parts cannot occour (otherwise the coin pusher locks up and cannot move)
         Physics.IgnoreLayerCollision(stationaryPartsLayer, 7);
+        Physics.IgnoreLayerCollision(7, 10);
 
         // Gathers the coin pusher object
         coinPusher = gameObject;

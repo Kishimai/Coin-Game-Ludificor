@@ -279,6 +279,8 @@ public class EventsManager : MonoBehaviour
         {
             StartCoroutine(glassPanel.GetComponent<GlassRemover>().RebuildGlass());
         }
+        
+        //gameManager.GetComponent<DotLightManager>().Idle();
 
         chosenEvent = "";
     }
@@ -293,6 +295,8 @@ public class EventsManager : MonoBehaviour
         currentEventDuration = coinBlitzDuration;
 
         StartCoroutine(glassPanel.GetComponent<GlassRemover>().RemoveGlass());
+
+        StartCoroutine(gameManager.GetComponent<DotLightManager>().Flash());
     }
 
     void PowerSurge()
@@ -301,6 +305,8 @@ public class EventsManager : MonoBehaviour
 
         coinPusher.GetComponent<CoinPusher>().surgeEvent = true;
         currentEventDuration = powerSurgeDuration;
+
+        StartCoroutine(gameManager.GetComponent<DotLightManager>().Frenzy(powerSurgeDuration));
     }
 
     void ItemRain()
@@ -310,6 +316,8 @@ public class EventsManager : MonoBehaviour
 
         currentEventDuration = itemRainDuration;
 
+        StartCoroutine(gameManager.GetComponent<DotLightManager>().Flash(4));
+
     }
 
     void PegCombo()
@@ -317,5 +325,7 @@ public class EventsManager : MonoBehaviour
         StartCoroutine(pegManager.GetComponent<PegManager>().ComboEvent(pegComboDuration));
 
         currentEventDuration = pegComboDuration;
+
+        StartCoroutine(gameManager.GetComponent<DotLightManager>().Scroll(pegComboDuration));
     }
 }

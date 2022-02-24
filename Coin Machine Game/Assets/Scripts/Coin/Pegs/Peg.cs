@@ -12,6 +12,17 @@ public class Peg : MonoBehaviour
     public GameObject comboAppearance;
     public GameObject selectionHighligter;
 
+    public Material standardMaterial;
+
+    public Material goldMaterial;
+    public Material goldFlash;
+
+    public Material diamondMaterial;
+    public Material diamondFlash;
+
+    public Material comboMaterial;
+    public Material comboFlash;
+
     public GameObject comboEventAppearance;
 
     // Used to prevent coins from constantly stacking modifiers if they bounce slightly off of this peg (Applies only to combo pegs)
@@ -234,12 +245,70 @@ public class Peg : MonoBehaviour
 
     }
 
+    public IEnumerator FlashColor()
+    {
+        //Debug.Log("Flash Color!");
+
+        float flashDuration = 0.25f;
+
+        Material storedMaterial = standardMaterial;
+
+        GameObject goldRing = goldAppearance.transform.GetChild(1).gameObject;
+
+        while (flashDuration > 0)
+        {
+            flashDuration -= Time.deltaTime;
+
+            if (amGolden)
+            {
+                storedMaterial = goldMaterial;
+
+                Debug.Log("Gold Flash");
+
+                goldRing.GetComponent<Renderer>().material = goldFlash;
+            }
+            else if (amDiamond)
+            {
+                storedMaterial = diamondMaterial;
+
+                diamondAppearance.GetComponent<Renderer>().material = diamondFlash;
+            }
+            else if (amCombo)
+            {
+                storedMaterial = comboMaterial;
+
+                comboAppearance.GetComponent<Renderer>().material = comboFlash;
+            }
+            else
+            {
+                break;
+            }
+
+            yield return new WaitForFixedUpdate();
+        }
+
+        if (amGolden)
+        {
+            goldRing.GetComponent<Renderer>().material = storedMaterial;
+        }
+        else if (amDiamond)
+        {
+            diamondAppearance.GetComponent<Renderer>().material = storedMaterial;
+        }
+        else if (amCombo)
+        {
+            comboAppearance.GetComponent<Renderer>().material = storedMaterial;
+        }
+
+    }
+
     void OnTriggerEnter(Collider other)
     {
         // Runs if colliding with coin and this peg is modified
         if (other.gameObject.tag == "coin" && amModified)
         {
             AttemptUpgradeOnCoin(other);
+            StartCoroutine(FlashColor());
         }
         if (other.gameObject.tag == "coin" && amComboEvent)
         {
@@ -253,6 +322,14 @@ public class Peg : MonoBehaviour
             comboAppearance.SetActive(false);
 
             selectionHighligter.SetActive(true);
+        }
+        if (other.gameObject.tag == "bomb_coin")
+        {
+            StartCoroutine(FlashColor());
+        }
+        if (other.gameObject.tag == "tremor_coin")
+        {
+            StartCoroutine(FlashColor());
         }
     }
 
