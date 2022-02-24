@@ -86,7 +86,7 @@ public class CoinLogic : MonoBehaviour
     {
         float duration = tremorDuration;
 
-        while (duration > 0 && gameObject != null)
+        while (duration > 0)
         {
             duration -= Time.deltaTime;
 
@@ -96,10 +96,26 @@ public class CoinLogic : MonoBehaviour
 
             Vector3 randomForce = new Vector3(xForce, 1f, zForce);
 
-            coinRb.AddForce(randomForce);
+            if (coinRb != null)
+            {
+                coinRb.AddForce(randomForce);
+            }
+            else
+            {
+                break;
+            }
 
             yield return new WaitForFixedUpdate();
 
         }
+    }
+
+    public void GetBumped()
+    {
+        Vector3 bumpForce = new Vector3(0, 20, 0);
+
+        //Debug.LogError("Skrunked");
+
+        coinRb.AddForce(bumpForce);
     }
 }

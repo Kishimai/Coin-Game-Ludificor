@@ -74,6 +74,8 @@ public class DeleteCoins : MonoBehaviour
             Mathf.FloorToInt(_manager._currentCoin += other.GetComponentInParent<Data_Interp>().data.currentValue * CalculateModifier(other));
             ++coinCounter;
 
+            other.GetComponentInParent<CoinLogic>().StopAllCoroutines();
+
             // Destroys the coin in the most recent collision event
             Destroy(other.gameObject.transform.parent.gameObject);
         }
@@ -90,14 +92,14 @@ public class DeleteCoins : MonoBehaviour
 
         if (other.gameObject.tag == "bomb_coin" && eventManager.GetComponent<EventsManager>().playerIsReady)
         {
-            gameManager.GetComponent<ItemInventory>().collectedSpells.Add("bomb");
+            gameManager.GetComponent<ItemInventory>().GetSpell("bomb");
 
             Destroy(other.gameObject.transform.parent.gameObject);
         }
 
         if (other.gameObject.tag == "tremor_coin" && eventManager.GetComponent<EventsManager>().playerIsReady)
         {
-            gameManager.GetComponent<ItemInventory>().collectedSpells.Add("tremor");
+            gameManager.GetComponent<ItemInventory>().GetSpell("tremor");
 
             Destroy(other.gameObject.transform.parent.gameObject);
         }

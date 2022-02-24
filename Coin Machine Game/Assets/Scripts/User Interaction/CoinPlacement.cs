@@ -21,6 +21,7 @@ public class CoinPlacement : MonoBehaviour
     public GameObject bombCoin;
     public GameObject tremorCoin;
     public GameObject detonateButton;
+    public List<string> spells = new List<string>();
 
     // Used for generation codes
     public CoinGeneration generation;
@@ -150,9 +151,21 @@ public class CoinPlacement : MonoBehaviour
 
     void DropLogic(Vector3 clampedPosition)
     {
-        if (usingSpell)
+        if (spells.Count > 0)
         {
-            usingSpell = false;
+
+            string randomSpell = spells[Random.Range(0, spells.Count)];
+
+            if (randomSpell.Equals("bomb"))
+            {
+                spellCoin = bombCoin;
+            }
+            else if (randomSpell.Equals("tremor"))
+            {
+                spellCoin = tremorCoin;
+            }
+
+            spells.Remove(randomSpell);
 
             Instantiate(spellCoin, clampedPosition, Quaternion.Euler(90, 0, 0));
 
@@ -184,15 +197,8 @@ public class CoinPlacement : MonoBehaviour
 
     public void UseSpell(string spell)
     {
-        usingSpell = true;
+        spells.Add(spell);
 
-        if (spell.Equals("bomb"))
-        {
-            spellCoin = bombCoin;
-        }
-        else if (spell.Equals("tremor"))
-        {
-            spellCoin = tremorCoin;
-        }
+        Debug.Log("Got Spell: " + spell);
     }
 }

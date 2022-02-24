@@ -46,6 +46,9 @@ public class Peg : MonoBehaviour
     private bool recordedAmCombo = false;
     private bool recordingTaken = false;
 
+    private float bumpCountdown;
+    private float bumpLimit = 1f;
+
 
     void Start()
     {
@@ -302,6 +305,22 @@ public class Peg : MonoBehaviour
 
     }
 
+    private void BumpCoin(Collider other)
+    {
+        if (other.gameObject.tag == "coin")
+        {
+            other.GetComponentInParent<CoinLogic>().GetBumped();
+        }
+        else if (other.gameObject.tag == "bomb_coin")
+        {
+            other.GetComponentInParent<BombCoin>().GetBumped();
+        }
+        else if (other.gameObject.tag == "tremor_coin")
+        {
+            other.GetComponentInParent<TremorCoin>().GetBumped();
+        }
+    }
+
     void OnTriggerEnter(Collider other)
     {
         // Runs if colliding with coin and this peg is modified
@@ -333,6 +352,46 @@ public class Peg : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "coin")
+        {
+            if (bumpCountdown < bumpLimit)
+            {
+                bumpCountdown += Time.deltaTime;
+            }
+            else
+            {
+                bumpCountdown = 0;
+                BumpCoin(other);
+            }
+        }
+        if (other.gameObject.tag == "bomb_coin")
+        {
+            if (bumpCountdown < bumpLimit)
+            {
+                bumpCountdown += Time.deltaTime;
+            }
+            else
+            {
+                bumpCountdown = 0;
+                BumpCoin(other);
+            }
+        }
+        if (other.gameObject.tag == "tremor_coin")
+        {
+            if (bumpCountdown < bumpLimit)
+            {
+                bumpCountdown += Time.deltaTime;
+            }
+            else
+            {
+                bumpCountdown = 0;
+                BumpCoin(other);
+            }
+        }
+    }
+
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "pegSelectionTool")
@@ -358,6 +417,10 @@ public class Peg : MonoBehaviour
             {
                 standardAppearance.SetActive(true);
             }
+        }
+        else
+        {
+            bumpCountdown = 0;
         }
     }
 }

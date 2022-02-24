@@ -39,4 +39,13 @@ public class BombCoin : MonoBehaviour
 
         }
     }
+
+    public void GetBumped()
+    {
+        Vector3 bumpForce = new Vector3(0, 20, 0);
+
+        //Debug.LogError("Skrunked");
+
+        coinRb.AddForce(bumpForce);
+    }
 }

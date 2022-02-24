@@ -72,10 +72,12 @@ public class ItemInventory : MonoBehaviour
             if (newItem.Equals("bomb_voucher"))
             {
                 collectedSpells.Add("bomb");
+                GetSpell("bomb");
             }
             else if (newItem.Equals("tremor_voucher"))
             {
                 collectedSpells.Add("tremor");
+                GetSpell("tremor");
             }
 
             CheckRemainingPrizes();
@@ -277,8 +279,13 @@ public class ItemInventory : MonoBehaviour
 
     }
 
-    public void GetSpell()
+    public void GetSpell(string spell)
     {
+        playerCamera.GetComponent<CoinPlacement>().UseSpell(spell);
+
+        collectedSpells.Remove(spell);
+
+        /*
         if (collectedSpells.Count > 0)
         {
             string randomSpell = collectedSpells[Random.Range(0, collectedSpells.Count)];
@@ -287,6 +294,7 @@ public class ItemInventory : MonoBehaviour
 
             collectedSpells.Remove(randomSpell);
         }
+        */
     }
 
 }

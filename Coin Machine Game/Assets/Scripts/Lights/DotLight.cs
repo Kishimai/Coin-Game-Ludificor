@@ -11,6 +11,7 @@ public class DotLight : MonoBehaviour
     public Material flashMaterial;
     public Material frenzyMaterial;
     public Material scrollMaterial;
+    public Material idleScroll;
 
     private bool frenzy = false;
     private bool flash = false;
@@ -74,7 +75,7 @@ public class DotLight : MonoBehaviour
         if (scroll)
         {
             scroll = false;
-            currentMaterial = offMaterial;
+            currentMaterial = idleScroll;
         }
         else
         {
@@ -89,6 +90,11 @@ public class DotLight : MonoBehaviour
     public void TurnOff()
     {
         GetComponent<Renderer>().material = offMaterial;
+    }
+
+    public void IdleScroll()
+    {
+        GetComponent<Renderer>().material = idleScroll;
     }
 
 }

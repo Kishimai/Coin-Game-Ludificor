@@ -1809,6 +1809,7 @@ MonoBehaviour:
   bombCoin: {fileID: 8204732806245491681, guid: 567f4d0a4317e284dae3723e845c026d, type: 3}
   tremorCoin: {fileID: 2130679779419554593, guid: 80864e06c81e7fa44a5981cf7ad2cde3, type: 3}
   detonateButton: {fileID: 1756819229}
+  spells: []
   generation: {fileID: 1384771965}
   gameplayIsReady: 0
   dropZoneLayerMask:
@@ -3939,8 +3940,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -484.71, y: -229.4}
-  m_SizeDelta: {x: 89.18, y: 89.221}
+  m_AnchoredPosition: {x: -473.02948, y: -240.24437}
+  m_SizeDelta: {x: 120, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &113195690
 MonoBehaviour:
@@ -23392,7 +23393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &620889190
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23410,7 +23411,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -400.12, y: -234.01}
+  m_AnchoredPosition: {x: -373.03, y: -260}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &620889191
@@ -31593,7 +31594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5981882643148413060, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
       propertyPath: uncommonEvents.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5981882643148413060, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
       propertyPath: commonEvents.Array.data[0]
@@ -36277,6 +36278,14 @@ PrefabInstance:
     - target: {fileID: 7248836236536423382, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248836236536423383, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248836236536423383, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7248836236540027876, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_LocalScale.y
@@ -49823,8 +49832,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1060444199}
   m_HandleRect: {fileID: 1060444198}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.5878538
+  m_Value: 0.99999976
+  m_Size: 0.58785385
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -55103,12 +55112,9 @@ MonoBehaviour:
   listedCoins: []
   CoinsAvail:
   - {fileID: 11400000, guid: ac8519e06fdc1bc4a99885508ff5687b, type: 2}
-  - {fileID: 11400000, guid: 80848947f3b7dc6409311507ed910e41, type: 2}
-  - {fileID: 11400000, guid: 75b04885ad0dea04dbb395595d9c88be, type: 2}
-  - {fileID: 11400000, guid: bff77f7296d74064db035329ce0edb2f, type: 2}
-  - {fileID: 11400000, guid: ff1ae0110dd180d4592ac1e75c773b95, type: 2}
-  - {fileID: 11400000, guid: 6fcf0f11343bbde49a3868e112ffc79f, type: 2}
-  - {fileID: 11400000, guid: 9ad83f246c015ec44b5a2f8718aa8e78, type: 2}
+  - {fileID: 11400000, guid: ac8519e06fdc1bc4a99885508ff5687b, type: 2}
+  - {fileID: 11400000, guid: ac8519e06fdc1bc4a99885508ff5687b, type: 2}
+  - {fileID: 11400000, guid: 846725d0655117c4e97108ba1d372a99, type: 2}
   CoinPrinter: {fileID: 1648309495}
   coinPlacement: {fileID: 41762028}
   NewCoin: {fileID: 2263677814624528930, guid: 304edbeafae733f45b28e801a3200503, type: 3}
@@ -69453,7 +69459,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -308.36557, y: -232.28871}
+  m_AnchoredPosition: {x: -365.53, y: -252.5}
   m_SizeDelta: {x: 95, y: 95}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1756819231
@@ -80693,6 +80699,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 763952699}
     m_Modifications:
+    - target: {fileID: 2484737323056007449, guid: 65891e478d207b245a071d08a6ffe99c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44ce76347bca86840b10d4766fe4c11d, type: 2}
     - target: {fileID: 4723378516625991463, guid: 65891e478d207b245a071d08a6ffe99c, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -85597,6 +85607,10 @@ PrefabInstance:
     - target: {fileID: 2130679779419554593, guid: 80864e06c81e7fa44a5981cf7ad2cde3, type: 3}
       propertyPath: m_Name
       value: TremorCoin
+      objectReference: {fileID: 0}
+    - target: {fileID: 2130679779419554593, guid: 80864e06c81e7fa44a5981cf7ad2cde3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80864e06c81e7fa44a5981cf7ad2cde3, type: 3}

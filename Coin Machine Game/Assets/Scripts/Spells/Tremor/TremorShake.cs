@@ -20,7 +20,7 @@ public class TremorShake : MonoBehaviour
 
         foreach (GameObject coin in allCoins)
         {
-            if (coin != null)
+            if (coin.activeInHierarchy)
             {
                 StartCoroutine(coin.GetComponentInParent<CoinLogic>().Tremor(tremorDuration, tremorPower));
             }

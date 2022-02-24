@@ -126,12 +126,11 @@ public class DotLightManager : MonoBehaviour
 
         foreach (GameObject light in allLights)
         {
-            light.GetComponent<DotLight>().TurnOff();
+            light.GetComponent<DotLight>().IdleScroll();
         }
 
         while (timeLeft > 0)
         {
-            Debug.LogWarning(index);
 
             timeLeft -= Time.deltaTime;
 
