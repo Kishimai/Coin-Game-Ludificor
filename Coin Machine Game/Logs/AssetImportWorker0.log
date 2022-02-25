@@ -1,466 +1,681 @@
 Using pre-set license
 Built from '2020.3/staging' branch; Version is '2020.3.10f1 (297d780c91bc) revision 2719096'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Home; OS build 19043.1415; Version 2009; 64bit' Language: 'en' Physical Memory: 16240 MB
+OS: 'Windows 10 Pro; OS build 19041.1415; Version 2004; 64bit' Language: 'en' Physical Memory: 16315 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
-C:\Program Files\Unity\Hub\Editor\2020.3.10f1\Editor\Unity.exe
+S:\Unity Editor\2020.3.10f1\Editor\Unity.exe
 -adb2
 -batchMode
 -noUpm
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/kirkt/OneDrive/Documents/GitHub/Coin-Game-Ludificor/Coin Machine Game
+I:/Github/Coin Game/Coin-Game-Ludificor/Coin Machine Game
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-58039
-Successfully changed project path to: C:/Users/kirkt/OneDrive/Documents/GitHub/Coin-Game-Ludificor/Coin Machine Game
-C:/Users/kirkt/OneDrive/Documents/GitHub/Coin-Game-Ludificor/Coin Machine Game
+63637
+Successfully changed project path to: I:/Github/Coin Game/Coin-Game-Ludificor/Coin Machine Game
+I:/Github/Coin Game/Coin-Game-Ludificor/Coin Machine Game
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 55.28 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 45.63 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.10f1 (297d780c91bc)
-[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.10f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/kirkt/OneDrive/Documents/GitHub/Coin-Game-Ludificor/Coin Machine Game/Assets
+[Subsystems] Discovering subsystems at path S:/Unity Editor/2020.3.10f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path I:/Github/Coin Game/Coin-Game-Ludificor/Coin Machine Game/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce RTX 2060 (ID=0x1f11)
+    Renderer: Radeon RX 570 Series (ID=0x67df)
     Vendor:   
-    VRAM:     5980 MB
-    Driver:   30.0.14.9649
+    VRAM:     8171 MB
+    Driver:   30.0.13023.1012
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Initialize mono
-Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.10f1/Editor/Data/Managed'
-Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
-Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.10f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56376
+Mono path[0] = 'S:/Unity Editor/2020.3.10f1/Editor/Data/Managed'
+Mono path[1] = 'S:/Unity Editor/2020.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'S:/Unity Editor/2020.3.10f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56560
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
-Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002524 seconds.
+Register platform support module: S:/Unity Editor/2020.3.10f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: S:/Unity Editor/2020.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: S:/Unity Editor/2020.3.10f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Registered in 0.001168 seconds.
+Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 62.23 ms, found 2 plugins.
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 45.33 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.223 seconds
+- Completed reload, in  1.151 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.010933 seconds.
+Registered in 0.004512 seconds.
 Begin MonoManager ReloadAssembly
+Symbol file data-00000230A0BFC6F0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A3F3B430 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A3BB7BF0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A3BB7BF0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A061A460 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A0635020 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Sysroot.Linux_x86_64.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A070CA50 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A24878F0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A2504010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A24878F0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A2456C20 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Searcher.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A3BB3240 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.ShaderGraph.Utilities.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A24878F0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A0742AE0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Sirenix.OdinInspector.CompatibilityLayer.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A2531A20 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A2B3F020 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A25EE420 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A247D830 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A0614210 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Sirenix.OdinInspector.Modules.UnityMathematics.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A2B50C30 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A2947020 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Mathematics.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A37F2010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A2B50C30 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A23B0A00 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Toolchain.Win-x86_64-Linux-x86_64.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A2190250 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A38CB010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A3A95DB0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Sirenix.OdinInspector.CompatibilityLayer.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A2190250 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A3BCB200 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A27BE750 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A38CB010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A39D6A20 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.SysrootPackage.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 49.09 ms, found 2 plugins.
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 46.26 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.578 seconds
+- Completed reload, in  1.370 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.92 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.68 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2776 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 213.5 MB.
-System memory in use after: 213.7 MB.
+System memory in use before: 212.7 MB.
+System memory in use after: 212.9 MB.
 
 Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 3267.
-Total: 25.099000 ms (FindLiveObjects: 0.512900 ms CreateObjectMapping: 0.172200 ms MarkObjects: 24.384200 ms  DeleteObjects: 0.028000 ms)
+Total: 23.186800 ms (FindLiveObjects: 0.334900 ms CreateObjectMapping: 0.071000 ms MarkObjects: 22.740900 ms  DeleteObjects: 0.038200 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Datas/Coins/BITCOIN.asset
-  artifactKey: Guid(24683f92e9cd00447ae4ce987c25529d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Datas/Coins/BITCOIN.asset using Guid(24683f92e9cd00447ae4ce987c25529d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd961945b3e54dd89c79340fa0bc1cef') in 0.042238 seconds
-  Import took 0.048676 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000753 seconds.
-  path: Assets/Art/Back.png
-  artifactKey: Guid(14e957cb6df255d4c8008acf512abd1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Back.png using Guid(14e957cb6df255d4c8008acf512abd1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e1b87844797b1775d43701c008718f1') in 0.084959 seconds
-  Import took 0.091259 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000411 seconds.
-  path: Assets/Resources/Materials/Proto Materials/Appearance Materials/Black.mat
-  artifactKey: Guid(0d7b24972442f00459326bddad687908) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Materials/Proto Materials/Appearance Materials/Black.mat using Guid(0d7b24972442f00459326bddad687908) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '728f48ed6c3312d31f3ed298f5e1585e') in 0.169566 seconds
-  Import took 0.175961 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000274 seconds.
-  path: Assets/Resources/3D Models/Ballz/AfricanAmericanBall.fbx
-  artifactKey: Guid(c440fcf019a1c6a41b1aba2764dfa384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/3D Models/Ballz/AfricanAmericanBall.fbx using Guid(c440fcf019a1c6a41b1aba2764dfa384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd84f70985218489ba031af96ff3e0e30') in 0.060913 seconds
-  Import took 0.066490 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000357 seconds.
-  path: Assets/Plugins-External-Assets/Sirenix/Odin Inspector/Config/Editor/AOTGenerationConfig.asset
-  artifactKey: Guid(83197d852d975564b86944af936cbaa6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Plugins-External-Assets/Sirenix/Odin Inspector/Config/Editor/AOTGenerationConfig.asset using Guid(83197d852d975564b86944af936cbaa6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '25e4c58e175f1c3895f9811a2fcd51fc') in 0.005258 seconds
-  Import took 0.009399 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000344 seconds.
-  path: Assets/Resources/3D Models/Coin Machine/Machine Body/Primitive Models/Main_Board.fbx
-  artifactKey: Guid(44b3953cb4abab94eaca3ea40736fbe9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/3D Models/Coin Machine/Machine Body/Primitive Models/Main_Board.fbx using Guid(44b3953cb4abab94eaca3ea40736fbe9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f77b94172433a2b89a33b0a2030007f0') in 0.025318 seconds
-  Import took 0.029629 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000276 seconds.
-  path: Assets/Art/Back2.png
-  artifactKey: Guid(c360b8f261f70494b963548b168776a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Back2.png using Guid(c360b8f261f70494b963548b168776a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3eb7c276528da6c9cefb8aa0666957c') in 0.012892 seconds
-  Import took 0.018939 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000340 seconds.
-  path: Assets/Resources/Materials/Proto Materials/Appearance Materials/BlackBand.mat
-  artifactKey: Guid(0a9458b7aa32e7e4ba35fc9c6d4c8fd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Materials/Proto Materials/Appearance Materials/BlackBand.mat using Guid(0a9458b7aa32e7e4ba35fc9c6d4c8fd9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0c14120709d05f192e7686e6084375c6') in 0.009603 seconds
-  Import took 0.015438 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000291 seconds.
-  path: Assets/Resources/Materials/Proto Materials/Coin Materials/BITCOIN.mat
-  artifactKey: Guid(25c8728a40dac1e47926c559a7c81347) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Materials/Proto Materials/Coin Materials/BITCOIN.mat using Guid(25c8728a40dac1e47926c559a7c81347) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1aa111d455c53baf6f7f4a6c25f9402a') in 0.008966 seconds
-  Import took 0.014468 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000539 seconds.
-  path: Assets/Art/Back3.png
-  artifactKey: Guid(248f4a1031fce014fa3cd0d07a27232f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/Back3.png using Guid(248f4a1031fce014fa3cd0d07a27232f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c99db001b5ae8b35aa30cccb2630bfd') in 0.010750 seconds
-  Import took 0.016104 seconds .
+  path: Assets/Resources/Prefabs/Spell
+  artifactKey: Guid(7018f6fc1eff0d143a832a5687007dc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Spell using Guid(7018f6fc1eff0d143a832a5687007dc8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39fe91b32cd84ae68499ec8424ffb69e') in 0.008688 seconds
+  Import took 0.013055 seconds .
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000237 seconds.
-  path: Assets/Resources/Prefabs/Item/Black.prefab
-  artifactKey: Guid(b4a49a368425028458ced50b8b769d4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Item/Black.prefab using Guid(b4a49a368425028458ced50b8b769d4b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9220b2086206185c574b9e194c082cf') in 0.013048 seconds
-  Import took 0.019396 seconds .
+  path: Assets/Resources/Prefabs/Spell/Explosion.prefab
+  artifactKey: Guid(1e90ad62d1ac8524886b29edddb987f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Spell/Explosion.prefab using Guid(1e90ad62d1ac8524886b29edddb987f6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39953af9eb6171cac25b380ee5f19e38') in 0.173369 seconds
+  Import took 0.177569 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000235 seconds.
-  path: Assets/Audio/Ambience/arcade ambience.wav
-  artifactKey: Guid(0a8672b6ca5beab4b9603ea7c081a7d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audio/Ambience/arcade ambience.wav using Guid(0a8672b6ca5beab4b9603ea7c081a7d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a22324aab9c060b93a04255f3aa1ebd6') in 0.014427 seconds
-  Import took 0.019071 seconds .
+  Time since last request: 0.000206 seconds.
+  path: Assets/Resources/Prefabs/Spell/BombCoin.prefab
+  artifactKey: Guid(567f4d0a4317e284dae3723e845c026d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Spell/BombCoin.prefab using Guid(567f4d0a4317e284dae3723e845c026d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e107c254d730792a2590c24e670e1302') in 0.025756 seconds
+  Import took 0.030221 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000472 seconds.
-  path: Assets/Models/Main_Board_-_Copy.fbx
-  artifactKey: Guid(3c08c11ae7758ac48979b129d442954d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Main_Board_-_Copy.fbx using Guid(3c08c11ae7758ac48979b129d442954d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5aa07c8aa29f691720cb660bb64fb25e') in 0.025459 seconds
-  Import took 0.030389 seconds .
+  Time since last request: 0.000177 seconds.
+  path: Assets/Resources
+  artifactKey: Guid(0ebe1b86624da7548bf8424fd7f2687e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources using Guid(0ebe1b86624da7548bf8424fd7f2687e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '115d2faa2b495a98315fc457d9f34aa2') in 0.004753 seconds
+  Import took 0.008899 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 159.535098 seconds.
+  Time since last request: 0.000164 seconds.
+  path: Assets/Resources/Prefabs/Spell/BombCoin.prefab
+  artifactKey: Guid(567f4d0a4317e284dae3723e845c026d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Spell/BombCoin.prefab using Guid(567f4d0a4317e284dae3723e845c026d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e107c254d730792a2590c24e670e1302') in 0.008560 seconds
+  Import took 0.012623 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000210 seconds.
+  path: Assets/Resources/Prefabs
+  artifactKey: Guid(8068b928872f80344bcec93aadb16fee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs using Guid(8068b928872f80344bcec93aadb16fee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8c3e29c0220e287d5486638740a8c7fe') in 0.005026 seconds
+  Import took 0.009400 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000270 seconds.
+  path: Assets/Resources/Prefabs/Coins
+  artifactKey: Guid(74061dd84faf53e4bbc59ac9d4c95ece) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coins using Guid(74061dd84faf53e4bbc59ac9d4c95ece) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20bd0eb287d3c5c1f62f0bf4c426fe15') in 0.005596 seconds
+  Import took 0.010263 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000215 seconds.
+  path: Assets/Resources/Prefabs/Spell/DirtIwalkON.prefab
+  artifactKey: Guid(94a209669225a7545a3ff96a0fa58ec0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Spell/DirtIwalkON.prefab using Guid(94a209669225a7545a3ff96a0fa58ec0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eae780df923e095e282077d936a626a4') in 0.012415 seconds
+  Import took 0.017005 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000183 seconds.
+  path: Assets/Resources/Prefabs/Spell/Force.prefab
+  artifactKey: Guid(d8cf23e9ee86ff8479a4467acdea6224) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Spell/Force.prefab using Guid(d8cf23e9ee86ff8479a4467acdea6224) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da16bc5226c6ea09904b69086bf7f1d4') in 0.006706 seconds
+  Import took 0.010841 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000198 seconds.
+  path: Assets/Resources/Prefabs/Spell/TremorCoin.prefab
+  artifactKey: Guid(80864e06c81e7fa44a5981cf7ad2cde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Spell/TremorCoin.prefab using Guid(80864e06c81e7fa44a5981cf7ad2cde3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0661ee041e9e3590edb442b5a07aaf62') in 0.012276 seconds
+  Import took 0.016716 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 71.215315 seconds.
+  path: Assets/Shaders
+  artifactKey: Guid(f12d92e14035e2b48a45a7ccf1f02367) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders using Guid(f12d92e14035e2b48a45a7ccf1f02367) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a785462027793bb93f9e2f7ceec4b1a') in 0.005800 seconds
+  Import took 0.010458 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.222515 seconds.
+  path: Assets/Shaders/BombCoin
+  artifactKey: Guid(f87cd6a09fb4cd04abed793b378498b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/BombCoin using Guid(f87cd6a09fb4cd04abed793b378498b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69b04fc038026d0bafb3fff2fb05378b') in 0.001934 seconds
+  Import took 0.006702 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.071397 seconds.
+  path: Assets/Shaders/BombCoin/ProtoExplosion.mat
+  artifactKey: Guid(b63e00247b4b6604f84e41ff23229a0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Shaders/BombCoin/ProtoExplosion.mat using Guid(b63e00247b4b6604f84e41ff23229a0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7678805e2eb517b80e80d2fba627c30e') in 0.022092 seconds
+  Import took 0.026736 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 59.853008 seconds.
+  path: Assets/Resources/Materials
+  artifactKey: Guid(d3875676e0e242c4b8de1de65f1a4fe1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Materials using Guid(d3875676e0e242c4b8de1de65f1a4fe1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '833310ef3d155e4e8cbc13d56dbef4b7') in 0.006734 seconds
+  Import took 0.011826 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.039113 seconds.
+  path: Assets/Resources/3D Models
+  artifactKey: Guid(b8d4e1b353a990846a05469ecd20f978) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3D Models using Guid(b8d4e1b353a990846a05469ecd20f978) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7a139cba386ee28a7701fe599f30d30') in 0.005326 seconds
+  Import took 0.009774 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.817071 seconds.
+  path: Assets/Resources/Materials/Proto Materials
+  artifactKey: Guid(6103f060ff87e6241912233293a9a78d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Materials/Proto Materials using Guid(6103f060ff87e6241912233293a9a78d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '029553489123df7461ba589465569f56') in 0.005565 seconds
+  Import took 0.009946 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.763372 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine
+  artifactKey: Guid(72dfb00026b33704ca483a9418d05f17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine using Guid(72dfb00026b33704ca483a9418d05f17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0330f7e2b121267bd24d67da1a92c91c') in 0.005360 seconds
+  Import took 0.010070 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.060321 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c04a8c1e900097b3b516dca72ead35a') in 0.039823 seconds
+  Import took 0.046253 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000213 seconds.
   path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
   artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8361ce1643d76612b1f16e234bb177dc') in 0.014809 seconds
-  Import took 0.020530 seconds .
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bbd2c15939f00f0fa17952b6bc72215') in 0.012819 seconds
+  Import took 0.017923 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 5.177042 seconds.
-  path: Assets/Resources/Materials/Proto Materials/Appearance Materials/Combo Event.mat
-  artifactKey: Guid(d57ff3a173363524dafc5eac7df40deb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Materials/Proto Materials/Appearance Materials/Combo Event.mat using Guid(d57ff3a173363524dafc5eac7df40deb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2340d08e474a47e5e9aa74db3e31cf6d') in 0.010541 seconds
-  Import took 0.014691 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000364 seconds.
-  path: Assets/Resources/3D Models/Coin Machine/Machine Body/Primitive Models/Peggy/TJ-COMBO.fbx
-  artifactKey: Guid(abf8cec6766f79c4bbfcde06bc2cac2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/3D Models/Coin Machine/Machine Body/Primitive Models/Peggy/TJ-COMBO.fbx using Guid(abf8cec6766f79c4bbfcde06bc2cac2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a16fbcb26a78e32427abcb879f390b8') in 0.012555 seconds
-  Import took 0.016740 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000307 seconds.
-  path: Assets/Resources/Materials/Proto Materials/Appearance Materials/TJCOMBO.mat
-  artifactKey: Guid(bda67540b78800342bfa18e8962fd259) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Materials/Proto Materials/Appearance Materials/TJCOMBO.mat using Guid(bda67540b78800342bfa18e8962fd259) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f71f03223cfc7b060607d53bc1c367d') in 0.009359 seconds
-  Import took 0.013538 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000333 seconds.
-  path: Assets/Resources/Materials/Proto Materials/PegFlash/ComboFlash.mat
-  artifactKey: Guid(5cc3b8242af127a46945c14e87fffc5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Materials/Proto Materials/PegFlash/ComboFlash.mat using Guid(5cc3b8242af127a46945c14e87fffc5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69a75269eee72e21af82e4c5719b2470') in 0.010042 seconds
-  Import took 0.014792 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000310 seconds.
-  path: Assets/Resources/Prefabs/Coin Machine/TJ-COMBO.prefab
-  artifactKey: Guid(7e406354bbee4d54fadd3349c223e1d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Coin Machine/TJ-COMBO.prefab using Guid(7e406354bbee4d54fadd3349c223e1d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33d41b042146fd261a0aaa6b2023b256') in 0.010615 seconds
-  Import took 0.016159 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 19.260425 seconds.
-  path: Assets/Scripts/Coin/Pegs
-  artifactKey: Guid(381b37e3cbd595c47b579d3eac48e303) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Coin/Pegs using Guid(381b37e3cbd595c47b579d3eac48e303) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df61acd7dcb273b92addb244862a01a9') in 0.002845 seconds
-  Import took 0.007572 seconds .
+  Time since last request: 0.000226 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Minecraft_diamond.prefab
+  artifactKey: Guid(81447abc250f5e04b83230fb28139d14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Minecraft_diamond.prefab using Guid(81447abc250f5e04b83230fb28139d14) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '32031d69965ae8c558e612c3a9cffd83') in 0.010090 seconds
+  Import took 0.014544 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.010169 seconds.
+Registered in 0.005305 seconds.
 Begin MonoManager ReloadAssembly
+Symbol file data-00000230A7A874C0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230AA2676A0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A3BB7BF0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230AA564010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A66D7030 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230AA450FA0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Sysroot.Linux_x86_64.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A0998AE0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A228C010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A2504010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A6FF2030 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A22EB020 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Searcher.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230AA450FA0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.ShaderGraph.Utilities.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A27A3D30 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A3F0B010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Sirenix.OdinInspector.CompatibilityLayer.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A2531A20 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A28B1010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A77E1260 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230AA267890 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A3F0B010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Sirenix.OdinInspector.Modules.UnityMathematics.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A73B2010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A29EF020 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Mathematics.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A22FF060 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A73B2010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A3BB19E0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Toolchain.Win-x86_64-Linux-x86_64.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230AA2676A0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A2A55010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A3A95070 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Sirenix.OdinInspector.CompatibilityLayer.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230AA2674B0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A0756930 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A7C7A010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A73B2010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A0BF1860 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.SysrootPackage.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.63 ms, found 2 plugins.
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.77 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.747 seconds
+- Completed reload, in  1.365 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.60 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.72 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2651 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 215.1 MB.
-System memory in use after: 215.3 MB.
+System memory in use before: 224.6 MB.
+System memory in use after: 224.9 MB.
 
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3356.
-Total: 28.441000 ms (FindLiveObjects: 0.310500 ms CreateObjectMapping: 0.178000 ms MarkObjects: 27.911500 ms  DeleteObjects: 0.039400 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.012459 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.55 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.543 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.61 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2651 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 215.1 MB.
-System memory in use after: 215.4 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3359.
-Total: 26.554300 ms (FindLiveObjects: 0.278700 ms CreateObjectMapping: 0.134900 ms MarkObjects: 26.106600 ms  DeleteObjects: 0.032800 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.012372 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.55 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.511 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.91 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2651 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 215.2 MB.
-System memory in use after: 215.4 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3362.
-Total: 24.164300 ms (FindLiveObjects: 0.291800 ms CreateObjectMapping: 0.111500 ms MarkObjects: 23.733100 ms  DeleteObjects: 0.027000 ms)
+Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 3350.
+Total: 24.543400 ms (FindLiveObjects: 0.296900 ms CreateObjectMapping: 0.070500 ms MarkObjects: 24.105900 ms  DeleteObjects: 0.068400 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 458.701814 seconds.
-  path: Assets/Scripts/Coin/Pegs/Peg.cs
-  artifactKey: Guid(26e9a4ec0a6c4a546bfb6e8a677df8ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Coin/Pegs/Peg.cs using Guid(26e9a4ec0a6c4a546bfb6e8a677df8ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31a171237d9bf2ee236d5901e071bbb6') in 0.008947 seconds
-  Import took 0.014557 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.023683 seconds.
-  path: Assets/Scripts/Coin/Pegs/Peg.cs
-  artifactKey: Guid(26e9a4ec0a6c4a546bfb6e8a677df8ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Coin/Pegs/Peg.cs using Guid(26e9a4ec0a6c4a546bfb6e8a677df8ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '31a171237d9bf2ee236d5901e071bbb6') in 0.002168 seconds
-  Import took 0.007710 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.011254 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.547 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.57 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2651 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 215.2 MB.
-System memory in use after: 215.4 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3365.
-Total: 25.533700 ms (FindLiveObjects: 0.297200 ms CreateObjectMapping: 0.128900 ms MarkObjects: 25.081000 ms  DeleteObjects: 0.025300 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.011368 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.89 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.679 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.59 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2651 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 215.2 MB.
-System memory in use after: 215.4 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3368.
-Total: 23.917500 ms (FindLiveObjects: 0.289700 ms CreateObjectMapping: 0.138200 ms MarkObjects: 23.457800 ms  DeleteObjects: 0.030600 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 90.934633 seconds.
+  Time since last request: 88.164914 seconds.
   path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
   artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f872dbff856f65300ece4569af2aaf4') in 0.272197 seconds
-  Import took 0.278973 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.012436 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.54 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.581 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.55 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2651 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 215.3 MB.
-System memory in use after: 215.6 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3407.
-Total: 24.873800 ms (FindLiveObjects: 0.283200 ms CreateObjectMapping: 0.141600 ms MarkObjects: 24.419600 ms  DeleteObjects: 0.028200 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.011450 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.83 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.745 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.57 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2651 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 215.3 MB.
-System memory in use after: 215.6 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3410.
-Total: 30.136800 ms (FindLiveObjects: 0.329500 ms CreateObjectMapping: 0.185400 ms MarkObjects: 29.595900 ms  DeleteObjects: 0.024600 ms)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'abffcdcb632b599af38097cd8e4327d4') in 0.123735 seconds
+  Import took 0.129436 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 130.637820 seconds.
+  Time since last request: 0.000226 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '013446c90523a3d063b9b2af2bb9b279') in 0.045266 seconds
+  Import took 0.162174 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.770692 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '962e7911eb290f2364c818f6fc128f8e') in 0.031435 seconds
+  Import took 0.038762 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
   path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
   artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c95b1a12b4836ebeb73ac20fbeced6b5') in 0.200096 seconds
-  Import took 0.205632 seconds .
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '534258b38f7dab6a2a0af417894c6f57') in 0.009880 seconds
+  Import took 0.014830 seconds .
 
 ========================================================================
-Received Import Request.
-  Time since last request: 131.593438 seconds.
-  path: Assets/Scripts/Event/CoinBlitz
-  artifactKey: Guid(0e04af739d30f2c41a6b788f04a9bee0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Event/CoinBlitz using Guid(0e04af739d30f2c41a6b788f04a9bee0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '929c0c700d45662b50e62af60d36a7ae') in 0.002025 seconds
-  Import took 0.006629 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005275 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-00000230A0A0A020 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A6AFD840 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A06A7B40 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A7A674A0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A06E9870 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A2184A50 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Sysroot.Linux_x86_64.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A3CA0020 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A7A674A0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230AA66E010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A0902020 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230AA148150 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Searcher.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A2185B90 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.ShaderGraph.Utilities.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A6CF9020 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A3F350C0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Sirenix.OdinInspector.CompatibilityLayer.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A06E9870 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A5710080 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A7695010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A6AFD080 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230AAAE6280 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Sirenix.OdinInspector.Modules.UnityMathematics.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A27A3D30 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A5F37020 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Mathematics.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A22FF060 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A27A3D30 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A7269BB0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Toolchain.Win-x86_64-Linux-x86_64.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A6AFD650 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A2A55010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A3A96450 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Sirenix.OdinInspector.CompatibilityLayer.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A6AFD270 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A7A674A0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A5844660 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A77CDC50 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A2296A20 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.SysrootPackage.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.68 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.330 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.73 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2651 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 225.0 MB.
+System memory in use after: 225.2 MB.
+
+Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 3389.
+Total: 25.754300 ms (FindLiveObjects: 0.362700 ms CreateObjectMapping: 0.071000 ms MarkObjects: 25.251600 ms  DeleteObjects: 0.067100 ms)
 
 ========================================================================
-Received Import Request.
-  Time since last request: 0.884624 seconds.
-  path: Assets/Scripts/Event/CoinBlitz/GlassRemover.cs
-  artifactKey: Guid(1ccf21d9039c37b4284810c44228278d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Event/CoinBlitz/GlassRemover.cs using Guid(1ccf21d9039c37b4284810c44228278d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e93a67ee65a13d45ad451e8546707167') in 0.002309 seconds
-  Import took 0.006855 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005082 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-00000230A6E82CE0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A6F0FDF0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A3BB7BF0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230AAB17ED0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A06BFB70 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A2184600 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Sysroot.Linux_x86_64.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A072D010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A072D010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A5B1D010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A0902020 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A4355050 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Searcher.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A2186430 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.ShaderGraph.Utilities.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A819EDC0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230AAAE6280 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Sirenix.OdinInspector.CompatibilityLayer.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A06E9870 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A65AB410 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A7695010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A6F0F440 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A57500C0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Sirenix.OdinInspector.Modules.UnityMathematics.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A27A3D30 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A5F37020 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Mathematics.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A22FF060 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A27A3D30 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230AA3C45A0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Toolchain.Win-x86_64-Linux-x86_64.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A6F0FA10 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A60F2040 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A3A95DB0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Sirenix.OdinInspector.CompatibilityLayer.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A6F0FDF0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A072D010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A06B98D0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A27A3D30 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A24A5220 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.SysrootPackage.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.66 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.312 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.70 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2651 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 225.0 MB.
+System memory in use after: 225.2 MB.
+
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3392.
+Total: 28.195600 ms (FindLiveObjects: 0.414500 ms CreateObjectMapping: 0.072300 ms MarkObjects: 27.660800 ms  DeleteObjects: 0.045000 ms)
 
 ========================================================================
-Received Import Request.
-  Time since last request: 0.002789 seconds.
-  path: Assets/Scripts/Event/CoinBlitz/GlassRemover.cs
-  artifactKey: Guid(1ccf21d9039c37b4284810c44228278d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Event/CoinBlitz/GlassRemover.cs using Guid(1ccf21d9039c37b4284810c44228278d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e93a67ee65a13d45ad451e8546707167') in 0.002346 seconds
-  Import took 0.008155 seconds .
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005944 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-00000230A7BA98B0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230AA267890 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Shaders.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A2D30500 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Runtime.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A625F020 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A7B3B510 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A21834C0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Sysroot.Linux_x86_64.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A0BBB010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A3BC7C00 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A5C5F070 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A0902020 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A4355050 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Searcher.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A2184600 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.ShaderGraph.Utilities.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A819EDC0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Runtime.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A68E2DC0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Sirenix.OdinInspector.CompatibilityLayer.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A20C6B80 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\UnityEditor.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A2504010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A7695010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230AA267890 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Core.ShaderLibrary.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A43230F0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Sirenix.OdinInspector.Modules.UnityMathematics.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A27A3D30 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\UnityEngine.UI.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A5F37020 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Mathematics.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A22FF060 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.ShaderGraph.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A27A3D30 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Universal.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230AA3C5410 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Toolchain.Win-x86_64-Linux-x86_64.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230AA2672C0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipeline.Universal.ShaderLibrary.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A6350030 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A3A96450 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Sirenix.OdinInspector.CompatibilityLayer.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230AA267C70 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A0BBB010 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A060D7C0 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.Mathematics.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A27A3D30 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.RenderPipelines.Core.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-00000230A6ECB060 doesn't match image I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game\Library\ScriptAssemblies\Unity.SysrootPackage.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.68 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.323 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.68 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2651 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 225.0 MB.
+System memory in use after: 225.2 MB.
 
-========================================================================
-Received Import Request.
-  Time since last request: 883.588351 seconds.
-  path: Assets/Audio/SFX/powersurge.wav
-  artifactKey: Guid(08c129b9402737e4790de862f9af9aa5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audio/SFX/powersurge.wav using Guid(08c129b9402737e4790de862f9af9aa5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f78465f30c3028b83409130a9a8a9ebf') in 0.024591 seconds
-  Import took 0.031855 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.003319 seconds.
-  path: Assets/Audio/SFX/powersurge.wav
-  artifactKey: Guid(08c129b9402737e4790de862f9af9aa5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audio/SFX/powersurge.wav using Guid(08c129b9402737e4790de862f9af9aa5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f78465f30c3028b83409130a9a8a9ebf') in 0.008789 seconds
-  Import took 0.013349 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 429.652220 seconds.
-  path: Assets/Audio/SFX/coinblitz.wav
-  artifactKey: Guid(0c544aeafebd4ce45856348a3a311994) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audio/SFX/coinblitz.wav using Guid(0c544aeafebd4ce45856348a3a311994) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03497e6c4900332fb35ec48d0e0cb2fa') in 0.016017 seconds
-  Import took 0.022745 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000294 seconds.
-  path: Assets/Audio/SFX/coinblitzFINISHED.wav
-  artifactKey: Guid(dd852a329a8abca44a4e6bae3187b6cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Audio/SFX/coinblitzFINISHED.wav using Guid(dd852a329a8abca44a4e6bae3187b6cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a88bc8462dc1df0527ae153be3e11aaf') in 0.013634 seconds
-  Import took 0.018583 seconds .
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3395.
+Total: 24.424400 ms (FindLiveObjects: 0.312700 ms CreateObjectMapping: 0.065400 ms MarkObjects: 24.005500 ms  DeleteObjects: 0.038800 ms)
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

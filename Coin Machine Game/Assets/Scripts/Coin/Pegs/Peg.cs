@@ -26,7 +26,7 @@ public class Peg : MonoBehaviour
 
     public GameObject comboEventAppearance;
 
-
+    public AudioSource comboPing;
 
     // Used to prevent coins from constantly stacking modifiers if they bounce slightly off of this peg (Applies only to combo pegs)
     private List<GameObject> recentlyUpgradedCoins = new List<GameObject>();
@@ -148,10 +148,12 @@ public class Peg : MonoBehaviour
         {
             // Multiply coin's current combo multiplier by itself
             other.gameObject.GetComponentInParent<CoinLogic>().ComboMultiplier();
+            comboPing.Play();
         }
         else if (amComboEvent)
         {
             other.gameObject.GetComponentInParent<CoinLogic>().ComboEvent();
+            comboPing.Play();
         }
     }
 
