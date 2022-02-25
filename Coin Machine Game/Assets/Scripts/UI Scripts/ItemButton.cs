@@ -15,6 +15,24 @@ public class ItemButton : MonoBehaviour
 
     public Text description;
 
+    //public SpriteRenderer spriteRenderer;
+
+    public GameObject itemImageRenderer;
+
+    public Sprite itemImage;
+
+    public Sprite midasShard;
+    public Sprite midasCrystal;
+    public Sprite midasRelic;
+    public Sprite pegRemoveMk1;
+    public Sprite pegRemoveMk2;
+    public Sprite pegRemoveMk3;
+    public Sprite goldPeg;
+    public Sprite diamondPeg;
+    public Sprite comboPeg;
+    public Sprite bombVoucher;
+    public Sprite tremorVoucher;
+
     public void RollNew()
     {
         selectedItemDict = GameObject.FindGameObjectWithTag("game_manager").GetComponent<ItemRandomizer>().RollNewItem();
@@ -27,6 +45,16 @@ public class ItemButton : MonoBehaviour
 
         foreach (KeyValuePair<string, string> dict in unformattedDict)
         {
+            itemImage = DetermineIcon(dict.Key);
+
+            //spriteRenderer.sprite = itemImage;
+
+            //itemImage.
+
+            itemImageRenderer.GetComponent<Image>().sprite = itemImage;
+
+            //itemImageRenderer.GetComponent<SpriteRenderer>().size = new Vector2(20, 20);
+
             itemScriptName = dict.Key;
             itemName = dict.Key;
             itemDescription = dict.Value;
@@ -56,6 +84,49 @@ public class ItemButton : MonoBehaviour
 
             selectedItem = itemScriptName;
         }
+    }
+
+    private Sprite DetermineIcon(string item)
+    {
+        switch (item)
+        {
+            case "midas_shard":
+                return midasShard;
+
+            case "midas_crystal":
+                return midasCrystal;
+
+            case "midas_relic":
+                return midasRelic;
+
+            case "peg_remove_mk1":
+                return pegRemoveMk1;
+
+            case "peg_remove_mk2":
+                return pegRemoveMk2;
+
+            case "peg_remove_mk3":
+                return pegRemoveMk3;
+
+            case "golden_peg":
+                return goldPeg;
+
+            case "diamond_peg":
+                return diamondPeg;
+
+            case "combo_peg":
+                return comboPeg;
+
+            case "bomb_voucher":
+                return bombVoucher;
+
+            case "tremor_voucher":
+                return tremorVoucher;
+
+            default:
+                return null;
+        }
+
     }
 
     public void GetItem()
