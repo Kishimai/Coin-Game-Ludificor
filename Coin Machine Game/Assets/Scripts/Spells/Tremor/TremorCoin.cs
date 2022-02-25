@@ -9,12 +9,18 @@ public class TremorCoin : MonoBehaviour
     private Rigidbody coinRb;
     public AudioSource shake;
 
+    private GameObject tremorAudioSource;
+
     public float sinkDuration;
 
     private void Start()
     {
         coinRb = GetComponent<Rigidbody>();
         tremorHandler = GameObject.FindGameObjectWithTag("gameplay_event_system");
+
+        tremorAudioSource = GameObject.FindGameObjectWithTag("tremor_sound");
+
+        shake = tremorAudioSource.GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)

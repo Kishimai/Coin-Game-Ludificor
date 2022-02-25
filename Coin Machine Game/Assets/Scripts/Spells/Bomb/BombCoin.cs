@@ -12,9 +12,15 @@ public class BombCoin : MonoBehaviour
 
     public AudioSource boom;
 
+    private GameObject boomAudioSource;
+
     private void Start()
     {
         coinRb = GetComponent<Rigidbody>();
+
+        boomAudioSource = GameObject.FindGameObjectWithTag("bomb_sound");
+
+        boom = boomAudioSource.GetComponent<AudioSource>();
     }
 
     public void Explode()
