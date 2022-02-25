@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class BombCoin : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class BombCoin : MonoBehaviour
     public GameObject explosion;
 
     private Rigidbody coinRb;
+
+    public AudioSource boom;
 
     private void Start()
     {
@@ -17,7 +20,7 @@ public class BombCoin : MonoBehaviour
     public void Explode()
     {
         Instantiate(explosion, transform.position, Quaternion.identity);
-
+        boom.Play();
         Destroy(gameObject);
     }
 

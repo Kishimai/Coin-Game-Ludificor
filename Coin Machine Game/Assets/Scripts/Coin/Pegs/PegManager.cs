@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class PegManager : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class PegManager : MonoBehaviour
     // Not currently used
     private int comboValueModifier = 2;
 
+    public AudioSource pegcombo;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +37,7 @@ public class PegManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void CompilePegsAndRows()
@@ -108,6 +111,7 @@ public class PegManager : MonoBehaviour
         {
             AddToModified(selectedPeg);
             selectedPeg.GetComponent<Peg>().ConvertToCombo();
+            pegcombo.Play();
         }
     }
 

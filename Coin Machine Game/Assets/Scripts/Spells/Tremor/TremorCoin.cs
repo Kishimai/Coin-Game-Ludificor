@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class TremorCoin : MonoBehaviour
 {
     private GameObject tremorHandler;
     private Rigidbody coinRb;
+    public AudioSource shake;
 
     public float sinkDuration;
 
@@ -20,7 +22,7 @@ public class TremorCoin : MonoBehaviour
         if (other.gameObject.tag == "tremor_activation")
         {
             tremorHandler.GetComponent<TremorShake>().Shake(gameObject.transform.position);
-
+            shake.Play();
             StartCoroutine(Sink());
 
             //Destroy(gameObject);

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Peg : MonoBehaviour
 {
     private int coinValueModifier;
@@ -24,6 +25,8 @@ public class Peg : MonoBehaviour
     public Material comboFlash;
 
     public GameObject comboEventAppearance;
+
+
 
     // Used to prevent coins from constantly stacking modifiers if they bounce slightly off of this peg (Applies only to combo pegs)
     private List<GameObject> recentlyUpgradedCoins = new List<GameObject>();
@@ -54,6 +57,7 @@ public class Peg : MonoBehaviour
     {
         amModified = false;
         amDisabled = false;
+
     }
 
     void Update()
