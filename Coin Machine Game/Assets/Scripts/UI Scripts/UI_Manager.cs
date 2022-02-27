@@ -256,6 +256,11 @@ public class UI_Manager : MonoBehaviour
                 Update_UI(5);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            _currentCoin += 9001;
+        }
     }
 
     /// <summary>

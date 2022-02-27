@@ -86,7 +86,8 @@ public class ShopSystem : MonoBehaviour
             UnlockVisualLevel(_object, data.CurrentLevel);
             _object.transform.GetChild(3).GetComponent<TMP_Text>().text = $"${data.currentValue}";  
 
-            if(data.CurrentLevel == 7){
+            // Changed int from 7 to 9, now it unlocks next coin when upgrade reaches maximum
+            if(data.CurrentLevel == 9){
                 foreach(GameObject CoinObject in Coin_list){
                     if(data.Order + 1 > 6){
 
