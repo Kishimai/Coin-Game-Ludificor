@@ -83,7 +83,7 @@ public class EventsManager : MonoBehaviour
 
     public float surgePusherSpeed;
 
-
+    private AudioSource comboPing;
 
     // Start is called before the first frame update
     void Start()
@@ -100,6 +100,8 @@ public class EventsManager : MonoBehaviour
         itemBuilder = GameObject.FindGameObjectWithTag("item_builder");
 
         gameManager = GameObject.FindGameObjectWithTag("game_manager");
+
+        comboPing = GameObject.FindGameObjectWithTag("combo_sound").GetComponent<AudioSource>();
 
         // Enables the initialization phase
         initializationPhase = true;
@@ -327,5 +329,7 @@ public class EventsManager : MonoBehaviour
         currentEventDuration = pegComboDuration;
 
         StartCoroutine(gameManager.GetComponent<DotLightManager>().Scroll(pegComboDuration));
+
+        comboPing.Play();
     }
 }

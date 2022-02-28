@@ -49,14 +49,16 @@ public class Peg : MonoBehaviour
     private bool recordedAmCombo = false;
     private bool recordingTaken = false;
 
-    private float bumpCountdown;
-    private float bumpLimit = 1f;
+    private float timeUntilBump;
+    private float bumpLimit = 2f;
 
 
     void Start()
     {
         amModified = false;
         amDisabled = false;
+
+        timeUntilBump = bumpLimit;
 
     }
 
@@ -153,7 +155,6 @@ public class Peg : MonoBehaviour
         else if (amComboEvent)
         {
             other.gameObject.GetComponentInParent<CoinLogic>().ComboEvent();
-            comboPing.Play();
         }
     }
 
@@ -313,17 +314,21 @@ public class Peg : MonoBehaviour
 
     private void BumpCoin(Collider other)
     {
-        if (other.gameObject.tag == "coin")
+
+        GameObject parent = other.gameObject.transform.parent.gameObject;
+        GameObject childID = parent.transform.GetChild(0).gameObject;
+
+        if (childID.tag == "coin")
         {
-            other.GetComponentInParent<CoinLogic>().GetBumped();
+            parent.GetComponent<CoinLogic>().GetBumped();
         }
-        else if (other.gameObject.tag == "bomb_coin")
+        else if (childID.tag == "bomb_coin")
         {
-            other.GetComponentInParent<BombCoin>().GetBumped();
+            parent.GetComponent<BombCoin>().GetBumped();
         }
-        else if (other.gameObject.tag == "tremor_coin")
+        else if (childID.tag == "tremor_coin")
         {
-            other.GetComponentInParent<TremorCoin>().GetBumped();
+            parent.GetComponent<TremorCoin>().GetBumped();
         }
     }
 
@@ -360,39 +365,16 @@ public class Peg : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "coin")
+        if (other.gameObject.tag == "bump_sphere")
         {
-            if (bumpCountdown < bumpLimit)
+
+            if (timeUntilBump > 0)
             {
-                bumpCountdown += Time.deltaTime;
+                timeUntilBump -= Time.deltaTime;
             }
             else
             {
-                bumpCountdown = 0;
-                BumpCoin(other);
-            }
-        }
-        if (other.gameObject.tag == "bomb_coin")
-        {
-            if (bumpCountdown < bumpLimit)
-            {
-                bumpCountdown += Time.deltaTime;
-            }
-            else
-            {
-                bumpCountdown = 0;
-                BumpCoin(other);
-            }
-        }
-        if (other.gameObject.tag == "tremor_coin")
-        {
-            if (bumpCountdown < bumpLimit)
-            {
-                bumpCountdown += Time.deltaTime;
-            }
-            else
-            {
-                bumpCountdown = 0;
+                timeUntilBump = bumpLimit;
                 BumpCoin(other);
             }
         }
@@ -424,9 +406,10 @@ public class Peg : MonoBehaviour
                 standardAppearance.SetActive(true);
             }
         }
-        else
+
+        if (other.gameObject.tag == "bump_sphere")
         {
-            bumpCountdown = 0;
+            timeUntilBump = bumpLimit;
         }
     }
 }
