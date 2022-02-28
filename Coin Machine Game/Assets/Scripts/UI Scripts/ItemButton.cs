@@ -33,6 +33,17 @@ public class ItemButton : MonoBehaviour
     public Sprite bombVoucher;
     public Sprite tremorVoucher;
 
+    public Color32 common;
+    public Color32 uncommon;
+    public Color32 rare;
+
+    private Image image;
+
+    public void Start()
+    {
+        image = GetComponent<Image>();
+    }
+
     public void RollNew()
     {
         selectedItemDict = GameObject.FindGameObjectWithTag("game_manager").GetComponent<ItemRandomizer>().RollNewItem();
@@ -91,36 +102,47 @@ public class ItemButton : MonoBehaviour
         switch (item)
         {
             case "midas_shard":
+                image.color = Color.white;
                 return midasShard;
 
             case "midas_crystal":
+                image.color = Color.green;
                 return midasCrystal;
 
             case "midas_relic":
+                image.color = Color.red;
                 return midasRelic;
 
             case "peg_remove_mk1":
+                image.color = common;
                 return pegRemoveMk1;
 
             case "peg_remove_mk2":
+                image.color = uncommon;
                 return pegRemoveMk2;
 
             case "peg_remove_mk3":
+                image.color = rare;
                 return pegRemoveMk3;
 
             case "golden_peg":
+                image.color = uncommon;
                 return goldPeg;
 
             case "diamond_peg":
+                image.color = rare;
                 return diamondPeg;
 
             case "combo_peg":
+                image.color = rare;
                 return comboPeg;
 
             case "bomb_voucher":
+                image.color = rare;
                 return bombVoucher;
 
             case "tremor_voucher":
+                image.color = rare;
                 return tremorVoucher;
 
             default:

@@ -59,7 +59,7 @@ public class ItemBuilder : MonoBehaviour
 
             initialBuildFinished = true;
         }
-        /*
+        
         if (timeUntilNextItem > 0 && itemRainEvent == false)
         {
             timeUntilNextItem -= Time.fixedDeltaTime;
@@ -68,9 +68,9 @@ public class ItemBuilder : MonoBehaviour
         if (timeUntilNextItem <= 0)
         {
             BuildItem();
-            timeUntilNextItem = 60f;
+            timeUntilNextItem = 120f;
         }
-        */
+        
     }
 
     // Determines the new printer position, build surface, build surface area, and start/end positions
