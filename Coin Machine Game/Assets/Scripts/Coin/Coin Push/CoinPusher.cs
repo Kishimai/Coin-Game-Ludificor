@@ -77,14 +77,6 @@ public class CoinPusher : MonoBehaviour
         StartCoroutine(CheckQueue());
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            StartBulldoze();
-        }
-    }
-
     private void FixedUpdate()
     {
         // Constantly gathers the pusher's current position for comparing
@@ -159,7 +151,6 @@ public class CoinPusher : MonoBehaviour
         {
             if (spellQueue.Contains("bulldoze") && !bulldoze)
             {
-                spellQueue.Remove("bulldoze");
                 StartCoroutine(Bulldoze());
             }
             yield return new WaitForFixedUpdate();

@@ -37738,7 +37738,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1329720532
 RectTransform:
   m_ObjectHideFlags: 0
@@ -53008,7 +53008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theDirt: {fileID: 3096417717070775579, guid: 94a209669225a7545a3ff96a0fa58ec0, type: 3}
   dirtFriends: {fileID: 1503723512}
-  tremorPower: 20
+  tremorPower: 25
   tremorDuration: 5
   sinkDuration: 7
 --- !u!1001 &1915632066
@@ -62426,6 +62426,14 @@ PrefabInstance:
     - target: {fileID: 1030149121657076569, guid: 1e0e4cde857c09a4b978d0388540bd4a, type: 3}
       propertyPath: m_Name
       value: BulldozeCoin
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030149121657076569, guid: 1e0e4cde857c09a4b978d0388540bd4a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540182326371086098, guid: 1e0e4cde857c09a4b978d0388540bd4a, type: 3}
+      propertyPath: m_Constraints
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e0e4cde857c09a4b978d0388540bd4a, type: 3}

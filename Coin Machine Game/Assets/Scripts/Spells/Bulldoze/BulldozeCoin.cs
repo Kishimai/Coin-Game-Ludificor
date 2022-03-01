@@ -5,11 +5,11 @@ using UnityEngine;
 public class BulldozeCoin : MonoBehaviour
 {
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "coin_pusher")
+        if (other.gameObject.tag == "coin_pusher")
         {
-            collision.transform.GetComponent<CoinPusher>().StartBulldoze();
+            other.transform.GetComponent<CoinPusher>().StartBulldoze();
             Destroy(gameObject);
         }
     }

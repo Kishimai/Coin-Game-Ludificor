@@ -37,15 +37,7 @@ public class TremorShake : MonoBehaviour
         {
             if (coin.activeInHierarchy)
             {
-                if (active == false)
-                {
-                    coin.GetComponentInParent<CoinLogic>().TremorEvent(tremorDuration, tremorPower);
-                    //active = true;
-                }
-                else
-                {
-                    coin.GetComponentInParent<CoinLogic>().TremorEvent(tremorDuration, 0);
-                }
+                coin.GetComponentInParent<CoinLogic>().TremorEvent(tremorDuration, tremorPower);
             }
         }
 

@@ -27,6 +27,8 @@ public class CoinLogic : MonoBehaviour
 
     private float tremorDuration = 0;
 
+    private bool shaking = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -87,12 +89,15 @@ public class CoinLogic : MonoBehaviour
     public void TremorEvent(float duration, float power)
     {
         tremorDuration = duration;
-        StartCoroutine(Tremor(power));
+        if (!shaking)
+        {
+            StartCoroutine(Tremor(power));
+        }
     }
 
     public IEnumerator Tremor(float tremorPower)
     {
-
+        shaking = true;
         while (tremorDuration > 0)
         {
             tremorDuration -= Time.deltaTime;
@@ -115,6 +120,7 @@ public class CoinLogic : MonoBehaviour
             yield return new WaitForFixedUpdate();
 
         }
+        shaking = false;
     }
 
     public void GetBumped()
