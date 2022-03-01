@@ -22,6 +22,8 @@ public class ShopSystem : MonoBehaviour
     [BoxGroup("Output")]
     public CoinData UpdatedCoin;
 
+    private int currentOrder;
+
 
     public void Start(){
         RestartData();
@@ -63,6 +65,8 @@ public class ShopSystem : MonoBehaviour
 
             _data.levelsForFree = 0;
         }
+
+        currentOrder = 1;
     }
 
     public void UnlockVisualLevel(int UnlockTill){
@@ -87,11 +91,17 @@ public class ShopSystem : MonoBehaviour
 
             // Changed int from 7 to 9, now it unlocks next coin when upgrade reaches maximum
             if (CurrentCoin.CurrentLevel == 9){
+                ++currentOrder; // Increases currentOrder by 1, every time coin a coin is fully upgraded
                 foreach(CoinData _data in CoinData_List){
                     if(CurrentCoin.Order != 12){
-                        if(CurrentCoin.Order + 1 == _data.Order){
+                        if(currentOrder == _data.Order){ // Now tracks current order in shop and compares to data in list
                             CurrentCoin = _data;
                         }
+                        // Had to change this if statement, as it was skipping coins in the list
+                        //if (CurrentCoin.Order + 1 == _data.Order)
+                        //{
+                        //    CurrentCoin = _data;
+                        //}
                     } else{
                         // Cant Upgrade Maxed out all coins.
                     }
