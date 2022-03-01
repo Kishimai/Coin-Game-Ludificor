@@ -11,6 +11,11 @@ public class CoinLogic : MonoBehaviour
     public GameObject guildedBumper;
     public GameObject crystalShell;
     public GameObject coinCanvas;
+    public GameObject emeraldAppearance;
+    public GameObject rubyAppearance;
+    public GameObject sapphireAppearance;
+    public GameObject diamondAppearance;
+    public GameObject obsidianAppearance;
     public Text canvasTextHead;
     public Text canvasTextTail;
 
@@ -35,6 +40,10 @@ public class CoinLogic : MonoBehaviour
         coinRb = GetComponent<Rigidbody>();
         eventManager = GameObject.FindGameObjectWithTag("gameplay_event_system");
         coinRb.constraints = RigidbodyConstraints.None;
+
+        CoinData data = GetComponent<Data_Interp>().data;
+
+        CheckIfGem(data);
     }
 
     // Update is called once per frame
@@ -128,5 +137,38 @@ public class CoinLogic : MonoBehaviour
         Vector3 bumpForce = new Vector3(0, 100, 0);
 
         coinRb.AddForce(bumpForce);
+    }
+
+    public void CheckIfGem(CoinData data)
+    {
+        switch (data.Name) {
+            case "Emerald Coin":
+                emeraldAppearance.SetActive(true);
+                GetComponent<MeshRenderer>().enabled = false;
+                break;
+
+            case "Ruby Coin":
+                rubyAppearance.SetActive(true);
+                GetComponent<MeshRenderer>().enabled = false;
+                break;
+
+            case "Sapphire Coin":
+                sapphireAppearance.SetActive(true);
+                GetComponent<MeshRenderer>().enabled = false;
+                break;
+
+            case "Diamond Coin":
+                diamondAppearance.SetActive(true);
+                GetComponent<MeshRenderer>().enabled = false;
+                break;
+
+            case "Obsidian Coin":
+                obsidianAppearance.SetActive(true);
+                GetComponent<MeshRenderer>().enabled = false;
+                break;
+
+            default:
+                break;
+        }
     }
 }
