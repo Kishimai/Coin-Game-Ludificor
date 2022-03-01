@@ -21,6 +21,7 @@ public class CoinPlacement : MonoBehaviour
     public GameObject bombCoin;
     public GameObject tremorCoin;
     public GameObject detonateButton;
+    public GameObject bulldozeCoin;
     public List<string> spells = new List<string>();
 
     // Used for generation codes
@@ -163,6 +164,10 @@ public class CoinPlacement : MonoBehaviour
             else if (randomSpell.Equals("tremor"))
             {
                 spellCoin = tremorCoin;
+            }
+            else if (randomSpell.Equals("bulldoze"))
+            {
+                spellCoin = bulldozeCoin;
             }
 
             spells.Remove(randomSpell);

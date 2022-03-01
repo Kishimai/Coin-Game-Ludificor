@@ -33,6 +33,7 @@ public class CoinPusher : MonoBehaviour
     private int stationaryPartsLayer = 8;
     // Used to stop the coin pusher from moving during events or gameplay states/phases
     public bool allowingMovement = true;
+    private bool bulldoze = false;
 
     private bool targetAReached;
     private bool targetBReached;
@@ -42,6 +43,11 @@ public class CoinPusher : MonoBehaviour
 
     public bool surgeEvent;
     public float surgeSpeed;
+
+    public Vector3 bulldozePosition;
+    public float bulldozeSpeed;
+
+    public List<string> spellQueue = new List<string>();
 
     // Start is called before the first frame update
     void Start()
@@ -67,11 +73,24 @@ public class CoinPusher : MonoBehaviour
         coinPusher.transform.position = relativeStart;
 
         pusherSpeed = defaultSpeed;
+
+        StartCoroutine(CheckQueue());
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            StartBulldoze();
+        }
     }
 
     private void FixedUpdate()
     {
-        if (allowingMovement)
+        // Constantly gathers the pusher's current position for comparing
+        currentPosition = coinPusher.transform.position;
+
+        if (allowingMovement && bulldoze == false)
         {
             MovePusher();
         }
@@ -100,16 +119,11 @@ public class CoinPusher : MonoBehaviour
             pusherRb.velocity = new Vector3(0, 0, -pusherSpeed);
         }
 
-        // Constantly gathers the pusher's current position for comparing
-        currentPosition = coinPusher.transform.position;
-
         // if pusher is within 0.2 units of pos a
         if (currentPosition.z < positionA.z + 0.05f)
         {
             // Current position equal to posA plus 0.35 (makes it slightly further away from posA)
             currentPosition.z = positionA.z + 0.1f;
-
-            elapsedTime = 0;
 
             relativeStart = currentPosition;
             relativeEnd = new Vector3(currentPosition.x, currentPosition.y, positionB.z);
@@ -127,8 +141,6 @@ public class CoinPusher : MonoBehaviour
             // Current position equal to posB minus 0.35 (makes it slightly further away from posB)
             currentPosition.z = positionB.z - 0.1f;
 
-            elapsedTime = 0;
-
             relativeStart = currentPosition;
             relativeEnd = new Vector3(currentPosition.x, currentPosition.y, positionA.z);
 
@@ -139,6 +151,65 @@ public class CoinPusher : MonoBehaviour
             pusherRb.velocity = new Vector3(0, 0, pusherSpeed);
         }
         
+    }
+
+    public IEnumerator CheckQueue()
+    {
+        while (true)
+        {
+            if (spellQueue.Contains("bulldoze") && !bulldoze)
+            {
+                spellQueue.Remove("bulldoze");
+                StartCoroutine(Bulldoze());
+            }
+            yield return new WaitForFixedUpdate();
+        }
+    }
+
+    public void StartBulldoze()
+    {
+        spellQueue.Add("bulldoze");
+    }
+
+    public IEnumerator Bulldoze()
+    {
+        bulldoze = true;
+
+        pusherRb.velocity = Vector3.zero;
+
+        while (currentPosition.z > positionA.z)
+        {
+            if (allowingMovement)
+            {
+                pusherSpeed = -defaultSpeed;
+                pusherRb.velocity = new Vector3(0, 0, pusherSpeed);
+            }
+            yield return new WaitForFixedUpdate();
+        }
+
+        while (currentPosition.z < bulldozePosition.z)
+        {
+            if (allowingMovement)
+            {
+                pusherSpeed = bulldozeSpeed;
+                pusherRb.velocity = new Vector3(0, 0, pusherSpeed);
+            }
+            yield return new WaitForFixedUpdate();
+        }
+
+        while (currentPosition.z > positionB.z)
+        {
+            if (allowingMovement)
+            {
+                pusherSpeed = -bulldozeSpeed;
+                pusherRb.velocity = new Vector3(0, 0, pusherSpeed);
+            }
+            yield return new WaitForFixedUpdate();
+        }
+
+        spellQueue.Remove("bulldoze");
+
+        bulldoze = false;
     }
 
     public void PausePusher()

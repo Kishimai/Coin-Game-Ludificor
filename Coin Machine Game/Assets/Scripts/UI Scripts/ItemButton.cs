@@ -32,16 +32,19 @@ public class ItemButton : MonoBehaviour
     public Sprite comboPeg;
     public Sprite bombVoucher;
     public Sprite tremorVoucher;
+    public Sprite bulldozeVoucher;
 
     public Color32 common;
     public Color32 uncommon;
     public Color32 rare;
 
-    private Image image;
+    public Image image;
 
-    public void Start()
+    private void Start()
     {
-        image = GetComponent<Image>();
+        common = new Color32(common.r, common.g, common.b, 255);
+        uncommon = new Color32(uncommon.r, uncommon.g, uncommon.b, 255);
+        rare = new Color32(rare.r, rare.g, rare.b, 255);
     }
 
     public void RollNew()
@@ -102,15 +105,15 @@ public class ItemButton : MonoBehaviour
         switch (item)
         {
             case "midas_shard":
-                image.color = Color.white;
+                image.color = common;
                 return midasShard;
 
             case "midas_crystal":
-                image.color = Color.green;
+                image.color = uncommon;
                 return midasCrystal;
 
             case "midas_relic":
-                image.color = Color.red;
+                image.color = rare;
                 return midasRelic;
 
             case "peg_remove_mk1":
@@ -144,6 +147,10 @@ public class ItemButton : MonoBehaviour
             case "tremor_voucher":
                 image.color = rare;
                 return tremorVoucher;
+
+            case "bulldoze_voucher":
+                image.color = rare;
+                return bulldozeVoucher;
 
             default:
                 return null;

@@ -942,6 +942,7 @@ MonoBehaviour:
   bombCoin: {fileID: 2089001274598151153, guid: a4722b937557946448cf4d0c181cfbed, type: 3}
   tremorCoin: {fileID: 7835956690895893097, guid: eb62b6a5b9a52cf46a30669fed0034fd, type: 3}
   detonateButton: {fileID: 1756819229}
+  bulldozeCoin: {fileID: 1030149121657076569, guid: 1e0e4cde857c09a4b978d0388540bd4a, type: 3}
   spells:
   - bomb
   - tremor
@@ -5447,6 +5448,7 @@ MonoBehaviour:
   comboPeg: {fileID: 21300000, guid: 0daa488fcada325498ebce471e76579f, type: 3}
   bombVoucher: {fileID: 21300000, guid: df70b6fd0ffbb1549988133893105c85, type: 3}
   tremorVoucher: {fileID: 21300000, guid: 53310cabd7d52604ab75c59c013a1e8a, type: 3}
+  bulldozeVoucher: {fileID: 0}
   common:
     serializedVersion: 2
     rgba: 16777215
@@ -5456,6 +5458,7 @@ MonoBehaviour:
   rare:
     serializedVersion: 2
     rgba: 4631295
+  image: {fileID: 292603404}
 --- !u!1001 &292777998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21608,6 +21611,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4723378516625991463, guid: 65891e478d207b245a071d08a6ffe99c, type: 3}
   m_PrefabInstance: {fileID: 823156361}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &823720326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 823720327}
+  - component: {fileID: 823720328}
+  m_Layer: 8
+  m_Name: Right Rail Drop
+  m_TagString: machine_colliders
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &823720327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823720326}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 15}
+  m_LocalScale: {x: 1, y: 40, z: 20}
+  m_Children: []
+  m_Father: {fileID: 1832912802}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &823720328
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823720326}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &826215169
 GameObject:
   m_ObjectHideFlags: 0
@@ -25719,12 +25766,20 @@ PrefabInstance:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7349655843293170963, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
+      propertyPath: bulldozeSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7349655843293170963, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: desiredDuration
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7349655843293170963, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: allowingMovement
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7349655843293170963, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
+      propertyPath: bulldozePosition.z
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 7407526109638825064, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_RootOrder
@@ -33438,6 +33493,7 @@ MonoBehaviour:
   comboPeg: {fileID: 21300000, guid: 0daa488fcada325498ebce471e76579f, type: 3}
   bombVoucher: {fileID: 21300000, guid: df70b6fd0ffbb1549988133893105c85, type: 3}
   tremorVoucher: {fileID: 21300000, guid: 53310cabd7d52604ab75c59c013a1e8a, type: 3}
+  bulldozeVoucher: {fileID: 0}
   common:
     serializedVersion: 2
     rgba: 16777215
@@ -33447,6 +33503,7 @@ MonoBehaviour:
   rare:
     serializedVersion: 2
     rgba: 4631295
+  image: {fileID: 1099760236}
 --- !u!1001 &1099788427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46563,6 +46620,7 @@ MonoBehaviour:
   comboPeg: {fileID: 21300000, guid: 0daa488fcada325498ebce471e76579f, type: 3}
   bombVoucher: {fileID: 21300000, guid: df70b6fd0ffbb1549988133893105c85, type: 3}
   tremorVoucher: {fileID: 21300000, guid: 53310cabd7d52604ab75c59c013a1e8a, type: 3}
+  bulldozeVoucher: {fileID: 0}
   common:
     serializedVersion: 2
     rgba: 16777215
@@ -46572,6 +46630,7 @@ MonoBehaviour:
   rare:
     serializedVersion: 2
     rgba: 4631295
+  image: {fileID: 1536958889}
 --- !u!1 &1547410179
 GameObject:
   m_ObjectHideFlags: 0
@@ -51442,6 +51501,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 762913120609709109, guid: 6d60ef0f5065a0445a89f2f035a5bf60, type: 3}
   m_PrefabInstance: {fileID: 1681922284}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1832912801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1832912802}
+  m_Layer: 8
+  m_Name: OtherColliders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1832912802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832912801}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 823720327}
+  m_Father: {fileID: 22295368}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1837198269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62282,6 +62372,63 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &748009704335087851
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 360291851040498147, guid: 1e0e4cde857c09a4b978d0388540bd4a, type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 360291851040498147, guid: 1e0e4cde857c09a4b978d0388540bd4a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 360291851040498147, guid: 1e0e4cde857c09a4b978d0388540bd4a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 360291851040498147, guid: 1e0e4cde857c09a4b978d0388540bd4a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.49
+      objectReference: {fileID: 0}
+    - target: {fileID: 360291851040498147, guid: 1e0e4cde857c09a4b978d0388540bd4a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.92387956
+      objectReference: {fileID: 0}
+    - target: {fileID: 360291851040498147, guid: 1e0e4cde857c09a4b978d0388540bd4a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.38268343
+      objectReference: {fileID: 0}
+    - target: {fileID: 360291851040498147, guid: 1e0e4cde857c09a4b978d0388540bd4a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 360291851040498147, guid: 1e0e4cde857c09a4b978d0388540bd4a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 360291851040498147, guid: 1e0e4cde857c09a4b978d0388540bd4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 360291851040498147, guid: 1e0e4cde857c09a4b978d0388540bd4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 360291851040498147, guid: 1e0e4cde857c09a4b978d0388540bd4a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1030149121657076569, guid: 1e0e4cde857c09a4b978d0388540bd4a, type: 3}
+      propertyPath: m_Name
+      value: BulldozeCoin
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e0e4cde857c09a4b978d0388540bd4a, type: 3}
 --- !u!4 &1482206750616579084
 Transform:
   m_ObjectHideFlags: 0

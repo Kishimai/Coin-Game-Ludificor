@@ -79,6 +79,11 @@ public class ItemInventory : MonoBehaviour
                 collectedSpells.Add("tremor");
                 GetSpell("tremor");
             }
+            else if (newItem.Equals("bulldoze_voucher"))
+            {
+                collectedSpells.Add("bulldoze");
+                GetSpell("bulldoze");
+            }
 
             CheckRemainingPrizes();
 
@@ -112,7 +117,8 @@ public class ItemInventory : MonoBehaviour
             { "diamond_peg", "Converts 1 normal peg to a diamond version, tripling value of coins that touch it" },
             { "combo_peg", "Converts 1 normal peg to a combo version, doubling value of coins that touch it (Effect stacks)" },
             { "bomb_voucher", "Gives bomb coin which can be detonated" },
-            { "tremor_voucher", "Gives tremor coin which will shake the machine when placed" }
+            { "tremor_voucher", "Gives tremor coin which will shake the machine when placed" },
+            { "bulldoze_voucher", "Gives bulldoze coin which will cause coin pusher to force all coins into collection" }
         };
     }
 
@@ -201,6 +207,9 @@ public class ItemInventory : MonoBehaviour
                 return newItem;
 
             case "tremor_voucher":
+                return newItem;
+
+            case "bulldoze_voucher":
                 return newItem;
 
             // Runs if new item's tag does not match a case in this switch statement

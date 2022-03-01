@@ -103,6 +103,13 @@ public class DeleteCoins : MonoBehaviour
 
             Destroy(other.gameObject.transform.parent.gameObject);
         }
+        
+        if (other.gameObject.tag == "bulldoze_coin" && eventManager.GetComponent<EventsManager>().playerIsReady)
+        {
+            gameManager.GetComponent<ItemInventory>().GetSpell("bulldoze");
+
+            Destroy(other.gameObject.transform.parent.gameObject);
+        }
     }
 
     private void OnCollisionStay(Collision collision)

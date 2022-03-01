@@ -40,7 +40,7 @@ public class EventsManager : MonoBehaviour
     public string[] commonEvents = new string[] { "CoinBlitz" };
     // Remove power surge from uncommon events and replace it with another event (maybe)
     public string[] uncommonEvents = new string[] { "PowerSurge" };
-    public string[] rareEvents = new string[] { "ItemRain", "PegCombo" };
+    public string[] rareEvents = new string[] { "ItemRain", "PegCombo"};
 
     // Initialization phase is used when the game is preparing the scene
     public bool initializationPhase;

@@ -12,6 +12,21 @@ public class TremorShake : MonoBehaviour
 
     public float sinkDuration;
 
+    private bool active;
+    private float remainingDuration;
+
+    public void Update()
+    {
+        if (remainingDuration > 0)
+        {
+            remainingDuration -= Time.deltaTime;
+        }
+        else
+        {
+            active = false;
+        }
+    }
+
     public void Shake(Vector3 spotOfDirt)
     {
         GameObject[] allCoins = GameObject.FindGameObjectsWithTag("coin");
@@ -22,9 +37,20 @@ public class TremorShake : MonoBehaviour
         {
             if (coin.activeInHierarchy)
             {
-                StartCoroutine(coin.GetComponentInParent<CoinLogic>().Tremor(tremorDuration, tremorPower));
+                if (active == false)
+                {
+                    coin.GetComponentInParent<CoinLogic>().TremorEvent(tremorDuration, tremorPower);
+                    //active = true;
+                }
+                else
+                {
+                    coin.GetComponentInParent<CoinLogic>().TremorEvent(tremorDuration, 0);
+                }
             }
         }
+
+        active = true;
+        remainingDuration += tremorDuration;
 
     }
 

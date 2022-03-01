@@ -25,6 +25,8 @@ public class CoinLogic : MonoBehaviour
 
     public int coinLayer = 11;
 
+    private float tremorDuration = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -82,13 +84,18 @@ public class CoinLogic : MonoBehaviour
         comboEventMultiplier += 2;
     }
 
-    public IEnumerator Tremor(float tremorDuration, float tremorPower)
+    public void TremorEvent(float duration, float power)
     {
-        float duration = tremorDuration;
+        tremorDuration = duration;
+        StartCoroutine(Tremor(power));
+    }
 
-        while (duration > 0)
+    public IEnumerator Tremor(float tremorPower)
+    {
+
+        while (tremorDuration > 0)
         {
-            duration -= Time.deltaTime;
+            tremorDuration -= Time.deltaTime;
 
             float xForce = Random.Range(-tremorPower, tremorPower);
             float yForce = Random.Range(0.5f, 0.5f);
