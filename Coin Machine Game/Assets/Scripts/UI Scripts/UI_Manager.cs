@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 using UnityEngine.UI;
+using TMPro;
 
 public class UI_Manager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class UI_Manager : MonoBehaviour
 
     [BoxGroup("UI")] // UI Components Panels
     public GameObject Selection, Settings, Collectibles, InGame, PausedGame, ShopInGame, ShopButton, 
-        PrizeSelection, OpenCapsuleButton, ItemSelection, LoadingScreen, ComboPegSelection;
+    PrizeSelection, OpenCapsuleButton, ItemSelection, LoadingScreen, ComboPegSelection;
     [BoxGroup("UI")]
     public Slider _music, _sfx;
     [BoxGroup("UI")]
@@ -24,6 +25,8 @@ public class UI_Manager : MonoBehaviour
     public Toggle _muteAllToggle;
     [BoxGroup("UI")]
     public Text _CoinText;
+    [BoxGroup("UI")]
+    public TMP_Dropdown _aspectRatio;
 
     [BoxGroup("Settings")]
     public bool _muteAll = false;
@@ -241,7 +244,7 @@ public class UI_Manager : MonoBehaviour
         _sfxText.text = _sfxVoume.ToString("0");
         _musicText.text = _musicVolume.ToString("0");
         _muteAll = _muteAllToggle.enabled;
-        _CoinText.text = $"✰ {_currentCoin.ToString("0")}";
+        _CoinText.text = $"$ {_currentCoin.ToString("0")}";
 
         if(isPaused == true){
             Time.timeScale = 0;
@@ -259,14 +262,14 @@ public class UI_Manager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            _currentCoin += 9001;
+            _currentCoin += 10000;
         }
     }
 
     /// <summary>
     /// Used for Buttons on Shop
     /// </summary>
-    public void Shop(string functionToUse){
+    public void Shop(string functionToUse){ // Supposed to be more functions to this yet it really isnt
         switch(functionToUse){
             case "OpenOrClose":
                 ShopInGame.SetActive(!ShopInGame.activeSelf);
