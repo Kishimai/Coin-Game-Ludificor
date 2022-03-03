@@ -20,8 +20,8 @@ public class PegManager : MonoBehaviour
 
     public bool allowPegEvent = false;
     public float regularPegValueModifier = 0;
-    private int goldPegValueModifier = 3;
-    private int diamondPegValueModifier = 4;
+    private float goldPegValueModifier = 0.5f;
+    private float diamondPegValueModifier = 1f;
     // Not currently used
     private int comboValueModifier = 2;
 
@@ -259,6 +259,11 @@ public class PegManager : MonoBehaviour
         // All pegs need to be reactivated so they can be properly interacted with again for item capsules and combo placements
         // When the game is unpaused, the event must continue, starting again by recording the current state of each peg and deactivating their abilities
 
+        foreach (GameObject peg in disabledPegs)
+        {
+            peg.SetActive(true);
+        }
+
         foreach (GameObject peg in allPegs)
         {
             peg.GetComponent<Peg>().ConvertToComboEventPeg();
@@ -282,6 +287,11 @@ public class PegManager : MonoBehaviour
             peg.GetComponent<Peg>().RevertToRecordedAttributes();
         }
         // Iterate again, this time running a method which returns peg's state to its recorded value
+
+        foreach (GameObject peg in disabledPegs)
+        {
+            peg.SetActive(false);
+        }
     }
 
     public void PauseComboEvent()

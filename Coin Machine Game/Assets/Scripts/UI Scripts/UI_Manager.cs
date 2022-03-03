@@ -260,7 +260,7 @@ public class UI_Manager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKey(KeyCode.Tab))
         {
             _currentCoin += 10000;
         }

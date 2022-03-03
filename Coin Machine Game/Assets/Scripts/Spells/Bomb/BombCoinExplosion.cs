@@ -13,6 +13,8 @@ public class BombCoinExplosion : MonoBehaviour
 
     public float radiusOfExplosion;
     public float radiusOfForce;
+    public Vector3 expansionRate;
+    public float rateModifier;
 
     private Vector3 startRadius = Vector3.zero;
     private Vector3 endRadius;
@@ -33,8 +35,11 @@ public class BombCoinExplosion : MonoBehaviour
         float fractComplete = elapsedTime / explosionDuration;
         float fractCompleteForForce = elapsedTime / forceDuration;
 
-        gameObject.transform.localScale = Vector3.Lerp(startRadius, endRadius, fractComplete);
-        forceBubble.transform.localScale = Vector3.Lerp(startRadius, endRadiusForForce, fractCompleteForForce);
+        //gameObject.transform.localScale = Vector3.Lerp(startRadius, endRadius, fractComplete);
+        //forceBubble.transform.localScale = Vector3.Lerp(startRadius, endRadiusForForce, fractCompleteForForce);
+
+        gameObject.transform.localScale += expansionRate * Time.deltaTime;
+        forceBubble.transform.localScale += (expansionRate * rateModifier) * Time.deltaTime;
 
         if (forceBubble.transform.localScale.x > endRadiusForForce.x - 0.1)
         {

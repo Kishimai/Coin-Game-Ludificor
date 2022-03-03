@@ -16,15 +16,22 @@ public class CoinLogic : MonoBehaviour
     public GameObject sapphireAppearance;
     public GameObject diamondAppearance;
     public GameObject obsidianAppearance;
+    public GameObject headCanvas;
+    public GameObject tailCanvas;
     public Text canvasTextHead;
     public Text canvasTextTail;
 
-    private int gildedModifier = 0;
-    private int crystalModifier = 0;
+    private RectTransform head;
+    private RectTransform tail;
+
+    private float gildedModifier = 1;
+    private float crystalModifier = 1;
     private int comboMultiplier = 0;
     private int comboEventMultiplier = 0;
+    private int combinedComboMulti;
+    private float combinedSpecialMulti;
 
-    public int totalValueModifier = 0;
+    public float totalValueModifier = 0;
 
     public bool inPlinkoZone;
 
@@ -33,6 +40,7 @@ public class CoinLogic : MonoBehaviour
     private float tremorDuration = 0;
 
     private bool shaking = false;
+    private bool activateText = false;
 
     // Start is called before the first frame update
     void Start()
@@ -43,14 +51,23 @@ public class CoinLogic : MonoBehaviour
 
         CoinData data = GetComponent<Data_Interp>().data;
 
-        CheckIfGem(data);
+        head = headCanvas.GetComponent<RectTransform>();
+        tail = tailCanvas.GetComponent<RectTransform>();
+
+        CheckIdentity(data);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        totalValueModifier = gildedModifier + crystalModifier + comboMultiplier + comboEventMultiplier;
+        CalculateTotalModifier();
+
+        if (totalValueModifier > 9)
+        {
+            head.localScale = new Vector3(0.35f, 0.35f, 1);
+            tail.localScale = new Vector3(0.35f, 0.35f, 1);
+        }
 
         if (totalValueModifier != 0)
         {
@@ -64,15 +81,15 @@ public class CoinLogic : MonoBehaviour
         }
     }
 
-    public void ActivateBumper(int multiplier)
+    public void ActivateBumper(float multiplier)
     {
-        gildedModifier = multiplier;
+        gildedModifier += multiplier;
         guildedBumper.SetActive(true);
     }
 
-    public void ActivateCrystalShell(int multiplier)
+    public void ActivateCrystalShell(float multiplier)
     {
-        crystalModifier = multiplier;
+        crystalModifier += multiplier;
         crystalShell.SetActive(true);
     }
 
@@ -84,7 +101,7 @@ public class CoinLogic : MonoBehaviour
         }
         else
         {
-            comboMultiplier += comboMultiplier;
+            comboMultiplier *= 2;
         }
     }
 
@@ -92,7 +109,14 @@ public class CoinLogic : MonoBehaviour
     {
         guildedBumper.SetActive(true);
 
-        comboEventMultiplier += 2;
+        if (comboEventMultiplier == 0)
+        {
+            comboEventMultiplier = 2;
+        }
+        else
+        {
+            comboEventMultiplier *= 2;
+        }
     }
 
     public void TremorEvent(float duration, float power)
@@ -138,8 +162,38 @@ public class CoinLogic : MonoBehaviour
 
         coinRb.AddForce(bumpForce);
     }
+    
+    public void CalculateTotalModifier()
+    {
+        //totalValueModifier = (comboMultiplier + comboEventMultiplier) * (gildedModifier + crystalModifier);
+        combinedComboMulti = comboMultiplier + comboEventMultiplier;
+        combinedSpecialMulti = gildedModifier + crystalModifier;
 
-    public void CheckIfGem(CoinData data)
+        // If both multipliers are greater than zero
+        if (combinedComboMulti > 0 && !Mathf.Approximately(combinedSpecialMulti, 2))
+        {
+            totalValueModifier = (comboMultiplier + comboEventMultiplier) * ((gildedModifier + crystalModifier) - 1);
+        }
+        // If combo multi is GREATER THAN zero, and special multi IS zero
+        else if (combinedComboMulti > 0 && Mathf.Approximately(combinedSpecialMulti, 2))
+        {
+            totalValueModifier = comboMultiplier + comboEventMultiplier;
+        }
+        // If combo multi IS zero, and special multi is GREATER THAN zero
+        else if (combinedComboMulti <= 0 && !Mathf.Approximately(combinedSpecialMulti, 2))
+        {
+            totalValueModifier = (gildedModifier + crystalModifier) - 1;
+        }
+        else
+        {
+            totalValueModifier = 0;
+        }
+
+        // Rounds to first decimal place (0.0) so number fits on coin image
+        totalValueModifier = Mathf.Round(totalValueModifier * 10.0f) * 0.1f;
+    }
+
+    public void CheckIdentity(CoinData data)
     {
         switch (data.Name) {
             case "Emerald Coin":
@@ -165,6 +219,11 @@ public class CoinLogic : MonoBehaviour
             case "Obsidian Coin":
                 obsidianAppearance.SetActive(true);
                 GetComponent<MeshRenderer>().enabled = false;
+                break;
+
+            case "BITCOIN":
+                canvasTextHead.color = Color.black;
+                canvasTextTail.color = Color.black;
                 break;
 
             default:

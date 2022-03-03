@@ -37,6 +37,8 @@ public class EventsManager : MonoBehaviour
     public GameObject falsePusher1;
     public GameObject falsePusher2;
 
+    public float itemGravity;
+
     public string[] commonEvents = new string[] { "CoinBlitz" };
     // Remove power surge from uncommon events and replace it with another event (maybe)
     public string[] uncommonEvents = new string[] { "PowerSurge" };
@@ -140,7 +142,7 @@ public class EventsManager : MonoBehaviour
         if (printerIsFinished && itemBuilderIsFinished)
         {
             // Ensures gravity is enabled
-            Physics.gravity = new Vector3(0, -20, 0);
+            Physics.gravity = new Vector3(0, itemGravity, 0);
 
             // Allows the coin pusher to move
             coinPusher.GetComponent<CoinPusher>().allowingMovement = true;

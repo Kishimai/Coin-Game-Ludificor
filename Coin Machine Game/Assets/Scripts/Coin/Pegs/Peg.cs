@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Peg : MonoBehaviour
 {
-    private int coinValueModifier;
+    private float coinValueModifier;
 
     public GameObject standardAppearance;
     public GameObject goldAppearance;
@@ -41,7 +41,7 @@ public class Peg : MonoBehaviour
 
     private bool amComboEvent;
 
-    private int recordedValueModifier = 0;
+    private float recordedValueModifier = 0;
     private bool recordedAmModified = false;
     private bool recordedAmDisabled = false;
     private bool recordedAmGolden = false;
@@ -73,12 +73,12 @@ public class Peg : MonoBehaviour
         }
     }
 
-    public void ConvertToGilded(int pegValueModifier)
+    public void ConvertToGilded(float pegValueModifier)
     {
         DeterminePegType("gold", pegValueModifier);
     }
 
-    public void ConvertToDiamond(int pegValueModifier)
+    public void ConvertToDiamond(float pegValueModifier)
     {
         DeterminePegType("diamond", pegValueModifier);
     }
@@ -103,7 +103,7 @@ public class Peg : MonoBehaviour
         }
     }
 
-    private void DeterminePegType(string pegType, int modifier = 0)
+    private void DeterminePegType(string pegType, float modifier = 0)
     {
         amModified = true;
 

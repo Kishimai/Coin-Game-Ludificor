@@ -99,7 +99,9 @@ MonoBehaviour:
   explosionDuration: 0.3
   forceDuration: 0.3
   radiusOfExplosion: 4
-  radiusOfForce: 4
+  radiusOfForce: 10
+  expansionRate: {x: 15, y: 15, z: 15}
+  rateModifier: 1.2
 --- !u!1001 &221746044758565237
 PrefabInstance:
   m_ObjectHideFlags: 0
