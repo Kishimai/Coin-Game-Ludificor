@@ -50,7 +50,7 @@ public class Peg : MonoBehaviour
     private bool recordingTaken = false;
 
     private float timeUntilBump;
-    private float bumpLimit = 2f;
+    private float bumpLimit = 1f;
 
 
     void Start()

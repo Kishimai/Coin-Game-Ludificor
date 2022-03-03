@@ -22,6 +22,7 @@ public class CoinPlacement : MonoBehaviour
     public GameObject tremorCoin;
     public GameObject detonateButton;
     public GameObject bulldozeCoin;
+    public GameObject blitzSparkle;
     public List<string> spells = new List<string>();
 
     // Used for generation codes
@@ -139,7 +140,7 @@ public class CoinPlacement : MonoBehaviour
             {
                 DropLogic(clampedPosition);
             }
-
+            
         }
 
         // Runs if the mouse cursor is NOT hovering over the "Drop Zone" object
@@ -193,7 +194,17 @@ public class CoinPlacement : MonoBehaviour
             else if (dropCooldown <= 0 && blitzEvent == true)
             {
                 generation.GetPlacementData();
-                Vector3 blitzPosition = new Vector3(clampedPosition.x, clampedPosition.y, clampedPosition.z + 1.25f);
+                //Vector3 blitzPosition = new Vector3(clampedPosition.x, clampedPosition.y, clampedPosition.z + 1.25f);
+
+                Vector3 blitzPosition;
+
+                float randX = Random.Range(minXDropClamp, maxXDropClamp);
+
+                blitzPosition = new Vector3(randX, clampedPosition.y, clampedPosition.z + 1.25f);
+
+                // !Play particle effect at instantiation position!
+                blitzSparkle.transform.position = blitzPosition;
+                blitzSparkle.GetComponent<ParticleSystem>().Play();
                 Instantiate(selectedCoin, blitzPosition, Quaternion.Euler(90, 0, 0));
                 dropCooldown = blitzCooldown;
             }

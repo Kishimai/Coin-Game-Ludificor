@@ -158,7 +158,7 @@ public class CoinLogic : MonoBehaviour
 
     public void GetBumped()
     {
-        Vector3 bumpForce = new Vector3(0, 100, 0);
+        Vector3 bumpForce = new Vector3(0, 200, 0);
 
         coinRb.AddForce(bumpForce);
     }
@@ -191,6 +191,11 @@ public class CoinLogic : MonoBehaviour
 
         // Rounds to first decimal place (0.0) so number fits on coin image
         totalValueModifier = Mathf.Round(totalValueModifier * 10.0f) * 0.1f;
+
+        if (totalValueModifier > 500)
+        {
+            totalValueModifier = 500;
+        }
     }
 
     public void CheckIdentity(CoinData data)
