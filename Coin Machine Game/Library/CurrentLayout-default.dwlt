@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: Game
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 875, y: 542}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -45,10 +45,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 678, y: 492}
+  m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 67
+  controlID: 155
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -94,8 +94,8 @@ MonoBehaviour:
     y: 0
     width: 374
     height: 676
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -224,10 +224,10 @@ MonoBehaviour:
     y: 0
     width: 1573
     height: 947
-  m_MinSize: {x: 402, y: 492}
+  m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 96
+  controlID: 63
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -249,10 +249,10 @@ MonoBehaviour:
     y: 0
     width: 1573
     height: 676
-  m_MinSize: {x: 402, y: 221}
-  m_MaxSize: {x: 8002, y: 4021}
+  m_MinSize: {x: 403, y: 221}
+  m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 97
+  controlID: 114
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -3948,22 +3948,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Prefabs/Coin Machine
+    - Assets/Scripts/Items
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources/Prefabs/Coin Machine
+  - Assets/Scripts/Items
   m_LastFoldersGridSize: -1
   m_LastProjectPath: I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 218}
-    m_SelectedIDs: 486d0000
-    m_LastClickedID: 27976
-    m_ExpandedIDs: 00000000086d00000a6d00000c6d0000226d00003c6d00004a6d00004e6d00001223010000ca9a3b
+    scrollPos: {x: 0, y: 426}
+    m_SelectedIDs: c06f0000
+    m_LastClickedID: 28608
+    m_ExpandedIDs: 000000007a6f00007c6f00007e6f00009c6f0000aa6f0000d26f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -3991,7 +3991,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000086d00000a6d00000c6d0000
+    m_ExpandedIDs: 000000007a6f00007c6f00007e6f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -4112,9 +4112,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: aa560000
-      m_LastClickedID: 22186
-      m_ExpandedIDs: fceaffff52fbffff
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 52fbffff324b0000324f0000125200006a530000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -4174,9 +4174,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 19.781857, y: 12.561274, z: -16.838821}
+    m_Target: {x: -12.368878, y: -24.295593, z: -5.9321194}
     speed: 2
-    m_Value: {x: 19.781857, y: 12.561274, z: -16.838821}
+    m_Value: {x: -12.368878, y: -24.295593, z: -5.9321194}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -4223,13 +4223,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.0375564, y: 0.8872935, z: -0.07370669, w: 0.45388472}
+    m_Target: {x: -0.17256132, y: 0.8276082, z: -0.37281236, w: -0.38267818}
     speed: 2
-    m_Value: {x: 0.03755369, y: 0.8872295, z: -0.073701374, w: 0.453852}
+    m_Value: {x: -0.17254885, y: 0.82754844, z: -0.37278542, w: -0.38265052}
   m_Size:
-    m_Target: 11.112245
+    m_Target: 24.314455
     speed: 2
-    m_Value: 11.112245
+    m_Value: 24.314455
   m_Ortho:
     m_Target: 0
     speed: 2

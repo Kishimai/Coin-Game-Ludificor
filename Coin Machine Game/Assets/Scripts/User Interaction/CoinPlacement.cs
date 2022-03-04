@@ -58,6 +58,8 @@ public class CoinPlacement : MonoBehaviour
     public bool blitzEvent = false;
     public float blitzCooldown;
 
+    public float additionalDropChance = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -215,6 +217,11 @@ public class CoinPlacement : MonoBehaviour
                 Instantiate(selectedCoin, blitzPosition, Quaternion.Euler(90, 0, 0));
                 dropCooldown = blitzCooldown;
             }
+
+            if (additionalDropChance > 0)
+            {
+                AttemptAdditionalCoin(clampedPosition);
+            }
         }
     }
 
@@ -223,5 +230,23 @@ public class CoinPlacement : MonoBehaviour
         spells.Add(spell);
 
         Debug.Log("Got Spell: " + spell);
+    }
+
+    public void AttemptAdditionalCoin(Vector3 clampedPosition)
+    {
+        // rolls random number ranging from 0 to 99
+        int randInt = Random.Range(0, 99);
+
+        // If number rolled is less than or equal to additonalDropChance, make additional coin
+        if (randInt <= Mathf.CeilToInt(additionalDropChance))
+        {
+            Vector3 randPos;
+            float randX = Random.Range(minXDropClamp, maxXDropClamp);
+            randPos = new Vector3(randX, clampedPosition.y, clampedPosition.z + 1.25f);
+
+            blitzSparkle.transform.position = randPos;
+            blitzSparkle.GetComponent<ParticleSystem>().Play();
+            Instantiate(selectedCoin, randPos, Quaternion.Euler(90, 0, 0));
+        }
     }
 }

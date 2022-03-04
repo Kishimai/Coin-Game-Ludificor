@@ -33,6 +33,8 @@ public class ItemButton : MonoBehaviour
     public Sprite bombVoucher;
     public Sprite tremorVoucher;
     public Sprite bulldozeVoucher;
+    public Sprite moreCoin;
+    public Sprite coinStorm;
 
     public Color32 common;
     public Color32 uncommon;
@@ -151,6 +153,14 @@ public class ItemButton : MonoBehaviour
             case "bulldoze_voucher":
                 image.color = rare;
                 return bulldozeVoucher;
+
+            case "more_coins":
+                image.color = uncommon;
+                return moreCoin;
+
+            case "coin_storm":
+                image.color = rare;
+                return coinStorm;
 
             default:
                 return null;

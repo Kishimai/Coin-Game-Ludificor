@@ -15,11 +15,11 @@ I:/Github/Coin Game/Coin-Game-Ludificor/Coin Machine Game
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-60247
+62974
 Successfully changed project path to: I:/Github/Coin Game/Coin-Game-Ludificor/Coin Machine Game
 I:/Github/Coin Game/Coin-Game-Ludificor/Coin Machine Game
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 45.84 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 127.80 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.10f1 (297d780c91bc)
 [Subsystems] Discovering subsystems at path S:/Unity Editor/2020.3.10f1/Editor/Data/Resources/UnitySubsystems
@@ -36,267 +36,80 @@ Initialize mono
 Mono path[0] = 'S:/Unity Editor/2020.3.10f1/Editor/Data/Managed'
 Mono path[1] = 'S:/Unity Editor/2020.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'S:/Unity Editor/2020.3.10f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56096
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56020
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: S:/Unity Editor/2020.3.10f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
 Register platform support module: S:/Unity Editor/2020.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: S:/Unity Editor/2020.3.10f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
-Registered in 0.001210 seconds.
+Registered in 0.001218 seconds.
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 45.86 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 45.26 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.173 seconds
+- Completed reload, in  1.368 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.004637 seconds.
+Registered in 0.288187 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 48.37 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 46.16 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.536 seconds
+- Completed reload, in  1.455 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 0.72 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.81 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2778 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 213.1 MB.
 System memory in use after: 213.3 MB.
 
 Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 3269.
-Total: 29.412800 ms (FindLiveObjects: 0.432200 ms CreateObjectMapping: 0.111900 ms MarkObjects: 28.827800 ms  DeleteObjects: 0.038100 ms)
+Total: 23.773300 ms (FindLiveObjects: 0.333700 ms CreateObjectMapping: 0.072000 ms MarkObjects: 23.331000 ms  DeleteObjects: 0.035300 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Scripts/Coin/Pegs
-  artifactKey: Guid(381b37e3cbd595c47b579d3eac48e303) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Coin/Pegs using Guid(381b37e3cbd595c47b579d3eac48e303) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df61acd7dcb273b92addb244862a01a9') in 0.009752 seconds
-  Import took 0.014403 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000283 seconds.
-  path: Assets/Scripts/Coin/Pegs/Peg.cs
-  artifactKey: Guid(26e9a4ec0a6c4a546bfb6e8a677df8ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scripts/Coin/Pegs/Peg.cs using Guid(26e9a4ec0a6c4a546bfb6e8a677df8ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '91a0f008f2d822eb507dc41d3443eb7f') in 0.044705 seconds
-  Import took 0.048823 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004819 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.67 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.265 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.68 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2652 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 218.8 MB.
-System memory in use after: 219.0 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3272.
-Total: 23.260200 ms (FindLiveObjects: 0.291100 ms CreateObjectMapping: 0.069500 ms MarkObjects: 22.865100 ms  DeleteObjects: 0.032000 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005035 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.67 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.311 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.72 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2652 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 218.9 MB.
-System memory in use after: 219.1 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3275.
-Total: 25.180300 ms (FindLiveObjects: 0.338000 ms CreateObjectMapping: 0.070900 ms MarkObjects: 24.738400 ms  DeleteObjects: 0.031000 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004791 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.74 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.288 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.68 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2652 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 218.9 MB.
-System memory in use after: 219.1 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3278.
-Total: 23.879500 ms (FindLiveObjects: 0.266700 ms CreateObjectMapping: 0.069000 ms MarkObjects: 23.509700 ms  DeleteObjects: 0.032300 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 2002.546427 seconds.
-  path: Assets/Resources/Prefabs/Event
-  artifactKey: Guid(bede186b6587c2440b37fd1b33fecf91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Event using Guid(bede186b6587c2440b37fd1b33fecf91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8b174c2e0c645c7455fc6dcc5f75b01') in 0.009654 seconds
-  Import took 0.014903 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.042733 seconds.
-  path: Assets/Resources/Prefabs/Event/Temporary Coin Destroyer.prefab
-  artifactKey: Guid(6ed5f0ae06ea9534a80ea2cb04864215) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Event/Temporary Coin Destroyer.prefab using Guid(6ed5f0ae06ea9534a80ea2cb04864215) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93e38450bb6aa6797474076171362456') in 0.172856 seconds
-  Import took 0.178240 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000175 seconds.
-  path: Assets/Resources/Prefabs/Event/The Focking Coin Overseer.prefab
-  artifactKey: Guid(3d6ad7159a2c29f4eb05e151349a2482) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Event/The Focking Coin Overseer.prefab using Guid(3d6ad7159a2c29f4eb05e151349a2482) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6befaefa85a38c1f60fbd915ff68d508') in 0.007143 seconds
-  Import took 0.011512 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.831505 seconds.
-  path: Assets/Resources/Prefabs/Camera
-  artifactKey: Guid(cfebe04344d1c99439a6304f1d95f089) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Camera using Guid(cfebe04344d1c99439a6304f1d95f089) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15b02a5f1190aa96b1c6bd3c4919268b') in 0.004964 seconds
-  Import took 0.009172 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.069867 seconds.
-  path: Assets/Resources/Prefabs/Camera/Main Camera.prefab
-  artifactKey: Guid(41330f36fd730654ba5aa70502f6974c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Camera/Main Camera.prefab using Guid(41330f36fd730654ba5aa70502f6974c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd392a2588b5e3b43da17ca3754ac693a') in 0.013873 seconds
-  Import took 0.018259 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.407315 seconds.
-  path: Assets/Resources/Prefabs/Event/Blitz
-  artifactKey: Guid(6ee57d24caa94c4489b6619c77a2bb02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Event/Blitz using Guid(6ee57d24caa94c4489b6619c77a2bb02) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0090f09335dcba09785ffd50d8f6c8f0') in 0.005638 seconds
-  Import took 0.010208 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 92.473027 seconds.
-  path: Assets/Resources/3D Models/Ballz/gayball.fbx
-  artifactKey: Guid(832c682eebc1d3744b817267e0069634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/3D Models/Ballz/gayball.fbx using Guid(832c682eebc1d3744b817267e0069634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a42997329d6bd1b0fc1f396abd61b9e') in 0.170698 seconds
-  Import took 0.175455 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000211 seconds.
-  path: Assets/Resources/3D Models/Ballz/Waterball.fbx
-  artifactKey: Guid(416c63cf438cb9e4488992ed45184bcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/3D Models/Ballz/Waterball.fbx using Guid(416c63cf438cb9e4488992ed45184bcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1afe1c0bb3cbafdfdd40384d88279d6') in 0.026992 seconds
-  Import took 0.031019 seconds .
+  path: Assets/Scripts/User Interaction
+  artifactKey: Guid(d994dcd377b9c3e49987350bb2f540ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/User Interaction using Guid(d994dcd377b9c3e49987350bb2f540ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2f62c86e0ace5d75b59d341e0f4d642') in 0.008957 seconds
+  Import took 0.013639 seconds .
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000237 seconds.
-  path: Assets/Resources/3D Models/Ballz/yelluhball.fbx
-  artifactKey: Guid(8108d522504a3b0488aae30397657fd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/3D Models/Ballz/yelluhball.fbx using Guid(8108d522504a3b0488aae30397657fd7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8929f5359039e61059dda7ca03427862') in 0.022657 seconds
-  Import took 0.027104 seconds .
+  path: Assets/Scripts/UI Scripts
+  artifactKey: Guid(2b662e8f9b5593348868852aea0e9147) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/UI Scripts using Guid(2b662e8f9b5593348868852aea0e9147) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b6f18ece0e9880b629f1e0460305cbe1') in 0.004868 seconds
+  Import took 0.008321 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000234 seconds.
-  path: Assets/Models/Main_Board_-_Copy.fbx
-  artifactKey: Guid(3c08c11ae7758ac48979b129d442954d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Models/Main_Board_-_Copy.fbx using Guid(3c08c11ae7758ac48979b129d442954d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5aa07c8aa29f691720cb660bb64fb25e') in 0.030463 seconds
-  Import took 0.035374 seconds .
+  Time since last request: 0.000179 seconds.
+  path: Assets/Scripts/Spells/Bomb/Kaboom.cs
+  artifactKey: Guid(364ad121184d141468799ff961b47f63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Spells/Bomb/Kaboom.cs using Guid(364ad121184d141468799ff961b47f63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c241985489f0590108fa492a9731607') in 0.029461 seconds
+  Import took 0.033580 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 7.050007 seconds.
-  path: Assets/Resources/Materials/Proto Materials/Particles/Sparkle.mat
-  artifactKey: Guid(178f6ce6b64cd5c43b0673afd8518940) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Materials/Proto Materials/Particles/Sparkle.mat using Guid(178f6ce6b64cd5c43b0673afd8518940) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c4bae9989f9f5aa294838d3edd7e09a') in 0.013466 seconds
-  Import took 0.018351 seconds .
+  Time since last request: 48.815663 seconds.
+  path: Assets/Scripts/Spells/Bomb/Kaboom.cs
+  artifactKey: Guid(364ad121184d141468799ff961b47f63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Spells/Bomb/Kaboom.cs using Guid(364ad121184d141468799ff961b47f63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '566ad392862fc92151dba48615662fb0') in 0.002052 seconds
+  Import took 0.006852 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.004912 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.72 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.331 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.74 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2652 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 224.5 MB.
-System memory in use after: 224.7 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3363.
-Total: 23.750700 ms (FindLiveObjects: 0.475400 ms CreateObjectMapping: 0.069200 ms MarkObjects: 23.163700 ms  DeleteObjects: 0.039800 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006526 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.75 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.542 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.75 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2652 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 224.5 MB.
-System memory in use after: 224.7 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3366.
-Total: 27.767000 ms (FindLiveObjects: 0.477200 ms CreateObjectMapping: 0.070600 ms MarkObjects: 27.169000 ms  DeleteObjects: 0.048300 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005194 seconds.
+Registered in 0.004874 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
@@ -304,70 +117,806 @@ Native extension for OSXStandalone target not found
 Refreshing native plugins compatible for Editor in 0.70 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.364 seconds
+- Completed reload, in  1.291 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.74 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.61 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2652 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 224.5 MB.
-System memory in use after: 224.8 MB.
+System memory in use before: 218.8 MB.
+System memory in use after: 219.1 MB.
 
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3369.
-Total: 24.850100 ms (FindLiveObjects: 0.512200 ms CreateObjectMapping: 0.203100 ms MarkObjects: 24.105200 ms  DeleteObjects: 0.027400 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 1074.193288 seconds.
-  path: Assets/Resources/Prefabs/Coins/NewCoin.prefab
-  artifactKey: Guid(304edbeafae733f45b28e801a3200503) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Coins/NewCoin.prefab using Guid(304edbeafae733f45b28e801a3200503) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5945a23a1a59f423fa036486606200d') in 0.130543 seconds
-  Import took 0.136313 seconds .
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3272.
+Total: 23.081500 ms (FindLiveObjects: 0.559100 ms CreateObjectMapping: 0.184200 ms MarkObjects: 22.303800 ms  DeleteObjects: 0.032800 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.004659 seconds.
+Registered in 0.004723 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.72 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.70 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.339 seconds
+- Completed reload, in  1.275 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Refreshing native plugins compatible for Editor in 0.68 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2652 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 224.7 MB.
-System memory in use after: 225.0 MB.
+System memory in use before: 218.9 MB.
+System memory in use after: 219.1 MB.
 
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3410.
-Total: 23.276200 ms (FindLiveObjects: 0.281900 ms CreateObjectMapping: 0.070700 ms MarkObjects: 22.891200 ms  DeleteObjects: 0.031000 ms)
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3275.
+Total: 24.341500 ms (FindLiveObjects: 0.307700 ms CreateObjectMapping: 0.075200 ms MarkObjects: 23.929500 ms  DeleteObjects: 0.027500 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.006939 seconds.
+Registered in 0.005411 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.80 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.74 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.607 seconds
+- Completed reload, in  1.538 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.78 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.77 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2652 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 224.8 MB.
-System memory in use after: 225.0 MB.
+System memory in use before: 218.9 MB.
+System memory in use after: 219.1 MB.
 
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3413.
-Total: 25.762500 ms (FindLiveObjects: 0.341000 ms CreateObjectMapping: 0.072700 ms MarkObjects: 25.298800 ms  DeleteObjects: 0.047700 ms)
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3278.
+Total: 28.302900 ms (FindLiveObjects: 0.376900 ms CreateObjectMapping: 0.086000 ms MarkObjects: 27.803200 ms  DeleteObjects: 0.034900 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006392 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.68 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.329 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.20 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2652 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 209.2 MB.
+System memory in use after: 209.4 MB.
+
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3281.
+Total: 27.628500 ms (FindLiveObjects: 0.336100 ms CreateObjectMapping: 0.072300 ms MarkObjects: 27.174700 ms  DeleteObjects: 0.042800 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004771 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.68 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.318 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.69 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2652 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 218.9 MB.
+System memory in use after: 219.2 MB.
+
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3284.
+Total: 23.884400 ms (FindLiveObjects: 0.268800 ms CreateObjectMapping: 0.070000 ms MarkObjects: 23.504100 ms  DeleteObjects: 0.039700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 520.897508 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd59d3a4577c18ad784d90963c64301f') in 0.292501 seconds
+  Import took 0.299959 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000165 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1033c7276ce58ed81024661b15854acc') in 0.010340 seconds
+  Import took 0.015348 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.098447 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a45aed4e309128e2dd60fa43b49563f0') in 0.040311 seconds
+  Import took 0.046906 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000179 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f98f7ba1dd1d3b2fe26a6c32bdb1e280') in 0.013733 seconds
+  Import took 0.018068 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.819605 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cb062763ade4838c1f13f302f7d9bb53') in 0.036614 seconds
+  Import took 0.045156 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000244 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'af0d2d78a1f06d68594a3a538f315aa9') in 0.010323 seconds
+  Import took 0.015389 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3111.822580 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d33b7efcf80411307955277628bc3c6') in 0.046258 seconds
+  Import took 0.053599 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5aeeafff07b30e882878a1b465d47de') in 0.012225 seconds
+  Import took 0.016558 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.409245 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8bb24cf4a9002cef08f5663c92edd816') in 0.038975 seconds
+  Import took 0.046106 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2002c60e099060290f129d4001c3463c') in 0.013527 seconds
+  Import took 0.018207 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 36.479086 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '98160408ad5dc323375f8c0ff634adb3') in 0.037668 seconds
+  Import took 0.044746 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000272 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a828e4712bf98d938fb934708378f97') in 0.011453 seconds
+  Import took 0.016761 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.477406 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '601a9f38725d4380b1bc5ae8072d0cfc') in 0.038157 seconds
+  Import took 0.046317 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000237 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '408fab99ea67db71b8134e4622f0f2cc') in 0.011577 seconds
+  Import took 0.016968 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 72.402995 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a034f46d1b6ac4db434dc8da5857b17c') in 0.046591 seconds
+  Import took 0.053879 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '57b13cb40e4a6af262561f1143543403') in 0.012239 seconds
+  Import took 0.017500 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.972271 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1bbbc02f6c939aa3e0ac5db070fe13b') in 0.036030 seconds
+  Import took 0.042948 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000200 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba6a4c6f62f561e61ff9ed8915158842') in 0.012047 seconds
+  Import took 0.016785 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.157596 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd0511011a504d8f63ae81b0a42b1f52f') in 0.039389 seconds
+  Import took 0.046323 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000242 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2cbde269a665f2b115e302c7b74a742a') in 0.012371 seconds
+  Import took 0.016994 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 12.870854 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '13db5cdf52a0dc9fcbb3ec43fefefdb3') in 0.040192 seconds
+  Import took 0.047493 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000228 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '58f4c45bdd8114018c193975531c358e') in 0.011890 seconds
+  Import took 0.016765 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.333687 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93c4dd74b9366829292238725dc953ab') in 0.037644 seconds
+  Import took 0.044348 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000183 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b6c3251f677affdf6b2a6d1726bdd1e') in 0.012455 seconds
+  Import took 0.017483 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.237059 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '04fa9dd9249a2b10f934dc81bcece4df') in 0.038605 seconds
+  Import took 0.045616 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000185 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e3d6a28c49287ab855d8fed5d955dabb') in 0.011834 seconds
+  Import took 0.017128 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.867621 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26a01139d995c2dd52124497133325e4') in 0.039330 seconds
+  Import took 0.045871 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000204 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ae1ac6161e444c3da813fd4c41270d6') in 0.011912 seconds
+  Import took 0.016308 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 63.770891 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b5276637e2a3c43a13474662b9e273d') in 0.038090 seconds
+  Import took 0.046117 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '402feb33b97cc89c4c7803c49a62525e') in 0.012039 seconds
+  Import took 0.017818 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.020488 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ad1ce5aab04cc99c065c0f8b941b2eb') in 0.042770 seconds
+  Import took 0.049609 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000184 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ac4e06ba4b474e8587f46788cc8c7d7') in 0.013820 seconds
+  Import took 0.018483 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.219805 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bbdbeec330428ca3dcbf3201f5db7a5') in 0.037722 seconds
+  Import took 0.044393 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000167 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd294931ee675a8ac5f1efc8807214963') in 0.012637 seconds
+  Import took 0.017135 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.699281 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4345d2eaa48d497f0f51017e8937cce7') in 0.040090 seconds
+  Import took 0.047658 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000225 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '548bd73bbd22e25ea104d78166d15a7b') in 0.012497 seconds
+  Import took 0.017564 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.211272 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd18002b767b672e9413bb2cd0a5b082d') in 0.036373 seconds
+  Import took 0.043292 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bf204f410d71ff069738a388ecc020f') in 0.012590 seconds
+  Import took 0.017349 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.484560 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4ce1e5ffee677594eaa8862e588b1ab') in 0.040300 seconds
+  Import took 0.047306 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92b8f60c1c764dd7edf0cb4ae0d28d98') in 0.011917 seconds
+  Import took 0.016351 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.182198 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06202f785422cf720d71e6b673a67708') in 0.041432 seconds
+  Import took 0.049069 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000198 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20fae792502beaa71cd916153bc50245') in 0.011664 seconds
+  Import took 0.016829 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.428841 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37d3dd13386425af3128f0de1faf4478') in 0.036203 seconds
+  Import took 0.043276 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000200 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05fb20bd38c2cddf9969a7f4a9c0da07') in 0.011928 seconds
+  Import took 0.016675 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.922211 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51e0152cbdd79fdc3a7750226a889e30') in 0.044144 seconds
+  Import took 0.051541 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000180 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'deadbd28ee2d99702a8f13c286634565') in 0.012134 seconds
+  Import took 0.016578 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.058138 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3ea3500438036f3c7a76f432efe1c103') in 0.038619 seconds
+  Import took 0.045832 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8ad35620b19f673e3665387362b4b5a9') in 0.009605 seconds
+  Import took 0.014793 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.558422 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '65d42bb142c713d7a659ebcf8fde4415') in 0.035498 seconds
+  Import took 0.042200 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000181 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6eabcd4d5ba654386203ed64e8914b11') in 0.008872 seconds
+  Import took 0.013755 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.798653 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1b6f060c3d23d99b219bb66dba98f335') in 0.035947 seconds
+  Import took 0.042661 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000164 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28218100d39b8543d2b5a3f1b85cc6bc') in 0.009013 seconds
+  Import took 0.013247 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.004876 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6706a60ca44d169896c8dd0e0f460ce') in 0.042981 seconds
+  Import took 0.050202 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f25d5d5487fe51f1e19617a0cc37e5c2') in 0.009979 seconds
+  Import took 0.015279 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.930066 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67d29e856c2fccd3c8f8caf21b492bd0') in 0.037083 seconds
+  Import took 0.044181 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a70aa8196a1d6b43f46383080105646') in 0.010294 seconds
+  Import took 0.016601 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.515468 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ce84372e8480ff4da9eb1a09e47bf2d') in 0.038999 seconds
+  Import took 0.045844 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000189 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3816cd3f858725e83773e0076e63b2d3') in 0.009891 seconds
+  Import took 0.014362 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.077536 seconds.
+  path: Assets/Resources/Materials/Proto Materials/Coin Materials/Gold.mat
+  artifactKey: Guid(83599ed7d2a6d6f4abe89910c7e8f3c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Materials/Proto Materials/Coin Materials/Gold.mat using Guid(83599ed7d2a6d6f4abe89910c7e8f3c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee7fef96e149693f591b112b5ae1964a') in 0.028741 seconds
+  Import took 0.033772 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002052 seconds.
+  path: Assets/Resources/Materials/Proto Materials/Coin Materials/Gold.mat
+  artifactKey: Guid(83599ed7d2a6d6f4abe89910c7e8f3c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Materials/Proto Materials/Coin Materials/Gold.mat using Guid(83599ed7d2a6d6f4abe89910c7e8f3c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee7fef96e149693f591b112b5ae1964a') in 0.010279 seconds
+  Import took 0.015003 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.982966 seconds.
+  path: Assets/Resources/Materials/Proto Materials/PegFlash
+  artifactKey: Guid(44850df6d1e64524199317de3e39b73d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Materials/Proto Materials/PegFlash using Guid(44850df6d1e64524199317de3e39b73d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb5c7e01185ebd1d406defd470ca1aab') in 0.005886 seconds
+  Import took 0.010443 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.064994 seconds.
+  path: Assets/Resources/Materials/Proto Materials/PegFlash/ComboFlash.mat
+  artifactKey: Guid(5cc3b8242af127a46945c14e87fffc5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Materials/Proto Materials/PegFlash/ComboFlash.mat using Guid(5cc3b8242af127a46945c14e87fffc5b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69a75269eee72e21af82e4c5719b2470') in 0.009737 seconds
+  Import took 0.014694 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/Resources/Materials/Proto Materials/PegFlash/GoldFlash.mat
+  artifactKey: Guid(9a871cb88a2668644ac4a7c6f610315c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Materials/Proto Materials/PegFlash/GoldFlash.mat using Guid(9a871cb88a2668644ac4a7c6f610315c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6acc7aef0e490dea0caf0cac196b41ff') in 0.009390 seconds
+  Import took 0.014025 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000253 seconds.
+  path: Assets/Resources/Materials/Proto Materials/PegFlash/DiamondFlash.mat
+  artifactKey: Guid(c2acb51c2fddb9f48b27aebfc5735c29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Materials/Proto Materials/PegFlash/DiamondFlash.mat using Guid(c2acb51c2fddb9f48b27aebfc5735c29) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a06975502fdd85116e3a1873cb3d3b9b') in 0.009695 seconds
+  Import took 0.014306 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004824 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.74 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.368 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.67 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2652 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 226.8 MB.
+System memory in use after: 227.0 MB.
+
+Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 3367.
+Total: 24.723900 ms (FindLiveObjects: 0.389600 ms CreateObjectMapping: 0.085900 ms MarkObjects: 24.170000 ms  DeleteObjects: 0.076100 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 298.076542 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78b3735208cb0b04caecedcdcd3b1192') in 0.155611 seconds
+  Import took 0.163671 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000236 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4114fc19f9c6cc39c7d0233da6ebefc6') in 0.014736 seconds
+  Import took 0.019647 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005027 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.70 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.398 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.68 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2652 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 226.9 MB.
+System memory in use after: 227.2 MB.
+
+Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 3406.
+Total: 23.710200 ms (FindLiveObjects: 0.293100 ms CreateObjectMapping: 0.070700 ms MarkObjects: 23.277300 ms  DeleteObjects: 0.067300 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.524585 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99096f2a985810a4dc33a9f63302e096') in 0.121922 seconds
+  Import took 0.127835 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e66c45ed1235a0095da4c55281273939') in 0.039916 seconds
+  Import took 0.047814 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.816660 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab
+  artifactKey: Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Coin Machine (Primitive Colliders).prefab using Guid(6f873bb70b0d7434fadd4881d7bffedb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ec6680a30034d9a9ae950d3abf52a7e5') in 0.037242 seconds
+  Import took 0.044032 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000226 seconds.
+  path: Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab
+  artifactKey: Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Coin Machine/Peg_me.prefab using Guid(6d60ef0f5065a0445a89f2f035a5bf60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '21502bcce4dd6bda3e9f2428326c6a97') in 0.009534 seconds
+  Import took 0.014666 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004772 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.69 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.330 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.68 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2652 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 227.1 MB.
+System memory in use after: 227.3 MB.
+
+Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 3445.
+Total: 24.376700 ms (FindLiveObjects: 0.340900 ms CreateObjectMapping: 0.072700 ms MarkObjects: 23.896900 ms  DeleteObjects: 0.064400 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.021021 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.73 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.387 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.68 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2652 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 227.1 MB.
+System memory in use after: 227.3 MB.
+
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3448.
+Total: 23.236200 ms (FindLiveObjects: 0.323900 ms CreateObjectMapping: 0.070900 ms MarkObjects: 22.807900 ms  DeleteObjects: 0.031600 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004790 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.73 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.329 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 1.06 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2652 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 227.1 MB.
+System memory in use after: 227.3 MB.
+
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3451.
+Total: 28.463100 ms (FindLiveObjects: 0.805500 ms CreateObjectMapping: 0.407300 ms MarkObjects: 27.215000 ms  DeleteObjects: 0.033600 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.005127 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.79 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.592 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.87 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2652 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 227.1 MB.
+System memory in use after: 227.3 MB.
+
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3454.
+Total: 29.939300 ms (FindLiveObjects: 0.437400 ms CreateObjectMapping: 0.075000 ms MarkObjects: 29.397600 ms  DeleteObjects: 0.027300 ms)
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

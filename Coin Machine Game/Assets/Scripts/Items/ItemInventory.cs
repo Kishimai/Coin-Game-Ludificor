@@ -107,7 +107,8 @@ public class ItemInventory : MonoBehaviour
         {
             { "midas_crystal", "Increases value of all coins by 5%" },
             { "peg_remove_mk2", "Removes 2 normal pegs from the backboard" },
-            { "golden_peg", "Converts 1 normal peg to a gilded version, doubling value of coins that touch it" }
+            { "golden_peg", "Converts 1 normal peg to a gilded version, doubling value of coins that touch it" },
+            { "more_coins", "Adds 5% chance to drop an additional coin each coin placement" }
         };
 
         rareItems = new Dictionary<string, string>
@@ -118,7 +119,8 @@ public class ItemInventory : MonoBehaviour
             { "combo_peg", "Converts 1 normal peg to a combo version, doubling value of coins that touch it (Effect stacks)" },
             { "bomb_voucher", "Gives bomb coin which can be detonated" },
             { "tremor_voucher", "Gives tremor coin which will shake the machine when placed" },
-            { "bulldoze_voucher", "Gives bulldoze coin which will cause coin pusher to force all coins into collection" }
+            { "bulldoze_voucher", "Gives bulldoze coin which will cause coin pusher to force all coins into collection" },
+            { "coin_storm", "Adds 25% chance to drop an additional coin each coin placement" }
         };
     }
 
@@ -210,6 +212,16 @@ public class ItemInventory : MonoBehaviour
                 return newItem;
 
             case "bulldoze_voucher":
+                return newItem;
+
+            // --------------- ADDITIONAL COIN DROP ITEMS --------------- //
+
+            case "more_coins":
+                playerCamera.GetComponent<CoinPlacement>().additionalDropChance += 5;
+                return newItem;
+
+            case "coin_storm":
+                playerCamera.GetComponent<CoinPlacement>().additionalDropChance += 25;
                 return newItem;
 
             // Runs if new item's tag does not match a case in this switch statement
