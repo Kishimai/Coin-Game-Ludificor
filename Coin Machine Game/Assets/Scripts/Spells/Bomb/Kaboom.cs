@@ -6,6 +6,8 @@ public class Kaboom : MonoBehaviour
 {
     public void DetonateAllBombCoins()
     {
+        GameObject cam = GameObject.FindGameObjectWithTag("MainCamera");
+
         GameObject[] interactionSpheres = GameObject.FindGameObjectsWithTag("bomb_coin");
 
         foreach (GameObject item in interactionSpheres)
@@ -16,5 +18,7 @@ public class Kaboom : MonoBehaviour
         }
 
         gameObject.SetActive(false);
+
+        cam.GetComponent<CoinPlacement>().activeSpells = new List<GameObject>();
     }
 }

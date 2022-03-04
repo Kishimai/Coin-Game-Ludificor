@@ -28,6 +28,9 @@ public class Peg : MonoBehaviour
 
     public AudioSource comboPing;
 
+    public GameObject comboSphere;
+    public GameObject comboEventSphere;
+
     // Used to prevent coins from constantly stacking modifiers if they bounce slightly off of this peg (Applies only to combo pegs)
     private List<GameObject> recentlyUpgradedCoins = new List<GameObject>();
 
@@ -287,7 +290,12 @@ public class Peg : MonoBehaviour
             {
                 storedMaterial = comboMaterial;
 
-                comboAppearance.GetComponent<Renderer>().material = comboFlash;
+                //comboAppearance.GetComponent<Renderer>().material = comboFlash;
+                comboSphere.SetActive(true);
+            }
+            else if (amComboEvent)
+            {
+                comboEventSphere.SetActive(true);
             }
             else
             {
@@ -308,6 +316,11 @@ public class Peg : MonoBehaviour
         else if (amCombo)
         {
             comboAppearance.GetComponent<Renderer>().material = storedMaterial;
+            comboSphere.SetActive(false);
+        }
+        else if (amComboEvent)
+        {
+            comboEventSphere.SetActive(false);
         }
 
     }
@@ -343,6 +356,7 @@ public class Peg : MonoBehaviour
         if (other.gameObject.tag == "coin" && amComboEvent)
         {
             AttemptUpgradeOnCoin(other);
+            StartCoroutine(FlashColor());
         }
         if (other.gameObject.tag == "pegSelectionTool")
         {

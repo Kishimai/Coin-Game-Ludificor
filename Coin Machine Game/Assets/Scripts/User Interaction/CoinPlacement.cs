@@ -24,6 +24,7 @@ public class CoinPlacement : MonoBehaviour
     public GameObject bulldozeCoin;
     public GameObject blitzSparkle;
     public List<string> spells = new List<string>();
+    public List<GameObject> activeSpells = new List<GameObject>();
 
     // Used for generation codes
     public CoinGeneration generation;
@@ -102,6 +103,11 @@ public class CoinPlacement : MonoBehaviour
             MouseTracking();
         }
 
+        if (activeSpells.Count == 0)
+        {
+            detonateButton.SetActive(false);
+        }
+
     }
 
     // Responsible for tracking mouse position for coin and item placement
@@ -161,6 +167,7 @@ public class CoinPlacement : MonoBehaviour
             if (randomSpell.Equals("bomb"))
             {
                 spellCoin = bombCoin;
+                activeSpells.Add(spellCoin);
             }
             else if (randomSpell.Equals("tremor"))
             {

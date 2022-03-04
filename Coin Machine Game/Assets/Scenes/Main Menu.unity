@@ -1082,6 +1082,7 @@ MonoBehaviour:
   - bomb
   - tremor
   - bulldoze
+  activeSpells: []
   generation: {fileID: 1384771965}
   gameplayIsReady: 0
   dropZoneLayerMask:
@@ -22870,7 +22871,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5981882643148413060, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
       propertyPath: commonEvents.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5981882643148413060, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
       propertyPath: rareEvents.Array.data[0]

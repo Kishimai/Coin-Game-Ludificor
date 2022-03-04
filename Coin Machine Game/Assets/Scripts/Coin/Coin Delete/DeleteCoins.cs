@@ -34,6 +34,8 @@ public class DeleteCoins : MonoBehaviour
     // Manager Script used for getting Coin Variable
     public UI_Manager _manager;
 
+    private GameObject cam;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +44,8 @@ public class DeleteCoins : MonoBehaviour
 
         gameManager = GameObject.FindGameObjectWithTag("game_manager");
         eventManager = GameObject.FindGameObjectWithTag("gameplay_event_system");
+
+        cam = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
     // Update is called once per frame
@@ -93,6 +97,8 @@ public class DeleteCoins : MonoBehaviour
         if (other.gameObject.tag == "bomb_coin" && eventManager.GetComponent<EventsManager>().playerIsReady)
         {
             gameManager.GetComponent<ItemInventory>().GetSpell("bomb");
+
+            cam.GetComponent<CoinPlacement>().activeSpells.RemoveAt(0);
 
             Destroy(other.gameObject.transform.parent.gameObject);
         }
