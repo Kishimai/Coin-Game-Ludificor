@@ -1095,6 +1095,7 @@ MonoBehaviour:
   zClamp: -6
   blitzEvent: 0
   blitzCooldown: 0
+  additionalDropChance: 0
 --- !u!114 &41762029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5848,6 +5849,8 @@ MonoBehaviour:
   bombVoucher: {fileID: 21300000, guid: df70b6fd0ffbb1549988133893105c85, type: 3}
   tremorVoucher: {fileID: 21300000, guid: 53310cabd7d52604ab75c59c013a1e8a, type: 3}
   bulldozeVoucher: {fileID: 21300000, guid: bc52b2dbaf373e44f808c939e2f6367a, type: 3}
+  moreCoin: {fileID: 0}
+  coinStorm: {fileID: 0}
   common:
     serializedVersion: 2
     rgba: 16777215
@@ -26282,6 +26285,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7248836236679193366, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
+      propertyPath: m_TagString
+      value: peg_manager
+      objectReference: {fileID: 0}
     - target: {fileID: 7248836236679193367, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -34730,6 +34737,8 @@ MonoBehaviour:
   bombVoucher: {fileID: 21300000, guid: df70b6fd0ffbb1549988133893105c85, type: 3}
   tremorVoucher: {fileID: 21300000, guid: 53310cabd7d52604ab75c59c013a1e8a, type: 3}
   bulldozeVoucher: {fileID: 21300000, guid: bc52b2dbaf373e44f808c939e2f6367a, type: 3}
+  moreCoin: {fileID: 0}
+  coinStorm: {fileID: 0}
   common:
     serializedVersion: 2
     rgba: 16777215
@@ -40623,6 +40632,7 @@ MonoBehaviour:
   _musicVolume: 59.9
   _sfxVoume: 55.7
   isPaused: 0
+  windowed: 0
   _currentCoin: 0
   currentUIMenu: 0
   LoadingText: {fileID: 1669493227}
@@ -48079,6 +48089,8 @@ MonoBehaviour:
   bombVoucher: {fileID: 21300000, guid: df70b6fd0ffbb1549988133893105c85, type: 3}
   tremorVoucher: {fileID: 21300000, guid: 53310cabd7d52604ab75c59c013a1e8a, type: 3}
   bulldozeVoucher: {fileID: 21300000, guid: bc52b2dbaf373e44f808c939e2f6367a, type: 3}
+  moreCoin: {fileID: 0}
+  coinStorm: {fileID: 0}
   common:
     serializedVersion: 2
     rgba: 16777215

@@ -5,6 +5,13 @@ using UnityEngine;
 public class BulldozeCoin : MonoBehaviour
 {
 
+    private Rigidbody coinRb;
+
+    private void Start()
+    {
+        coinRb = GetComponent<Rigidbody>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "coin_pusher")
@@ -12,6 +19,12 @@ public class BulldozeCoin : MonoBehaviour
             other.transform.GetComponent<CoinPusher>().StartBulldoze();
             Destroy(gameObject);
         }
+    }
+    public void GetBumped()
+    {
+        Vector3 bumpForce = new Vector3(0, 100, 0);
+
+        coinRb.AddForce(bumpForce);
     }
 
 }

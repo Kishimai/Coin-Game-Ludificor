@@ -199,6 +199,11 @@ public class CoinPlacement : MonoBehaviour
                 // Places the currently selected coin >> Changing its Component every placement
                 Instantiate(selectedCoin, clampedPosition, Quaternion.Euler(90, 0, 0));
                 dropCooldown = maxCooldown;
+
+                if (additionalDropChance > 0)
+                {
+                    AttemptAdditionalCoin(clampedPosition);
+                }
             }
             else if (dropCooldown <= 0 && blitzEvent == true)
             {
@@ -216,11 +221,11 @@ public class CoinPlacement : MonoBehaviour
                 blitzSparkle.GetComponent<ParticleSystem>().Play();
                 Instantiate(selectedCoin, blitzPosition, Quaternion.Euler(90, 0, 0));
                 dropCooldown = blitzCooldown;
-            }
 
-            if (additionalDropChance > 0)
-            {
-                AttemptAdditionalCoin(clampedPosition);
+                if (additionalDropChance > 0)
+                {
+                    AttemptAdditionalCoin(clampedPosition);
+                }
             }
         }
     }

@@ -31,6 +31,8 @@ public class Peg : MonoBehaviour
     public GameObject comboSphere;
     public GameObject comboEventSphere;
 
+    private GameObject manager;
+
     // Used to prevent coins from constantly stacking modifiers if they bounce slightly off of this peg (Applies only to combo pegs)
     private List<GameObject> recentlyUpgradedCoins = new List<GameObject>();
 
@@ -55,6 +57,9 @@ public class Peg : MonoBehaviour
     private float timeUntilBump;
     private float bumpLimit = 1f;
 
+    private int hitCounter;
+    public int maxHitsBeforeMoving;
+
 
     void Start()
     {
@@ -63,6 +68,7 @@ public class Peg : MonoBehaviour
 
         timeUntilBump = bumpLimit;
 
+        manager = GameObject.FindGameObjectWithTag("peg_manager");
     }
 
     void Update()
@@ -143,21 +149,29 @@ public class Peg : MonoBehaviour
         {
             // Activate gilded bumper on coin and apply value modifier
             other.gameObject.GetComponentInParent<CoinLogic>().ActivateBumper(coinValueModifier);
+            ++hitCounter;
         }
         else if (amDiamond)
         {
             // Activate crystal shell on coin and apply value modifier
             other.gameObject.GetComponentInParent<CoinLogic>().ActivateCrystalShell(coinValueModifier);
+            ++hitCounter;
         }
         else if (amCombo)
         {
             // Multiply coin's current combo multiplier by itself
             other.gameObject.GetComponentInParent<CoinLogic>().ComboMultiplier();
+            ++hitCounter;
             comboPing.Play();
         }
         else if (amComboEvent)
         {
             other.gameObject.GetComponentInParent<CoinLogic>().ComboEvent();
+        }
+
+        if (hitCounter == maxHitsBeforeMoving)
+        {
+            Relocate();
         }
     }
 
@@ -256,6 +270,9 @@ public class Peg : MonoBehaviour
 
         comboEventAppearance.SetActive(true);
 
+        comboSphere.SetActive(false);
+        comboEventSphere.SetActive(false);
+
     }
 
     public IEnumerator FlashColor()
@@ -343,6 +360,21 @@ public class Peg : MonoBehaviour
         {
             parent.GetComponent<TremorCoin>().GetBumped();
         }
+        else if (childID.tag == "bulldoze_coin")
+        {
+            parent.GetComponent<BulldozeCoin>().GetBumped();
+        }
+    }
+
+    void Relocate()
+    {
+        hitCounter = 0;
+        manager.GetComponent<PegManager>().RelocatePeg(gameObject);
+    }
+
+    public void ResetHitCounter()
+    {
+        hitCounter = 0;
     }
 
     void OnTriggerEnter(Collider other)
@@ -372,6 +404,10 @@ public class Peg : MonoBehaviour
             StartCoroutine(FlashColor());
         }
         if (other.gameObject.tag == "tremor_coin")
+        {
+            StartCoroutine(FlashColor());
+        }
+        if (other.gameObject.tag == "bulldoze_coin")
         {
             StartCoroutine(FlashColor());
         }

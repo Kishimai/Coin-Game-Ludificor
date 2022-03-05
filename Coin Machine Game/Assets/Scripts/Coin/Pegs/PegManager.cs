@@ -248,6 +248,21 @@ public class PegManager : MonoBehaviour
         }
     }
 
+    public void RelocatePeg(GameObject movingPeg)
+    {
+
+        GameObject randomPeg = allPegs[Random.Range(0, allPegs.Count)];
+
+        Vector3 movingPegPos = movingPeg.transform.position;
+        Vector3 locationToMove = randomPeg.transform.position;
+
+        movingPeg.transform.position = locationToMove;
+        randomPeg.transform.position = movingPegPos;
+
+        randomPeg.GetComponent<Peg>().ResetHitCounter();
+
+    }
+
     public IEnumerator ComboEvent(float eventDuration)
     {
         float timeUntilEnd = eventDuration;
