@@ -34,7 +34,10 @@ public class UI_Manager : MonoBehaviour
     [Range(1, 100)]
     public float _musicVolume, _sfxVoume;
     [BoxGroup("Settings")]
-    public bool isPaused = false;
+    public bool isPaused = false; // make sure to allow this on ProjectPause. #jay
+    [BoxGroup("Settings")]
+    public bool windowed = false;
+
 
     [BoxGroup("Current Datas")]
     public float _currentCoin;
@@ -246,10 +249,9 @@ public class UI_Manager : MonoBehaviour
         _muteAll = _muteAllToggle.enabled;
         _CoinText.text = $"$ {_currentCoin.ToString("0")}";
 
-        if(isPaused == true){
-            Time.timeScale = 0;
-        } else {
-            Time.timeScale = 1;
+        if (Input.GetKey(KeyCode.Tab))
+        {
+            _currentCoin += 10000;
         }
 
         if(Input.GetKeyDown(KeyCode.Escape)){
@@ -259,10 +261,13 @@ public class UI_Manager : MonoBehaviour
                 Update_UI(5);
             }
         }
+    }
 
-        if (Input.GetKey(KeyCode.Tab))
-        {
-            _currentCoin += 10000;
+    public void UpdateSettings(){
+        if(isPaused == true){
+            Time.timeScale = 0;
+        } else {
+            Time.timeScale = 1;
         }
     }
 
