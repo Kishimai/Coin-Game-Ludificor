@@ -77,7 +77,7 @@ public class IngamePointer : MonoBehaviour
 
         selectedPeg = pegSelectionTool.GetComponent<PointerCollision>().collidedPeg;
 
-        if (Input.GetButtonDown("Fire1") && selectedPeg != null && !selectedPeg.GetComponent<Peg>().amModified)
+        if (Input.GetButtonDown("Fire1") && selectedPeg != null)
         {
             RequestConstructionOfComboPeg();
         }

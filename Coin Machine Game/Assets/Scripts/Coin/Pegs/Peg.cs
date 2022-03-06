@@ -102,14 +102,12 @@ public class Peg : MonoBehaviour
         // Replace this with a amDisabled variable which stops normal function and swaps collider for a trigger
         // Coins wont interact with trigger but selection tool MUST!
         //gameObject.SetActive(false);
-        if (amComboEvent)
-        {
-            amDisabled = true;
-        }
-        else
-        {
-            gameObject.SetActive(false);
-        }
+        amDisabled = true;
+        GetComponent<CapsuleCollider>().isTrigger = true;
+        standardAppearance.SetActive(false);
+        goldAppearance.SetActive(false);
+        diamondAppearance.SetActive(false);
+        comboAppearance.SetActive(false);
     }
 
     private void DeterminePegType(string pegType, float modifier = 0)
@@ -120,25 +118,29 @@ public class Peg : MonoBehaviour
 
         // Replace this with a amDisabled variable which stops normal function and swaps collider for a trigger
         // Coins wont interact with trigger but selection tool MUST!
-        gameObject.SetActive(true);
+        //gameObject.SetActive(true);
+        amDisabled = false;
 
         if (pegType.Equals("gold"))
         {
             amGolden = true;
             standardAppearance.SetActive(false);
             goldAppearance.SetActive(true);
+            GetComponent<CapsuleCollider>().isTrigger = false;
         }
         else if (pegType.Equals("diamond"))
         {
             amDiamond = true;
             standardAppearance.SetActive(false);
             diamondAppearance.SetActive(true);
+            GetComponent<CapsuleCollider>().isTrigger = false;
         }
         else if (pegType.Equals("combo"))
         {
             amCombo = true;
             standardAppearance.SetActive(false);
             comboAppearance.SetActive(true);
+            GetComponent<CapsuleCollider>().isTrigger = false;
         }
     }
 
@@ -213,10 +215,9 @@ public class Peg : MonoBehaviour
 
             if (amDisabled)
             {
-                gameObject.SetActive(false);
+                ConvertToDisabled();
             }
-
-            if (recordedAmGolden)
+            else if (recordedAmGolden)
             {
                 amGolden = recordedAmGolden;
                 comboEventAppearance.SetActive(false);
@@ -269,6 +270,7 @@ public class Peg : MonoBehaviour
         comboAppearance.SetActive(false);
 
         comboEventAppearance.SetActive(true);
+        GetComponent<CapsuleCollider>().isTrigger = false;
 
         comboSphere.SetActive(false);
         comboEventSphere.SetActive(false);
@@ -436,7 +438,11 @@ public class Peg : MonoBehaviour
         {
             selectionHighligter.SetActive(false);
 
-            if (amModified)
+            if (amDisabled)
+            {
+                ConvertToDisabled();
+            }
+            else if (amModified)
             {
                 if (amGolden)
                 {

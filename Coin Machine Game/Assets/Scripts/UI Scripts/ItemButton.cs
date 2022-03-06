@@ -143,11 +143,11 @@ public class ItemButton : MonoBehaviour
                 return comboPeg;
 
             case "bomb_voucher":
-                image.color = rare;
+                image.color = uncommon;
                 return bombVoucher;
 
             case "tremor_voucher":
-                image.color = rare;
+                image.color = uncommon;
                 return tremorVoucher;
 
             case "bulldoze_voucher":

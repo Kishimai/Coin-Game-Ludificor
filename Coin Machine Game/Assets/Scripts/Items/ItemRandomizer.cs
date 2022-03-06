@@ -18,6 +18,8 @@ public class ItemRandomizer : MonoBehaviour
 
     private Dictionary<string, string> chosenItem;
 
+    public GameObject pegManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +37,22 @@ public class ItemRandomizer : MonoBehaviour
     // Call this method to pick a new item
     public Dictionary<string, string> RollNewItem()
     {
-        return ChooseItem(RandomItemRarity());
+        Dictionary<string, string> newDict = ChooseItem(RandomItemRarity());
+        Dictionary<string, string> dictCheck = null;
+
+        foreach (KeyValuePair<string, string> item in newDict)
+        {
+            dictCheck = DetermineIfItemIsValid(item.Key);
+        }
+
+        if (dictCheck != null)
+        {
+            return dictCheck;
+        }
+        else
+        {
+            return newDict;
+        }
     }
 
     private int RandomItemRarity()
@@ -109,5 +126,51 @@ public class ItemRandomizer : MonoBehaviour
         }
 
         return chosenItem;
+    }
+
+    private Dictionary<string, string> DetermineIfItemIsValid(string item)
+    {
+        Dictionary<string, string> newDict = null;
+
+        // Temporary system to prevent items from appearing when their abilities cannot be used
+        // REPLACE THIS WITH A METHOD WHICH TAKES THE ITEM AS INPUT AND SEARCHES FOR A NEW ITEM IN THAT RARITY CATEGORY
+        // EXCLUDING THE PASSED ITEM
+        if (item.Equals("peg_remove_mk1") && pegManager.GetComponent<PegManager>().unmodifiedPegs.Count == 0)
+        {
+            newDict = new Dictionary<string, string>
+            {
+                { "midas_shard", "Increases value of all coins by 1%" }
+            };
+        }
+        else if (item.Equals("peg_remove_mk2") && pegManager.GetComponent<PegManager>().unmodifiedPegs.Count == 0)
+        {
+            newDict = new Dictionary<string, string>
+            {
+                { "midas_crystal", "Increases value of all coins by 5%" }
+            };
+        }
+        else if (item.Equals("peg_remove_mk3") && pegManager.GetComponent<PegManager>().unmodifiedPegs.Count == 0)
+        {
+            newDict = new Dictionary<string, string>
+            {
+                { "midas_relic", "Increases value of all coins by 10%" }
+            };
+        }
+        else if (item.Equals("combo_peg") && pegManager.GetComponent<PegManager>().unmodifiedPegs.Count == 0)
+        {
+            newDict = new Dictionary<string, string>
+            {
+                { "midas_relic", "Increases value of all coins by 10%" }
+            };
+        }
+
+        if (newDict != null)
+        {
+            return newDict;
+        }
+        else
+        {
+            return null;
+        }
     }
 }

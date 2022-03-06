@@ -13,6 +13,9 @@ public class ItemBuilder : MonoBehaviour
 
     public GameObject[] itemCapsules;
 
+    public GameObject coin;
+    public CoinGeneration generation;
+
     public int itemsToBuild;
 
     public bool initialBuildFinished;
@@ -26,6 +29,8 @@ public class ItemBuilder : MonoBehaviour
 
     // Used to drop item every 60 seconds
     public float timeUntilNextItem = 60f;
+
+    public bool isPaused = false;
 
     void Start()
     {
@@ -60,7 +65,7 @@ public class ItemBuilder : MonoBehaviour
             initialBuildFinished = true;
         }
         
-        if (timeUntilNextItem > 0 && itemRainEvent == false)
+        if (timeUntilNextItem > 0 && itemRainEvent == false && !isPaused)
         {
             timeUntilNextItem -= Time.fixedDeltaTime;
         }
@@ -155,5 +160,27 @@ public class ItemBuilder : MonoBehaviour
         int randItem = Random.Range(0, itemCapsules.Length);
 
         Instantiate(itemCapsules[randItem], new Vector3(planePos.x + randomXPosition / 2, 27, planePos.z + randomZPosition / 2), Quaternion.identity);
+    }
+
+    public void BuildCoin()
+    {
+        Vector3 planePos = playerMachinePlane.transform.position;
+        Vector3 planeScale = playerMachinePlane.transform.localScale;
+
+        Vector3 boundry = new Vector3(planeScale.x - 1, 0, planeScale.z - 1);
+
+        Vector3 randomRotation;
+
+        // Picks random X position within the boundry of the plane
+        float randomXPosition = Random.Range(-boundry.x, boundry.x);
+        // Picks random Z position within the boundry of the plane
+        float randomZPosition = Random.Range(-boundry.z, boundry.z);
+
+        Vector3 position = new Vector3(planePos.x + randomXPosition / 2, 27, planePos.z + randomZPosition / 2);
+        randomRotation = new Vector3(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
+
+        generation.GetPlacementData();
+
+        Instantiate(coin, position, Quaternion.Euler(randomRotation));
     }
 }

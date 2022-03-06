@@ -26,6 +26,8 @@ public class CoinPlacement : MonoBehaviour
     public List<string> spells = new List<string>();
     public List<GameObject> activeSpells = new List<GameObject>();
 
+    private GameObject itemBuilder;
+
     // Used for generation codes
     public CoinGeneration generation;
 
@@ -58,7 +60,8 @@ public class CoinPlacement : MonoBehaviour
     public bool blitzEvent = false;
     public float blitzCooldown;
 
-    public float additionalDropChance = 0;
+    public int additionalDropChance = 0;
+    private int guaranteedDrops = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -77,6 +80,8 @@ public class CoinPlacement : MonoBehaviour
         dropZoneLayerMask = (1 << dropZoneLayer);
 
         gameManager = GameObject.FindGameObjectWithTag("game_manager");
+
+        itemBuilder = GameObject.FindGameObjectWithTag("item_builder");
     }
 
     // Update is called once per frame
@@ -109,6 +114,8 @@ public class CoinPlacement : MonoBehaviour
         {
             detonateButton.SetActive(false);
         }
+
+        CalculateDropChance();
 
     }
 
@@ -241,17 +248,39 @@ public class CoinPlacement : MonoBehaviour
     {
         // rolls random number ranging from 0 to 99
         int randInt = Random.Range(0, 99);
+        int additionalDrops = 0;
 
         // If number rolled is less than or equal to additonalDropChance, make additional coin
         if (randInt <= Mathf.CeilToInt(additionalDropChance))
         {
-            Vector3 randPos;
-            float randX = Random.Range(minXDropClamp, maxXDropClamp);
-            randPos = new Vector3(randX, clampedPosition.y, clampedPosition.z + 1.25f);
+            additionalDrops = 1;
+        }
 
-            blitzSparkle.transform.position = randPos;
+        // Adds guaranteeDrops to additionalDrops
+        additionalDrops += guaranteedDrops;
+
+        // Plays particle effect if player dropped at least one additional coin
+        if (additionalDrops > 0)
+        {
+            blitzSparkle.transform.position = coinGuide.transform.position;
             blitzSparkle.GetComponent<ParticleSystem>().Play();
-            Instantiate(selectedCoin, randPos, Quaternion.Euler(90, 0, 0));
+        }
+
+        // Builds coins equal to additionalDrops
+        for (int i = 0; i < additionalDrops; ++i)
+        {
+            itemBuilder.GetComponent<ItemBuilder>().BuildCoin();
+        }
+    }
+
+    private void CalculateDropChance()
+    {
+        // If additionalDropChance is greater than 100, subtract 100 from it and add 1 to guaranteedDrops
+        // The purpose of subtracting instead of setting to zero is to preserve any leftover value from the item collected
+        if (additionalDropChance > 100)
+        {
+            additionalDropChance -= 100;
+            ++guaranteedDrops;
         }
     }
 }

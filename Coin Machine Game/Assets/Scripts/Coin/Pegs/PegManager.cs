@@ -78,7 +78,11 @@ public class PegManager : MonoBehaviour
             {
                 selectedPeg = SelectUnmodified(playerSelectedPeg);
             }
-            else
+            else if (disabledPegs.Contains(playerSelectedPeg))
+            {
+                selectedPeg = SelectUnmodified(playerSelectedPeg);
+            }
+            else if (modifiedPegs.Contains(playerSelectedPeg))
             {
                 Debug.Log("Cannot pick a modified peg to replace! (yet)");
             }
@@ -147,7 +151,7 @@ public class PegManager : MonoBehaviour
         GameObject chosenPeg = null;
 
         // Makes sure there are pegs left to modify
-        if (unmodifiedPegs.Count > 0 )
+        if (unmodifiedPegs.Count > 0 || disabledPegs.Count > 0)
         {
             // If no peg was highlighted or selected, choose randomly
             if (highlightedPeg == null)

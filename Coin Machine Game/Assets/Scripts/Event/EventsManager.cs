@@ -193,6 +193,7 @@ public class EventsManager : MonoBehaviour
 
         falsePusher1.GetComponent<FalsePusher>().PausePusher();
         falsePusher2.GetComponent<FalsePusher>().PausePusher();
+        itemBuilder.GetComponent<ItemBuilder>().isPaused = true;
 
         if (chosenEvent.Equals("PegCombo"))
         {
@@ -200,12 +201,21 @@ public class EventsManager : MonoBehaviour
         }
 
         GameObject[] allCoins = GameObject.FindGameObjectsWithTag("whole_coin");
+        GameObject[] allItemCapsules = GameObject.FindGameObjectsWithTag("item_capsule");
 
         foreach (GameObject coin in allCoins)
         {
             Rigidbody coinRb = coin.GetComponent<Rigidbody>();
             coinRb.constraints = RigidbodyConstraints.FreezeAll;
             coinRb.detectCollisions = false;
+        }
+
+        foreach (GameObject item in allItemCapsules)
+        {
+            Rigidbody itemRb = item.GetComponent<Rigidbody>();
+            itemRb.constraints = RigidbodyConstraints.FreezeAll;
+            itemRb.detectCollisions = false;
+            itemRb.useGravity = false;
         }
     }
 
@@ -215,6 +225,7 @@ public class EventsManager : MonoBehaviour
 
         falsePusher1.GetComponent<FalsePusher>().UnpausePusher();
         falsePusher2.GetComponent<FalsePusher>().UnpausePusher();
+        itemBuilder.GetComponent<ItemBuilder>().isPaused = false;
 
         if (chosenEvent.Equals("PegCombo"))
         {
@@ -222,12 +233,21 @@ public class EventsManager : MonoBehaviour
         }
 
         GameObject[] allCoins = GameObject.FindGameObjectsWithTag("whole_coin");
+        GameObject[] allItemCapsules = GameObject.FindGameObjectsWithTag("item_capsule");
 
         foreach (GameObject coin in allCoins)
         {
             Rigidbody coinRb = coin.GetComponent<Rigidbody>();
             coinRb.constraints = RigidbodyConstraints.None;
             coinRb.detectCollisions = true;
+        }
+
+        foreach (GameObject item in allItemCapsules)
+        {
+            Rigidbody itemRb = item.GetComponent<Rigidbody>();
+            itemRb.constraints = RigidbodyConstraints.None;
+            itemRb.detectCollisions = true;
+            itemRb.useGravity = true;
         }
     }
 

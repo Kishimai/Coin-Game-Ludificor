@@ -108,7 +108,9 @@ public class ItemInventory : MonoBehaviour
             { "midas_crystal", "Increases value of all coins by 5%" },
             { "peg_remove_mk2", "Removes 2 normal pegs from the backboard" },
             { "golden_peg", "Converts 1 normal peg to a gilded version, doubling value of coins that touch it" },
-            { "more_coins", "Adds 5% chance to drop an additional coin each coin placement" }
+            { "more_coins", "Adds 5% chance to drop an additional coin each coin placement" },
+            { "bomb_voucher", "Gives bomb coin which can be detonated" },
+            { "tremor_voucher", "Gives tremor coin which will shake the machine when placed" }
         };
 
         rareItems = new Dictionary<string, string>
@@ -117,8 +119,6 @@ public class ItemInventory : MonoBehaviour
             { "peg_remove_mk3", "Removes 3 normal pegs from the backboard" },
             { "diamond_peg", "Converts 1 normal peg to a diamond version, tripling value of coins that touch it" },
             { "combo_peg", "Converts 1 normal peg to a combo version, doubling value of coins that touch it (Effect stacks)" },
-            { "bomb_voucher", "Gives bomb coin which can be detonated" },
-            { "tremor_voucher", "Gives tremor coin which will shake the machine when placed" },
             { "bulldoze_voucher", "Gives bulldoze coin which will cause coin pusher to force all coins into collection" },
             { "coin_storm", "Adds 25% chance to drop an additional coin each coin placement" }
         };
