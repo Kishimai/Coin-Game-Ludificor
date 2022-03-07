@@ -14,7 +14,7 @@ public class UI_Manager : MonoBehaviour
     [BoxGroup("Input")]
     public GameObject eventManager;
 
-    [BoxGroup("UI")] // UI Components Panels
+    [BoxGroup("UI")] // Component Panels
     public GameObject Selection, Settings, Collectibles, InGame, PausedGame, ShopInGame, ShopButton, 
     PrizeSelection, OpenCapsuleButton, ItemSelection, LoadingScreen, ComboPegSelection;
     [BoxGroup("UI")]
@@ -27,6 +27,8 @@ public class UI_Manager : MonoBehaviour
     public Text _CoinText;
     [BoxGroup("UI")]
     public TMP_Dropdown _aspectRatio;
+    [BoxGroup("UI")]
+    public Toggle windowedToggle;
 
     [BoxGroup("Settings")]
     public bool _muteAll = false;
@@ -34,7 +36,7 @@ public class UI_Manager : MonoBehaviour
     [Range(1, 100)]
     public float _musicVolume, _sfxVoume;
     [BoxGroup("Settings")]
-    public bool isPaused = false; // make sure to allow this on ProjectPause. #jay
+    public bool isPaused = false;
     [BoxGroup("Settings")]
     public bool windowed = false;
 
@@ -248,6 +250,7 @@ public class UI_Manager : MonoBehaviour
         _musicText.text = _musicVolume.ToString("0");
         _muteAll = _muteAllToggle.enabled;
         _CoinText.text = $"$ {_currentCoin.ToString("0")}";
+        windowed = windowedToggle.enabled;
 
         if (Input.GetKey(KeyCode.Tab))
         {
@@ -261,6 +264,12 @@ public class UI_Manager : MonoBehaviour
                 Update_UI(5);
             }
         }
+
+        if(windowed == true && Screen.fullScreen == true){ // windowed enabled, screen not windowed
+            Screen.fullScreen = false;
+        } else if(windowed == false && Screen.fullScreen == false){ // not windowed, screen windowed
+            Screen.fullScreen = true;
+        }   
     }
 
     public void UpdateSettings(){
@@ -281,6 +290,12 @@ public class UI_Manager : MonoBehaviour
                 ShopButton.SetActive(!ShopButton.activeSelf);
                 break;
         }
+    }
+
+    public void ProjectSettings(string Function){
+       if(Function == "WindowResolutionUpdate"){ // Updates by comparing the list from the Current Resolution via: !=
+
+       }    
     }
 
     public void QuitGame(){
