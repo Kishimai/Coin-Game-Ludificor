@@ -49,6 +49,9 @@ public class CoinPusher : MonoBehaviour
 
     public List<string> spellQueue = new List<string>();
 
+    public Material defaultAppearance;
+    public Material bulldozeMaterial;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -166,6 +169,8 @@ public class CoinPusher : MonoBehaviour
     {
         bulldoze = true;
 
+        gameObject.GetComponent<Renderer>().material = bulldozeMaterial;
+
         pusherRb.velocity = Vector3.zero;
 
         while (currentPosition.z > positionA.z)
@@ -199,6 +204,8 @@ public class CoinPusher : MonoBehaviour
         }
 
         spellQueue.Remove("bulldoze");
+
+        gameObject.GetComponent<Renderer>().material = defaultAppearance;
 
         bulldoze = false;
     }
