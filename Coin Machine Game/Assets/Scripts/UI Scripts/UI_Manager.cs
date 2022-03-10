@@ -13,6 +13,8 @@ public class UI_Manager : MonoBehaviour
     public GameObject background;
     [BoxGroup("Input")]
     public GameObject eventManager;
+    [BoxGroup("Input")]
+    public EventsManager manager;
 
     [BoxGroup("UI")] // Component Panels
     public GameObject Selection, Settings, Collectibles, InGame, PausedGame, ShopInGame, ShopButton, 
@@ -125,6 +127,7 @@ public class UI_Manager : MonoBehaviour
                 ItemSelection.SetActive(false);
                 LoadingScreen.SetActive(false);
                 ComboPegSelection.SetActive(false);
+                manager.allowPusherMovements = true; // disables bug that doesnt allow movement on Prize Selection -> ESC
 
                 isPaused = false;
 

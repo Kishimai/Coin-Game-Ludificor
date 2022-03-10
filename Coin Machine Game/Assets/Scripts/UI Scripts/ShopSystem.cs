@@ -36,7 +36,7 @@ public class ShopSystem : MonoBehaviour
     }
     
     public void ApplyInfoData(){ // Setting infos of Each Coin Data
-        ObjectContent.transform.GetChild(0).GetComponent<Image>().color = CurrentCoin.CoinColor;
+        ObjectContent.transform.GetChild(0).GetComponent<Image>().sprite = CurrentCoin.CoinArt;
         ObjectContent.transform.GetChild(1).transform.GetChild(0).GetComponent<TMP_Text>().text = CurrentCoin.currentCost.ToString("0");
         ObjectContent.transform.GetChild(2).GetComponent<TMP_Text>().text = CurrentCoin.Name;
         ObjectContent.transform.GetChild(3).GetComponent<TMP_Text>().text = $"${CurrentCoin.currentValue} > <color=green>${CurrentCoin.currentValue+CurrentCoin.AddPerLevel}</color>";
@@ -50,8 +50,6 @@ public class ShopSystem : MonoBehaviour
     }
 
     public void RestartData(){
-        // Data did not reset correctly at the start of each game
-        // Instead of using _data on all of these lines, it used CurrentCoin
         foreach(CoinData _data in CoinData_List){
             _data.currentCost = _data.BaseCost;
             _data.CurrentLevel = 0;
@@ -81,27 +79,21 @@ public class ShopSystem : MonoBehaviour
     public void UpgradeCoin(){
         if(UI._currentCoin >= CurrentCoin.currentCost && CurrentCoin.CurrentLevel != 10){
 
-            CurrentCoin.CurrentLevel++; // <--- Moving level increase here fixed the bug of second coin purchase being $0
+            CurrentCoin.CurrentLevel++;
             UI._currentCoin -= CurrentCoin.currentCost;
             CurrentCoin.currentCost = CalculateValue(CurrentCoin.BaseCost, CurrentCoin.CurrentLevel, CurrentCoin.levelsForFree);
             CurrentCoin.currentValue += CurrentCoin.AddPerLevel;
-            //CurrentCoin.CurrentLevel++; <--- Level previously increased here
             ObjectContent.transform.GetChild(3).GetComponent<TMP_Text>().text = $"${CurrentCoin.currentValue} > <color=green>${CurrentCoin.currentValue + CurrentCoin.AddPerLevel}</color>";
             ObjectContent.transform.GetChild(1).transform.GetChild(0).GetComponent<TMP_Text>().text = CurrentCoin.currentCost.ToString("0");
 
-            // Changed int from 7 to 9, now it unlocks next coin when upgrade reaches maximum
             if (CurrentCoin.CurrentLevel == 9){
-                ++currentOrder; // Increases currentOrder by 1, every time coin a coin is fully upgraded
+                ++currentOrder;
                 foreach(CoinData _data in CoinData_List){
                     if(CurrentCoin.Order != 12){
                         if(currentOrder == _data.Order){ // Now tracks current order in shop and compares to data in list
                             CurrentCoin = _data;
                         }
-                        // Had to change this if statement, as it was skipping coins in the list
-                        //if (CurrentCoin.Order + 1 == _data.Order)
-                        //{
-                        //    CurrentCoin = _data;
-                        //}
+                        
                     } else{
                         // Cant Upgrade Maxed out all coins.
                     }

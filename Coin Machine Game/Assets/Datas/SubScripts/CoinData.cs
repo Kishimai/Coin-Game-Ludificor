@@ -20,7 +20,7 @@ public class CoinData : ScriptableObject
     [BoxGroup("Core Information")]
     public Material materialColor;
     [BoxGroup("Core Information")]
-    public Color CoinColor;
+    public Sprite CoinArt;
     [BoxGroup("Core Information")]
     [TextArea(8, 8)]
     public string CoinDescription;
