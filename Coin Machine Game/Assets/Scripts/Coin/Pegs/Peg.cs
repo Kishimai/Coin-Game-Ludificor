@@ -138,8 +138,12 @@ public class Peg : MonoBehaviour
         else if (pegType.Equals("combo"))
         {
             amCombo = true;
+            amDiamond = false;
+            amGolden = false;
             standardAppearance.SetActive(false);
             comboAppearance.SetActive(true);
+            diamondAppearance.SetActive(false);
+            goldAppearance.SetActive(false);
             GetComponent<CapsuleCollider>().isTrigger = false;
         }
     }

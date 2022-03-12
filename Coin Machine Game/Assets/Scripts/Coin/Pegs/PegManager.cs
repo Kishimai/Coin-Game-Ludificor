@@ -84,7 +84,8 @@ public class PegManager : MonoBehaviour
             }
             else if (modifiedPegs.Contains(playerSelectedPeg))
             {
-                Debug.Log("Cannot pick a modified peg to replace! (yet)");
+                selectedPeg = playerSelectedPeg;
+                pegTyping = "combo";
             }
         }
 
@@ -115,7 +116,9 @@ public class PegManager : MonoBehaviour
         {
             AddToModified(selectedPeg);
             selectedPeg.GetComponent<Peg>().ConvertToCombo();
-            pegcombo.Play();
+
+            Debug.Log(selectedPeg);
+            Debug.Log(pegTyping);
         }
     }
 
@@ -210,18 +213,6 @@ public class PegManager : MonoBehaviour
         chosenPeg = unmodifiedPegs[Random.Range(0, unmodifiedPegs.Count)];
 
         return chosenPeg;
-    }
-
-    // Likely not used
-    private GameObject SelectModified()
-    {
-        return null;
-    }
-
-    // Likely not used
-    private void AddToUnmodified(GameObject pegToUnmod)
-    {
-
     }
 
     private void AddToModified(GameObject pegToMod)
