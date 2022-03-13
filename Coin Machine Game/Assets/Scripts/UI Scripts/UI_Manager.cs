@@ -253,7 +253,8 @@ public class UI_Manager : MonoBehaviour
         _musicText.text = _musicVolume.ToString("0");
         _muteAll = _muteAllToggle.enabled;
         _CoinText.text = $"$ {_currentCoin.ToString("0")}";
-        windowed = windowedToggle.enabled;
+
+        windowed = windowedToggle.isOn;
 
         if (Input.GetKey(KeyCode.Tab))
         {
@@ -293,12 +294,6 @@ public class UI_Manager : MonoBehaviour
                 ShopButton.SetActive(!ShopButton.activeSelf);
                 break;
         }
-    }
-
-    public void ProjectSettings(string Function){
-       if(Function == "WindowResolutionUpdate"){ // Updates by comparing the list from the Current Resolution via: !=
-
-       }    
     }
 
     public void QuitGame(){
