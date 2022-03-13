@@ -11,6 +11,9 @@ public class ItemBuilder : MonoBehaviour
     public GameObject[] allPrinterPlanes;
     public GameObject playerMachinePlane;
 
+    public GameObject coinParent;
+    public GameObject capsuleParent;
+
     public GameObject[] itemCapsules;
 
     public GameObject coin;
@@ -101,6 +104,8 @@ public class ItemBuilder : MonoBehaviour
         Vector3 planePos = plane.transform.position;
         itemsToBuild = Random.Range(1, 4);
 
+        GameObject newItem;
+
         for (int i = 0; i < itemsToBuild + 1; ++i)
         {
             // Picks random X position within the boundry of the plane
@@ -112,7 +117,9 @@ public class ItemBuilder : MonoBehaviour
             int randItem = Random.Range(0, itemCapsules.Length);
 
             // Makes random item capsule with random position
-            Instantiate(itemCapsules[randItem], new Vector3(planePos.x + randomXPosition / 2, 2, planePos.z + randomZPosition / 2), Quaternion.identity);
+            newItem = Instantiate(itemCapsules[randItem], new Vector3(planePos.x + randomXPosition / 2, 2, planePos.z + randomZPosition / 2), Quaternion.identity);
+
+            newItem.transform.SetParent(capsuleParent.transform);
         }
     }
 
@@ -126,6 +133,8 @@ public class ItemBuilder : MonoBehaviour
 
         Vector3 boundry = new Vector3(planeScale.x - 1, 0, planeScale.z - 1);
 
+        GameObject newItem;
+
         while (newNum < numItems)
         {
             // Picks random X position within the boundry of the plane
@@ -135,7 +144,9 @@ public class ItemBuilder : MonoBehaviour
 
             int randItem = Random.Range(0, itemCapsules.Length);
 
-            Instantiate(itemCapsules[randItem], new Vector3(planePos.x + randomXPosition / 2, 27, planePos.z + randomZPosition / 2), Quaternion.identity);
+            newItem = Instantiate(itemCapsules[randItem], new Vector3(planePos.x + randomXPosition / 2, 27, planePos.z + randomZPosition / 2), Quaternion.identity);
+
+            newItem.transform.SetParent(capsuleParent.transform);
 
             ++newNum;
 
@@ -147,6 +158,8 @@ public class ItemBuilder : MonoBehaviour
 
     public void BuildItem()
     {
+        GameObject newItem;
+
         Vector3 planePos = playerMachinePlane.transform.position;
         Vector3 planeScale = playerMachinePlane.transform.localScale;
 
@@ -159,11 +172,15 @@ public class ItemBuilder : MonoBehaviour
 
         int randItem = Random.Range(0, itemCapsules.Length);
 
-        Instantiate(itemCapsules[randItem], new Vector3(planePos.x + randomXPosition / 2, 27, planePos.z + randomZPosition / 2), Quaternion.identity);
+        newItem = Instantiate(itemCapsules[randItem], new Vector3(planePos.x + randomXPosition / 2, 27, planePos.z + randomZPosition / 2), Quaternion.identity);
+
+        newItem.transform.SetParent(capsuleParent.transform);
     }
 
     public void BuildCoin()
     {
+        GameObject newCoin;
+
         Vector3 planePos = playerMachinePlane.transform.position;
         Vector3 planeScale = playerMachinePlane.transform.localScale;
 
@@ -181,6 +198,8 @@ public class ItemBuilder : MonoBehaviour
 
         generation.GetPlacementData();
 
-        Instantiate(coin, position, Quaternion.Euler(randomRotation));
+        newCoin = Instantiate(coin, position, Quaternion.Euler(randomRotation));
+
+        newCoin.transform.SetParent(coinParent.transform);
     }
 }

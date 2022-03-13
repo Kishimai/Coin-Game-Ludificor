@@ -32,6 +32,7 @@ public class CoinRowPrinter : MonoBehaviour
     public int planeIndex = 0;
     // Holds the currently selected item which should be created
     public GameObject currentItem;
+    public GameObject coinParent;
     // Holds the position for the new printer surface
     public Vector3 newPosition;
     // Holds the position for the starting location the printer should be moved to
@@ -203,6 +204,8 @@ public class CoinRowPrinter : MonoBehaviour
     // Responsible for putting the coins/items into the scene
     public void ExtrudeCoins()
     {
+        GameObject newCoin;
+
         // Looks at each individual extruder in the printExtruders array
         foreach (GameObject extruder in printExtruders)
         {
@@ -217,11 +220,13 @@ public class CoinRowPrinter : MonoBehaviour
 
                 generation.returnObject();
                 // Creates the current coin/item at the extruder's position, plus the random margin
-                Instantiate(currentItem, extruder.transform.position + positionalNoise, Quaternion.identity);
+                newCoin = Instantiate(currentItem, extruder.transform.position + positionalNoise, Quaternion.identity);
 
                 Rigidbody coinRb = currentItem.GetComponent<Rigidbody>();
 
                 coinRb.constraints = RigidbodyConstraints.FreezePosition;
+
+                newCoin.transform.SetParent(coinParent.transform);
             }
         }
     }

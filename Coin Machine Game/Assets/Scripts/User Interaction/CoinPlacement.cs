@@ -17,6 +17,8 @@ public class CoinPlacement : MonoBehaviour
     // Holds the player's currently selected coin: >> I'll be changing its Components on each placement
     public GameObject selectedCoin;
 
+    public GameObject coinParent;
+
     public GameObject spellCoin;
     public GameObject bombCoin;
     public GameObject tremorCoin;
@@ -168,6 +170,9 @@ public class CoinPlacement : MonoBehaviour
 
     void DropLogic(Vector3 clampedPosition)
     {
+
+        GameObject newCoin;
+
         if (spells.Count > 0)
         {
 
@@ -189,7 +194,7 @@ public class CoinPlacement : MonoBehaviour
 
             spells.Remove(randomSpell);
 
-            Instantiate(spellCoin, clampedPosition, Quaternion.Euler(90, 0, 0));
+            newCoin = Instantiate(spellCoin, clampedPosition, Quaternion.Euler(90, 0, 0));
 
             Transform identification = spellCoin.transform.GetChild(0);
 
@@ -197,6 +202,8 @@ public class CoinPlacement : MonoBehaviour
             {
                 detonateButton.SetActive(true);
             }
+
+            newCoin.transform.SetParent(coinParent.transform);
         }
         else
         {
@@ -204,13 +211,15 @@ public class CoinPlacement : MonoBehaviour
             {
                 generation.GetPlacementData();
                 // Places the currently selected coin >> Changing its Component every placement
-                Instantiate(selectedCoin, clampedPosition, Quaternion.Euler(90, 0, 0));
+                newCoin = Instantiate(selectedCoin, clampedPosition, Quaternion.Euler(90, 0, 0));
                 dropCooldown = maxCooldown;
 
                 if (additionalDropChance > 0)
                 {
                     AttemptAdditionalCoin(clampedPosition);
                 }
+
+                newCoin.transform.SetParent(coinParent.transform);
             }
             else if (dropCooldown <= 0 && blitzEvent == true)
             {
@@ -226,13 +235,15 @@ public class CoinPlacement : MonoBehaviour
                 // !Play particle effect at instantiation position!
                 blitzSparkle.transform.position = blitzPosition;
                 blitzSparkle.GetComponent<ParticleSystem>().Play();
-                Instantiate(selectedCoin, blitzPosition, Quaternion.Euler(90, 0, 0));
+                newCoin = Instantiate(selectedCoin, blitzPosition, Quaternion.Euler(90, 0, 0));
                 dropCooldown = blitzCooldown;
 
                 if (additionalDropChance > 0)
                 {
                     AttemptAdditionalCoin(clampedPosition);
                 }
+
+                newCoin.transform.SetParent(coinParent.transform);
             }
         }
     }
