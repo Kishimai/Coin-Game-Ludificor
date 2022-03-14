@@ -64,6 +64,7 @@ public class CoinPlacement : MonoBehaviour
 
     public int additionalDropChance = 0;
     private int guaranteedDrops = 0;
+    private int maxAdditionalDrops = 5;
 
     // Start is called before the first frame update
     void Start()
@@ -292,6 +293,11 @@ public class CoinPlacement : MonoBehaviour
         {
             additionalDropChance -= 100;
             ++guaranteedDrops;
+
+            if (guaranteedDrops > maxAdditionalDrops)
+            {
+                guaranteedDrops = maxAdditionalDrops;
+            }
         }
     }
 }

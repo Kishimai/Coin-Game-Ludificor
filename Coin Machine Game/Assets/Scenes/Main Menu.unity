@@ -946,8 +946,6 @@ MonoBehaviour:
   bulldozeCoin: {fileID: 1030149121657076569, guid: 1e0e4cde857c09a4b978d0388540bd4a, type: 3}
   blitzSparkle: {fileID: 1926258571}
   spells:
-  - bomb
-  - tremor
   - bulldoze
   activeSpells: []
   generation: {fileID: 1384771965}
@@ -2731,18 +2729,6 @@ MonoBehaviour:
           m_IntArgument: 6
           m_FloatArgument: 0
           m_StringArgument: OpenOrClose
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1092959380}
-        m_TargetAssemblyTypeName: EventsManager, Assembly-CSharp
-        m_MethodName: PauseMachine
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!222 &113195692
@@ -5456,8 +5442,8 @@ MonoBehaviour:
   bombVoucher: {fileID: 21300000, guid: df70b6fd0ffbb1549988133893105c85, type: 3}
   tremorVoucher: {fileID: 21300000, guid: 53310cabd7d52604ab75c59c013a1e8a, type: 3}
   bulldozeVoucher: {fileID: 21300000, guid: bc52b2dbaf373e44f808c939e2f6367a, type: 3}
-  moreCoin: {fileID: 0}
-  coinStorm: {fileID: 0}
+  moreCoin: {fileID: 21300000, guid: 6bf70523f1fa8cd408b969de2fc321b9, type: 3}
+  coinStorm: {fileID: 21300000, guid: f5171bffd0d19de4999028cd2b808ba0, type: 3}
   common:
     serializedVersion: 2
     rgba: 16777215
@@ -17763,18 +17749,6 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 4
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1092959380}
-        m_TargetAssemblyTypeName: EventsManager, Assembly-CSharp
-        m_MethodName: ResumeMachine
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -33648,8 +33622,8 @@ MonoBehaviour:
   bombVoucher: {fileID: 21300000, guid: df70b6fd0ffbb1549988133893105c85, type: 3}
   tremorVoucher: {fileID: 21300000, guid: 53310cabd7d52604ab75c59c013a1e8a, type: 3}
   bulldozeVoucher: {fileID: 21300000, guid: bc52b2dbaf373e44f808c939e2f6367a, type: 3}
-  moreCoin: {fileID: 0}
-  coinStorm: {fileID: 0}
+  moreCoin: {fileID: 21300000, guid: 6bf70523f1fa8cd408b969de2fc321b9, type: 3}
+  coinStorm: {fileID: 21300000, guid: f5171bffd0d19de4999028cd2b808ba0, type: 3}
   common:
     serializedVersion: 2
     rgba: 16777215
@@ -46881,8 +46855,8 @@ MonoBehaviour:
   bombVoucher: {fileID: 21300000, guid: df70b6fd0ffbb1549988133893105c85, type: 3}
   tremorVoucher: {fileID: 21300000, guid: 53310cabd7d52604ab75c59c013a1e8a, type: 3}
   bulldozeVoucher: {fileID: 21300000, guid: bc52b2dbaf373e44f808c939e2f6367a, type: 3}
-  moreCoin: {fileID: 0}
-  coinStorm: {fileID: 0}
+  moreCoin: {fileID: 21300000, guid: 6bf70523f1fa8cd408b969de2fc321b9, type: 3}
+  coinStorm: {fileID: 21300000, guid: f5171bffd0d19de4999028cd2b808ba0, type: 3}
   common:
     serializedVersion: 2
     rgba: 16777215
@@ -47198,7 +47172,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 5011387110048356893, guid: 76db2c4cae7589d41a360edc046510bc, type: 2}
   m_audioClip: {fileID: 8300000, guid: e5fda9826257ab742aad4739b9e80fc9, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -67903,6 +67877,10 @@ PrefabInstance:
       propertyPath: capsuleParent
       value: 
       objectReference: {fileID: 1615608352}
+    - target: {fileID: 8091604206496765972, guid: f798086d4b7640e4f96ea1748ecb619a, type: 3}
+      propertyPath: timeUntilNextItem
+      value: 180
+      objectReference: {fileID: 0}
     - target: {fileID: 8091604206496765972, guid: f798086d4b7640e4f96ea1748ecb619a, type: 3}
       propertyPath: playerMachinePlane
       value: 
