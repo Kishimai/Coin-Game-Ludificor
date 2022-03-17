@@ -15,11 +15,11 @@ I:/Github/Coin Game/Coin-Game-Ludificor/Coin Machine Game
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50856
+54309
 Successfully changed project path to: I:/Github/Coin Game/Coin-Game-Ludificor/Coin Machine Game
 I:/Github/Coin Game/Coin-Game-Ludificor/Coin Machine Game
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 57.98 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 148.54 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.10f1 (297d780c91bc)
 [Subsystems] Discovering subsystems at path S:/Unity Editor/2020.3.10f1/Editor/Data/Resources/UnitySubsystems
@@ -36,106 +36,570 @@ Initialize mono
 Mono path[0] = 'S:/Unity Editor/2020.3.10f1/Editor/Data/Managed'
 Mono path[1] = 'S:/Unity Editor/2020.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'S:/Unity Editor/2020.3.10f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56844
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56512
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: S:/Unity Editor/2020.3.10f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
 Register platform support module: S:/Unity Editor/2020.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: S:/Unity Editor/2020.3.10f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
-Registered in 0.001253 seconds.
+Registered in 0.217847 seconds.
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 57.05 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 71.58 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.269 seconds
+- Completed reload, in  4.152 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.005070 seconds.
+Registered in 1.127928 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 58.82 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 62.19 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.620 seconds
+- Completed reload, in  5.049 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 0.86 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.10 seconds
+Refreshing native plugins compatible for Editor in 1.29 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 3303 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 231.7 MB.
 System memory in use after: 231.9 MB.
 
 Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 3794.
-Total: 27.656000 ms (FindLiveObjects: 0.419500 ms CreateObjectMapping: 0.099400 ms MarkObjects: 27.097500 ms  DeleteObjects: 0.037100 ms)
+Total: 29.056000 ms (FindLiveObjects: 0.417900 ms CreateObjectMapping: 0.086100 ms MarkObjects: 28.519600 ms  DeleteObjects: 0.030200 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Shaders
-  artifactKey: Guid(f12d92e14035e2b48a45a7ccf1f02367) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Shaders using Guid(f12d92e14035e2b48a45a7ccf1f02367) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a785462027793bb93f9e2f7ceec4b1a') in 0.032760 seconds
-  Import took 0.038014 seconds .
+  path: Assets/Scripts/Spells/Bulldoze/BulldozeCoin.cs
+  artifactKey: Guid(a35abff852477984c8d894978da42218) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Spells/Bulldoze/BulldozeCoin.cs using Guid(a35abff852477984c8d894978da42218) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29ed27a0fbaa3156d8b03bb07cceee3b') in 0.066328 seconds
+  Import took 0.071968 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 4.631158 seconds.
-  path: Assets/Visual Effects
-  artifactKey: Guid(c5ff8265b7f801243bd33183ba3e61c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Visual Effects using Guid(c5ff8265b7f801243bd33183ba3e61c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '309e17ffe8eb6bb4b6c0041ae0d504ed') in 0.006736 seconds
-  Import took 0.012068 seconds .
+  Time since last request: 0.000270 seconds.
+  path: Assets/Scripts/Spells
+  artifactKey: Guid(c8794680f98b38f4683d13f059da6bdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Spells using Guid(c8794680f98b38f4683d13f059da6bdc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '508a71d741987b3efa5b43c57af592b7') in 0.005701 seconds
+  Import took 0.010792 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000802 seconds.
-  path: Assets/Visual Effects
-  artifactKey: Guid(c5ff8265b7f801243bd33183ba3e61c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Visual Effects using Guid(c5ff8265b7f801243bd33183ba3e61c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '309e17ffe8eb6bb4b6c0041ae0d504ed') in 0.001819 seconds
-  Import took 0.007441 seconds .
+  Time since last request: 2.724190 seconds.
+  path: Assets/Visual Effects/BulldozeBolt.vfx
+  artifactKey: Guid(8a8e23bc34f7dfc4dbbc1cab9933cee4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Effects/BulldozeBolt.vfx using Guid(8a8e23bc34f7dfc4dbbc1cab9933cee4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5fabf7f644d817ed23f8678a44d42208') in 0.017129 seconds
+  Import took 0.022351 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 17.722469 seconds.
+  Time since last request: 30.213379 seconds.
+  path: Assets/Resources/3D Models/Coin Machine/Machine Body/Primitive Models/Peggy/Peg_me_-_Copy.fbx
+  artifactKey: Guid(614ed036d645d3b44bf7785cfa29e26d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3D Models/Coin Machine/Machine Body/Primitive Models/Peggy/Peg_me_-_Copy.fbx using Guid(614ed036d645d3b44bf7785cfa29e26d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c60907432d8fcd8b1f319063afeae42a') in 0.342189 seconds
+  Import took 0.350186 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/Resources/3D Models/Crap/DirtIwalkON.fbx
+  artifactKey: Guid(f62f8f94248f70d44a374da4119a35fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3D Models/Crap/DirtIwalkON.fbx using Guid(f62f8f94248f70d44a374da4119a35fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c89787ad388474f4d43ca7dce73438df') in 0.037486 seconds
+  Import took 0.042334 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000195 seconds.
+  path: Assets/Resources/3D Models/Coin Machine/Machine Body/Primitive Models/Peggy/Peg_me_-_Copy.fbx
+  artifactKey: Guid(614ed036d645d3b44bf7785cfa29e26d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3D Models/Coin Machine/Machine Body/Primitive Models/Peggy/Peg_me_-_Copy.fbx using Guid(614ed036d645d3b44bf7785cfa29e26d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c60907432d8fcd8b1f319063afeae42a') in 0.022200 seconds
+  Import took 0.027998 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000237 seconds.
+  path: Assets/Resources/3D Models/Crap/DirtIwalkON.fbx
+  artifactKey: Guid(f62f8f94248f70d44a374da4119a35fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3D Models/Crap/DirtIwalkON.fbx using Guid(f62f8f94248f70d44a374da4119a35fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c89787ad388474f4d43ca7dce73438df') in 0.012071 seconds
+  Import took 0.017285 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.777456 seconds.
+  path: Assets/Resources/3D Models/Coin Machine/Coins/Primitive Models/GemCoin.fbx
+  artifactKey: Guid(0106181cb4022ae418b9a34ec1cc4890) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3D Models/Coin Machine/Coins/Primitive Models/GemCoin.fbx using Guid(0106181cb4022ae418b9a34ec1cc4890) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '368ad03f91339e02c22014e642b0288a') in 0.033118 seconds
+  Import took 0.038435 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Assets/Resources/3D Models/Coin Machine/Coins/Primitive Models/Guilded_Coin_Bumper.fbx
+  artifactKey: Guid(7e8da2606769742428691fc15039d115) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3D Models/Coin Machine/Coins/Primitive Models/Guilded_Coin_Bumper.fbx using Guid(7e8da2606769742428691fc15039d115) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd98272ceacb130cbf068b1eb6763d8fb') in 0.019649 seconds
+  Import took 0.024301 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.039975 seconds.
+  path: Assets/Resources/3D Models/Coin Machine/Machine Body/Primitive Models/Peggy/TJ-COMBO.fbx
+  artifactKey: Guid(abf8cec6766f79c4bbfcde06bc2cac2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3D Models/Coin Machine/Machine Body/Primitive Models/Peggy/TJ-COMBO.fbx using Guid(abf8cec6766f79c4bbfcde06bc2cac2e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a16fbcb26a78e32427abcb879f390b8') in 0.025594 seconds
+  Import took 0.030784 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.360222 seconds.
+  path: Assets/Resources/3D Models/Coin Machine/Machine Body/Primitive Models/Peggy/Minecraft_diamond.fbx
+  artifactKey: Guid(6e5be99dc671f2e40b749b934dbde5fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3D Models/Coin Machine/Machine Body/Primitive Models/Peggy/Minecraft_diamond.fbx using Guid(6e5be99dc671f2e40b749b934dbde5fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ab9bca6ae24095fb848a52fb541d34c') in 0.026706 seconds
+  Import took 0.032892 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000188 seconds.
+  path: Assets/Resources/3D Models/Coin Machine/Machine Body/Primitive Models/Peggy/Gold_Peg.fbx
+  artifactKey: Guid(69783cb1b0ee31f4a8b7e073e2b8eb30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3D Models/Coin Machine/Machine Body/Primitive Models/Peggy/Gold_Peg.fbx using Guid(69783cb1b0ee31f4a8b7e073e2b8eb30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '183dcc20a0f06f493f07b1ca76508f61') in 0.029161 seconds
+  Import took 0.034153 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000181 seconds.
+  path: Assets/Models/Side_Pillars_-_Copy.fbx
+  artifactKey: Guid(1cd531f0566d1cb4eb03d24a53a188d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Side_Pillars_-_Copy.fbx using Guid(1cd531f0566d1cb4eb03d24a53a188d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1e57902986d6baa8fe00ad31c5c1a949') in 0.021989 seconds
+  Import took 0.026718 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.006993 seconds.
+  path: Assets/Models/CoinNo_Color_-_Copy.fbx
+  artifactKey: Guid(81790345360267945b41cf21fabd89ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/CoinNo_Color_-_Copy.fbx using Guid(81790345360267945b41cf21fabd89ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7736bb511e0d4d2a759969f40f0f282') in 0.028497 seconds
+  Import took 0.033778 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000174 seconds.
+  path: Assets/Resources/3D Models/Coin Machine/Coins/Primitive Models/diamonds_boiii.fbx
+  artifactKey: Guid(19265398346d91c44a47684fd9b71ff2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3D Models/Coin Machine/Coins/Primitive Models/diamonds_boiii.fbx using Guid(19265398346d91c44a47684fd9b71ff2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ac0bc13d648d876e312cf8c8ac580f06') in 0.021181 seconds
+  Import took 0.025844 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000161 seconds.
+  path: Assets/Resources/3D Models/Coin Machine/Coins/Primitive Models/Coin.fbx
+  artifactKey: Guid(f02265761b4e44544935d00953ab01ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3D Models/Coin Machine/Coins/Primitive Models/Coin.fbx using Guid(f02265761b4e44544935d00953ab01ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae954d3e1fc6054af917f282f3ca90c5') in 0.028553 seconds
+  Import took 0.033310 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000240 seconds.
+  path: Assets/Resources/3D Models/Coin Machine/Coins/Primitive Models/CoinNo_Color.fbx
+  artifactKey: Guid(24ddd63571cb4f443abc8bd52cf2862e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3D Models/Coin Machine/Coins/Primitive Models/CoinNo_Color.fbx using Guid(24ddd63571cb4f443abc8bd52cf2862e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e33be060ed7b2cd2d70ea6281a32e40a') in 0.026830 seconds
+  Import took 0.031882 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/Resources/3D Models/Coin Machine/Machine Body/Primitive Models/Side_Pillars.fbx
+  artifactKey: Guid(cdfa09467652b5a4d8cbe738437061b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3D Models/Coin Machine/Machine Body/Primitive Models/Side_Pillars.fbx using Guid(cdfa09467652b5a4d8cbe738437061b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14afe6ec59ebd238dce9425d5ba14c58') in 0.019211 seconds
+  Import took 0.024841 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/Resources/3D Models/Coin Machine/Machine Body/Primitive Models/Peggy/Pleb_Peg.fbx
+  artifactKey: Guid(306b3296930853e4f9ac856e1309c97c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3D Models/Coin Machine/Machine Body/Primitive Models/Peggy/Pleb_Peg.fbx using Guid(306b3296930853e4f9ac856e1309c97c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3a55b2a60c9fc69e524ed638bf6c4de') in 0.056355 seconds
+  Import took 0.062735 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.118875 seconds.
+  path: Assets/Resources/3D Models/Coin Machine/Machine Body/Primitive Models/Side_Blocks.fbx
+  artifactKey: Guid(87aa30ff79b92ad45a531e625b6c9e4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3D Models/Coin Machine/Machine Body/Primitive Models/Side_Blocks.fbx using Guid(87aa30ff79b92ad45a531e625b6c9e4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8529dd4f0e5feec70f3fd64e9ffb5103') in 0.015999 seconds
+  Import took 0.021341 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000183 seconds.
+  path: Assets/Resources/3D Models/Ballz/TheGreenOne.fbx
+  artifactKey: Guid(1c9fae20cddb9b1439c57871ad794713) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3D Models/Ballz/TheGreenOne.fbx using Guid(1c9fae20cddb9b1439c57871ad794713) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7082482030393bab9c853cb3f1fc4569') in 0.031607 seconds
+  Import took 0.036392 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000208 seconds.
+  path: Assets/Resources/3D Models/Ballz/Waterball.fbx
+  artifactKey: Guid(416c63cf438cb9e4488992ed45184bcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3D Models/Ballz/Waterball.fbx using Guid(416c63cf438cb9e4488992ed45184bcf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1afe1c0bb3cbafdfdd40384d88279d6') in 0.026993 seconds
+  Import took 0.032181 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000210 seconds.
+  path: Assets/Resources/3D Models/Ballz/gayball.fbx
+  artifactKey: Guid(832c682eebc1d3744b817267e0069634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3D Models/Ballz/gayball.fbx using Guid(832c682eebc1d3744b817267e0069634) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1a42997329d6bd1b0fc1f396abd61b9e') in 0.029222 seconds
+  Import took 0.034897 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000273 seconds.
+  path: Assets/Resources/3D Models/Ballz/AfricanAmericanBall.fbx
+  artifactKey: Guid(c440fcf019a1c6a41b1aba2764dfa384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3D Models/Ballz/AfricanAmericanBall.fbx using Guid(c440fcf019a1c6a41b1aba2764dfa384) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd84f70985218489ba031af96ff3e0e30') in 0.029239 seconds
+  Import took 0.034374 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000202 seconds.
+  path: Assets/Resources/3D Models/Ballz/blueballs.fbx
+  artifactKey: Guid(6c15ba926111e16418249d1a190c7d8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/3D Models/Ballz/blueballs.fbx using Guid(6c15ba926111e16418249d1a190c7d8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c50774aa28f814cbe86cbae11be11b15') in 0.029062 seconds
+  Import took 0.033729 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000154 seconds.
+  path: Assets/Models/Pusher_-_Copy.fbx
+  artifactKey: Guid(da2a98d64013e1e43a9a76f114ee740c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Pusher_-_Copy.fbx using Guid(da2a98d64013e1e43a9a76f114ee740c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a87276386d293b60938c731dbd1b26dc') in 0.022514 seconds
+  Import took 0.028012 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000196 seconds.
+  path: Assets/Models/Side_Blocks_-_Copy.fbx
+  artifactKey: Guid(83337333937272a4db594c970f5c65ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Models/Side_Blocks_-_Copy.fbx using Guid(83337333937272a4db594c970f5c65ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '043047d026a144b008fb1e5b22ab2702') in 0.022069 seconds
+  Import took 0.027554 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.472446 seconds.
+  path: Assets/Visual Effects/BulldozeBolt.vfx
+  artifactKey: Guid(8a8e23bc34f7dfc4dbbc1cab9933cee4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Effects/BulldozeBolt.vfx using Guid(8a8e23bc34f7dfc4dbbc1cab9933cee4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fe8421d7a672b419ef501fc4023ee540') in 0.003608 seconds
+  Import took 0.009477 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.684908 seconds.
+  path: Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackRecordButtonEnabled.png
+  artifactKey: Guid(0e5ba0f04df278944a8f5a62f64f5aa6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackRecordButtonEnabled.png using Guid(0e5ba0f04df278944a8f5a62f64f5aa6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b833ad6976eefdb36fe8b9643df9698e') in 0.027808 seconds
+  Import took 0.033769 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000274 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/Collaborate/Assets/Icons/deleted-file-dark@2x.png
+  artifactKey: Guid(a7d900a247e707e45a257328c3ee381e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/Collaborate/Assets/Icons/deleted-file-dark@2x.png using Guid(a7d900a247e707e45a257328c3ee381e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a2a3fa272b8c206ff7ab0bc098311ec') in 0.010945 seconds
+  Import took 0.015599 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000204 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/Collaborate/Assets/Icons/deleted-file-dark.png
+  artifactKey: Guid(ce3ca6a541b5fbc4c80edb5195d78731) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/Collaborate/Assets/Icons/deleted-file-dark.png using Guid(ce3ca6a541b5fbc4c80edb5195d78731) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54c66d12e35ca91b3137245abe2b8d33') in 0.011925 seconds
+  Import took 0.016664 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000575 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/Collaborate/Assets/Icons/deleted-file-light@2x.png
+  artifactKey: Guid(f1c735dde115d4f4c9ff5c633f07fbb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/Collaborate/Assets/Icons/deleted-file-light@2x.png using Guid(f1c735dde115d4f4c9ff5c633f07fbb8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3047b9ce80f0c9ec45a6fe05c6308ae') in 0.011687 seconds
+  Import took 0.016817 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000253 seconds.
+  path: Packages/com.unity.visualeffectgraph/Textures/DefaultParticle.tga
+  artifactKey: Guid(276d9e395ae18fe40a9b4988549f2349) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.visualeffectgraph/Textures/DefaultParticle.tga using Guid(276d9e395ae18fe40a9b4988549f2349) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd14f879292b1aa8e6df1e05a67de9b43') in 0.011223 seconds
+  Import took 0.017497 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000214 seconds.
+  path: Packages/com.unity.collab-proxy/Editor/Collaborate/Assets/Icons/deleted-file-light.png
+  artifactKey: Guid(bb678af880b2dd74cbd76186590c66da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.collab-proxy/Editor/Collaborate/Assets/Icons/deleted-file-light.png using Guid(bb678af880b2dd74cbd76186590c66da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28cb4b2fcdb31e5d0fd403f9f814de00') in 0.012523 seconds
+  Import took 0.017957 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackRecordButtonEnabled@2x.png
+  artifactKey: Guid(0f1c9a12872a30f45bab34f536332bb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackRecordButtonEnabled@2x.png using Guid(0f1c9a12872a30f45bab34f536332bb3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e38668087db187ec6c67ce3d2958b0e7') in 0.011163 seconds
+  Import took 0.015962 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.689749 seconds.
+  path: Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackRecordButtonDisabled.png
+  artifactKey: Guid(9c6daec86666cbb4b9e558b839a103db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackRecordButtonDisabled.png using Guid(9c6daec86666cbb4b9e558b839a103db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4af849207db88ce86e9382f051d9382') in 0.010793 seconds
+  Import took 0.016205 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000192 seconds.
+  path: Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackRecordButtonDisabled@2x.png
+  artifactKey: Guid(db15c78579dee4a4db85f392634c8ecc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackRecordButtonDisabled@2x.png using Guid(db15c78579dee4a4db85f392634c8ecc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0540a830140adc9cec1e642690167eb7') in 0.010734 seconds
+  Import took 0.015179 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.033750 seconds.
+  path: Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMuteButtonEnabled.png
+  artifactKey: Guid(ac5017dfbeee42347b3b45ecc572674e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMuteButtonEnabled.png using Guid(ac5017dfbeee42347b3b45ecc572674e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7e51f817ea1aff3eb6874bd64a7df55') in 0.014174 seconds
+  Import took 0.019514 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000200 seconds.
+  path: Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMuteButtonEnabled@2x.png
+  artifactKey: Guid(e54e20c7a9730fe4c822d63228527ae4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMuteButtonEnabled@2x.png using Guid(e54e20c7a9730fe4c822d63228527ae4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cdfc026d8bbe3daf8d236b46f7edfb2f') in 0.012336 seconds
+  Import took 0.017632 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000174 seconds.
+  path: Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMuteButtonDisabled.png
+  artifactKey: Guid(6ab002208ec290544b44bc263dc58a95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMuteButtonDisabled.png using Guid(6ab002208ec290544b44bc263dc58a95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d1f0cfc71b1dbbe5b69ae0fb22d0fa0') in 0.010822 seconds
+  Import took 0.016054 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000230 seconds.
+  path: Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMuteButtonDisabled@2x.png
+  artifactKey: Guid(9c706019afb28944eb19b500ea0da38c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMuteButtonDisabled@2x.png using Guid(9c706019afb28944eb19b500ea0da38c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80b4bcf36217f9644d7ec9ce9e8e1ffa') in 0.010837 seconds
+  Import took 0.016446 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.426436 seconds.
+  path: Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMarkerButtonEnabled.png
+  artifactKey: Guid(d18286874382ef042bbbdab5f71329c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMarkerButtonEnabled.png using Guid(d18286874382ef042bbbdab5f71329c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e56f16111ef553d5f543a83bd0870e49') in 0.010967 seconds
+  Import took 0.016269 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000160 seconds.
+  path: Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMarkerButtonEnabled@2x.png
+  artifactKey: Guid(6192986415256ca47a97a97507406f5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMarkerButtonEnabled@2x.png using Guid(6192986415256ca47a97a97507406f5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f8bc70508ccac0ecf51d9af2d687af6') in 0.010755 seconds
+  Import took 0.015906 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.006279 seconds.
+  path: Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMarkerButtonDisabled.png
+  artifactKey: Guid(b3644a971cca0bd4eb357cb9aca4dde1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMarkerButtonDisabled.png using Guid(b3644a971cca0bd4eb357cb9aca4dde1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1aafc9db500ecaa4ee7ea986e441e135') in 0.011196 seconds
+  Import took 0.016830 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000189 seconds.
+  path: Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMarkerButtonDisabled@2x.png
+  artifactKey: Guid(77d926c9a4ddcc940b8c000b45cbfb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMarkerButtonDisabled@2x.png using Guid(77d926c9a4ddcc940b8c000b45cbfb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45b4ff901096b2a7df237f0dfc988eff') in 0.010667 seconds
+  Import took 0.015529 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001381 seconds.
+  path: Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMarkerButtonDisabled@2x.png
+  artifactKey: Guid(77d926c9a4ddcc940b8c000b45cbfb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.timeline/Editor/StyleSheets/Images/Icons/d_TrackMarkerButtonDisabled@2x.png using Guid(77d926c9a4ddcc940b8c000b45cbfb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45b4ff901096b2a7df237f0dfc988eff') in 0.004518 seconds
+  Import took 0.010263 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 225.260663 seconds.
+  path: Assets/Visual Effects/BulldozeLightning.vfx
+  artifactKey: Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Effects/BulldozeLightning.vfx using Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcd660c5cce0b07978ea272b517b675c') in 0.006705 seconds
+  Import took 0.012620 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.010835 seconds.
+  path: Assets/Visual Effects/BulldozeBolt.vfx
+  artifactKey: Guid(8a8e23bc34f7dfc4dbbc1cab9933cee4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Effects/BulldozeBolt.vfx using Guid(8a8e23bc34f7dfc4dbbc1cab9933cee4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '268bb5d25727497003be2236603682dc') in 0.003116 seconds
+  Import took 0.008665 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.434904 seconds.
+  path: Assets/Visual Effects/BulldozeLightning.vfx
+  artifactKey: Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Effects/BulldozeLightning.vfx using Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9314a1642b213a22cff5cdf1a32ccae') in 0.003351 seconds
+  Import took 0.009628 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 269.096829 seconds.
+  path: Assets/Visual Effects/BulldozeLightning.vfx
+  artifactKey: Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Effects/BulldozeLightning.vfx using Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35b919385655c69500ef3efeb640ab67') in 0.002764 seconds
+  Import took 0.010184 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.958997 seconds.
+  path: Assets/Visual Effects/BulldozeLightning.vfx
+  artifactKey: Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Effects/BulldozeLightning.vfx using Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '194db7ae71a038403c8db0aa68e95174') in 0.003187 seconds
+  Import took 0.009454 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 322.645568 seconds.
+  path: Assets/Visual Effects/BulldozeLightning.vfx
+  artifactKey: Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Effects/BulldozeLightning.vfx using Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0606acf244530bbf3dc28b9a999915e0') in 0.003717 seconds
+  Import took 0.009889 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 393.769362 seconds.
+  path: Assets/Visual Effects Defaults.asset
+  artifactKey: Guid(055152283101d45409bc96796cfe961a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Effects Defaults.asset using Guid(055152283101d45409bc96796cfe961a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68ec7c70ea4fc36783e2519042118641') in 0.041257 seconds
+  Import took 0.047380 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.122100 seconds.
+  path: Assets/Visual Effects Defaults.asset
+  artifactKey: Guid(055152283101d45409bc96796cfe961a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Effects Defaults.asset using Guid(055152283101d45409bc96796cfe961a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68ec7c70ea4fc36783e2519042118641') in 0.036099 seconds
+  Import took 0.042689 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.171270 seconds.
+  path: Assets/Visual Effects/BulldozeLightning.vfx
+  artifactKey: Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Effects/BulldozeLightning.vfx using Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '973535d2e3e7f376ac90696d3885074f') in 0.002985 seconds
+  Import took 0.009675 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 35.868605 seconds.
+  path: Assets/TextMesh Pro
+  artifactKey: Guid(f54d1bd14bd3ca042bd867b519fee8cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro using Guid(f54d1bd14bd3ca042bd867b519fee8cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6170b652e791f28e2dae01803c8e71bf') in 0.005325 seconds
+  Import took 0.010836 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 113.305460 seconds.
+  path: Assets/Visual Effects/BulldozeLightning.vfx
+  artifactKey: Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Effects/BulldozeLightning.vfx using Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4028f6a56e55790d96c852e51c3b4cfd') in 0.003285 seconds
+  Import took 0.009275 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.063938 seconds.
+  path: Assets/Visual Effects/BulldozeLightning.vfx
+  artifactKey: Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Effects/BulldozeLightning.vfx using Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1873b1ddf23fc39891ae680ea960716') in 0.003592 seconds
+  Import took 0.009553 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.524261 seconds.
+  path: Assets/Visual Effects/BulldozeLightning.vfx
+  artifactKey: Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Effects/BulldozeLightning.vfx using Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e216791de1252bad28189b965cccf266') in 0.003395 seconds
+  Import took 0.009993 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 161.114896 seconds.
+  path: Assets/Visual Effects/BulldozeLightning.vfx
+  artifactKey: Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Effects/BulldozeLightning.vfx using Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '183fa42d666a458b620a4f66b00b577d') in 0.003233 seconds
+  Import took 0.009421 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000170 seconds.
   path: Assets/Visual Effects/Lightning.shadergraph
   artifactKey: Guid(f5b6ae70ebbdb2e428f7cd4ddc6e2bfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Visual Effects/Lightning.shadergraph using Guid(f5b6ae70ebbdb2e428f7cd4ddc6e2bfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbfe7888e379079002152f8215061b74') in 0.044831 seconds
-  Import took 0.049932 seconds .
+Start importing Assets/Visual Effects/Lightning.shadergraph using Guid(f5b6ae70ebbdb2e428f7cd4ddc6e2bfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e93268122d366850cd7cb9debe91cd85') in 0.011453 seconds
+  Import took 0.017487 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 572.982759 seconds.
-  path: Assets/Visual Effects/Lightning.shadergraph
-  artifactKey: Guid(f5b6ae70ebbdb2e428f7cd4ddc6e2bfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Visual Effects/Lightning.shadergraph using Guid(f5b6ae70ebbdb2e428f7cd4ddc6e2bfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c052c5c41e1140bde3411ccb99f98c33') in 0.003196 seconds
-  Import took 0.009120 seconds .
+  Time since last request: 19.697199 seconds.
+  path: Assets/Visual Effects/BulldozeLightning.vfx
+  artifactKey: Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Effects/BulldozeLightning.vfx using Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7111cffbbefd40313b801b79f3cc640f') in 0.002257 seconds
+  Import took 0.008218 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 70.988063 seconds.
-  path: Assets/Visual Effects/BulldozeBolt.vfx
-  artifactKey: Guid(8a8e23bc34f7dfc4dbbc1cab9933cee4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Visual Effects/BulldozeBolt.vfx using Guid(8a8e23bc34f7dfc4dbbc1cab9933cee4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5734be10bfc1efaf79610f1aac466754') in 0.013709 seconds
-  Import took 0.020420 seconds .
+  Time since last request: 4.476340 seconds.
+  path: Assets/Visual Effects/BulldozeLightning.vfx
+  artifactKey: Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Effects/BulldozeLightning.vfx using Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '430de0dc4538a16164779cc84eac4afd') in 0.003002 seconds
+  Import took 0.008861 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 37.538949 seconds.
-  path: Assets/Visual Effects/BulldozeBolt.vfx
-  artifactKey: Guid(8a8e23bc34f7dfc4dbbc1cab9933cee4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Visual Effects/BulldozeBolt.vfx using Guid(8a8e23bc34f7dfc4dbbc1cab9933cee4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df854397e271f08ff667a62c5e82327e') in 0.002596 seconds
-  Import took 0.009048 seconds .
+  Time since last request: 0.000774 seconds.
+  path: Assets/Visual Effects/BulldozeLightning.vfx
+  artifactKey: Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Effects/BulldozeLightning.vfx using Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '430de0dc4538a16164779cc84eac4afd') in 0.003003 seconds
+  Import took 0.008740 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 140.437794 seconds.
-  path: Assets/Visual Effects/BulldozeBolt.vfx
-  artifactKey: Guid(8a8e23bc34f7dfc4dbbc1cab9933cee4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Visual Effects/BulldozeBolt.vfx using Guid(8a8e23bc34f7dfc4dbbc1cab9933cee4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1db68bd0fd0bfaa3a95aaf421cc15def') in 0.002317 seconds
-  Import took 0.008102 seconds .
+  Time since last request: 2.927580 seconds.
+  path: Assets/Visual Effects/BulldozeLightning.vfx
+  artifactKey: Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Effects/BulldozeLightning.vfx using Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '69141b8f8d6df079b7b08141236c7552') in 0.003153 seconds
+  Import took 0.009075 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.409526 seconds.
+  path: Assets/Visual Effects/BulldozeLightning.vfx
+  artifactKey: Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Visual Effects/BulldozeLightning.vfx using Guid(6c71276a2b9b2cd46abbf30d2753cc76) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f805fc7b55929742763fdef38db1991d') in 0.003457 seconds
+  Import took 0.009569 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

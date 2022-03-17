@@ -35,6 +35,8 @@ public class ItemButton : MonoBehaviour
     public Sprite bulldozeVoucher;
     public Sprite moreCoin;
     public Sprite coinStorm;
+    public Sprite blitzDuration;
+    public Sprite surgeDuration;
 
     public Color32 common;
     public Color32 uncommon;
@@ -161,6 +163,14 @@ public class ItemButton : MonoBehaviour
             case "coin_storm":
                 image.color = rare;
                 return coinStorm;
+
+            case "blitz_duration":
+                image.color = common;
+                return blitzDuration;
+
+            case "surge_duration":
+                image.color = common;
+                return surgeDuration;
 
             default:
                 return null;

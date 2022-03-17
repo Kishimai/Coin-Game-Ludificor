@@ -100,7 +100,9 @@ public class ItemInventory : MonoBehaviour
         commonItems = new Dictionary<string, string>
         {
             { "midas_shard", "Increases value of all coins by 1%" },
-            {"peg_remove_mk1", "Removes 1 normal peg from the backboard" }
+            {"peg_remove_mk1", "Removes 1 normal peg from the backboard" },
+            {"blitz_duration", "Increases duration of coin blitz by 1 second" },
+            {"surge_duration", "Increases duration of power surge by 1 second" }
         };
 
         uncommonItems = new Dictionary<string, string>
@@ -223,6 +225,16 @@ public class ItemInventory : MonoBehaviour
 
             case "coin_storm":
                 playerCamera.GetComponent<CoinPlacement>().additionalDropChance += 25;
+                return newItem;
+
+            // --------------- DURATION ITEMS --------------- //
+
+            case "blitz_duration":
+                eventManager.GetComponent<EventsManager>().coinBlitzDuration += 1f;
+                return newItem;
+
+            case "surge_duration":
+                eventManager.GetComponent<EventsManager>().powerSurgeDuration += 1f;
                 return newItem;
 
             // Runs if new item's tag does not match a case in this switch statement
