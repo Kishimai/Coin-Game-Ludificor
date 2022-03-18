@@ -961,6 +961,8 @@ MonoBehaviour:
   blitzEvent: 0
   blitzCooldown: 0
   additionalDropChance: 0
+  guaranteedDrops: 0
+  maxAdditionalDrops: 5
 --- !u!114 &41762029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5446,6 +5448,8 @@ MonoBehaviour:
   coinStorm: {fileID: 21300000, guid: f5171bffd0d19de4999028cd2b808ba0, type: 3}
   blitzDuration: {fileID: 21300000, guid: 6682c797758fffa49bc27d82bca9d099, type: 3}
   surgeDuration: {fileID: 21300000, guid: 6682c797758fffa49bc27d82bca9d099, type: 3}
+  uncommonDice: {fileID: 0}
+  rareDice: {fileID: 0}
   common:
     serializedVersion: 2
     rgba: 16777215
@@ -25327,7 +25331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7248836235790626567, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 11
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7248836235790626567, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -25339,7 +25343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7248836235951138282, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7248836235951138282, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -25443,7 +25447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7248836236540027876, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 40
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7248836236540027876, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_LocalScale.z
@@ -25459,7 +25463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7248836236567830336, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7248836236567830336, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -25487,7 +25491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7248836236666438759, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7248836236666438759, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25583,7 +25587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7248836237326018923, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7248836237326018923, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -25595,7 +25599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7248836237395134178, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 40
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7248836237395134178, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_LocalScale.z
@@ -25643,7 +25647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7248836237589470915, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 11
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7248836237589470915, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -33751,6 +33755,8 @@ MonoBehaviour:
   coinStorm: {fileID: 21300000, guid: f5171bffd0d19de4999028cd2b808ba0, type: 3}
   blitzDuration: {fileID: 21300000, guid: 6682c797758fffa49bc27d82bca9d099, type: 3}
   surgeDuration: {fileID: 21300000, guid: 6682c797758fffa49bc27d82bca9d099, type: 3}
+  uncommonDice: {fileID: 0}
+  rareDice: {fileID: 0}
   common:
     serializedVersion: 2
     rgba: 16777215
@@ -39585,7 +39591,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47bbe7dc4e405eb44a0de00ad12f6db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  commonRarity: 49
+  uncommonRarity: 89
+  rareRarity: 99
   pegManager: {fileID: 1052648224}
+  playerCamera: {fileID: 41762027}
 --- !u!1 &1385064183
 GameObject:
   m_ObjectHideFlags: 0
@@ -46986,6 +46996,8 @@ MonoBehaviour:
   coinStorm: {fileID: 21300000, guid: f5171bffd0d19de4999028cd2b808ba0, type: 3}
   blitzDuration: {fileID: 21300000, guid: 6682c797758fffa49bc27d82bca9d099, type: 3}
   surgeDuration: {fileID: 21300000, guid: 6682c797758fffa49bc27d82bca9d099, type: 3}
+  uncommonDice: {fileID: 0}
+  rareDice: {fileID: 0}
   common:
     serializedVersion: 2
     rgba: 16777215

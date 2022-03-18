@@ -146,6 +146,10 @@ public class PegManager : MonoBehaviour
                 //pegToDisable.SetActive(false);
                 pegToDisable.GetComponent<Peg>().ConvertToDisabled();
             }
+            else
+            {
+                break;
+            }
         }
     }
 

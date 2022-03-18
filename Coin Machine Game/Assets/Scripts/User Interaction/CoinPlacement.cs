@@ -63,8 +63,8 @@ public class CoinPlacement : MonoBehaviour
     public float blitzCooldown;
 
     public int additionalDropChance = 0;
-    private int guaranteedDrops = 0;
-    private int maxAdditionalDrops = 5;
+    public int guaranteedDrops = 0;
+    public int maxAdditionalDrops = 5;
 
     // Start is called before the first frame update
     void Start()

@@ -112,7 +112,8 @@ public class ItemInventory : MonoBehaviour
             { "golden_peg", "Converts 1 normal peg to a gilded version, doubling value of coins that touch it" },
             { "more_coins", "Adds 5% chance to drop an additional coin each coin placement (Max: 500%)" },
             { "bomb_voucher", "Gives bomb coin which can be detonated" },
-            { "tremor_voucher", "Gives tremor coin which will shake the machine when placed" }
+            { "tremor_voucher", "Gives tremor coin which will shake the machine when placed" },
+            { "uncommon_dice", "Increases chance of getting uncommon items by 5% while reducing chance of common items by 5% (lowest 10%)" }
         };
 
         rareItems = new Dictionary<string, string>
@@ -122,7 +123,8 @@ public class ItemInventory : MonoBehaviour
             { "diamond_peg", "Converts 1 normal peg to a diamond version, tripling value of coins that touch it" },
             { "combo_peg", "Converts 1 normal peg to a combo version, doubling value of coins that touch it (Effect stacks)" },
             { "bulldoze_voucher", "Gives bulldoze coin which will cause coin pusher to force all coins into collection" },
-            { "coin_storm", "Adds 25% chance to drop an additional coin each coin placement (Max: 500%)" }
+            { "coin_storm", "Adds 25% chance to drop an additional coin each coin placement (Max: 500%)" },
+            { "rare_dice", "Increases chance of getting rare items by 5% while reducing chance of uncommon items by 5% (lowest 10%)" }
         };
     }
 
@@ -155,15 +157,15 @@ public class ItemInventory : MonoBehaviour
 
             case "peg_remove_mk1":
                 pegManager.GetComponent<PegManager>().DisablePegs(1);
-                return null;
+                return newItem;
 
             case "peg_remove_mk2":
                 pegManager.GetComponent<PegManager>().DisablePegs(2);
-                return null;
+                return newItem;
 
             case "peg_remove_mk3":
                 pegManager.GetComponent<PegManager>().DisablePegs(3);
-                return null;
+                return newItem;
 
             // --------------- PEG ALTERING ITEMS --------------- //
             case "golden_peg":
@@ -235,6 +237,16 @@ public class ItemInventory : MonoBehaviour
 
             case "surge_duration":
                 eventManager.GetComponent<EventsManager>().powerSurgeDuration += 1f;
+                return newItem;
+
+            // --------------- CHANCE INFLUENCING ITEMS --------------- //
+
+            case "uncommon_dice":
+                gameObject.GetComponent<ItemRandomizer>().IncreaseUncommonChance();
+                return newItem;
+
+            case "rare_dice":
+                gameObject.GetComponent<ItemRandomizer>().IncreaseRareChance();
                 return newItem;
 
             // Runs if new item's tag does not match a case in this switch statement

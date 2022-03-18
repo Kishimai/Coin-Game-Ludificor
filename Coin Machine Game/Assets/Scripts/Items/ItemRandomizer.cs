@@ -14,11 +14,18 @@ public class ItemRandomizer : MonoBehaviour
     public Dictionary<string, string> uncommonItems;
     public Dictionary<string, string> rareItems;
 
+    private List<string> ignoredItems = new List<string>();
+
+    public int commonRarity = 49;
+    public int uncommonRarity = 89;
+    public int rareRarity = 99;
+
     //public string chosenItem;
 
     private Dictionary<string, string> chosenItem;
 
     public GameObject pegManager;
+    public GameObject playerCamera;
 
     // Start is called before the first frame update
     void Start()
@@ -66,7 +73,7 @@ public class ItemRandomizer : MonoBehaviour
 
     private Dictionary<string, string> ChooseItem(int rarity)
     {
-        if (rarity <= 49)
+        if (rarity <= commonRarity)
         {
             string[] commonDictKeys = commonItems.Keys.ToArray();
 
@@ -85,7 +92,7 @@ public class ItemRandomizer : MonoBehaviour
 
             //chosenItem = commonItems[Random.Range(0, commonItems.Length)];
         }
-        else if (rarity <= 89)
+        else if (rarity <= uncommonRarity)
         {
 
             string[] uncommonDictKeys = uncommonItems.Keys.ToArray();
@@ -105,7 +112,7 @@ public class ItemRandomizer : MonoBehaviour
 
             //chosenItem = uncommonItems[Random.Range(0, uncommonItems.Length)];
         }
-        else if (rarity <= 99)
+        else if (rarity <= rareRarity)
         {
 
             string[] rareDictKeys = rareItems.Keys.ToArray();
@@ -137,31 +144,35 @@ public class ItemRandomizer : MonoBehaviour
         // EXCLUDING THE PASSED ITEM
         if (item.Equals("peg_remove_mk1") && pegManager.GetComponent<PegManager>().unmodifiedPegs.Count == 0)
         {
-            newDict = new Dictionary<string, string>
-            {
-                { "midas_shard", "Increases value of all coins by 1%" }
-            };
+            newDict = GetFromAvailable("common", "peg_remove");
         }
         else if (item.Equals("peg_remove_mk2") && pegManager.GetComponent<PegManager>().unmodifiedPegs.Count == 0)
         {
-            newDict = new Dictionary<string, string>
-            {
-                { "midas_crystal", "Increases value of all coins by 5%" }
-            };
+            newDict = GetFromAvailable("uncommon", "peg_remove");
         }
         else if (item.Equals("peg_remove_mk3") && pegManager.GetComponent<PegManager>().unmodifiedPegs.Count == 0)
         {
-            newDict = new Dictionary<string, string>
-            {
-                { "midas_relic", "Increases value of all coins by 10%" }
-            };
+            newDict = GetFromAvailable("rare", "peg_remove");
         }
         else if (item.Equals("combo_peg") && pegManager.GetComponent<PegManager>().unmodifiedPegs.Count == 0)
         {
-            newDict = new Dictionary<string, string>
-            {
-                { "midas_relic", "Increases value of all coins by 10%" }
-            };
+            newDict = GetFromAvailable("rare", "combo_peg");
+        }
+        else if (item.Equals("uncommon_dice") && commonRarity <= 9)
+        {
+            newDict = GetFromAvailable("uncommon", "uncommon_dice");
+        }
+        else if (item.Equals("rare_dice") && uncommonRarity <= 19)
+        {
+            newDict = GetFromAvailable("rare", "rare_dice");
+        }
+        else if (item.Equals("more_coins") && playerCamera.GetComponent<CoinPlacement>().guaranteedDrops >= playerCamera.GetComponent<CoinPlacement>().maxAdditionalDrops)
+        {
+            newDict = GetFromAvailable("uncommon", "more_coins");
+        }
+        else if (item.Equals("coin_storm") && playerCamera.GetComponent<CoinPlacement>().guaranteedDrops >= playerCamera.GetComponent<CoinPlacement>().maxAdditionalDrops)
+        {
+            newDict = GetFromAvailable("rare", "coin_storm");
         }
 
         if (newDict != null)
@@ -171,6 +182,87 @@ public class ItemRandomizer : MonoBehaviour
         else
         {
             return null;
+        }
+    }
+
+    public Dictionary<string, string> GetFromAvailable(string rarity, string itemToIgnore)
+    {
+        Dictionary<string, string> newDict = new Dictionary<string, string>();
+        Dictionary<string, string> listOfItems;
+
+        if (!ignoredItems.Contains(itemToIgnore))
+        {
+            ignoredItems.Add(itemToIgnore);
+        }
+
+        if (rarity.Equals("common"))
+        {
+            listOfItems = gameObject.GetComponent<ItemInventory>().commonItems;
+        }
+        else if (rarity.Equals("uncommon"))
+        {
+            listOfItems = gameObject.GetComponent<ItemInventory>().uncommonItems;
+        }
+        else
+        {
+            listOfItems = gameObject.GetComponent<ItemInventory>().rareItems;
+        }
+
+        bool includeItem = true;
+
+        // Looks at all items and descriptions in the rarity category selected
+        foreach (KeyValuePair<string, string> item in listOfItems)
+        {
+
+            // Checks if any item in the list of ignored items matches the current item in question
+            foreach(string ignoredItem in ignoredItems)
+            {
+                // If item contains ignored item substring
+                if (item.Key.Contains(ignoredItem))
+                {
+                    // If the item matches, tell it to not be included
+                    includeItem = false;
+                }
+            }
+
+            if (includeItem)
+            {
+                newDict.Add(item.Key, item.Value);
+            }
+        }
+
+        string[] items = newDict.Keys.ToArray();
+        string[] descriptions = newDict.Values.ToArray();
+
+        int chosenItem = Random.Range(0, items.Length);
+
+        newDict = new Dictionary<string, string>
+        {
+            { items[chosenItem], descriptions[chosenItem] }
+        };
+
+        return newDict;
+    }
+
+    public void IncreaseUncommonChance()
+    {
+        if (commonRarity > 10)
+        {
+            commonRarity -= 5;
+        }
+    }
+
+    public void IncreaseRareChance()
+    {
+        // Only runs if uncommonRarity has more than 10 to work with
+        if (uncommonRarity > 19)
+        {
+            uncommonRarity -= 5;
+        }
+        // Only runs if uncommonRarity has less than or equal to 10, and commonRarity has more than 10 to work with
+        else if (commonRarity > 10)
+        {
+            commonRarity -= 5;
         }
     }
 }
