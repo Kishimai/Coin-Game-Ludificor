@@ -174,7 +174,7 @@ public class CoinPlacement : MonoBehaviour
 
         GameObject newCoin;
 
-        if (spells.Count > 0)
+        if (dropCooldown <= 0 && spells.Count > 0)
         {
 
             string randomSpell = spells[Random.Range(0, spells.Count)];
@@ -205,6 +205,15 @@ public class CoinPlacement : MonoBehaviour
             }
 
             newCoin.transform.SetParent(coinParent.transform);
+
+            if (blitzEvent)
+            {
+                dropCooldown = blitzCooldown;
+            }
+            else
+            {
+                dropCooldown = maxCooldown;
+            }
         }
         else
         {

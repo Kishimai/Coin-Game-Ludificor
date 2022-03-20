@@ -219,6 +219,7 @@ public class Peg : MonoBehaviour
 
             if (amDisabled)
             {
+                comboEventAppearance.SetActive(false);
                 ConvertToDisabled();
             }
             else if (recordedAmGolden)

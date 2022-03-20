@@ -1074,7 +1074,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 41762027}
   m_LocalRotation: {x: 0, y: 0.9890159, z: -0.14780942, w: 0}
-  m_LocalPosition: {x: 0, y: 15, z: 22}
+  m_LocalPosition: {x: 0, y: 16, z: 26}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1926258574}
@@ -22236,7 +22236,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5981882643148413060, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
       propertyPath: commonEvents.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5981882643148413060, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
       propertyPath: rareEvents.Array.data[0]
@@ -22256,7 +22256,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5981882643148413060, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
       propertyPath: commonEvents.Array.data[1]
-      value: ItemRain
+      value: PegCombo
       objectReference: {fileID: 0}
     - target: {fileID: 5981882643148413060, guid: 3d6ad7159a2c29f4eb05e151349a2482, type: 3}
       propertyPath: uncommonEvents.Array.data[0]
@@ -39592,7 +39592,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commonRarity: 49
-  uncommonRarity: 89
+  uncommonRarity: 94
   rareRarity: 99
   pegManager: {fileID: 1052648224}
   playerCamera: {fileID: 41762027}

@@ -174,11 +174,11 @@ public class ItemButton : MonoBehaviour
                 image.color = common;
                 return surgeDuration;
 
-            case "uncommon_dice":
+            case "better_prizes":
                 image.color = uncommon;
                 return uncommonDice;
 
-            case "rare_dice":
+            case "great_prizes":
                 image.color = rare;
                 return rareDice;
 

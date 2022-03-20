@@ -113,7 +113,7 @@ public class ItemInventory : MonoBehaviour
             { "more_coins", "Adds 5% chance to drop an additional coin each coin placement (Max: 500%)" },
             { "bomb_voucher", "Gives bomb coin which can be detonated" },
             { "tremor_voucher", "Gives tremor coin which will shake the machine when placed" },
-            { "uncommon_dice", "Increases chance of getting uncommon items by 5% while reducing chance of common items by 5% (lowest 10%)" }
+            { "better_prizes", "Increases chance of getting uncommon items by 5%" }
         };
 
         rareItems = new Dictionary<string, string>
@@ -124,7 +124,7 @@ public class ItemInventory : MonoBehaviour
             { "combo_peg", "Converts 1 normal peg to a combo version, doubling value of coins that touch it (Effect stacks)" },
             { "bulldoze_voucher", "Gives bulldoze coin which will cause coin pusher to force all coins into collection" },
             { "coin_storm", "Adds 25% chance to drop an additional coin each coin placement (Max: 500%)" },
-            { "rare_dice", "Increases chance of getting rare items by 5% while reducing chance of uncommon items by 5% (lowest 10%)" }
+            { "great_prizes", "Increases chance of getting rare items by 1%" }
         };
     }
 
@@ -241,11 +241,11 @@ public class ItemInventory : MonoBehaviour
 
             // --------------- CHANCE INFLUENCING ITEMS --------------- //
 
-            case "uncommon_dice":
+            case "better_prizes":
                 gameObject.GetComponent<ItemRandomizer>().IncreaseUncommonChance();
                 return newItem;
 
-            case "rare_dice":
+            case "great_prizes":
                 gameObject.GetComponent<ItemRandomizer>().IncreaseRareChance();
                 return newItem;
 

@@ -275,7 +275,7 @@ public class PegManager : MonoBehaviour
 
         foreach (GameObject peg in disabledPegs)
         {
-            peg.SetActive(true);
+            //peg.SetActive(true);
         }
 
         foreach (GameObject peg in allPegs)
@@ -304,7 +304,8 @@ public class PegManager : MonoBehaviour
 
         foreach (GameObject peg in disabledPegs)
         {
-            peg.SetActive(false);
+            //peg.SetActive(false);
+            //peg.GetComponent<Peg>.comboe
         }
     }
 

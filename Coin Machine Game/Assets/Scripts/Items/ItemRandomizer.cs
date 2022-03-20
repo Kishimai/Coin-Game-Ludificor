@@ -17,7 +17,7 @@ public class ItemRandomizer : MonoBehaviour
     private List<string> ignoredItems = new List<string>();
 
     public int commonRarity = 49;
-    public int uncommonRarity = 89;
+    public int uncommonRarity = 94;
     public int rareRarity = 99;
 
     //public string chosenItem;
@@ -158,13 +158,13 @@ public class ItemRandomizer : MonoBehaviour
         {
             newDict = GetFromAvailable("rare", "combo_peg");
         }
-        else if (item.Equals("uncommon_dice") && commonRarity <= 9)
+        else if (item.Equals("better_prizes") && commonRarity <= 9)
         {
-            newDict = GetFromAvailable("uncommon", "uncommon_dice");
+            newDict = GetFromAvailable("uncommon", "better_prizes");
         }
-        else if (item.Equals("rare_dice") && uncommonRarity <= 19)
+        else if (item.Equals("great_prizes") && uncommonRarity <= 19)
         {
-            newDict = GetFromAvailable("rare", "rare_dice");
+            newDict = GetFromAvailable("rare", "great_prizes");
         }
         else if (item.Equals("more_coins") && playerCamera.GetComponent<CoinPlacement>().guaranteedDrops >= playerCamera.GetComponent<CoinPlacement>().maxAdditionalDrops)
         {
@@ -257,12 +257,12 @@ public class ItemRandomizer : MonoBehaviour
         // Only runs if uncommonRarity has more than 10 to work with
         if (uncommonRarity > 19)
         {
-            uncommonRarity -= 5;
+            uncommonRarity -= 1;
         }
         // Only runs if uncommonRarity has less than or equal to 10, and commonRarity has more than 10 to work with
         else if (commonRarity > 10)
         {
-            commonRarity -= 5;
+            commonRarity -= 1;
         }
     }
 }
