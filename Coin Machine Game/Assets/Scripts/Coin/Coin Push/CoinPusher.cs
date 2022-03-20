@@ -44,7 +44,7 @@ public class CoinPusher : MonoBehaviour
     public bool surgeEvent;
     public float surgeSpeed;
 
-    public Vector3 bulldozePosition;
+    public Vector3 bulldozePosition = new Vector3(0,0,-8);
     public float bulldozeSpeed;
 
     public GameObject bulldozeEffect;

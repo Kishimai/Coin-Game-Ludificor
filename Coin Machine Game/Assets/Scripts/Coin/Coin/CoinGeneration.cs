@@ -72,4 +72,31 @@ public class CoinGeneration : MonoBehaviour
         }
     }
 
+    // Called when an item should remove the lowest tier coin
+    public void RemoveLowestTierCoin()
+    {
+        // Runs if there's at least 1 coin in CoinsAvail
+        if (CoinsAvail.Count > 1)
+        {
+            // Grabs first coin in list
+            CoinData lowestTier = CoinsAvail[0];
+            
+            // For each CoinData in CoinsAvail
+            foreach (CoinData data in CoinsAvail)
+            {
+                // Runs if lowestTier.Order is greater than current data.Order in CoinsAvail
+                // Eventually it will find the coin with the lowest order and keep that one
+                if (lowestTier.Order > data.Order)
+                {
+                    // Assigns lowestTier to data
+                    lowestTier = data;
+                }
+            }
+
+            // Removes the lowestTier coin from CoinsAvail
+            CoinsAvail.Remove(lowestTier);
+
+        }
+    }
+
 }   

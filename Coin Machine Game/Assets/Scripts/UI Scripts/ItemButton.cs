@@ -39,6 +39,7 @@ public class ItemButton : MonoBehaviour
     public Sprite surgeDuration;
     public Sprite uncommonDice;
     public Sprite rareDice;
+    public Sprite vipVoucher;
 
     public Color32 common;
     public Color32 uncommon;
@@ -181,6 +182,10 @@ public class ItemButton : MonoBehaviour
             case "great_prizes":
                 image.color = rare;
                 return rareDice;
+
+            case "vip_voucher":
+                image.color = rare;
+                return vipVoucher;
 
             default:
                 return null;

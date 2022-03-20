@@ -16,7 +16,7 @@ public class ItemRandomizer : MonoBehaviour
 
     private List<string> ignoredItems = new List<string>();
 
-    public int commonRarity = 49;
+    public int commonRarity = 59;
     public int uncommonRarity = 94;
     public int rareRarity = 99;
 

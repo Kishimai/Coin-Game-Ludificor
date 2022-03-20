@@ -215,7 +215,7 @@ public class Peg : MonoBehaviour
             coinValueModifier = recordedValueModifier;
             amComboEvent = false;
             amModified = recordedAmModified;
-            amDisabled = recordedAmDisabled;
+            //amDisabled = recordedAmDisabled;
 
             if (amDisabled)
             {
