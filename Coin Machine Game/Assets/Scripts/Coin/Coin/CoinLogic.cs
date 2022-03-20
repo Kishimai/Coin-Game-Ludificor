@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CoinLogic : MonoBehaviour
 {
+    private GameObject gameManager;
     public Rigidbody coinRb;
     public GameObject eventManager;
     public GameObject coin;
@@ -37,6 +38,8 @@ public class CoinLogic : MonoBehaviour
 
     public int coinLayer = 11;
 
+    public bool isPalladium = false;
+
     private float tremorDuration = 0;
 
     private bool shaking = false;
@@ -45,6 +48,8 @@ public class CoinLogic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.FindGameObjectWithTag("game_manager");
+
         coinRb = GetComponent<Rigidbody>();
         eventManager = GameObject.FindGameObjectWithTag("gameplay_event_system");
         coinRb.constraints = RigidbodyConstraints.None;
@@ -200,39 +205,47 @@ public class CoinLogic : MonoBehaviour
 
     public void CheckIdentity(CoinData data)
     {
-        switch (data.Name) {
-            case "Emerald Coin":
-                emeraldAppearance.SetActive(true);
-                GetComponent<MeshRenderer>().enabled = false;
-                break;
+        if (isPalladium)
+        {
+            GetComponent<Data_Interp>().data = gameManager.GetComponent<CoinGeneration>().GetHighestTierCoin();
+        }
+        else
+        {
+            switch (data.Name)
+            {
+                case "Emerald Coin":
+                    emeraldAppearance.SetActive(true);
+                    GetComponent<MeshRenderer>().enabled = false;
+                    break;
 
-            case "Ruby Coin":
-                rubyAppearance.SetActive(true);
-                GetComponent<MeshRenderer>().enabled = false;
-                break;
+                case "Ruby Coin":
+                    rubyAppearance.SetActive(true);
+                    GetComponent<MeshRenderer>().enabled = false;
+                    break;
 
-            case "Sapphire Coin":
-                sapphireAppearance.SetActive(true);
-                GetComponent<MeshRenderer>().enabled = false;
-                break;
+                case "Sapphire Coin":
+                    sapphireAppearance.SetActive(true);
+                    GetComponent<MeshRenderer>().enabled = false;
+                    break;
 
-            case "Diamond Coin":
-                diamondAppearance.SetActive(true);
-                GetComponent<MeshRenderer>().enabled = false;
-                break;
+                case "Diamond Coin":
+                    diamondAppearance.SetActive(true);
+                    GetComponent<MeshRenderer>().enabled = false;
+                    break;
 
-            case "Obsidian Coin":
-                obsidianAppearance.SetActive(true);
-                GetComponent<MeshRenderer>().enabled = false;
-                break;
+                case "Obsidian Coin":
+                    obsidianAppearance.SetActive(true);
+                    GetComponent<MeshRenderer>().enabled = false;
+                    break;
 
-            case "BITCOIN":
-                canvasTextHead.color = Color.black;
-                canvasTextTail.color = Color.black;
-                break;
+                case "BITCOIN":
+                    canvasTextHead.color = Color.black;
+                    canvasTextTail.color = Color.black;
+                    break;
 
-            default:
-                break;
+                default:
+                    break;
+            }
         }
     }
 }

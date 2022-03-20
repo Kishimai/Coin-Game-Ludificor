@@ -99,4 +99,19 @@ public class CoinGeneration : MonoBehaviour
         }
     }
 
+    public CoinData GetHighestTierCoin()
+    {
+        CoinData highestTier = CoinsAvail[0];
+
+        foreach(CoinData _data in CoinsAvail)
+        {
+            if (highestTier.Order < _data.Order)
+            {
+                highestTier = _data;
+            }
+        }
+
+        return highestTier;
+    }
+
 }   
