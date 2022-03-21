@@ -116,6 +116,11 @@ public class DeleteCoins : MonoBehaviour
 
             Destroy(other.gameObject.transform.parent.gameObject);
         }
+
+        if (other.gameObject.tag == "styrofoam_coin")
+        {
+            Destroy(other.gameObject.transform.parent.gameObject);
+        }
     }
 
     private void OnCollisionStay(Collision collision)

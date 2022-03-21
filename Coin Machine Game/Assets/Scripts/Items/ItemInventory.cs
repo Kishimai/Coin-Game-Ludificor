@@ -125,7 +125,8 @@ public class ItemInventory : MonoBehaviour
             { "bulldoze_voucher", "Gives bulldoze coin which will cause coin pusher to force all coins into collection" },
             { "coin_storm", "Adds 25% chance to drop an additional coin each coin placement (Max: 500%)" },
             { "great_prizes", "Increases chance of getting rare items by 1%" },
-            { "vip_voucher", "Removes lowest tier coin from drop pool" }
+            { "vip_voucher", "Removes lowest tier coin from drop pool" },
+            { "palladium_coin", "Adds 1 palladium coin and 2 styrofoam coins to drop pool" }
         };
     }
 
@@ -254,6 +255,11 @@ public class ItemInventory : MonoBehaviour
 
             case "vip_voucher":
                 gameObject.GetComponent<CoinGeneration>().RemoveLowestTierCoin();
+                return newItem;
+
+            case "palladium_coin":
+                gameObject.GetComponent<CoinGeneration>().palladiumCoins += 1;
+                gameObject.GetComponent<CoinGeneration>().styrofoamCoins += 2;
                 return newItem;
 
             // Runs if new item's tag does not match a case in this switch statement

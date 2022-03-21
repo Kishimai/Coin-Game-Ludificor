@@ -39,6 +39,7 @@ public class CoinLogic : MonoBehaviour
     public int coinLayer = 11;
 
     public bool isPalladium = false;
+    public bool isStyrofoam = false;
 
     private float tremorDuration = 0;
 
@@ -54,19 +55,23 @@ public class CoinLogic : MonoBehaviour
         eventManager = GameObject.FindGameObjectWithTag("gameplay_event_system");
         coinRb.constraints = RigidbodyConstraints.None;
 
-        CoinData data = GetComponent<Data_Interp>().data;
+        if (!isStyrofoam)
+        {
+            CoinData data = GetComponent<Data_Interp>().data;
+            CheckIdentity(data);
+        }
 
         head = headCanvas.GetComponent<RectTransform>();
         tail = tailCanvas.GetComponent<RectTransform>();
-
-        CheckIdentity(data);
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        CalculateTotalModifier();
+        if (!isStyrofoam)
+        {
+            CalculateTotalModifier();
+        }
 
         if (totalValueModifier > 9)
         {
@@ -88,40 +93,55 @@ public class CoinLogic : MonoBehaviour
 
     public void ActivateBumper(float multiplier)
     {
-        gildedModifier += multiplier;
-        guildedBumper.SetActive(true);
+        if (!isStyrofoam)
+        {
+            gildedModifier += multiplier;
+            guildedBumper.SetActive(true);
+        }
     }
 
     public void ActivateCrystalShell(float multiplier)
     {
-        crystalModifier += multiplier;
-        crystalShell.SetActive(true);
+        if (!isStyrofoam)
+        {
+            crystalModifier += multiplier;
+            crystalShell.SetActive(true);
+        }
+
     }
 
     public void ComboMultiplier()
     {
-        if (comboMultiplier == 0)
+        if (!isStyrofoam)
         {
-            comboMultiplier = 2;
+            if (comboMultiplier == 0)
+            {
+                comboMultiplier = 2;
+            }
+            else
+            {
+                comboMultiplier *= 2;
+            }
         }
-        else
-        {
-            comboMultiplier *= 2;
-        }
+
     }
 
     public void ComboEvent()
     {
-        guildedBumper.SetActive(true);
+        if (!isStyrofoam)
+        {
+            guildedBumper.SetActive(true);
 
-        if (comboEventMultiplier == 0)
-        {
-            comboEventMultiplier = 2;
+            if (comboEventMultiplier == 0)
+            {
+                comboEventMultiplier = 2;
+            }
+            else
+            {
+                comboEventMultiplier *= 2;
+            }
         }
-        else
-        {
-            comboEventMultiplier *= 2;
-        }
+
     }
 
     public void TremorEvent(float duration, float power)

@@ -15,6 +15,10 @@ public class CoinGeneration : MonoBehaviour
     [BoxGroup("Core Input")]
     public CoinPlacement coinPlacement;
 
+    // Added palladium and styrofoam coins
+    public int palladiumCoins;
+    public int styrofoamCoins;
+
     [BoxGroup("Core Input")]
     public GameObject NewCoin;
 
@@ -28,9 +32,11 @@ public class CoinGeneration : MonoBehaviour
         int GottenNumber = Random.Range(1, CoinsAvail.Count + 1);
         var currentNumber = 0;
 
-        foreach(CoinData _data in CoinsAvail){
+        foreach (CoinData _data in CoinsAvail)
+        {
             currentNumber++;
-            if(gottenCoin == false && currentNumber == GottenNumber){
+            if (gottenCoin == false && currentNumber == GottenNumber)
+            {
                 return _data;
             }
         }
@@ -50,6 +56,12 @@ public class CoinGeneration : MonoBehaviour
     /// Get data for Placement
     /// </summary>
     public void GetPlacementData(){
+        // Checks if player has palladium coins
+        if (palladiumCoins > 0)
+        {
+            DetermineIfSpecial();
+        }
+
         CoinData _data = RandomCoin();
         coinPlacement.selectedCoin.GetComponent<Data_Interp>().data = _data;
         coinPlacement.selectedCoin.GetComponent<MeshRenderer>().material = _data.materialColor;
@@ -76,7 +88,7 @@ public class CoinGeneration : MonoBehaviour
     public void RemoveLowestTierCoin()
     {
         // Runs if there's at least 1 coin in CoinsAvail
-        if (CoinsAvail.Count > 1)
+        if (CoinsAvail.Count > 1 && styrofoamCoins <= 0)
         {
             // Grabs first coin in list
             CoinData lowestTier = CoinsAvail[0];
@@ -97,21 +109,67 @@ public class CoinGeneration : MonoBehaviour
             CoinsAvail.Remove(lowestTier);
 
         }
+        // If player has styrofoam coins, those are removed first
+        else if (styrofoamCoins > 0)
+        {
+            styrofoamCoins -= 1;
+        }
     }
 
+    // Grabs the highest tier coin in CoinsAvail
     public CoinData GetHighestTierCoin()
     {
+        // Gets the first coin in CoinsAvail to start comparing
         CoinData highestTier = CoinsAvail[0];
 
         foreach(CoinData _data in CoinsAvail)
         {
+            // Runs if highestTier.Order is less than the current data
             if (highestTier.Order < _data.Order)
             {
+                // Assigns current data to highestTier
                 highestTier = _data;
             }
         }
 
         return highestTier;
+    }
+
+    // Determines if coin should be palladium, styrofoam, etc
+    public void DetermineIfSpecial()
+    {
+        // Makes new list of coins
+        List<string> coins = new List<string>();
+
+        // Adds "normal_coin" for each data in CoinsAvail
+        foreach (CoinData _data in CoinsAvail)
+        {
+            coins.Add("normal_coin");
+        }
+        // Adds "palladium_coin" for each palladium coin
+        for (int i = 0; i < palladiumCoins; ++i)
+        {
+            coins.Add("palladium_coin");
+        }
+        // Adds "styrofoam_coin" for each styrofoam coin
+        for (int i = 0; i < styrofoamCoins; ++i)
+        {
+            coins.Add("styrofoam_coin");
+        }
+
+        // Picks random coin from new list
+        string selectedCoin = coins[Random.Range(0, coins.Count)];
+
+        // Runs if random coin is NOT "normal_coin"
+        if (selectedCoin.Equals("palladium_coin"))
+        {
+            coinPlacement.spells.Add("palladium");
+        }
+        // Runs if random coin is NOT "normal_coin"
+        if (selectedCoin.Equals("styrofoam_coin"))
+        {
+            coinPlacement.spells.Add("styrofoam");
+        }
     }
 
 }   

@@ -40,6 +40,7 @@ public class ItemButton : MonoBehaviour
     public Sprite uncommonDice;
     public Sprite rareDice;
     public Sprite vipVoucher;
+    public Sprite palladiumCoin;
 
     public Color32 common;
     public Color32 uncommon;
@@ -186,6 +187,10 @@ public class ItemButton : MonoBehaviour
             case "vip_voucher":
                 image.color = rare;
                 return vipVoucher;
+
+            case "palladium_coin":
+                image.color = rare;
+                return palladiumCoin;
 
             default:
                 return null;

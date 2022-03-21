@@ -22,6 +22,8 @@ public class CoinPlacement : MonoBehaviour
     public GameObject spellCoin;
     public GameObject bombCoin;
     public GameObject tremorCoin;
+    public GameObject palladiumCoin;
+    public GameObject styrofoamCoin;
     public GameObject detonateButton;
     public GameObject bulldozeCoin;
     public GameObject blitzSparkle;
@@ -191,6 +193,15 @@ public class CoinPlacement : MonoBehaviour
             else if (randomSpell.Equals("bulldoze"))
             {
                 spellCoin = bulldozeCoin;
+            }
+            else if (randomSpell.Equals("palladium"))
+            {
+                spellCoin = palladiumCoin;
+                spellCoin.GetComponent<Data_Interp>().data = generation.GetHighestTierCoin();
+            }
+            else if (randomSpell.Equals("styrofoam"))
+            {
+                spellCoin = styrofoamCoin;
             }
 
             spells.Remove(randomSpell);
