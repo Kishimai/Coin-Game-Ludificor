@@ -36,6 +36,29 @@ public class ItemInventory : MonoBehaviour
 
     private GameObject eventManager;
 
+    public GameObject collectionsMenu;
+
+    public Sprite midasShard;
+    public Sprite midasCrystal;
+    public Sprite midasRelic;
+    public Sprite pegRemoveMk1;
+    public Sprite pegRemoveMk2;
+    public Sprite pegRemoveMk3;
+    public Sprite goldPeg;
+    public Sprite diamondPeg;
+    public Sprite comboPeg;
+    public Sprite bombVoucher;
+    public Sprite tremorVoucher;
+    public Sprite bulldozeVoucher;
+    public Sprite moreCoin;
+    public Sprite coinStorm;
+    public Sprite blitzDuration;
+    public Sprite surgeDuration;
+    public Sprite uncommonDice;
+    public Sprite rareDice;
+    public Sprite vipVoucher;
+    public Sprite palladiumCoin;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -142,124 +165,116 @@ public class ItemInventory : MonoBehaviour
             case "midas_shard":
                 // Increases value modifier by 1%
                 coinValueModifier += 0.01f;
+                collectionsMenu.GetComponent<Collections>().AddItem(midasShard, "midas_shard");
                 return newItem;
 
             case "midas_crystal":
                 // Increases value modifier by 5%
                 coinValueModifier += 0.05f;
+                collectionsMenu.GetComponent<Collections>().AddItem(midasCrystal, "midas_crystal");
                 return newItem;
 
             // Runs if new item is midas relic
             case "midas_relic":
                 // Increases value modifier by 10%
                 coinValueModifier += 0.1f;
+                collectionsMenu.GetComponent<Collections>().AddItem(midasRelic, "midas_relic");
                 return newItem;
 
             // --------------- PEG REMOVER ITEMS --------------- //
 
             case "peg_remove_mk1":
                 pegManager.GetComponent<PegManager>().DisablePegs(1);
+                collectionsMenu.GetComponent<Collections>().AddItem(pegRemoveMk1, "peg_remove_mk1");
                 return newItem;
 
             case "peg_remove_mk2":
                 pegManager.GetComponent<PegManager>().DisablePegs(2);
+                collectionsMenu.GetComponent<Collections>().AddItem(pegRemoveMk2, "peg_remove_mk2");
                 return newItem;
 
             case "peg_remove_mk3":
                 pegManager.GetComponent<PegManager>().DisablePegs(3);
+                collectionsMenu.GetComponent<Collections>().AddItem(pegRemoveMk3, "peg_remove_mk3");
                 return newItem;
 
             // --------------- PEG ALTERING ITEMS --------------- //
             case "golden_peg":
                 pegManager.GetComponent<PegManager>().ChangePegAttributes("gold");
-                // Run peg modify method in peg script
-                // Peg names are pegX-pegY, where x is a number (keeps dictionary keys unique)
-                // Randomly pick peg in dictionary
-                // Value of key is a bool, true or false
-                // Take peg in question and change its value to the opposite of what it currently has
-                // Then set its active state to that bool
-
-                // First look for keys with the (false) value
-                // Compile all into new dict
-                // If new dict has at least 1 key, pick a random one
-                // Activate that peg and convert it to a golden version
-
-                // If no pegs are found in that new dict, pick a random one in the normal dictionary and do the above process 
-                // (minus setting active state and compilation of new dict)
+                collectionsMenu.GetComponent<Collections>().AddItem(goldPeg, "golden_peg");
                 return newItem;
 
             case "diamond_peg":
                 pegManager.GetComponent<PegManager>().ChangePegAttributes("diamond");
-                // Run peg modify method in peg script
-                // Peg names are pegX-pegY, where x is a number (keeps dictionary keys unique)
-                // Randomly pick peg in dictionary
-                // Value of key is a bool, true or false
-                // Then set its active state to that bool
-                // Take peg in question and change its value to the opposite of what it currently has
-
-                // First look for keys with the (false) value
-                // Compile all into new dict
-                // If new dict has at least 1 key, pick a random one
-                // Activate that peg and convert it to a diamond version
-
-                // If no pegs are found in that new dict, pick a random one in the normal dictionary and do the above process
-                // (minus setting active state and compilation of new dict)
+                collectionsMenu.GetComponent<Collections>().AddItem(diamondPeg, "diamond_peg");
                 return newItem;
 
             case "combo_peg":
                 pegManager.GetComponent<PegManager>().ChangePegAttributes("combo");
+                collectionsMenu.GetComponent<Collections>().AddItem(comboPeg, "combo_peg");
                 return newItem;
 
             // --------------- SPELL ITEMS --------------- //
 
             case "bomb_voucher":
+                collectionsMenu.GetComponent<Collections>().AddItem(bombVoucher, "bomb_voucher");
                 return newItem;
 
             case "tremor_voucher":
+                collectionsMenu.GetComponent<Collections>().AddItem(tremorVoucher, "tremor_voucher");
                 return newItem;
 
             case "bulldoze_voucher":
+                collectionsMenu.GetComponent<Collections>().AddItem(bulldozeVoucher, "bulldoze_voucher");
                 return newItem;
 
             // --------------- ADDITIONAL COIN DROP ITEMS --------------- //
 
             case "more_coins":
                 playerCamera.GetComponent<CoinPlacement>().additionalDropChance += 5;
+                collectionsMenu.GetComponent<Collections>().AddItem(moreCoin, "more_coins");
                 return newItem;
 
             case "coin_storm":
                 playerCamera.GetComponent<CoinPlacement>().additionalDropChance += 25;
+                collectionsMenu.GetComponent<Collections>().AddItem(coinStorm, "coin_storm");
                 return newItem;
 
             // --------------- DURATION ITEMS --------------- //
 
             case "blitz_duration":
                 eventManager.GetComponent<EventsManager>().coinBlitzDuration += 1f;
+                collectionsMenu.GetComponent<Collections>().AddItem(blitzDuration, "blitz_duration");
                 return newItem;
 
             case "surge_duration":
                 eventManager.GetComponent<EventsManager>().powerSurgeDuration += 1f;
+                collectionsMenu.GetComponent<Collections>().AddItem(surgeDuration, "surge_duration");
                 return newItem;
 
             // --------------- CHANCE INFLUENCING ITEMS --------------- //
 
             case "better_prizes":
                 gameObject.GetComponent<ItemRandomizer>().IncreaseUncommonChance();
+                collectionsMenu.GetComponent<Collections>().AddItem(uncommonDice, "better_prizes");
                 return newItem;
 
             case "great_prizes":
                 gameObject.GetComponent<ItemRandomizer>().IncreaseRareChance();
+                collectionsMenu.GetComponent<Collections>().AddItem(rareDice, "great_prizes");
                 return newItem;
 
             // --------------- COIN POOL INFLUENCING ITEMS --------------- //
 
             case "vip_voucher":
                 gameObject.GetComponent<CoinGeneration>().RemoveLowestTierCoin();
+                collectionsMenu.GetComponent<Collections>().AddItem(vipVoucher, "vip_voucher");
                 return newItem;
 
             case "palladium_coin":
                 gameObject.GetComponent<CoinGeneration>().palladiumCoins += 1;
                 gameObject.GetComponent<CoinGeneration>().styrofoamCoins += 2;
+                collectionsMenu.GetComponent<Collections>().AddItem(palladiumCoin, "palladium_coin");
                 return newItem;
 
             // Runs if new item's tag does not match a case in this switch statement
