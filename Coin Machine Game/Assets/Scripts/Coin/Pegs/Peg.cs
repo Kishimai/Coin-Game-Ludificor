@@ -103,6 +103,7 @@ public class Peg : MonoBehaviour
         // Coins wont interact with trigger but selection tool MUST!
         //gameObject.SetActive(false);
         amDisabled = true;
+        recordedAmDisabled = true;
         GetComponent<CapsuleCollider>().isTrigger = true;
         standardAppearance.SetActive(false);
         goldAppearance.SetActive(false);
@@ -120,10 +121,12 @@ public class Peg : MonoBehaviour
         // Coins wont interact with trigger but selection tool MUST!
         //gameObject.SetActive(true);
         amDisabled = false;
+        recordedAmDisabled = false;
 
         if (pegType.Equals("gold"))
         {
             amGolden = true;
+            recordedAmGolden = true;
             standardAppearance.SetActive(false);
             goldAppearance.SetActive(true);
             GetComponent<CapsuleCollider>().isTrigger = false;
@@ -131,6 +134,7 @@ public class Peg : MonoBehaviour
         else if (pegType.Equals("diamond"))
         {
             amDiamond = true;
+            recordedAmDiamond = true;
             standardAppearance.SetActive(false);
             diamondAppearance.SetActive(true);
             GetComponent<CapsuleCollider>().isTrigger = false;
@@ -140,6 +144,7 @@ public class Peg : MonoBehaviour
             amCombo = true;
             amDiamond = false;
             amGolden = false;
+            recordedAmCombo = true;
             standardAppearance.SetActive(false);
             comboAppearance.SetActive(true);
             diamondAppearance.SetActive(false);
@@ -215,7 +220,7 @@ public class Peg : MonoBehaviour
             coinValueModifier = recordedValueModifier;
             amComboEvent = false;
             amModified = recordedAmModified;
-            //amDisabled = recordedAmDisabled;
+            amDisabled = recordedAmDisabled;
 
             if (amDisabled)
             {
