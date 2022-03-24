@@ -125,31 +125,58 @@ public class Peg : MonoBehaviour
 
         if (pegType.Equals("gold"))
         {
-            amGolden = true;
-            recordedAmGolden = true;
-            standardAppearance.SetActive(false);
-            goldAppearance.SetActive(true);
-            GetComponent<CapsuleCollider>().isTrigger = false;
+            if (comboEventAppearance.activeSelf == false)
+            {
+                amGolden = true;
+                standardAppearance.SetActive(false);
+                goldAppearance.SetActive(true);
+                GetComponent<CapsuleCollider>().isTrigger = false;
+            }
+            else
+            {
+                recordedAmGolden = true;
+                recordedAmModified = true;
+                recordedValueModifier = modifier;
+                GetComponent<CapsuleCollider>().isTrigger = false;
+            }
         }
         else if (pegType.Equals("diamond"))
         {
-            amDiamond = true;
-            recordedAmDiamond = true;
-            standardAppearance.SetActive(false);
-            diamondAppearance.SetActive(true);
-            GetComponent<CapsuleCollider>().isTrigger = false;
+            if (comboEventAppearance.activeSelf == false)
+            {
+                amDiamond = true;
+                standardAppearance.SetActive(false);
+                diamondAppearance.SetActive(true);
+                GetComponent<CapsuleCollider>().isTrigger = false;
+            }
+            else
+            {
+                recordedAmDiamond = true;
+                recordedAmModified = true;
+                recordedValueModifier = modifier;
+                GetComponent<CapsuleCollider>().isTrigger = false;
+            }
         }
         else if (pegType.Equals("combo"))
         {
-            amCombo = true;
-            amDiamond = false;
-            amGolden = false;
-            recordedAmCombo = true;
-            standardAppearance.SetActive(false);
-            comboAppearance.SetActive(true);
-            diamondAppearance.SetActive(false);
-            goldAppearance.SetActive(false);
-            GetComponent<CapsuleCollider>().isTrigger = false;
+            if (comboEventAppearance.activeSelf == false)
+            {
+                amCombo = true;
+                amDiamond = false;
+                amGolden = false;
+                standardAppearance.SetActive(false);
+                comboAppearance.SetActive(true);
+                diamondAppearance.SetActive(false);
+                goldAppearance.SetActive(false);
+                GetComponent<CapsuleCollider>().isTrigger = false;
+            }
+            else
+            {
+                recordedAmCombo = true;
+                recordedAmModified = true;
+                recordedValueModifier = modifier;
+                GetComponent<CapsuleCollider>().isTrigger = false;
+            }
         }
     }
 

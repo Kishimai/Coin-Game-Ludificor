@@ -11,13 +11,16 @@ public class Collections : MonoBehaviour
     public List<string> itemNames = new List<string>();
     public List<int> itemCounts = new List<int>();
     public GameObject[] menuItems;
+    public GameObject menuCollection;
 
-    private int currentIndex = 0;
+    private GameObject gameManager;
+
+    private int itemMenuIndex = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        gameManager = GameObject.FindGameObjectWithTag("game_manager");
     }
 
     // Update is called once per frame
@@ -32,6 +35,10 @@ public class Collections : MonoBehaviour
         {
             int index = itemNames.IndexOf(name);
             itemCounts[index] += 1;
+
+            GameObject itemCount = menuItems[index].transform.GetChild(1).gameObject;
+
+            itemCount.GetComponent<TextMeshProUGUI>().text = itemCounts[index].ToString();
         }
         else
         {
@@ -39,13 +46,28 @@ public class Collections : MonoBehaviour
             itemNames.Add(name);
             itemCounts.Add(1);
 
-            GameObject itemSprite = menuItems[currentIndex].transform.GetChild(0).gameObject;
-            GameObject itemCount = menuItems[currentIndex].transform.GetChild(1).gameObject;
+            menuCollection.transform.GetChild(itemMenuIndex).gameObject.SetActive(true);
 
-            itemSprite.GetComponent<Image>().sprite = itemImages[currentIndex];
-            itemCount.GetComponent<TextMeshProUGUI>().text = itemCounts[currentIndex].ToString();
+            GameObject itemSprite = menuItems[itemMenuIndex].transform.GetChild(0).gameObject;
+            GameObject itemCount = menuItems[itemMenuIndex].transform.GetChild(1).gameObject;
 
-            ++currentIndex;
+            itemSprite.GetComponent<Image>().sprite = itemImages[itemMenuIndex];
+            itemCount.GetComponent<TextMeshProUGUI>().text = itemCounts[itemMenuIndex].ToString();
+
+            ++itemMenuIndex;
+        }
+    }
+
+    public void ShowMenu()
+    {
+        menuCollection.SetActive(true);
+    }
+
+    public void HideMenu()
+    {
+        if (gameManager.GetComponent<ItemInventory>().availablePrizes > 0)
+        {
+            menuCollection.SetActive(false);
         }
     }
 }
