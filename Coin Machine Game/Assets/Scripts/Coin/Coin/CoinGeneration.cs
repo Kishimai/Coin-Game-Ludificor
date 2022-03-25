@@ -88,7 +88,7 @@ public class CoinGeneration : MonoBehaviour
     public void RemoveLowestTierCoin()
     {
         // Runs if there's at least 1 coin in CoinsAvail
-        if (CoinsAvail.Count > 1 && styrofoamCoins <= 0)
+        if (CoinsAvail.Count > 1)
         {
             // Grabs first coin in list
             CoinData lowestTier = CoinsAvail[0];
@@ -108,11 +108,6 @@ public class CoinGeneration : MonoBehaviour
             // Removes the lowestTier coin from CoinsAvail
             CoinsAvail.Remove(lowestTier);
 
-        }
-        // If player has styrofoam coins, those are removed first
-        else if (styrofoamCoins > 0)
-        {
-            styrofoamCoins -= 1;
         }
     }
 
@@ -169,6 +164,20 @@ public class CoinGeneration : MonoBehaviour
         if (selectedCoin.Equals("styrofoam_coin"))
         {
             coinPlacement.spells.Add("styrofoam");
+        }
+    }
+
+    // Removes x number of styrofoam coins from collection
+    void RemoveStyrofoam(int numToRemove = 1)
+    {
+        if (styrofoamCoins > 0)
+        {
+
+        }
+        
+        if (styrofoamCoins < 0)
+        {
+            styrofoamCoins = 0;
         }
     }
 

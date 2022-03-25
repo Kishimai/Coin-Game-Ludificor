@@ -23,6 +23,7 @@ public class ShopSystem : MonoBehaviour
     public CoinData UpdatedCoin;
 
     private int currentOrder;
+    private int maxNumCoins = 5;
 
 
     public void Start(){
@@ -73,6 +74,12 @@ public class ShopSystem : MonoBehaviour
 
         if(!CoinGen.CoinsAvail.Contains(CurrentCoin)){
             CoinGen.CoinsAvail.Add(CurrentCoin);
+        }
+
+        // If player gets more than 5 coins at a time, remove lowest tier coin
+        if (CoinGen.CoinsAvail.Count > maxNumCoins)
+        {
+            CoinGen.RemoveLowestTierCoin();
         }
     }
 

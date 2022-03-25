@@ -29,6 +29,7 @@ public class CoinLogic : MonoBehaviour
     private float crystalModifier = 1;
     private int comboMultiplier = 0;
     private int comboEventMultiplier = 0;
+    private float palladiumModifier = 0;
     private int combinedComboMulti;
     private float combinedSpecialMulti;
 
@@ -212,6 +213,12 @@ public class CoinLogic : MonoBehaviour
         else
         {
             totalValueModifier = 0;
+        }
+
+        if (!Mathf.Approximately(palladiumModifier, 0))
+        {
+            float x = totalValueModifier * palladiumModifier;
+            totalValueModifier += x;
         }
 
         // Rounds to first decimal place (0.0) so number fits on coin image
