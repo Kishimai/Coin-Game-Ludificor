@@ -60,33 +60,33 @@ public class DotLightManager : MonoBehaviour
 
     }
 
-    public IEnumerator Flash(int inputNumFlashes = 0)
+    public IEnumerator Flash(float timeUntilEnd)
     {
         // All lights assume a single color and turn off and on a set number of times with a set duration of off and on time
 
-        int flashCounter = 0;
-        int numFlashes = 0;
+        float timeLeft = timeUntilEnd + 2;
+        float secondsTracker = 0;
 
-        if (inputNumFlashes == 0)
+        while (timeLeft > 0)
         {
-            numFlashes = defaultNumberOfFlashes;
-        }
-        else
-        {
-            numFlashes = inputNumFlashes;
-        }
+            timeLeft -= Time.deltaTime;
 
-        while (flashCounter < numFlashes)
-        {
-            ++flashCounter;
-
-            foreach (GameObject light in allLights)
+            if (secondsTracker <= 0)
             {
-                light.GetComponent<DotLight>().Flash();
-                //Debug.Log("Flashing Light");
+                secondsTracker = 0.5f;
+
+                foreach (GameObject light in allLights)
+                {
+                    light.GetComponent<DotLight>().Flash();
+                    //Debug.Log("Flashing Light");
+                }
+            }
+            else
+            {
+                secondsTracker -= Time.deltaTime;
             }
 
-            yield return new WaitForSeconds(flashOnTime);
+            yield return null;
         }
 
         Idle();

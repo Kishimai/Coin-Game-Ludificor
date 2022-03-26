@@ -149,7 +149,7 @@ public class ItemInventory : MonoBehaviour
             { "coin_storm", "Adds 25% chance to drop an additional coin each coin placement (Max: 500%)" },
             { "great_prizes", "Increases chance of getting rare items by 1%" },
             { "vip_voucher", "Removes lowest tier coin from drop pool" },
-            { "palladium_coin", "Adds 1 palladium coin and 2 styrofoam coins to drop pool" }
+            { "palladium_coin", "Adds 1 palladium coin and 1 styrofoam coin to drop pool" }
         };
     }
 
@@ -273,7 +273,7 @@ public class ItemInventory : MonoBehaviour
 
             case "palladium_coin":
                 gameObject.GetComponent<CoinGeneration>().palladiumCoins += 1;
-                gameObject.GetComponent<CoinGeneration>().styrofoamCoins += 2;
+                gameObject.GetComponent<CoinGeneration>().styrofoamCoins += 1;
                 collectionsMenu.GetComponent<Collections>().AddItem(palladiumCoin, "palladium_coin");
                 return newItem;
 

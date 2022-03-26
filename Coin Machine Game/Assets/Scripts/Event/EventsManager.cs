@@ -320,7 +320,7 @@ public class EventsManager : MonoBehaviour
 
         StartCoroutine(glassPanel.GetComponent<GlassRemover>().RemoveGlass());
 
-        StartCoroutine(gameManager.GetComponent<DotLightManager>().Flash());
+        StartCoroutine(gameManager.GetComponent<DotLightManager>().Flash(coinBlitzDuration));
     }
 
     void PowerSurge()
@@ -340,7 +340,7 @@ public class EventsManager : MonoBehaviour
 
         currentEventDuration = itemRainDuration;
 
-        StartCoroutine(gameManager.GetComponent<DotLightManager>().Flash(4));
+        StartCoroutine(gameManager.GetComponent<DotLightManager>().Flash(2));
 
     }
 
