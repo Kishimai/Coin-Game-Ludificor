@@ -17,6 +17,7 @@ public class CoinLogic : MonoBehaviour
     public GameObject sapphireAppearance;
     public GameObject diamondAppearance;
     public GameObject obsidianAppearance;
+    public GameObject palladiumAppearance;
     public GameObject headCanvas;
     public GameObject tailCanvas;
     public Text canvasTextHead;
@@ -34,6 +35,9 @@ public class CoinLogic : MonoBehaviour
     private float combinedSpecialMulti;
 
     public float totalValueModifier = 0;
+
+    public float styrofoamValue = 0;
+    public float palladiumValue = 0;
 
     public bool inPlinkoZone;
 
@@ -56,11 +60,8 @@ public class CoinLogic : MonoBehaviour
         eventManager = GameObject.FindGameObjectWithTag("gameplay_event_system");
         coinRb.constraints = RigidbodyConstraints.None;
 
-        if (!isStyrofoam)
-        {
-            CoinData data = GetComponent<Data_Interp>().data;
-            CheckIdentity(data);
-        }
+        //CoinData data = GetComponent<Data_Interp>().data;
+        CheckIdentity();
 
         head = headCanvas.GetComponent<RectTransform>();
         tail = tailCanvas.GetComponent<RectTransform>();
@@ -69,10 +70,7 @@ public class CoinLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isStyrofoam)
-        {
-            CalculateTotalModifier();
-        }
+        CalculateTotalModifier();
 
         if (totalValueModifier > 9)
         {
@@ -94,53 +92,41 @@ public class CoinLogic : MonoBehaviour
 
     public void ActivateBumper(float multiplier)
     {
-        if (!isStyrofoam)
-        {
-            gildedModifier += multiplier;
-            guildedBumper.SetActive(true);
-        }
+        gildedModifier += multiplier;
+        guildedBumper.SetActive(true);
     }
 
     public void ActivateCrystalShell(float multiplier)
     {
-        if (!isStyrofoam)
-        {
-            crystalModifier += multiplier;
-            crystalShell.SetActive(true);
-        }
+        crystalModifier += multiplier;
+        crystalShell.SetActive(true);
 
     }
 
     public void ComboMultiplier()
     {
-        if (!isStyrofoam)
+        if (comboMultiplier == 0)
         {
-            if (comboMultiplier == 0)
-            {
-                comboMultiplier = 2;
-            }
-            else
-            {
-                comboMultiplier *= 2;
-            }
+            comboMultiplier = 2;
+        }
+        else
+        {
+            comboMultiplier *= 2;
         }
 
     }
 
     public void ComboEvent()
     {
-        if (!isStyrofoam)
-        {
-            guildedBumper.SetActive(true);
+        guildedBumper.SetActive(true);
 
-            if (comboEventMultiplier == 0)
-            {
-                comboEventMultiplier = 2;
-            }
-            else
-            {
-                comboEventMultiplier *= 2;
-            }
+        if (comboEventMultiplier == 0)
+        {
+            comboEventMultiplier = 2;
+        }
+        else
+        {
+            comboEventMultiplier *= 2;
         }
 
     }
@@ -230,14 +216,20 @@ public class CoinLogic : MonoBehaviour
         }
     }
 
-    public void CheckIdentity(CoinData data)
+    public void CheckIdentity()
     {
         if (isPalladium)
         {
             GetComponent<Data_Interp>().data = gameManager.GetComponent<CoinGeneration>().GetHighestTierCoin();
         }
+        else if (isStyrofoam)
+        {
+            GetComponent<Data_Interp>().data = gameManager.GetComponent<CoinGeneration>().GetLowestTierCoin();
+        }
         else
         {
+            CoinData data = GetComponent<Data_Interp>().data;
+
             switch (data.Name)
             {
                 case "Emerald Coin":
@@ -274,5 +266,15 @@ public class CoinLogic : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public void ConvertToPalladium()
+    {
+        gameObject.GetComponent<Data_Interp>().data = gameManager.GetComponent<CoinGeneration>().GetHighestTierCoin();
+        gameObject.transform.GetChild(0).gameObject.tag = "palladium_coin";
+        palladiumValue = gameManager.GetComponent<CoinGeneration>().GetPalladiumValue();
+        GetComponent<MeshRenderer>().enabled = false;
+        palladiumAppearance.SetActive(true);
+        isPalladium = true;
     }
 }

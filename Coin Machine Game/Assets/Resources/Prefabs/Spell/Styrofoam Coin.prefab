@@ -1612,6 +1612,7 @@ GameObject:
   - component: {fileID: 1917128868699753924}
   - component: {fileID: 1917128868699753925}
   - component: {fileID: 1917128868699753926}
+  - component: {fileID: -2521715885729676271}
   - component: {fileID: 1917128868699753944}
   m_Layer: 0
   m_Name: Styrofoam Coin
@@ -1715,6 +1716,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 0
+--- !u!114 &-2521715885729676271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917128868699753945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62af56d884ae84d498cced331fed057f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 0}
 --- !u!114 &1917128868699753944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1743,6 +1757,7 @@ MonoBehaviour:
   canvasTextHead: {fileID: 1917128867184498795}
   canvasTextTail: {fileID: 1917128868087698625}
   totalValueModifier: 0
+  styrofoamValue: 0
   inPlinkoZone: 0
   coinLayer: 11
   isPalladium: 0

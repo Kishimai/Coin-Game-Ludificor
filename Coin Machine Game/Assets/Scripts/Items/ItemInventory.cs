@@ -38,6 +38,8 @@ public class ItemInventory : MonoBehaviour
 
     public GameObject collectionsMenu;
 
+    private bool palladiumStyroUnlocked = false;
+
     public Sprite midasShard;
     public Sprite midasCrystal;
     public Sprite midasRelic;
@@ -58,6 +60,11 @@ public class ItemInventory : MonoBehaviour
     public Sprite rareDice;
     public Sprite vipVoucher;
     public Sprite palladiumCoin;
+    public Sprite usefulMaterials;
+    public Sprite cleanupInitiative;
+    public Sprite pollution;
+    public Sprite polishingKit;
+    public Sprite palladiumPeg;
 
     // Start is called before the first frame update
     void Start()
@@ -149,7 +156,7 @@ public class ItemInventory : MonoBehaviour
             { "coin_storm", "Adds 25% chance to drop an additional coin each coin placement (Max: 500%)" },
             { "great_prizes", "Increases chance of getting rare items by 1%" },
             { "vip_voucher", "Removes lowest tier coin from drop pool" },
-            { "palladium_coin", "Adds 1 palladium coin and 1 styrofoam coin to drop pool" }
+            { "palladium_coin", "Adds 1 palladium coin, 1 styrofoam coin to drop pool, and unlocks new items" }
         };
     }
 
@@ -275,6 +282,37 @@ public class ItemInventory : MonoBehaviour
                 gameObject.GetComponent<CoinGeneration>().palladiumCoins += 1;
                 gameObject.GetComponent<CoinGeneration>().styrofoamCoins += 1;
                 collectionsMenu.GetComponent<Collections>().AddItem(palladiumCoin, "palladium_coin");
+                UnlockStyroAndPalladium();
+                return newItem;
+
+            // --------------- STYROFOAM ITEMS --------------- //
+
+            case "useful_materials":
+                gameObject.GetComponent<CoinGeneration>().IncreaseStyrofoamValue(0.1f);
+                collectionsMenu.GetComponent<Collections>().AddItem(usefulMaterials, "useful_materials");
+                return newItem;
+
+            case "pollution":
+                gameObject.GetComponent<CoinGeneration>().styrofoamCoins += 3;
+                float value = gameObject.GetComponent<CoinGeneration>().GetStyrofoamValue() * 5;
+                gameObject.GetComponent<CoinGeneration>().IncreaseStyrofoamValue(value);
+                collectionsMenu.GetComponent<Collections>().AddItem(pollution, "pollution");
+                return newItem;
+
+            case "polishing_kit":
+                gameObject.GetComponent<CoinGeneration>().IncreasePalladiumValue(0.01f);
+                collectionsMenu.GetComponent<Collections>().AddItem(polishingKit, "polishing_kit");
+                return newItem;
+
+            case "palladium_peg":
+                // replace peg with palladium peg
+                pegManager.GetComponent<PegManager>().ChangePegAttributes("palladium");
+                collectionsMenu.GetComponent<Collections>().AddItem(palladiumPeg, "palladium_peg");
+                return newItem;
+
+            case "cleanup_initiative":
+                gameObject.GetComponent<CoinGeneration>().RemoveStyrofoam(1);
+                collectionsMenu.GetComponent<Collections>().AddItem(cleanupInitiative, "cleanup_initiative");
                 return newItem;
 
             // Runs if new item's tag does not match a case in this switch statement
@@ -360,17 +398,22 @@ public class ItemInventory : MonoBehaviour
         playerCamera.GetComponent<CoinPlacement>().UseSpell(spell);
 
         collectedSpells.Remove(spell);
+    }
 
-        /*
-        if (collectedSpells.Count > 0)
+    private void UnlockStyroAndPalladium()
+    {
+        // MAKE STYROFOAM COIN VALUE DEFAULT TO 10% OF LOWEST COIN TIER VALUE WHEN THEY GET "useful_materials"
+
+        if (!palladiumStyroUnlocked)
         {
-            string randomSpell = collectedSpells[Random.Range(0, collectedSpells.Count)];
-
-            playerCamera.GetComponent<CoinPlacement>().UseSpell(randomSpell);
-
-            collectedSpells.Remove(randomSpell);
+            palladiumStyroUnlocked = true;
+            // Add items to lists of rare, uncommon and commons
+            commonItems.Add("useful_materials","Makes styrofoam 10% more valuable");
+            commonItems.Add("polishing_kit", "Increases value of palladium coins by 1%");
+            uncommonItems.Add("palladium_peg", "Converts 1 normal peg to palladium, turning coins into palladium coins");
+            commonItems.Add("pollution", "Adds 3 styrofoam coins to drop pool and increases styrofoam value by 5X");
+            rareItems.Add("cleanup_initiative", "Remove 1 styrofoam coin from drop pool");
         }
-        */
     }
 
 }

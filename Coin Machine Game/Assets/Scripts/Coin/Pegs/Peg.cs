@@ -11,6 +11,7 @@ public class Peg : MonoBehaviour
     public GameObject goldAppearance;
     public GameObject diamondAppearance;
     public GameObject comboAppearance;
+    public GameObject palladiumAppearance;
     public GameObject selectionHighligter;
 
     public Material standardMaterial;
@@ -43,6 +44,7 @@ public class Peg : MonoBehaviour
     private bool amGolden = false;
     private bool amDiamond = false;
     private bool amCombo = false;
+    private bool amPalladium = false;
 
     private bool amComboEvent;
 
@@ -52,6 +54,7 @@ public class Peg : MonoBehaviour
     private bool recordedAmGolden = false;
     private bool recordedAmDiamond = false;
     private bool recordedAmCombo = false;
+    private bool recordedAmPalladium = false;
     private bool recordingTaken = false;
 
     private float timeUntilBump;
@@ -95,6 +98,11 @@ public class Peg : MonoBehaviour
     public void ConvertToCombo()
     {
         DeterminePegType("combo");
+    }
+
+    public void ConvertToPalladium()
+    {
+        DeterminePegType("palladium");
     }
 
     public void ConvertToDisabled()
@@ -178,10 +186,33 @@ public class Peg : MonoBehaviour
                 GetComponent<CapsuleCollider>().isTrigger = false;
             }
         }
+        else if (pegType.Equals("palladium"))
+        {
+            if (comboEventAppearance.activeSelf == false)
+            {
+                amPalladium = true;
+                palladiumAppearance.SetActive(true);
+                standardAppearance.SetActive(false);
+                comboAppearance.SetActive(false);
+                diamondAppearance.SetActive(false);
+                goldAppearance.SetActive(false);
+            }
+            else
+            {
+                recordedAmPalladium = true;
+                recordedAmModified = true;
+                GetComponent<CapsuleCollider>().isTrigger = false;
+            }
+        }
     }
 
     void AttemptUpgradeOnCoin(Collider other)
     {
+
+        GameObject parent = other.gameObject.transform.parent.gameObject;
+        GameObject childID = parent.transform.GetChild(0).gameObject;
+
+
         recentlyUpgradedCoins.Add(other.gameObject.transform.parent.gameObject);
         if (amGolden)
         {
@@ -205,6 +236,14 @@ public class Peg : MonoBehaviour
         else if (amComboEvent)
         {
             other.gameObject.GetComponentInParent<CoinLogic>().ComboEvent();
+        }
+        else if (amPalladium)
+        {
+            if (other.gameObject.tag != "palladium_coin" && other.gameObject.tag != "styrofoam_coin")
+            {
+                other.transform.GetComponentInParent<CoinLogic>().ConvertToPalladium();
+                ++hitCounter;
+            }
         }
 
         if (hitCounter == maxHitsBeforeMoving)
@@ -231,6 +270,10 @@ public class Peg : MonoBehaviour
         else if (amCombo)
         {
             recordedAmCombo = amCombo;
+        }
+        else if (amPalladium)
+        {
+            recordedAmPalladium = amPalladium;
         }
 
         recordingTaken = true;
@@ -271,6 +314,12 @@ public class Peg : MonoBehaviour
                 amCombo = recordedAmCombo;
                 comboEventAppearance.SetActive(false);
                 comboAppearance.SetActive(true);
+            }
+            else if (recordedAmPalladium)
+            {
+                amPalladium = recordedAmPalladium;
+                comboEventAppearance.SetActive(false);
+                palladiumAppearance.SetActive(true);
             }
             else
             {
@@ -353,6 +402,12 @@ public class Peg : MonoBehaviour
             {
                 comboEventSphere.SetActive(true);
             }
+            else if (amPalladium)
+            {
+                // make palladium have special effect
+                // play particle effect
+                // sparkles or something
+            }
             else
             {
                 break;
@@ -403,6 +458,14 @@ public class Peg : MonoBehaviour
         {
             parent.GetComponent<BulldozeCoin>().GetBumped();
         }
+        else if (childID.tag == "palladium_coin")
+        {
+            parent.GetComponent<CoinLogic>().GetBumped();
+        }
+        else if (childID.tag == "styrofoam_coin")
+        {
+            parent.GetComponent<CoinLogic>().GetBumped();
+        }
     }
 
     void Relocate()
@@ -425,6 +488,26 @@ public class Peg : MonoBehaviour
             StartCoroutine(FlashColor());
         }
         if (other.gameObject.tag == "coin" && amComboEvent)
+        {
+            AttemptUpgradeOnCoin(other);
+            StartCoroutine(FlashColor());
+        }
+        if (other.gameObject.tag == "palladium_coin" && amModified)
+        {
+            AttemptUpgradeOnCoin(other);
+            StartCoroutine(FlashColor());
+        }
+        if (other.gameObject.tag == "palladium_coin" && amComboEvent)
+        {
+            AttemptUpgradeOnCoin(other);
+            StartCoroutine(FlashColor());
+        }
+        if (other.gameObject.tag == "styrofoam_coin" && amModified)
+        {
+            AttemptUpgradeOnCoin(other);
+            StartCoroutine(FlashColor());
+        }
+        if (other.gameObject.tag == "styrofoam_coin" && amComboEvent)
         {
             AttemptUpgradeOnCoin(other);
             StartCoroutine(FlashColor());

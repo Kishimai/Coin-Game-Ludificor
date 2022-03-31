@@ -116,9 +116,11 @@ public class PegManager : MonoBehaviour
         {
             AddToModified(selectedPeg);
             selectedPeg.GetComponent<Peg>().ConvertToCombo();
-
-            Debug.Log(selectedPeg);
-            Debug.Log(pegTyping);
+        }
+        else if (pegTyping == "palladium")
+        {
+            AddToModified(selectedPeg);
+            selectedPeg.GetComponent<Peg>().ConvertToPalladium();
         }
     }
 
@@ -267,11 +269,6 @@ public class PegManager : MonoBehaviour
         float timeUntilEnd = eventDuration;
 
         allowPegEvent = true;
-
-        // !IMPORTANT!
-        // During any paused state of the game, the event must be paused AND:
-        // All pegs need to be reactivated so they can be properly interacted with again for item capsules and combo placements
-        // When the game is unpaused, the event must continue, starting again by recording the current state of each peg and deactivating their abilities
 
         foreach (GameObject peg in disabledPegs)
         {

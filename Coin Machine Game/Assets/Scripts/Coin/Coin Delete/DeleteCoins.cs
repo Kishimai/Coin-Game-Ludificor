@@ -117,8 +117,46 @@ public class DeleteCoins : MonoBehaviour
             Destroy(other.gameObject.transform.parent.gameObject);
         }
 
+        if (other.gameObject.tag == "palladium_coin")
+        {
+            float dataValue = other.GetComponentInParent<Data_Interp>().data.currentValue;
+            float palladiumModifier = other.GetComponentInParent<CoinLogic>().palladiumValue;
+
+            float additionalCoin = Mathf.CeilToInt(dataValue * palladiumModifier);
+
+            dataValue += additionalCoin;
+
+            int coinValue = Mathf.RoundToInt(dataValue * CalculateModifier(other));
+
+            if (coinValue < 0)
+            {
+                coinValue = 0;
+            }
+
+            _manager._currentCoin += coinValue;
+
+            Destroy(other.gameObject.transform.parent.gameObject);
+        }
+
         if (other.gameObject.tag == "styrofoam_coin")
         {
+            // Calculate modifier
+            // If value is 0, do not add coins
+            // If value is greater than zero, calculate modifier
+
+            float dataValue = other.GetComponentInParent<Data_Interp>().data.currentValue;
+
+            dataValue *= other.GetComponentInParent<CoinLogic>().styrofoamValue;
+
+            int coinValue = Mathf.RoundToInt(dataValue * CalculateModifier(other));
+
+            if (coinValue < 0)
+            {
+                coinValue = 0;
+            }
+
+            _manager._currentCoin += coinValue;
+
             Destroy(other.gameObject.transform.parent.gameObject);
         }
     }

@@ -256,11 +256,6 @@ public class UI_Manager : MonoBehaviour
 
         windowed = windowedToggle.isOn;
 
-        if (Input.GetKey(KeyCode.Tab))
-        {
-            _currentCoin += 10000;
-        }
-
         if(Input.GetKeyDown(KeyCode.Escape)){
             if(currentUIMenu == 5){
                 Update_UI(4);

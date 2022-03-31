@@ -18,6 +18,7 @@ public class CoinPlacement : MonoBehaviour
     public GameObject selectedCoin;
 
     public GameObject coinParent;
+    public GameObject specialEffect;
 
     public GameObject spellCoin;
     public GameObject bombCoin;
@@ -27,6 +28,7 @@ public class CoinPlacement : MonoBehaviour
     public GameObject detonateButton;
     public GameObject bulldozeCoin;
     public GameObject blitzSparkle;
+    public GameObject bombCoinMarker;
     public List<string> spells = new List<string>();
     public List<GameObject> activeSpells = new List<GameObject>();
 
@@ -175,6 +177,7 @@ public class CoinPlacement : MonoBehaviour
     {
 
         GameObject newCoin;
+        GameObject newEffect;
 
         if (dropCooldown <= 0 && spells.Count > 0)
         {
@@ -185,6 +188,7 @@ public class CoinPlacement : MonoBehaviour
             {
                 spellCoin = bombCoin;
                 activeSpells.Add(spellCoin);
+                specialEffect = bombCoinMarker;
             }
             else if (randomSpell.Equals("tremor"))
             {
@@ -198,15 +202,23 @@ public class CoinPlacement : MonoBehaviour
             {
                 spellCoin = palladiumCoin;
                 spellCoin.GetComponent<Data_Interp>().data = generation.GetHighestTierCoin();
+                spellCoin.GetComponent<CoinLogic>().palladiumValue = generation.GetPalladiumValue();
             }
             else if (randomSpell.Equals("styrofoam"))
             {
                 spellCoin = styrofoamCoin;
+                spellCoin.GetComponent<CoinLogic>().styrofoamValue = generation.GetStyrofoamValue();
             }
 
             spells.Remove(randomSpell);
 
             newCoin = Instantiate(spellCoin, clampedPosition, Quaternion.Euler(90, 0, 0));
+
+            if (randomSpell.Equals("bomb"))
+            {
+                newEffect = Instantiate(specialEffect, newCoin.transform.position, Quaternion.identity);
+                newEffect.GetComponent<FadedBeamMarker>().parentCoin = newCoin;
+            }
 
             Transform identification = spellCoin.transform.GetChild(0);
 

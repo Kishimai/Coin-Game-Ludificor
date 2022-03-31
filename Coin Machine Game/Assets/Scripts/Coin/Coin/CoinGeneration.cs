@@ -19,6 +19,9 @@ public class CoinGeneration : MonoBehaviour
     public int palladiumCoins;
     public int styrofoamCoins;
 
+    private float styrofoamValue = 0;
+    private float palladiumValue = 0.2f;
+
     [BoxGroup("Core Input")]
     public GameObject NewCoin;
 
@@ -130,6 +133,21 @@ public class CoinGeneration : MonoBehaviour
         return highestTier;
     }
 
+    public CoinData GetLowestTierCoin()
+    {
+        CoinData lowestTier = CoinsAvail[0];
+
+        foreach (CoinData _data in CoinsAvail)
+        {
+            if (lowestTier.Order > _data.Order)
+            {
+                lowestTier = _data;
+            }
+        }
+
+        return lowestTier;
+    }
+
     // Determines if coin should be palladium, styrofoam, etc
     public void DetermineIfSpecial()
     {
@@ -168,17 +186,37 @@ public class CoinGeneration : MonoBehaviour
     }
 
     // Removes x number of styrofoam coins from collection
-    void RemoveStyrofoam(int numToRemove = 1)
+    public void RemoveStyrofoam(int numToRemove = 1)
     {
         if (styrofoamCoins > 0)
         {
-
+            styrofoamCoins -= numToRemove;
         }
         
         if (styrofoamCoins < 0)
         {
             styrofoamCoins = 0;
         }
+    }
+
+    public void IncreaseStyrofoamValue(float value)
+    {
+        styrofoamValue += value;
+    }
+    
+    public float GetStyrofoamValue()
+    {
+        return styrofoamValue;
+    }
+
+    public void IncreasePalladiumValue(float value)
+    {
+        palladiumValue += value;
+    }
+
+    public float GetPalladiumValue()
+    {
+        return palladiumValue;
     }
 
 }   

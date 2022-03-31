@@ -41,6 +41,11 @@ public class ItemButton : MonoBehaviour
     public Sprite rareDice;
     public Sprite vipVoucher;
     public Sprite palladiumCoin;
+    public Sprite usefulMaterials;
+    public Sprite polishingKit;
+    public Sprite palladiumPeg;
+    public Sprite pollution;
+    public Sprite cleanupInitiative;
 
     public Color32 common;
     public Color32 uncommon;
@@ -53,6 +58,8 @@ public class ItemButton : MonoBehaviour
         common = new Color32(common.r, common.g, common.b, 255);
         uncommon = new Color32(uncommon.r, uncommon.g, uncommon.b, 255);
         rare = new Color32(rare.r, rare.g, rare.b, 255);
+
+        DetermineIcon("initialize");
     }
 
     public void RollNew()
@@ -191,6 +198,30 @@ public class ItemButton : MonoBehaviour
             case "palladium_coin":
                 image.color = rare;
                 return palladiumCoin;
+
+            case "useful_materials":
+                image.color = common;
+                return usefulMaterials;
+
+            case "polishing_kit":
+                image.color = common;
+                return polishingKit;
+
+            case "palladium_peg":
+                image.color = uncommon;
+                return palladiumPeg;
+
+            case "pollution":
+                image.color = common;
+                return pollution;
+
+            case "cleanup_initiative":
+                image.color = rare;
+                return cleanupInitiative;
+
+            case "initialize":
+                image.color = common;
+                return null;
 
             default:
                 return null;
