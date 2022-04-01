@@ -184,7 +184,7 @@ public class ItemButton : MonoBehaviour
                 return surgeDuration;
 
             case "better_prizes":
-                image.color = uncommon;
+                image.color = rare;
                 return uncommonDice;
 
             case "great_prizes":
@@ -208,11 +208,11 @@ public class ItemButton : MonoBehaviour
                 return polishingKit;
 
             case "palladium_peg":
-                image.color = uncommon;
+                image.color = rare;
                 return palladiumPeg;
 
             case "pollution":
-                image.color = common;
+                image.color = rare;
                 return pollution;
 
             case "cleanup_initiative":

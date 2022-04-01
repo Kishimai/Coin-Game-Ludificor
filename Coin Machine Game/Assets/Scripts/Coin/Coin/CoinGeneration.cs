@@ -206,6 +206,10 @@ public class CoinGeneration : MonoBehaviour
     
     public float GetStyrofoamValue()
     {
+        if (styrofoamValue <= 0)
+        {
+            styrofoamValue = 0.1f;
+        }
         return styrofoamValue;
     }
 

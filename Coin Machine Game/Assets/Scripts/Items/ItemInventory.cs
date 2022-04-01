@@ -143,19 +143,20 @@ public class ItemInventory : MonoBehaviour
             { "more_coins", "Adds 5% chance to drop an additional coin each coin placement (Max: 500%)" },
             { "bomb_voucher", "Gives bomb coin which can be detonated" },
             { "tremor_voucher", "Gives tremor coin which will shake the machine when placed" },
-            { "better_prizes", "Increases chance of getting uncommon items by 5%" }
         };
 
         rareItems = new Dictionary<string, string>
         {
+            /*
             { "midas_relic", "Increases value of all coins by 10%" },
             { "peg_remove_mk3", "Removes 3 normal pegs from the backboard" },
             { "diamond_peg", "Converts 1 normal peg to a diamond version, tripling value of coins that touch it" },
             { "combo_peg", "Converts 1 normal peg to a combo version, doubling value of coins that touch it (Effect stacks)" },
             { "bulldoze_voucher", "Gives bulldoze coin which will cause coin pusher to force all coins into collection" },
             { "coin_storm", "Adds 25% chance to drop an additional coin each coin placement (Max: 500%)" },
-            { "great_prizes", "Increases chance of getting rare items by 1%" },
+            { "better_prizes", "Increases chance of getting uncommon items by 5%" },
             { "vip_voucher", "Removes lowest tier coin from drop pool" },
+            */
             { "palladium_coin", "Adds 1 palladium coin, 1 styrofoam coin to drop pool, and unlocks new items" }
         };
     }
@@ -410,8 +411,8 @@ public class ItemInventory : MonoBehaviour
             // Add items to lists of rare, uncommon and commons
             commonItems.Add("useful_materials","Makes styrofoam 10% more valuable");
             commonItems.Add("polishing_kit", "Increases value of palladium coins by 1%");
-            uncommonItems.Add("palladium_peg", "Converts 1 normal peg to palladium, turning coins into palladium coins");
-            commonItems.Add("pollution", "Adds 3 styrofoam coins to drop pool and increases styrofoam value by 5X");
+            rareItems.Add("palladium_peg", "Converts 1 normal peg to palladium, which turns coins into palladium coins");
+            rareItems.Add("pollution", "Adds 3 styrofoam coins to drop pool and increases styrofoam value by 5X");
             rareItems.Add("cleanup_initiative", "Remove 1 styrofoam coin from drop pool");
         }
     }

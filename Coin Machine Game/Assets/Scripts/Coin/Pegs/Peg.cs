@@ -196,6 +196,7 @@ public class Peg : MonoBehaviour
                 comboAppearance.SetActive(false);
                 diamondAppearance.SetActive(false);
                 goldAppearance.SetActive(false);
+                GetComponent<CapsuleCollider>().isTrigger = false;
             }
             else
             {
@@ -380,8 +381,6 @@ public class Peg : MonoBehaviour
             if (amGolden)
             {
                 storedMaterial = goldMaterial;
-
-                Debug.Log("Gold Flash");
 
                 goldRing.GetComponent<Renderer>().material = goldFlash;
             }
