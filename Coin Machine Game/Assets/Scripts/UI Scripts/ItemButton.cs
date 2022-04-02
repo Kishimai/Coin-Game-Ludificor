@@ -46,6 +46,10 @@ public class ItemButton : MonoBehaviour
     public Sprite palladiumPeg;
     public Sprite pollution;
     public Sprite cleanupInitiative;
+    public Sprite moreStyrofoam;
+    public Sprite fasterDropping;
+    public Sprite prizeRain;
+    public Sprite prizeStorm;
 
     public Color32 common;
     public Color32 uncommon;
@@ -218,6 +222,22 @@ public class ItemButton : MonoBehaviour
             case "cleanup_initiative":
                 image.color = rare;
                 return cleanupInitiative;
+
+            case "more_styrofoam":
+                image.color = common;
+                return moreStyrofoam;
+
+            case "faster_dropping":
+                image.color = common;
+                return fasterDropping;
+
+            case "prize_rain":
+                image.color = common;
+                return prizeRain;
+
+            case "prize_storm":
+                image.color = rare;
+                return prizeStorm;
 
             case "initialize":
                 image.color = common;

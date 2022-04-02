@@ -31,7 +31,8 @@ public class ItemBuilder : MonoBehaviour
     public Vector3 planeBoundry;
 
     // Used to drop item every 60 seconds
-    public float timeUntilNextItem = 60f;
+    public float timeUntilNextItem;
+    private float maxTimeUntilItem = 120f;
 
     public bool isPaused = false;
 
@@ -76,7 +77,7 @@ public class ItemBuilder : MonoBehaviour
         if (timeUntilNextItem <= 0)
         {
             BuildItem();
-            timeUntilNextItem = 120f;
+            timeUntilNextItem = maxTimeUntilItem;
         }
         
     }
@@ -201,5 +202,14 @@ public class ItemBuilder : MonoBehaviour
         newCoin = Instantiate(coin, position, Quaternion.Euler(randomRotation));
 
         newCoin.transform.SetParent(coinParent.transform);
+    }
+
+    public void ReduceBuildCooldown(float value)
+    {
+        maxTimeUntilItem -= value;
+        if (maxTimeUntilItem < 30)
+        {
+            maxTimeUntilItem = 30;
+        }
     }
 }

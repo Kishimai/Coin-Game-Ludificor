@@ -949,8 +949,7 @@ MonoBehaviour:
   bulldozeCoin: {fileID: 1030149121657076569, guid: 1e0e4cde857c09a4b978d0388540bd4a, type: 3}
   blitzSparkle: {fileID: 1926258571}
   bombCoinMarker: {fileID: 5126060685213064333, guid: a8b7b03d06431f5488a8e89ecb565f8a, type: 3}
-  spells:
-  - bulldoze
+  spells: []
   activeSpells: []
   generation: {fileID: 1384771965}
   gameplayIsReady: 0
@@ -5875,6 +5874,10 @@ MonoBehaviour:
   palladiumPeg: {fileID: 21300000, guid: b0ac6ecd272f14c478350e163394922b, type: 3}
   pollution: {fileID: 21300000, guid: 38c2ef30b98192546a3c6e2a03187ab8, type: 3}
   cleanupInitiative: {fileID: 21300000, guid: b2d0a6b63e8a3bf4db2fa9ab54038f2a, type: 3}
+  moreStyrofoam: {fileID: 0}
+  fasterDropping: {fileID: 0}
+  prizeRain: {fileID: 0}
+  prizeStorm: {fileID: 0}
   common:
     serializedVersion: 2
     rgba: 16777215
@@ -36947,6 +36950,10 @@ MonoBehaviour:
   palladiumPeg: {fileID: 21300000, guid: b0ac6ecd272f14c478350e163394922b, type: 3}
   pollution: {fileID: 21300000, guid: 38c2ef30b98192546a3c6e2a03187ab8, type: 3}
   cleanupInitiative: {fileID: 21300000, guid: b2d0a6b63e8a3bf4db2fa9ab54038f2a, type: 3}
+  moreStyrofoam: {fileID: 0}
+  fasterDropping: {fileID: 0}
+  prizeRain: {fileID: 0}
+  prizeStorm: {fileID: 0}
   common:
     serializedVersion: 2
     rgba: 16777215
@@ -43741,7 +43748,7 @@ MonoBehaviour:
   CoinsAvail: []
   CoinPrinter: {fileID: 1648309495}
   coinPlacement: {fileID: 41762028}
-  palladiumCoins: 1
+  palladiumCoins: 0
   styrofoamCoins: 0
   NewCoin: {fileID: 2263677814624528930, guid: 304edbeafae733f45b28e801a3200503, type: 3}
 --- !u!114 &1384771966
@@ -43789,6 +43796,7 @@ MonoBehaviour:
   availablePrizesText: {fileID: 529297605}
   pegManager: {fileID: 1052648224}
   playerCamera: {fileID: 41762027}
+  itemBuilder: {fileID: 8091604206288950111}
   itemButtons:
   - {fileID: 1099760233}
   - {fileID: 1536958886}
@@ -43814,11 +43822,15 @@ MonoBehaviour:
   rareDice: {fileID: 21300000, guid: f90ffbe1f91c7f3428bc95a8d0e35279, type: 3}
   vipVoucher: {fileID: 21300000, guid: 8dc6a3273bedcd84697ccdd96b1042c8, type: 3}
   palladiumCoin: {fileID: 21300000, guid: 046e8e84646d9784a94e59582993c33a, type: 3}
-  usefulMaterials: {fileID: 0}
-  cleanupInitiative: {fileID: 0}
-  pollution: {fileID: 0}
-  polishingKit: {fileID: 0}
-  palladiumPeg: {fileID: 0}
+  usefulMaterials: {fileID: 21300000, guid: 6cd93460ac4f70e49ad3bf6726c400e8, type: 3}
+  cleanupInitiative: {fileID: 21300000, guid: b2d0a6b63e8a3bf4db2fa9ab54038f2a, type: 3}
+  pollution: {fileID: 21300000, guid: 38c2ef30b98192546a3c6e2a03187ab8, type: 3}
+  polishingKit: {fileID: 21300000, guid: e460287d767f96b46a9d1e88e43b906c, type: 3}
+  palladiumPeg: {fileID: 21300000, guid: b0ac6ecd272f14c478350e163394922b, type: 3}
+  moreStyrofoam: {fileID: 0}
+  fasterDropping: {fileID: 0}
+  prizeRain: {fileID: 0}
+  prizeStorm: {fileID: 0}
 --- !u!114 &1384771968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52011,6 +52023,10 @@ MonoBehaviour:
   palladiumPeg: {fileID: 21300000, guid: b0ac6ecd272f14c478350e163394922b, type: 3}
   pollution: {fileID: 21300000, guid: 38c2ef30b98192546a3c6e2a03187ab8, type: 3}
   cleanupInitiative: {fileID: 21300000, guid: b2d0a6b63e8a3bf4db2fa9ab54038f2a, type: 3}
+  moreStyrofoam: {fileID: 0}
+  fasterDropping: {fileID: 0}
+  prizeRain: {fileID: 0}
+  prizeStorm: {fileID: 0}
   common:
     serializedVersion: 2
     rgba: 16777215
@@ -74476,6 +74492,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f798086d4b7640e4f96ea1748ecb619a, type: 3}
+--- !u!1 &8091604206288950111 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8091604206496765975, guid: f798086d4b7640e4f96ea1748ecb619a, type: 3}
+  m_PrefabInstance: {fileID: 8091604206288950110}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8155835237924216507
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -332,4 +332,24 @@ public class CoinPlacement : MonoBehaviour
             }
         }
     }
+
+    public void ReduceDropCooldown(float value)
+    {
+        // 0.8 / 0.2 = 4 (blitzCooldown is 1/4th maxCooldown)
+        float fractBlitzIsOfMax = maxCooldown / blitzCooldown;
+        // 0.1 / 4 = 0.025 (0.025 is 1/4th blitzCooldown)
+        float fractOfBlitz = value / fractBlitzIsOfMax;
+
+        maxCooldown -= value;
+        blitzCooldown -= fractOfBlitz;
+
+        if (maxCooldown < 0.1)
+        {
+            maxCooldown = 0.1f;
+        }
+        if (blitzCooldown < 0.025)
+        {
+            blitzCooldown = 0.025f;
+        }
+    }
 }

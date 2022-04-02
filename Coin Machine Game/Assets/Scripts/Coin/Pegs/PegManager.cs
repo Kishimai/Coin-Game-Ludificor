@@ -68,7 +68,7 @@ public class PegManager : MonoBehaviour
         // Runs if no specific peg was passed, will tell SelectUnmodified to make a random choice
         if (playerSelectedPeg == null)
         {
-            selectedPeg = SelectUnmodified();
+            selectedPeg = SelectUnmodified(pegTyping);
         }
         // Runs if player selected a peg themselves
         else
@@ -76,16 +76,15 @@ public class PegManager : MonoBehaviour
             // Makes sure to check if player is picking an unmodified peg
             if (unmodifiedPegs.Contains(playerSelectedPeg))
             {
-                selectedPeg = SelectUnmodified(playerSelectedPeg);
+                selectedPeg = SelectUnmodified("", playerSelectedPeg);
             }
             else if (disabledPegs.Contains(playerSelectedPeg))
             {
-                selectedPeg = SelectUnmodified(playerSelectedPeg);
+                selectedPeg = SelectUnmodified("", playerSelectedPeg);
             }
             else if (modifiedPegs.Contains(playerSelectedPeg))
             {
-                selectedPeg = playerSelectedPeg;
-                pegTyping = "combo";
+                //selectedPeg = SelectUnmodified;
             }
         }
 
@@ -155,7 +154,7 @@ public class PegManager : MonoBehaviour
         }
     }
 
-    private GameObject SelectUnmodified(GameObject highlightedPeg = null)
+    private GameObject SelectUnmodified(string decidedType = "", GameObject highlightedPeg = null)
     {
         GameObject chosenPeg = null;
 
@@ -170,9 +169,48 @@ public class PegManager : MonoBehaviour
                 {
                     chosenPeg = disabledPegs[Random.Range(0, disabledPegs.Count)];
                 }
-                else
+                else if (unmodifiedPegs.Count > 0)
                 {
                     chosenPeg = unmodifiedPegs[Random.Range(0, unmodifiedPegs.Count)];
+                }
+                else
+                {
+                    string pegType = "";
+                    foreach (GameObject peg in modifiedPegs)
+                    {
+                        pegType = peg.GetComponent<Peg>().GetPegIdentity();
+                        if (decidedType.Equals("gold"))
+                        {
+                            // Do nothing since this is a common tier
+                        }
+                        else if (decidedType.Equals("diamond"))
+                        {
+                            if (pegType.Equals("gold")) // Or gemstone
+                            {
+                                modifiedPegs.Remove(peg);
+                                unmodifiedPegs.Add(peg);
+                                chosenPeg = peg;
+                            }
+                        }
+                        else if (decidedType.Equals("combo"))
+                        {
+                            if (pegType.Equals("gold")) // Or gemstone
+                            {
+                                modifiedPegs.Remove(peg);
+                                unmodifiedPegs.Add(peg);
+                                chosenPeg = peg;
+                            }
+                        }
+                        else if (decidedType.Equals("palladium"))
+                        {
+                            if (pegType.Equals("gold")) // Or gemstone
+                            {
+                                modifiedPegs.Remove(peg);
+                                unmodifiedPegs.Add(peg);
+                                chosenPeg = peg;
+                            }
+                        }
+                    }
                 }
             }
             // If a peg was highlighted or selected, pick that selected peg

@@ -136,14 +136,24 @@ public class Peg : MonoBehaviour
             if (comboEventAppearance.activeSelf == false)
             {
                 amGolden = true;
+                amCombo = false;
+                amDiamond = false;
+                amPalladium = false;
                 standardAppearance.SetActive(false);
+                comboAppearance.SetActive(false);
+                palladiumAppearance.SetActive(false);
+                diamondAppearance.SetActive(false);
                 goldAppearance.SetActive(true);
                 GetComponent<CapsuleCollider>().isTrigger = false;
             }
             else
             {
-                recordedAmGolden = true;
                 recordedAmModified = true;
+
+                recordedAmGolden = true;
+                recordedAmCombo = false;
+                recordedAmDiamond = false;
+                recordedAmPalladium = false;
                 recordedValueModifier = modifier;
                 GetComponent<CapsuleCollider>().isTrigger = false;
             }
@@ -152,15 +162,26 @@ public class Peg : MonoBehaviour
         {
             if (comboEventAppearance.activeSelf == false)
             {
+
+                amGolden = false;
+                amCombo = false;
                 amDiamond = true;
+                amPalladium = false;
                 standardAppearance.SetActive(false);
+                comboAppearance.SetActive(false);
+                palladiumAppearance.SetActive(false);
                 diamondAppearance.SetActive(true);
+                goldAppearance.SetActive(false);
                 GetComponent<CapsuleCollider>().isTrigger = false;
             }
             else
             {
-                recordedAmDiamond = true;
                 recordedAmModified = true;
+
+                recordedAmGolden = false;
+                recordedAmCombo = false;
+                recordedAmDiamond = true;
+                recordedAmPalladium = false;
                 recordedValueModifier = modifier;
                 GetComponent<CapsuleCollider>().isTrigger = false;
             }
@@ -169,19 +190,25 @@ public class Peg : MonoBehaviour
         {
             if (comboEventAppearance.activeSelf == false)
             {
+                amGolden = false;
                 amCombo = true;
                 amDiamond = false;
-                amGolden = false;
+                amPalladium = false;
                 standardAppearance.SetActive(false);
                 comboAppearance.SetActive(true);
+                palladiumAppearance.SetActive(false);
                 diamondAppearance.SetActive(false);
                 goldAppearance.SetActive(false);
                 GetComponent<CapsuleCollider>().isTrigger = false;
             }
             else
             {
-                recordedAmCombo = true;
                 recordedAmModified = true;
+
+                recordedAmGolden = false;
+                recordedAmCombo = true;
+                recordedAmDiamond = false;
+                recordedAmPalladium = false;
                 recordedValueModifier = modifier;
                 GetComponent<CapsuleCollider>().isTrigger = false;
             }
@@ -190,18 +217,26 @@ public class Peg : MonoBehaviour
         {
             if (comboEventAppearance.activeSelf == false)
             {
+                amGolden = false;
+                amCombo = false;
+                amDiamond = false;
                 amPalladium = true;
-                palladiumAppearance.SetActive(true);
                 standardAppearance.SetActive(false);
                 comboAppearance.SetActive(false);
+                palladiumAppearance.SetActive(true);
                 diamondAppearance.SetActive(false);
                 goldAppearance.SetActive(false);
                 GetComponent<CapsuleCollider>().isTrigger = false;
             }
             else
             {
-                recordedAmPalladium = true;
                 recordedAmModified = true;
+
+                recordedAmGolden = false;
+                recordedAmCombo = false;
+                recordedAmDiamond = false;
+                recordedAmPalladium = true;
+                recordedValueModifier = 1;
                 GetComponent<CapsuleCollider>().isTrigger = false;
             }
         }
@@ -476,6 +511,30 @@ public class Peg : MonoBehaviour
     public void ResetHitCounter()
     {
         hitCounter = 0;
+    }
+
+    public string GetPegIdentity()
+    {
+        string identity = "none";
+
+        if (amGolden)
+        {
+            identity = "gold";
+        }
+        else if (amDiamond)
+        {
+            identity = "diamond";
+        }
+        else if (amCombo)
+        {
+            identity = "combo";
+        }
+        else if (amPalladium)
+        {
+            identity = "palladium";
+        }
+
+        return identity;
     }
 
     void OnTriggerEnter(Collider other)

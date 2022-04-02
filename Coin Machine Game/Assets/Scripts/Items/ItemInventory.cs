@@ -30,6 +30,8 @@ public class ItemInventory : MonoBehaviour
 
     public GameObject playerCamera;
 
+    public GameObject itemBuilder;
+
     private bool playerInput;
 
     public GameObject[] itemButtons;
@@ -65,6 +67,10 @@ public class ItemInventory : MonoBehaviour
     public Sprite pollution;
     public Sprite polishingKit;
     public Sprite palladiumPeg;
+    public Sprite moreStyrofoam;
+    public Sprite fasterDropping;
+    public Sprite prizeRain;
+    public Sprite prizeStorm;
 
     // Start is called before the first frame update
     void Start()
@@ -132,7 +138,9 @@ public class ItemInventory : MonoBehaviour
             { "midas_shard", "Increases value of all coins by 1%" },
             {"peg_remove_mk1", "Removes 1 normal peg from the backboard" },
             {"blitz_duration", "Increases duration of coin blitz by 1 second" },
-            {"surge_duration", "Increases duration of power surge by 1 second" }
+            {"surge_duration", "Increases duration of power surge by 1 second" },
+            {"faster_dropping", "Increase rate at which you can drop coins by 0.1 seconds" },
+            {"prize_rain", "Reduces cooldown on prize capsule drop by 1 second" }
         };
 
         uncommonItems = new Dictionary<string, string>
@@ -157,7 +165,8 @@ public class ItemInventory : MonoBehaviour
             { "better_prizes", "Increases chance of getting uncommon items by 5%" },
             { "vip_voucher", "Removes lowest tier coin from drop pool" },
             */
-            { "palladium_coin", "Adds 1 palladium coin, 1 styrofoam coin to drop pool, and unlocks new items" }
+            { "palladium_coin", "Adds 1 palladium coin, 1 styrofoam coin to drop pool, and unlocks new items" },
+            { "prize_storm", "Reduces cooldown on prize capsule drop by 5 seconds" }
         };
     }
 
@@ -316,6 +325,31 @@ public class ItemInventory : MonoBehaviour
                 collectionsMenu.GetComponent<Collections>().AddItem(cleanupInitiative, "cleanup_initiative");
                 return newItem;
 
+            case "more_styrofoam":
+                gameObject.GetComponent<CoinGeneration>().styrofoamCoins += 1;
+                collectionsMenu.GetComponent<Collections>().AddItem(moreStyrofoam, "more_styrofoam");
+                return newItem;
+
+            // --------------- COOLDOWN ITEMS --------------- //
+
+            case "faster_dropping":
+                // reduce placement time
+                playerCamera.GetComponent<CoinPlacement>().ReduceDropCooldown(0.1f);
+                collectionsMenu.GetComponent<Collections>().AddItem(fasterDropping, "faster_dropping");
+                return newItem;
+
+            case "prize_rain":
+                // reduce max seconds until prize drop by 1
+                itemBuilder.GetComponent<ItemBuilder>().ReduceBuildCooldown(1);
+                collectionsMenu.GetComponent<Collections>().AddItem(prizeRain, "prize_rain");
+                return newItem;
+
+            case "prize_storm":
+                // reduce max seconds until prize drop by 5
+                itemBuilder.GetComponent<ItemBuilder>().ReduceBuildCooldown(5);
+                collectionsMenu.GetComponent<Collections>().AddItem(prizeStorm, "prize_storm");
+                return newItem;
+
             // Runs if new item's tag does not match a case in this switch statement
             default:
                 Debug.LogWarning("New item not known by IntakeItem() in script on: " + gameObject.name);
@@ -414,6 +448,7 @@ public class ItemInventory : MonoBehaviour
             rareItems.Add("palladium_peg", "Converts 1 normal peg to palladium, which turns coins into palladium coins");
             rareItems.Add("pollution", "Adds 3 styrofoam coins to drop pool and increases styrofoam value by 5X");
             rareItems.Add("cleanup_initiative", "Remove 1 styrofoam coin from drop pool");
+            commonItems.Add("more_styrofoam", "Adds 1 styrofoam coin to drop pool");
         }
     }
 
