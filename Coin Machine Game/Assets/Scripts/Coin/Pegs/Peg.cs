@@ -383,6 +383,7 @@ public class Peg : MonoBehaviour
         amGolden = false;
         amDiamond = false;
         amCombo = false;
+        amPalladium = false;
 
         amComboEvent = true;
 
@@ -390,6 +391,7 @@ public class Peg : MonoBehaviour
         goldAppearance.SetActive(false);
         diamondAppearance.SetActive(false);
         comboAppearance.SetActive(false);
+        palladiumAppearance.SetActive(false);
 
         comboEventAppearance.SetActive(true);
         GetComponent<CapsuleCollider>().isTrigger = false;

@@ -75,7 +75,7 @@ public class DeleteCoins : MonoBehaviour
         // Runs if object that collides with Coin Destroyer is a coin
         if (other.gameObject.tag == "coin" && eventManager.GetComponent<EventsManager>().playerIsReady)
         {
-            Mathf.FloorToInt(_manager._currentCoin += other.GetComponentInParent<Data_Interp>().data.currentValue * CalculateModifier(other));
+            System.Math.Floor(_manager._currentCoin += other.GetComponentInParent<Data_Interp>().data.currentValue * CalculateModifier(other));
             ++coinCounter;
 
             other.GetComponentInParent<CoinLogic>().StopAllCoroutines();
@@ -119,15 +119,15 @@ public class DeleteCoins : MonoBehaviour
 
         if (other.gameObject.tag == "palladium_coin")
         {
-            float dataValue = other.GetComponentInParent<Data_Interp>().data.currentValue;
+            double dataValue = other.GetComponentInParent<Data_Interp>().data.currentValue;
             float palladiumModifier = other.GetComponentInParent<CoinLogic>().palladiumValue;
 
-            float additionalCoin = Mathf.CeilToInt(dataValue * palladiumModifier);
+            double additionalCoin = System.Math.Ceiling(dataValue * palladiumModifier);
 
             dataValue += additionalCoin;
 
-            int coinValue = Mathf.RoundToInt(dataValue * CalculateModifier(other));
-
+            double coinValue = System.Math.Round(dataValue * CalculateModifier(other));
+            
             if (coinValue < 0)
             {
                 coinValue = 0;
@@ -144,11 +144,11 @@ public class DeleteCoins : MonoBehaviour
             // If value is 0, do not add coins
             // If value is greater than zero, calculate modifier
 
-            float dataValue = other.GetComponentInParent<Data_Interp>().data.currentValue;
+            double dataValue = other.GetComponentInParent<Data_Interp>().data.currentValue;
 
             dataValue *= other.GetComponentInParent<CoinLogic>().styrofoamValue;
 
-            int coinValue = Mathf.RoundToInt(dataValue * CalculateModifier(other));
+            double coinValue = System.Math.Round(dataValue * CalculateModifier(other));
 
             if (coinValue < 0)
             {

@@ -48,6 +48,23 @@ public class ShopSystem : MonoBehaviour
 
         UpdatedCoin = CurrentCoin;
         UnlockVisualLevel(0);
+
+        if (CurrentCoin.Name == "Copper Coin")
+        {
+            CurrentCoin.CurrentLevel++;
+
+            CurrentCoin.currentCost = CalculateValue(CurrentCoin.BaseCost, CurrentCoin.CurrentLevel, CurrentCoin.levelsForFree);
+            // Might need to have elif for if coin is level 1, where its values should be base values and its current val is base
+            //CurrentCoin.currentValue += CurrentCoin.AddPerLevel;
+            ObjectContent.transform.GetChild(3).GetComponent<TMP_Text>().text = $"${CurrentCoin.currentValue} > <color=green>${CurrentCoin.currentValue + CurrentCoin.AddPerLevel}</color>";
+            ObjectContent.transform.GetChild(1).transform.GetChild(0).GetComponent<TMP_Text>().text = $"${CurrentCoin.currentCost}";
+
+            var child = ObjectContent.transform.GetChild(4);
+            child.GetChild(0).transform.GetChild(0).gameObject.SetActive(true);
+
+            CoinGen.CoinsAvail.Add(CurrentCoin);
+        }
+
     }
 
     public void RestartData(){
@@ -70,10 +87,15 @@ public class ShopSystem : MonoBehaviour
 
     public void UnlockVisualLevel(int UnlockTill){
         var child = ObjectContent.transform.GetChild(4);
-        child.GetChild(UnlockTill).transform.GetChild(0).gameObject.SetActive(true);
+        //child.GetChild(UnlockTill).transform.GetChild(0).gameObject.SetActive(true);
 
-        if(!CoinGen.CoinsAvail.Contains(CurrentCoin)){
-            CoinGen.CoinsAvail.Add(CurrentCoin);
+        if (UnlockTill > 0)
+        {
+            if (!CoinGen.CoinsAvail.Contains(CurrentCoin))
+            {
+                CoinGen.CoinsAvail.Add(CurrentCoin);
+            }
+            child.GetChild(UnlockTill - 1).transform.GetChild(0).gameObject.SetActive(true);
         }
 
         // If player gets more than 5 coins at a time, remove lowest tier coin
@@ -84,39 +106,60 @@ public class ShopSystem : MonoBehaviour
     }
 
     public void UpgradeCoin(){
-        if(UI._currentCoin >= CurrentCoin.currentCost && CurrentCoin.CurrentLevel != 10){
+        // try removing CurrentCoin.CurrentLevel != 10 // --------------------------
+        if(UI._currentCoin >= CurrentCoin.currentCost) {// && CurrentCoin.CurrentLevel != 10){
 
             CurrentCoin.CurrentLevel++;
-            UI._currentCoin -= CurrentCoin.currentCost;
-            CurrentCoin.currentCost = CalculateValue(CurrentCoin.BaseCost, CurrentCoin.CurrentLevel, CurrentCoin.levelsForFree);
-            CurrentCoin.currentValue += CurrentCoin.AddPerLevel;
-            ObjectContent.transform.GetChild(3).GetComponent<TMP_Text>().text = $"${CurrentCoin.currentValue} > <color=green>${CurrentCoin.currentValue + CurrentCoin.AddPerLevel}</color>";
-            ObjectContent.transform.GetChild(1).transform.GetChild(0).GetComponent<TMP_Text>().text = CurrentCoin.currentCost.ToString("0");
 
-            if (CurrentCoin.CurrentLevel == 9){
+            if (CurrentCoin.CurrentLevel == 10){
+
                 ++currentOrder;
+
                 foreach(CoinData _data in CoinData_List){
-                    if(CurrentCoin.Order != 12){
+                    if(CurrentCoin.Order != 16){
                         if(currentOrder == _data.Order){ // Now tracks current order in shop and compares to data in list
                             CurrentCoin = _data;
                         }
-                        
                     } else{
                         // Cant Upgrade Maxed out all coins.
                     }
                 }
+
+                CurrentCoin.currentCost = CalculateValue(CurrentCoin.BaseCost, CurrentCoin.CurrentLevel, CurrentCoin.levelsForFree);
+                ObjectContent.transform.GetChild(3).GetComponent<TMP_Text>().text = $"${CurrentCoin.currentValue} > <color=green>${CurrentCoin.currentValue + CurrentCoin.AddPerLevel}</color>";
+                ObjectContent.transform.GetChild(1).transform.GetChild(0).GetComponent<TMP_Text>().text = CurrentCoin.currentCost.ToString("$0");
+                //ObjectContent.transform.GetChild(1).transform.GetChild(0).GetComponent<TMP_Text>().text = $"${CurrentCoin.currentCost}";
+
+                UnlockVisualLevel(CurrentCoin.CurrentLevel);
+
+            }
+            else
+            {
+                UI._currentCoin -= CurrentCoin.currentCost;
+                CurrentCoin.currentCost = CalculateValue(CurrentCoin.BaseCost, CurrentCoin.CurrentLevel, CurrentCoin.levelsForFree);
+                // Might need to have elif for if coin is level 1, where its values should be base values and its current val is base
+                CurrentCoin.currentValue += CurrentCoin.AddPerLevel;
+                ObjectContent.transform.GetChild(3).GetComponent<TMP_Text>().text = $"${CurrentCoin.currentValue} > <color=green>${CurrentCoin.currentValue + CurrentCoin.AddPerLevel}</color>";
+                ObjectContent.transform.GetChild(1).transform.GetChild(0).GetComponent<TMP_Text>().text = CurrentCoin.currentCost.ToString("$0");
+                //ObjectContent.transform.GetChild(1).transform.GetChild(0).GetComponent<TMP_Text>().text = $"${CurrentCoin.currentCost}";
+
+                UnlockVisualLevel(CurrentCoin.CurrentLevel);
             }
 
-            UnlockVisualLevel(CurrentCoin.CurrentLevel);
         } else{
             // Cant Upgrade anymore 10 has been reached
         }
     }
 
-    public float CalculateValue(float BaseUpgrade, float UpdgradesHave, float FreeUpgrades){
-        return BaseUpgrade *= 1.15f * UpdgradesHave - FreeUpgrades;
-    }
+    public double CalculateValue(double BaseUpgrade, double UpdgradesHave, double FreeUpgrades){
 
-        
+        double exponentialScalar = 0;
+        double coinValue = 0;
+
+        exponentialScalar = System.Math.Pow(1.15f, (UpdgradesHave - FreeUpgrades));
+        coinValue = BaseUpgrade * exponentialScalar;
+
+        return System.Math.Floor(coinValue);
+    }
     
 }

@@ -44,7 +44,7 @@ public class UI_Manager : MonoBehaviour
 
 
     [BoxGroup("Current Datas")]
-    public float _currentCoin;
+    public double _currentCoin;
     [BoxGroup("Current Datas")]
     public int currentUIMenu;
 
@@ -252,7 +252,8 @@ public class UI_Manager : MonoBehaviour
         _sfxText.text = _sfxVoume.ToString("0");
         _musicText.text = _musicVolume.ToString("0");
         _muteAll = _muteAllToggle.enabled;
-        _CoinText.text = $"$ {_currentCoin.ToString("0")}";
+        // Replaced with MoneyManager
+        //_CoinText.text = $"$ {_currentCoin.ToString("0")}";
 
         windowed = windowedToggle.isOn;
 

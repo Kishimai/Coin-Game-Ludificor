@@ -10,11 +10,11 @@ public class CoinData : ScriptableObject
     [BoxGroup("Core Information")]
     public string Name;
     [BoxGroup("Core Information")]
-    public float BaseCost;
+    public double BaseCost;
     [BoxGroup("Core Information")]
-    public float StartingValue;
+    public double StartingValue;
     [BoxGroup("Core Information")]
-    public float AddPerLevel;
+    public double AddPerLevel;
     [BoxGroup("Core Information")]
     public int Order; // Order by which they are Unlocked
     [BoxGroup("Core Information")]
@@ -26,9 +26,9 @@ public class CoinData : ScriptableObject
     public string CoinDescription;
 
     [BoxGroup("Current Information")]
-    public float currentCost;
+    public double currentCost;
     [BoxGroup("Current Information")]
-    public float currentValue;
+    public double currentValue;
     [BoxGroup("Current Information")]
     public bool Unlocked;
     [BoxGroup("Current Information")]

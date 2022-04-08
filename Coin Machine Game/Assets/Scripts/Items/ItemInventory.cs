@@ -155,7 +155,6 @@ public class ItemInventory : MonoBehaviour
 
         rareItems = new Dictionary<string, string>
         {
-            /*
             { "midas_relic", "Increases value of all coins by 10%" },
             { "peg_remove_mk3", "Removes 3 normal pegs from the backboard" },
             { "diamond_peg", "Converts 1 normal peg to a diamond version, tripling value of coins that touch it" },
@@ -164,7 +163,6 @@ public class ItemInventory : MonoBehaviour
             { "coin_storm", "Adds 25% chance to drop an additional coin each coin placement (Max: 500%)" },
             { "better_prizes", "Increases chance of getting uncommon items by 5%" },
             { "vip_voucher", "Removes lowest tier coin from drop pool" },
-            */
             { "palladium_coin", "Adds 1 palladium coin, 1 styrofoam coin to drop pool, and unlocks new items" },
             { "prize_storm", "Reduces cooldown on prize capsule drop by 5 seconds" }
         };

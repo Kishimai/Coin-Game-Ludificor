@@ -335,13 +335,19 @@ public class CoinPlacement : MonoBehaviour
 
     public void ReduceDropCooldown(float value)
     {
-        // 0.8 / 0.2 = 4 (blitzCooldown is 1/4th maxCooldown)
-        float fractBlitzIsOfMax = maxCooldown / blitzCooldown;
+        // 0.8 / 0.8 = 1
+        // so, 0.2 / 0.8 = 0.25
+        // fract = value * 0.25 (fract becomes 0.025), same as below calculation but smarter
+        // Multiply instead of divide because these nums are smaller than 1
+        // Smarter since 0.8 is the full value which recieves full effect from the float value (0.8 = 100%, or 1 in this case)
+
+
+        float fractOfCooldown = blitzCooldown / maxCooldown;
         // 0.1 / 4 = 0.025 (0.025 is 1/4th blitzCooldown)
-        float fractOfBlitz = value / fractBlitzIsOfMax;
+        float blitzValue = value * maxCooldown;
 
         maxCooldown -= value;
-        blitzCooldown -= fractOfBlitz;
+        blitzCooldown -= blitzValue;
 
         if (maxCooldown < 0.1)
         {
