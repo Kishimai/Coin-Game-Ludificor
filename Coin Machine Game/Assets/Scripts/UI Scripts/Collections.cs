@@ -31,6 +31,8 @@ public class Collections : MonoBehaviour
 
     public void AddItem(Sprite image, string name)
     {
+        //
+
         if (itemNames.Contains(name))
         {
             int index = itemNames.IndexOf(name);

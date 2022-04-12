@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -42,10 +43,20 @@ public class MoneyManager : MonoBehaviour
             double x = shmoney - currentCoin;
 
             newMoneyCount.Clear();
+            string newString = "";
 
-            int newShmoney = (int)x;
-            newShmoney = Mathf.Abs(newShmoney);
-            string newString = newShmoney.ToString();
+            // Difference ultimately becomes TOO HIGH for floats and it has an overflow
+            try
+            {
+                int newShmoney = (int)x;
+                newShmoney = Mathf.Abs(newShmoney);
+                newString = newShmoney.ToString();
+            }
+            catch (Exception e)
+            {
+                int newShmoney = 2147483647;
+                newString = newShmoney.ToString();
+            }
             
             int index;
             Vector3 location = Vector3.zero;

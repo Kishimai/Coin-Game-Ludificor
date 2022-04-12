@@ -289,6 +289,10 @@ public class UI_Manager : MonoBehaviour
                 ShopInGame.SetActive(!ShopInGame.activeSelf);
                 ShopButton.SetActive(!ShopButton.activeSelf);
                 break;
+            case "Reset":
+                ShopInGame.SetActive(false);
+                ShopButton.SetActive(true);
+                break;
         }
     }
 

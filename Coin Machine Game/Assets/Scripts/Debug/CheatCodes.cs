@@ -20,7 +20,7 @@ public class CheatCodes : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Z))
         {
-            uiManager._currentCoin += 1000000;
+            uiManager._currentCoin += 1000000000;
         }
         if (Input.GetKeyDown(KeyCode.X))
         {

@@ -283,6 +283,7 @@ public class ItemInventory : MonoBehaviour
 
             case "vip_voucher":
                 gameObject.GetComponent<CoinGeneration>().RemoveLowestTierCoin();
+                gameObject.GetComponent<CoinGeneration>().RemoveStyrofoam();
                 collectionsMenu.GetComponent<Collections>().AddItem(vipVoucher, "vip_voucher");
                 return newItem;
 
