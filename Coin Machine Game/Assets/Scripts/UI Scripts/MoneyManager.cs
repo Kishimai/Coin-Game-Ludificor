@@ -54,6 +54,7 @@ public class MoneyManager : MonoBehaviour
             }
             catch (Exception e)
             {
+                // Replace this to say something like +Lots maybe
                 int newShmoney = 2147483647;
                 newString = newShmoney.ToString();
             }

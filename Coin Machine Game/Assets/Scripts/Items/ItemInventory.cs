@@ -162,7 +162,7 @@ public class ItemInventory : MonoBehaviour
             { "bulldoze_voucher", "Gives bulldoze coin which will cause coin pusher to force all coins into collection" },
             { "coin_storm", "Adds 25% chance to drop an additional coin each coin placement (Max: 500%)" },
             { "better_prizes", "Increases chance of getting uncommon items by 5%" },
-            { "vip_voucher", "Removes lowest tier coin from drop pool" },
+            { "vip_voucher", "Removes lowest tier coin from drop pool (Additonally removes 1 styrofoam)" },
             { "palladium_coin", "Adds 1 palladium coin, 1 styrofoam coin to drop pool, and unlocks new items" },
             { "prize_storm", "Reduces cooldown on prize capsule drop by 5 seconds" }
         };
@@ -447,7 +447,7 @@ public class ItemInventory : MonoBehaviour
             rareItems.Add("palladium_peg", "Converts 1 normal peg to palladium, which turns coins into palladium coins");
             rareItems.Add("pollution", "Adds 3 styrofoam coins to drop pool and increases styrofoam value by 5X");
             rareItems.Add("cleanup_initiative", "Remove 1 styrofoam coin from drop pool");
-            commonItems.Add("more_styrofoam", "Adds 1 styrofoam coin to drop pool");
+            //commonItems.Add("more_styrofoam", "Adds 1 styrofoam coin to drop pool");
         }
     }
 
