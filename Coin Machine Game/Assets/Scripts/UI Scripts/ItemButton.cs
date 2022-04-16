@@ -50,6 +50,9 @@ public class ItemButton : MonoBehaviour
     public Sprite fasterDropping;
     public Sprite prizeRain;
     public Sprite prizeStorm;
+    public Sprite fasterFalling;
+    public Sprite fasterPushing;
+    public Sprite autoDrop;
 
     public Color32 common;
     public Color32 uncommon;
@@ -238,6 +241,18 @@ public class ItemButton : MonoBehaviour
             case "prize_storm":
                 image.color = rare;
                 return prizeStorm;
+
+            case "faster_pushing":
+                image.color = common;
+                return fasterPushing;
+
+            case "faster_falling":
+                image.color = common;
+                return fasterFalling;
+
+            case "auto_drop":
+                image.color = common;
+                return autoDrop;
 
             case "initialize":
                 image.color = common;

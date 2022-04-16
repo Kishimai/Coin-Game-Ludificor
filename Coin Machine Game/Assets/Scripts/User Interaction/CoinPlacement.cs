@@ -48,6 +48,8 @@ public class CoinPlacement : MonoBehaviour
 
     private GameObject gameManager;
 
+    public bool enableAutoDrop = false;
+
     // Drop zone layer is to be assigned to the "Drop Zone" object, which is responsible for allowing the player to place coins at all
     // When the mouse cursor is hovering over the "Drop Zone" the player will be allowed to place coins
     private int dropZoneLayer = 6;
@@ -157,10 +159,20 @@ public class CoinPlacement : MonoBehaviour
             // Ensures that the coin guide's position is always where the mouse cursor is
             coinGuide.transform.position = clampedPosition;
 
-            // Runs if the player clicks the left mouse button
-            if (Input.GetButtonDown("Fire1"))
+            if (enableAutoDrop && blitzEvent != true)
             {
-                DropLogic(clampedPosition);
+                if (Input.GetButton("Fire1"))
+                {
+                    DropLogic(clampedPosition);
+                }
+            }
+            else
+            {
+                // Runs if the player clicks the left mouse button
+                if (Input.GetButtonUp("Fire1"))
+                {
+                    DropLogic(clampedPosition);
+                }
             }
             
         }
@@ -341,7 +353,7 @@ public class CoinPlacement : MonoBehaviour
         float blitzValue = value * fractOfCooldown;
 
         maxCooldown -= value;
-        blitzCooldown -= blitzValue;
+        //blitzCooldown -= blitzValue;
 
         if (maxCooldown < 0.5)
         {
@@ -349,7 +361,12 @@ public class CoinPlacement : MonoBehaviour
         }
         if (blitzCooldown < 0.25)
         {
-            blitzCooldown = 0.25f;
+            //blitzCooldown = 0.25f;
         }
+    }
+
+    public void EnableAutoDrop()
+    {
+        enableAutoDrop = true;
     }
 }

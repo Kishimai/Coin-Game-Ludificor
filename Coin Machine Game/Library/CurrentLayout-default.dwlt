@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 37
+  controlID: 91
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 388
     height: 947
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -227,7 +227,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 38
+  controlID: 92
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 39
+  controlID: 93
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -2520,22 +2520,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Event
+    - Assets/Art/Item
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Event
+  - Assets/Art/Item
   m_LastFoldersGridSize: -1
   m_LastProjectPath: I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 277}
-    m_SelectedIDs: 1c7c0000
-    m_LastClickedID: 31772
-    m_ExpandedIDs: 00000000d07b0000d27b0000d47b0000d67b0000027c000000ca9a3b
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: ea8c0000
+    m_LastClickedID: 36074
+    m_ExpandedIDs: 00000000d07b0000d27b0000d47b0000d67b0000e27b0000fa7b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2651,7 +2651,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 502
+  m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_LockTracker:
     m_IsLocked: 0
@@ -2683,24 +2683,24 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 7a4f0000
-      m_LastClickedID: 20346
-      m_ExpandedIDs: d0e8ffff52fbffff
+      scrollPos: {x: 0, y: 1376}
+      m_SelectedIDs: c85d0000
+      m_LastClickedID: 24008
+      m_ExpandedIDs: 18daffff5ce8ffffcee8ffffd0e8ffff52fbfffff04f0000425000002e52000084540000b45400001c5500003e560000ba5700001858000030590000f05900008c5b0000f25b00005c5c0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Coin Event Manager
+        m_OriginalName: Coin Event Manager
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 23888
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -2746,9 +2746,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 4.40225, y: 3.4252539, z: -17.974258}
+    m_Target: {x: 2.8983517, y: 4.5904665, z: -20.817966}
     speed: 2
-    m_Value: {x: 4.40225, y: 3.4252539, z: -17.974258}
+    m_Value: {x: 2.8983517, y: 4.5904665, z: -20.817966}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -2795,13 +2795,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.004856414, y: 0.98777616, z: -0.15263338, w: 0.031422794}
+    m_Target: {x: 0.00085569534, y: 0.99395186, z: -0.1095863, w: 0.0077539473}
     speed: 2
-    m_Value: {x: 0.004856391, y: 0.98777145, z: -0.15263265, w: 0.031422645}
+    m_Value: {x: 0.000855691, y: 0.9939468, z: -0.10958574, w: 0.0077539077}
   m_Size:
-    m_Target: 19.669477
+    m_Target: 23.314657
     speed: 2
-    m_Value: 19.669477
+    m_Value: 23.314657
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -2819,7 +2819,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+  m_LastSceneViewRotation: {x: 0.004856414, y: 0.98777616, z: -0.15263338, w: 0.031422794}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 

@@ -42,7 +42,12 @@ public class CoinPusher : MonoBehaviour
     private float elapsedTime;
 
     public bool surgeEvent;
-    public float surgeSpeed;
+    public float surgeSpeed = 8;
+
+    public float maxPushSpeed = 10;
+    public float maxSurgeSpeed = 15;
+
+    private float speedPercentage = 0;
 
     public Vector3 bulldozePosition = new Vector3(0,0,-8);
     public float bulldozeSpeed;
@@ -78,6 +83,12 @@ public class CoinPusher : MonoBehaviour
         coinPusher.transform.position = relativeStart;
 
         pusherSpeed = defaultSpeed;
+
+        speedPercentage = pusherSpeed / surgeSpeed;
+
+        //float increasePercent = surgeSpeed / pusherSpeed;
+
+        //maxSurgeSpeed = maxPushSpeed * increasePercent;
 
         StartCoroutine(CheckQueue());
     }
@@ -226,5 +237,25 @@ public class CoinPusher : MonoBehaviour
     {
         pusherRb.velocity = new Vector3(0, 0, savedSpeed);
         allowingMovement = true;
+    }
+
+    public void IncreasePushSpeed(float speedIncrease)
+    {
+        if (defaultSpeed < maxPushSpeed)
+        {
+            // increase push and surge speeds
+            float fractSpeed = speedIncrease * speedPercentage;
+            defaultSpeed += speedIncrease;
+            surgeSpeed += fractSpeed;
+        }
+        else
+        {
+            defaultSpeed = maxPushSpeed;
+        }
+
+        if (surgeSpeed > maxSurgeSpeed)
+        {
+            surgeSpeed = maxSurgeSpeed;
+        }
     }
 }

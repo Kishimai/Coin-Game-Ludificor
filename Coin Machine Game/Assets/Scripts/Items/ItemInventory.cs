@@ -71,6 +71,9 @@ public class ItemInventory : MonoBehaviour
     public Sprite fasterDropping;
     public Sprite prizeRain;
     public Sprite prizeStorm;
+    public Sprite fasterFalling;
+    public Sprite fasterPushing;
+    public Sprite autoDrop;
 
     // Start is called before the first frame update
     void Start()
@@ -140,7 +143,10 @@ public class ItemInventory : MonoBehaviour
             {"blitz_duration", "Increases duration of coin blitz by 1 second" },
             {"surge_duration", "Increases duration of power surge by 1 second" },
             {"faster_dropping", "Increase rate at which you can drop coins by 0.1 seconds" },
-            {"prize_rain", "Reduces cooldown on prize capsule drop by 1 second" }
+            {"prize_rain", "Reduces cooldown on prize capsule drop by 1 second" },
+            {"faster_falling", "Slightly increases gravity"},
+            {"faster_pushing", "Slightly increases pusher speed"},
+            {"auto_drop", "Enables auto-dropping of coins (hold left click)"}
         };
 
         uncommonItems = new Dictionary<string, string>
@@ -347,6 +353,25 @@ public class ItemInventory : MonoBehaviour
                 // reduce max seconds until prize drop by 5
                 itemBuilder.GetComponent<ItemBuilder>().ReduceBuildCooldown(5);
                 collectionsMenu.GetComponent<Collections>().AddItem(prizeStorm, "prize_storm");
+                return newItem;
+
+            // --------------- GAME SPEED ITEMS --------------- //
+
+            case "faster_falling":
+                eventManager.GetComponent<EventsManager>().IncreaseGravity(0.5f);
+                collectionsMenu.GetComponent<Collections>().AddItem(fasterFalling, "faster_falling");
+                return newItem;
+
+            case "faster_pushing":
+                eventManager.GetComponent<EventsManager>().IncreasePushSpeed(0.5f);
+                collectionsMenu.GetComponent<Collections>().AddItem(fasterPushing, "faster_pushing");
+                return newItem;
+
+            // --------------- DROP ITEMS --------------- //
+
+            case "auto_drop":
+                playerCamera.GetComponent<CoinPlacement>().EnableAutoDrop();
+                collectionsMenu.GetComponent<Collections>().AddItem(autoDrop, "auto_drop");
                 return newItem;
 
             // Runs if new item's tag does not match a case in this switch statement

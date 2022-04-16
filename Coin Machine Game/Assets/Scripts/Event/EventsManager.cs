@@ -38,6 +38,7 @@ public class EventsManager : MonoBehaviour
     public GameObject falsePusher2;
 
     public float itemGravity;
+    public float maxGravity = -40;
 
     public string[] commonEvents = new string[] { "CoinBlitz" };
     // Remove power surge from uncommon events and replace it with another event (maybe)
@@ -258,6 +259,8 @@ public class EventsManager : MonoBehaviour
         // Tells the coin destroyer to start tracking coins that fall into it so the player can gather money
         coinDestroyer.GetComponent<DeleteCoins>().gameplayIsReady = true;
 
+        Physics.gravity = new Vector3(0, itemGravity, 0);
+
         // If an event is not going on, decrease time until next event check
         if (currentEventDuration <= 0 && animationFinished)
         {
@@ -325,7 +328,7 @@ public class EventsManager : MonoBehaviour
 
     void PowerSurge()
     {
-        coinPusher.GetComponent<CoinPusher>().surgeSpeed = surgePusherSpeed;
+        //coinPusher.GetComponent<CoinPusher>().surgeSpeed = surgePusherSpeed;
 
         coinPusher.GetComponent<CoinPusher>().surgeEvent = true;
         currentEventDuration = powerSurgeDuration;
@@ -353,5 +356,22 @@ public class EventsManager : MonoBehaviour
         StartCoroutine(gameManager.GetComponent<DotLightManager>().Scroll(pegComboDuration));
 
         comboPing.Play();
+    }
+
+    public void IncreaseGravity(float gravityIncrease)
+    {
+        if (itemGravity > maxGravity)
+        {
+            itemGravity -= gravityIncrease;
+        }
+        else
+        {
+            itemGravity = maxGravity;
+        }
+    }
+
+    public void IncreasePushSpeed(float speed)
+    {
+        coinPusher.GetComponent<CoinPusher>().IncreasePushSpeed(speed);
     }
 }

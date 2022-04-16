@@ -26,6 +26,9 @@ public class ItemRandomizer : MonoBehaviour
 
     public GameObject pegManager;
     public GameObject playerCamera;
+    public GameObject eventManager;
+    public GameObject coinPusher;
+    public GameObject itemBuilder;
 
     // Start is called before the first frame update
     void Start()
@@ -174,6 +177,31 @@ public class ItemRandomizer : MonoBehaviour
         {
             newDict = GetFromAvailable("rare", "coin_storm");
         }
+        else if (item.Equals("faster_falling") && eventManager.GetComponent<EventsManager>().itemGravity <= eventManager.GetComponent<EventsManager>().maxGravity)
+        {
+            newDict = GetFromAvailable("common", "faster_falling");
+        }
+        else if (item.Equals("faster_pushing") && coinPusher.GetComponent<CoinPusher>().pusherSpeed >= coinPusher.GetComponent<CoinPusher>().maxPushSpeed)
+        {
+            newDict = GetFromAvailable("common", "faster_pushing");
+        }
+        else if (item.Equals("faster_dropping") && playerCamera.GetComponent<CoinPlacement>().maxCooldown <= 0.5)
+        {
+            newDict = GetFromAvailable("common", "faster_dropping");
+        }
+        else if (item.Equals("prize_rain") && itemBuilder.GetComponent<ItemBuilder>().maxTimeUntilItem <= itemBuilder.GetComponent<ItemBuilder>().limit)
+        {
+            newDict = GetFromAvailable("common", "prize_rain");
+        }
+        else if (item.Equals("prize_storm") && itemBuilder.GetComponent<ItemBuilder>().maxTimeUntilItem <= itemBuilder.GetComponent<ItemBuilder>().limit)
+        {
+            newDict = GetFromAvailable("rare", "prize_storm");
+        }
+        else if (item.Equals("auto_drop") && playerCamera.GetComponent<CoinPlacement>().enableAutoDrop)
+        {
+            newDict = GetFromAvailable("common", "auto_drop");
+        }
+
 
         if (newDict != null)
         {
