@@ -313,7 +313,7 @@ public class EventsManager : MonoBehaviour
     {
         // Defines the new coin placement cooldown which will be used during the blitz event
         //coinPlacementCooldown = X;
-        playerCamera.GetComponent<CoinPlacement>().blitzCooldown = coinPlacementCooldown;
+        //playerCamera.GetComponent<CoinPlacement>().blitzCooldown = coinPlacementCooldown;
 
         playerCamera.GetComponent<CoinPlacement>().blitzEvent = true;
         currentEventDuration = coinBlitzDuration;

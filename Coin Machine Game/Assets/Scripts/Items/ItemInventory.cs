@@ -361,6 +361,7 @@ public class ItemInventory : MonoBehaviour
 
         if (availablePrizes <= 0)
         {
+
             availablePrizes = 0;
 
             GetComponent<UI_Manager>().Update_UI(4);
