@@ -17,6 +17,8 @@ public class Collections : MonoBehaviour
 
     private int itemMenuIndex = 0;
 
+    private bool selecting = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +34,6 @@ public class Collections : MonoBehaviour
     public void AddItem(Sprite image, string name)
     {
         //
-
         if (itemNames.Contains(name))
         {
             int index = itemNames.IndexOf(name);
@@ -44,19 +45,22 @@ public class Collections : MonoBehaviour
         }
         else
         {
-            itemImages.Add(image);
-            itemNames.Add(name);
-            itemCounts.Add(1);
+            if (itemMenuIndex < menuItems.Length)
+            {
+                itemImages.Add(image);
+                itemNames.Add(name);
+                itemCounts.Add(1);
 
-            menuCollection.transform.GetChild(itemMenuIndex).gameObject.SetActive(true);
+                menuCollection.transform.GetChild(itemMenuIndex).gameObject.SetActive(true);
 
-            GameObject itemSprite = menuItems[itemMenuIndex].transform.GetChild(0).gameObject;
-            GameObject itemCount = menuItems[itemMenuIndex].transform.GetChild(1).gameObject;
+                GameObject itemSprite = menuItems[itemMenuIndex].transform.GetChild(0).gameObject;
+                GameObject itemCount = menuItems[itemMenuIndex].transform.GetChild(1).gameObject;
 
-            itemSprite.GetComponent<Image>().sprite = itemImages[itemMenuIndex];
-            itemCount.GetComponent<TextMeshProUGUI>().text = itemCounts[itemMenuIndex].ToString();
+                itemSprite.GetComponent<Image>().sprite = itemImages[itemMenuIndex];
+                itemCount.GetComponent<TextMeshProUGUI>().text = itemCounts[itemMenuIndex].ToString();
 
-            ++itemMenuIndex;
+                ++itemMenuIndex;
+            }
         }
     }
 
@@ -72,4 +76,14 @@ public class Collections : MonoBehaviour
             menuCollection.SetActive(false);
         }
     }
+
+    public string GetItemName()
+    {
+        string itemName = "";
+
+
+
+        return itemName;
+    }
+
 }

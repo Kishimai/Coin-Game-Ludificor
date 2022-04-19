@@ -477,4 +477,11 @@ public class ItemInventory : MonoBehaviour
         }
     }
 
+    public string GetItemDescription(string itemName)
+    {
+        string description = "";
+
+        return description;
+    }
+
 }

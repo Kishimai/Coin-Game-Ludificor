@@ -179,7 +179,7 @@ public class ItemBuilder : MonoBehaviour
         newItem.transform.SetParent(capsuleParent.transform);
     }
 
-    public void BuildCoin()
+    public void BuildCoin(GameObject styrofoam = null)
     {
         GameObject newCoin;
 
@@ -198,11 +198,20 @@ public class ItemBuilder : MonoBehaviour
         Vector3 position = new Vector3(planePos.x + randomXPosition / 2, 27, planePos.z + randomZPosition / 2);
         randomRotation = new Vector3(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
 
-        generation.GetPlacementData();
+        if (styrofoam == null)
+        {
+            generation.GetPlacementData();
 
-        newCoin = Instantiate(coin, position, Quaternion.Euler(randomRotation));
+            newCoin = Instantiate(coin, position, Quaternion.Euler(randomRotation));
 
-        newCoin.transform.SetParent(coinParent.transform);
+            newCoin.transform.SetParent(coinParent.transform);
+        }
+        else
+        {
+            newCoin = Instantiate(styrofoam, position, Quaternion.Euler(randomRotation));
+
+            newCoin.transform.SetParent(coinParent.transform);
+        }
     }
 
     public void ReduceBuildCooldown(float value)

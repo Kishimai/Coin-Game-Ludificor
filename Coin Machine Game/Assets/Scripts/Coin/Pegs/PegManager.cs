@@ -18,6 +18,8 @@ public class PegManager : MonoBehaviour
 
     private GameObject eventManager;
 
+    public GameObject poppedPeg;
+
     public bool allowPegEvent = false;
     public float regularPegValueModifier = 0;
     private float goldPegValueModifier = 0.5f;
@@ -101,6 +103,9 @@ public class PegManager : MonoBehaviour
 
     private void DeterminePegOutcome(string pegTyping, GameObject selectedPeg)
     {
+        GameObject popped = Instantiate(poppedPeg, selectedPeg.transform.position, Quaternion.identity);
+        popped.GetComponent<PegPop>().SetStartPos(selectedPeg.transform.position);
+
         if (pegTyping == "gold")
         {
             AddToModified(selectedPeg);
@@ -146,6 +151,9 @@ public class PegManager : MonoBehaviour
                 // use a trigger collision box instead? coins shouldnt bounce off of disabled pegs.
                 //pegToDisable.SetActive(false);
                 pegToDisable.GetComponent<Peg>().ConvertToDisabled();
+
+                GameObject popped = Instantiate(poppedPeg, pegToDisable.transform.position, Quaternion.identity);
+                popped.GetComponent<PegPop>().SetStartPos(pegToDisable.transform.position);
             }
             else
             {
@@ -211,6 +219,12 @@ public class PegManager : MonoBehaviour
                             }
                         }
                     }
+
+                    GameObject popped = Instantiate(poppedPeg, chosenPeg.transform.position, Quaternion.identity);
+                    popped.GetComponent<PegPop>().SetStartPos(chosenPeg.transform.position);
+                    popped.transform.GetChild(0).gameObject.SetActive(false);
+                    popped.transform.GetChild(1).gameObject.SetActive(true);
+
                 }
             }
             // If a peg was highlighted or selected, pick that selected peg

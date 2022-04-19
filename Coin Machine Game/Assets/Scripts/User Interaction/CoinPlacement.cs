@@ -325,7 +325,33 @@ public class CoinPlacement : MonoBehaviour
         // Builds coins equal to additionalDrops
         for (int i = 0; i < additionalDrops; ++i)
         {
-            itemBuilder.GetComponent<ItemBuilder>().BuildCoin();
+            if (generation.styrofoamCoins > 0)
+            {
+                List<string> coins = new List<string>();
+                foreach (CoinData coin in generation.CoinsAvail){
+                    coins.Add("coin");
+                }
+                for (int j = 0; j < generation.styrofoamCoins; ++j)
+                {
+                    coins.Add("styrofoam");
+                }
+
+                string chosenCoin = coins[Random.Range(0, coins.Count)];
+
+                if (chosenCoin.Equals("styrofoam"))
+                {
+                    itemBuilder.GetComponent<ItemBuilder>().BuildCoin(styrofoamCoin);
+                }
+                else
+                {
+                    itemBuilder.GetComponent<ItemBuilder>().BuildCoin();
+                }
+
+            }
+            else
+            {
+                itemBuilder.GetComponent<ItemBuilder>().BuildCoin();
+            }
         }
     }
 

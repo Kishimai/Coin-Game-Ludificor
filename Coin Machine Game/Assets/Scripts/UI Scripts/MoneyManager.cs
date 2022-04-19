@@ -14,6 +14,8 @@ public class MoneyManager : MonoBehaviour
 
     public GameObject addedShmoney;
 
+    public GameObject canvas;
+
     public Sprite zero, one, two, three, four, five, six, seven, eight, nine;
     public Sprite gZero, gOne, gTwo, gThree, gFour, gFive, gSix, gSeven, gEight, gNine;
     public Sprite shmoneySprite;
@@ -24,6 +26,8 @@ public class MoneyManager : MonoBehaviour
     public List<GameObject> digitPlaces = new List<GameObject>();
 
     public List<Sprite> newMoneyCount = new List<Sprite>();
+
+    //public Vector3 location;
 
     // Start is called before the first frame update
     void Start()
@@ -65,12 +69,15 @@ public class MoneyManager : MonoBehaviour
             // Old unchanged code at bottom of script
             location = digitPlaces[0].transform.position;
             location.y = location.y - 32;
+            location.x = location.x + 187;
 
             GameObject newMoney = Instantiate(addedShmoney, location, Quaternion.identity);
 
-            newMoney.transform.SetParent(gameObject.transform);
+            newMoney.transform.SetParent(gameObject.transform, false);
 
-            newMoney.GetComponent<AddedShmoney>().SetEndPos(new Vector3(location.x, location.y + 32, location.z));
+            newMoney.GetComponent<AddedShmoney>().SetStartPos(location);
+
+            newMoney.GetComponent<AddedShmoney>().SetEndPos(new Vector3(location.x, location.y + 64, location.z));
 
             foreach (char digit in newString)
             {

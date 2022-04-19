@@ -159,6 +159,28 @@ public class DeleteCoins : MonoBehaviour
 
             Destroy(other.gameObject.transform.parent.gameObject);
         }
+
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "popped_peg")
+        {
+            double coinValue = 0;
+
+            CoinData highestVal = gameManager.GetComponent<CoinGeneration>().GetHighestTierCoin();
+
+            //double val = highestVal.currentValue * 0.2f;
+
+            //coinValue = highestVal.currentValue + val;
+
+            coinValue = highestVal.currentValue * 5;
+
+            _manager._currentCoin += coinValue;
+
+            Destroy(collision.gameObject);
+        }
     }
 
     private void OnCollisionStay(Collision collision)

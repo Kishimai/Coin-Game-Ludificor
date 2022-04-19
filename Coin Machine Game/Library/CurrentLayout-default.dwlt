@@ -19,9 +19,9 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Inspector
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 388
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -2520,22 +2520,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Art/Item
+    - Assets/Scripts/UI Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Art/Item
+  - Assets/Scripts/UI Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: ea8c0000
-    m_LastClickedID: 36074
-    m_ExpandedIDs: 00000000d07b0000d27b0000d47b0000d67b0000e27b0000fa7b000000ca9a3b
+    scrollPos: {x: 0, y: 501}
+    m_SelectedIDs: 547d0000
+    m_LastClickedID: 32084
+    m_ExpandedIDs: 00000000e67c0000e87c0000ea7c0000ec7c00002e7d0000327d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2563,7 +2563,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000d07b0000d27b0000d47b0000d67b0000
+    m_ExpandedIDs: 00000000e67c0000e87c0000ea7c0000ec7c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2607,7 +2607,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 5}
+      m_ClientGUIView: {fileID: 11}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -2683,24 +2683,24 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 1376}
-      m_SelectedIDs: c85d0000
-      m_LastClickedID: 24008
-      m_ExpandedIDs: 18daffff5ce8ffffcee8ffffd0e8ffff52fbfffff04f0000425000002e52000084540000b45400001c5500003e560000ba5700001858000030590000f05900008c5b0000f25b00005c5c0000
+      scrollPos: {x: 0, y: 660}
+      m_SelectedIDs: 025c00000a530000565c0000c45f00008a5d0000b85900000657000098540000fa5a000048560000705f00000e510000ee5b0000d05000003c520000ca53000034540000c04f0000b25400004a5d0000405c0000ee5a0000ea5a0000ba5f00005e5b0000b24f00005e540000465b000078530000965200004a540000fe500000
+      m_LastClickedID: 20734
+      m_ExpandedIDs: ec76ddff9e79ddffce84ddff0e2ddfff8ad3e0ffcad5e0ffe891e2ff5866e4ff2444f1ff7ce1ffff3ce2ffff5ce8ffffcee8ffffd0e8ffff52fbffff28510000d45400006c550000f65500001c5800005c58000092590000545f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Coin Event Manager
-        m_OriginalName: Coin Event Manager
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 23888
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -2741,14 +2741,14 @@ MonoBehaviour:
   m_OverrideSceneCullingMask: 6917529027641081856
   m_SceneIsLit: 1
   m_SceneLighting: 1
-  m_2DMode: 0
+  m_2DMode: 1
   m_isRotationLocked: 0
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 2.8983517, y: 4.5904665, z: -20.817966}
+    m_Target: {x: 788.68536, y: 676.0456, z: -129.35553}
     speed: 2
-    m_Value: {x: 2.8983517, y: 4.5904665, z: -20.817966}
+    m_Value: {x: 788.68536, y: 676.0456, z: -129.35553}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -2795,17 +2795,17 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.00085569534, y: 0.99395186, z: -0.1095863, w: 0.0077539473}
+    m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
-    m_Value: {x: 0.000855691, y: 0.9939468, z: -0.10958574, w: 0.0077539077}
+    m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 23.314657
+    m_Target: 488.54214
     speed: 2
-    m_Value: 23.314657
+    m_Value: 488.54214
   m_Ortho:
-    m_Target: 0
+    m_Target: 1
     speed: 2
-    m_Value: 0
+    m_Value: 1
   m_CameraSettings:
     m_Speed: 1.0005
     m_SpeedNormalized: 0.49999997
@@ -2819,7 +2819,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: 0.004856414, y: 0.98777616, z: -0.15263338, w: 0.031422794}
+  m_LastSceneViewRotation: {x: 0.2086625, y: 0.7767644, z: -0.3264081, w: 0.49656752}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -2857,7 +2857,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 1185, y: 629}
+  m_TargetSize: {x: 1920, y: 1080}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -2866,16 +2866,16 @@ MonoBehaviour:
   m_VSyncEnabled: 0
   m_Gizmos: 0
   m_Stats: 0
-  m_SelectedSizes: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_SelectedSizes: 03000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -592.5
-    m_HBaseRangeMax: 592.5
-    m_VBaseRangeMin: -314.5
-    m_VBaseRangeMax: 314.5
+    m_HBaseRangeMin: -960
+    m_HBaseRangeMax: 960
+    m_VBaseRangeMin: -540
+    m_VBaseRangeMax: 540
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -2884,7 +2884,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 0
+    m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -2895,7 +2895,7 @@ MonoBehaviour:
       y: 21
       width: 1185
       height: 629
-    m_Scale: {x: 1, y: 1}
+    m_Scale: {x: 0.5824074, y: 0.5824074}
     m_Translation: {x: 592.5, y: 314.5}
     m_MarginLeft: 0
     m_MarginRight: 0
@@ -2903,12 +2903,12 @@ MonoBehaviour:
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -592.5
-      y: -314.5
-      width: 1185
-      height: 629
+      x: -1017.3291
+      y: -540
+      width: 2034.6582
+      height: 1080
     m_MinimalGUI: 1
-  m_defaultScale: 1
+  m_defaultScale: 0.5824074
   m_LastWindowPixelSize: {x: 1185, y: 650}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
