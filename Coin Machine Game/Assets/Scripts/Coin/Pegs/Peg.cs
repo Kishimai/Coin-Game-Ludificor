@@ -25,6 +25,9 @@ public class Peg : MonoBehaviour
     public Material comboMaterial;
     public Material comboFlash;
 
+    public Material palladiumMaterial;
+    public Material palladiumFlash;
+
     public GameObject comboEventAppearance;
 
     public AudioSource comboPing;
@@ -117,6 +120,14 @@ public class Peg : MonoBehaviour
         goldAppearance.SetActive(false);
         diamondAppearance.SetActive(false);
         comboAppearance.SetActive(false);
+    }
+
+    public void Respawn()
+    {
+        amDisabled = false;
+        recordedAmDisabled = false;
+        GetComponent<CapsuleCollider>().isTrigger = false;
+        standardAppearance.SetActive(true);
     }
 
     private void DeterminePegType(string pegType, float modifier = 0)
@@ -440,9 +451,7 @@ public class Peg : MonoBehaviour
             }
             else if (amPalladium)
             {
-                // make palladium have special effect
-                // play particle effect
-                // sparkles or something
+                palladiumAppearance.GetComponent<Renderer>().material = palladiumFlash;
             }
             else
             {
@@ -454,20 +463,24 @@ public class Peg : MonoBehaviour
 
         if (amGolden)
         {
-            goldRing.GetComponent<Renderer>().material = storedMaterial;
+            goldRing.GetComponent<Renderer>().material = goldMaterial;
         }
         else if (amDiamond)
         {
-            diamondAppearance.GetComponent<Renderer>().material = storedMaterial;
+            diamondAppearance.GetComponent<Renderer>().material = diamondMaterial;
         }
         else if (amCombo)
         {
-            comboAppearance.GetComponent<Renderer>().material = storedMaterial;
+            comboAppearance.GetComponent<Renderer>().material = comboMaterial;
             comboSphere.SetActive(false);
         }
         else if (amComboEvent)
         {
             comboEventSphere.SetActive(false);
+        }
+        else if (amPalladium)
+        {
+            palladiumAppearance.GetComponent<Renderer>().material = palladiumMaterial;
         }
 
     }

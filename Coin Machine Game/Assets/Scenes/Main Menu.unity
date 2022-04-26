@@ -6652,6 +6652,7 @@ MonoBehaviour:
   pegRemoveMk1: {fileID: 21300000, guid: e449683dddf8b80469eda3e1c0731f30, type: 3}
   pegRemoveMk2: {fileID: 21300000, guid: 751cda22465895e428c10b111ee1dfaf, type: 3}
   pegRemoveMk3: {fileID: 21300000, guid: 5f879fa0f4ca4ab4f889cc4910c4e8a4, type: 3}
+  newPeg: {fileID: 21300000, guid: 45ceb861a1c01034dad84671b9fb3fde, type: 3}
   goldPeg: {fileID: 21300000, guid: 87c152538a05ce14fb11aef13153bde0, type: 3}
   diamondPeg: {fileID: 21300000, guid: 2c9b3fa7cf810b94d86ff3f3735641df, type: 3}
   comboPeg: {fileID: 21300000, guid: 0daa488fcada325498ebce471e76579f, type: 3}
@@ -38255,6 +38256,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3706826715266030755, guid: 6ed5f0ae06ea9534a80ea2cb04864215, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 76909da12af3b4b4e9db25e918336e84, type: 2}
     - target: {fileID: 3706826715266030757, guid: 6ed5f0ae06ea9534a80ea2cb04864215, type: 3}
       propertyPath: m_Name
       value: Temporary Coin Destroyer
@@ -39019,6 +39024,7 @@ MonoBehaviour:
   pegRemoveMk1: {fileID: 21300000, guid: e449683dddf8b80469eda3e1c0731f30, type: 3}
   pegRemoveMk2: {fileID: 21300000, guid: 751cda22465895e428c10b111ee1dfaf, type: 3}
   pegRemoveMk3: {fileID: 21300000, guid: 5f879fa0f4ca4ab4f889cc4910c4e8a4, type: 3}
+  newPeg: {fileID: 21300000, guid: 45ceb861a1c01034dad84671b9fb3fde, type: 3}
   goldPeg: {fileID: 21300000, guid: 87c152538a05ce14fb11aef13153bde0, type: 3}
   diamondPeg: {fileID: 21300000, guid: 2c9b3fa7cf810b94d86ff3f3735641df, type: 3}
   comboPeg: {fileID: 21300000, guid: 0daa488fcada325498ebce471e76579f, type: 3}
@@ -46067,6 +46073,7 @@ MonoBehaviour:
   pegRemoveMk1: {fileID: 21300000, guid: e449683dddf8b80469eda3e1c0731f30, type: 3}
   pegRemoveMk2: {fileID: 21300000, guid: 751cda22465895e428c10b111ee1dfaf, type: 3}
   pegRemoveMk3: {fileID: 21300000, guid: 5f879fa0f4ca4ab4f889cc4910c4e8a4, type: 3}
+  newPeg: {fileID: 21300000, guid: 45ceb861a1c01034dad84671b9fb3fde, type: 3}
   goldPeg: {fileID: 21300000, guid: 87c152538a05ce14fb11aef13153bde0, type: 3}
   diamondPeg: {fileID: 21300000, guid: 2c9b3fa7cf810b94d86ff3f3735641df, type: 3}
   comboPeg: {fileID: 21300000, guid: 0daa488fcada325498ebce471e76579f, type: 3}
@@ -54524,6 +54531,7 @@ MonoBehaviour:
   pegRemoveMk1: {fileID: 21300000, guid: e449683dddf8b80469eda3e1c0731f30, type: 3}
   pegRemoveMk2: {fileID: 21300000, guid: 751cda22465895e428c10b111ee1dfaf, type: 3}
   pegRemoveMk3: {fileID: 21300000, guid: 5f879fa0f4ca4ab4f889cc4910c4e8a4, type: 3}
+  newPeg: {fileID: 21300000, guid: 45ceb861a1c01034dad84671b9fb3fde, type: 3}
   goldPeg: {fileID: 21300000, guid: 87c152538a05ce14fb11aef13153bde0, type: 3}
   diamondPeg: {fileID: 21300000, guid: 2c9b3fa7cf810b94d86ff3f3735641df, type: 3}
   comboPeg: {fileID: 21300000, guid: 0daa488fcada325498ebce471e76579f, type: 3}
@@ -62677,8 +62685,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   theDirt: {fileID: 3096417717070775579, guid: 94a209669225a7545a3ff96a0fa58ec0, type: 3}
   dirtFriends: {fileID: 1503723512}
-  tremorPower: 25
-  tremorDuration: 5
+  tremorPower: 50
+  tremorDuration: 8
   sinkDuration: 7
 --- !u!1001 &1915632066
 PrefabInstance:

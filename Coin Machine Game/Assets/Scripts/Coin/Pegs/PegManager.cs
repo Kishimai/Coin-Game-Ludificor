@@ -48,7 +48,7 @@ public class PegManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (pegsToPopOut.Count > 0 && !running)
+        if (pegsToPopOut.Count > 0 && !running && gameManager.GetComponent<UI_Manager>().currentUIMenu == 4)
         {
             running = true;
             StartCoroutine(PopOutPegs());
@@ -119,7 +119,11 @@ public class PegManager : MonoBehaviour
         //GameObject popped = Instantiate(poppedPeg, selectedPeg.transform.position, Quaternion.identity);
         //popped.GetComponent<PegPop>().SetStartPos(selectedPeg.transform.position);
 
-        pegsToPopOut.Add(selectedPeg);
+        // Removes selectePeg from pegsToPopOut if peg was removed from board but player hasnt closed prize menu yet
+        if (pegsToPopOut.Contains(selectedPeg))
+        {
+            pegsToPopOut.Remove(selectedPeg);
+        }
 
         if (pegTyping == "gold")
         {
@@ -306,6 +310,11 @@ public class PegManager : MonoBehaviour
             modifiedPegs.Add(pegToMod);
         }
 
+        if (disabledPegs.Count == 0 && gameManager.GetComponent<ItemInventory>().commonItems.ContainsKey("new_peg"))
+        {
+            gameManager.GetComponent<ItemInventory>().RemovePegItem();
+        }
+
     }
 
     private void AddToDisabled(GameObject pegToDis)
@@ -316,6 +325,11 @@ public class PegManager : MonoBehaviour
             unmodifiedPegs.Remove(pegToDis);
             // Adds peg to disabled list
             disabledPegs.Add(pegToDis);
+
+            if (!gameManager.GetComponent<ItemInventory>().commonItems.ContainsKey("new_peg"))
+            {
+                gameManager.GetComponent<ItemInventory>().AddPegItem();
+            }
         }
     }
 
@@ -332,6 +346,29 @@ public class PegManager : MonoBehaviour
 
         randomPeg.GetComponent<Peg>().ResetHitCounter();
 
+    }
+    public void RespawnPeg()
+    {
+        if (disabledPegs.Count != 0)
+        {
+            GameObject chosenPeg;
+
+            chosenPeg = disabledPegs[Random.Range(0, disabledPegs.Count)];
+            chosenPeg.GetComponent<Peg>().Respawn();
+
+            disabledPegs.Remove(chosenPeg);
+            unmodifiedPegs.Add(chosenPeg);
+
+            if (disabledPegs.Count == 0 && gameManager.GetComponent<ItemInventory>().commonItems.ContainsKey("new_peg"))
+            {
+                gameManager.GetComponent<ItemInventory>().RemovePegItem();
+            }
+
+            if (pegsToPopOut.Contains(chosenPeg))
+            {
+                pegsToPopOut.Remove(chosenPeg);
+            }
+        }
     }
 
     public IEnumerator ComboEvent(float eventDuration)
@@ -404,43 +441,56 @@ public class PegManager : MonoBehaviour
     public IEnumerator PopOutPegs()
     {
         bool finished = false;
+        int i;
         //if peg was normal and turned gold DONT drop gold peg
         // if peg becomes disabled, instantiate the peg object and have it wait until its turn to move
         //      tell it to move when it is looked at in the loop below
         // if a p
+
+        List<GameObject> idlePegs = new List<GameObject>();
+
+        int x;
+        int j;
+
+        for (j = 0; j < pegsToPopOut.Count; j++)
+        {
+            GameObject newPeg;
+
+            newPeg = Instantiate(poppedPeg, pegsToPopOut[j].transform.position, Quaternion.identity);
+
+            if (pegsToPopOut[j].GetComponent<Peg>().amGolden)
+            {
+                newPeg.transform.GetChild(0).gameObject.SetActive(false);
+                newPeg.transform.GetChild(1).gameObject.SetActive(false);
+            }
+
+            idlePegs.Add(newPeg);
+        }
+
         while (!finished)
         {
-            if (gameManager.GetComponent<UI_Manager>().currentUIMenu == 4)
+
+            if (true)
             {
-                int i;
                 for (i = 0; i < pegsToPopOut.Count; i++)
                 {
-                    if (pegsToPopOut[i].GetComponent<Peg>().amDisabled)
+                    for (x = 0; x < idlePegs.Count; x++)
                     {
-                        GameObject popped = Instantiate(poppedPeg, pegsToPopOut[i].transform.position, Quaternion.identity);
-                        popped.GetComponent<PegPop>().SetStartPos(pegsToPopOut[i].transform.position);
-                        pegsToPopOut.Remove(pegsToPopOut[i]);
-                        i--;
+                        if (Vector3.Distance(idlePegs[x].transform.position, pegsToPopOut[x].transform.position) < 0.1f)
+                        {
+                            idlePegs[x].GetComponent<PegPop>().SetStartPos(pegsToPopOut[i].transform.position);
+                            pegsToPopOut.Remove(pegsToPopOut[i]);
+                            idlePegs.Remove(idlePegs[x]);
+                            i--;
+                            break;
+                        }
                     }
-                    else if (pegsToPopOut[i].GetComponent<Peg>().amGolden)
-                    {
-                        GameObject popped = Instantiate(poppedPeg, pegsToPopOut[i].transform.position, Quaternion.identity);
-                        popped.GetComponent<PegPop>().SetStartPos(pegsToPopOut[i].transform.position);
-                        popped.transform.GetChild(0).gameObject.SetActive(false);
-                        popped.transform.GetChild(1).gameObject.SetActive(true);
-                        pegsToPopOut.Remove(pegsToPopOut[i]);
-                        i--;
-                    }
-                    else
-                    {
-                        GameObject popped = Instantiate(poppedPeg, pegsToPopOut[i].transform.position, Quaternion.identity);
-                        popped.GetComponent<PegPop>().SetStartPos(pegsToPopOut[i].transform.position);
-                        pegsToPopOut.Remove(pegsToPopOut[i]);
-                        i--;
-                    }
+
                     yield return new WaitForSeconds(pauseInbetweenPegPop);
-                    finished = true;
                 }
+
+                finished = true;
+
             }
             yield return new WaitForEndOfFrame();
         }

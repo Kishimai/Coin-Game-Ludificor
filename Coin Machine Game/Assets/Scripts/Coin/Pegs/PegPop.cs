@@ -7,7 +7,7 @@ public class PegPop : MonoBehaviour
 
     private float elapsedTime = 0;
     private float duration = 0.2f;
-    public Vector3 startPos;
+    public Vector3 startPos = Vector3.zero;
     public Vector3 endPos;
     private CapsuleCollider col;
     private Rigidbody rb;
@@ -24,14 +24,14 @@ public class PegPop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!happened)
+        if (!happened && startPos != Vector3.zero)
         {
             if (Vector3.Distance(transform.position, endPos) < 0.5)
             {
                 col.isTrigger = false;
                 rb.useGravity = true;
                 happened = true;
-                int randForce = Random.Range(200, 500);
+                int randForce = Random.Range(200, 250);
                 rb.AddForce(transform.forward * randForce);
             }
             else

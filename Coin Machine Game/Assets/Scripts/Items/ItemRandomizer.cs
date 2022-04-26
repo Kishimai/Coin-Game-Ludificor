@@ -206,7 +206,6 @@ public class ItemRandomizer : MonoBehaviour
             newDict = GetFromAvailable("rare", "golden_peg");
         }
 
-
         if (newDict != null)
         {
             return newDict;

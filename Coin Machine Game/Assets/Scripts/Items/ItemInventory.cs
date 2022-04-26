@@ -48,6 +48,7 @@ public class ItemInventory : MonoBehaviour
     public Sprite pegRemoveMk1;
     public Sprite pegRemoveMk2;
     public Sprite pegRemoveMk3;
+    public Sprite newPeg;
     public Sprite goldPeg;
     public Sprite diamondPeg;
     public Sprite comboPeg;
@@ -220,6 +221,12 @@ public class ItemInventory : MonoBehaviour
                 return newItem;
 
             // --------------- PEG ALTERING ITEMS --------------- //
+
+            case "new_peg":
+                pegManager.GetComponent<PegManager>().RespawnPeg();
+                collectionsMenu.GetComponent<Collections>().AddItem(newPeg, "new_peg");
+                return newItem;
+
             case "golden_peg":
                 pegManager.GetComponent<PegManager>().ChangePegAttributes("gold");
                 collectionsMenu.GetComponent<Collections>().AddItem(goldPeg, "golden_peg");
@@ -470,11 +477,29 @@ public class ItemInventory : MonoBehaviour
         {
             palladiumStyroUnlocked = true;
             // Add items to lists of rare, uncommon and commons
-            commonItems.Add("useful_materials","Makes styrofoam 10% more valuable");
-            commonItems.Add("polishing_kit", "Increases value of palladium coins by 1%");
-            rareItems.Add("palladium_peg", "Converts 1 normal peg to palladium, which turns coins into palladium coins");
-            rareItems.Add("pollution", "Adds 3 styrofoam coins to drop pool and increases styrofoam value by 5X");
-            rareItems.Add("cleanup_initiative", "Remove 1 styrofoam coin from drop pool");
+            if (!commonItems.ContainsKey("useful_materials"))
+            {
+                commonItems.Add("useful_materials", "Makes styrofoam 10% more valuable");
+            }
+            if (!commonItems.ContainsKey("polishing_kit"))
+            {
+                commonItems.Add("polishing_kit", "Increases value of palladium coins by 1%");
+            }
+            if (!rareItems.ContainsKey("palladium_peg"))
+            {
+                rareItems.Add("palladium_peg", "Converts 1 normal peg to palladium, which turns coins into palladium coins");
+            }
+            if (!rareItems.ContainsKey("pollution"))
+            {
+                rareItems.Add("pollution", "Adds 3 styrofoam coins to drop pool and increases styrofoam value by 5X");
+            }
+            if (!rareItems.ContainsKey("cleanup_initiative"))
+            {
+                rareItems.Add("cleanup_initiative", "Remove 1 styrofoam coin from drop pool");
+            }
+
+            
+            
             //commonItems.Add("more_styrofoam", "Adds 1 styrofoam coin to drop pool");
         }
     }
@@ -495,9 +520,27 @@ public class ItemInventory : MonoBehaviour
 
     public void AddStyroItems()
     {
-        commonItems.Add("useful_materials", "Makes styrofoam 10% more valuable");
+        if (!commonItems.ContainsKey("useful_materials"))
+        {
+            commonItems.Add("useful_materials", "Makes styrofoam 10% more valuable");
+        }
+        if (!rareItems.ContainsKey("cleanup_initiative"))
+        {
+            rareItems.Add("cleanup_initiative", "Remove 1 styrofoam coin from drop pool");
+        }
+    }
 
-        rareItems.Add("cleanup_initiative", "Remove 1 styrofoam coin from drop pool");
+    public void RemovePegItem()
+    {
+        commonItems.Remove("new_peg");
+    }
+
+    public void AddPegItem()
+    {
+        if (!commonItems.ContainsKey("new_peg"))
+        {
+            commonItems.Add("new_peg", "Adds 1 normal peg to the backboard");
+        }
     }
 
 }

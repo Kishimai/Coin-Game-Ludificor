@@ -27,6 +27,7 @@ public class ItemButton : MonoBehaviour
     public Sprite pegRemoveMk1;
     public Sprite pegRemoveMk2;
     public Sprite pegRemoveMk3;
+    public Sprite newPeg;
     public Sprite goldPeg;
     public Sprite diamondPeg;
     public Sprite comboPeg;
@@ -253,6 +254,10 @@ public class ItemButton : MonoBehaviour
             case "auto_drop":
                 image.color = common;
                 return autoDrop;
+
+            case "new_peg":
+                image.color = common;
+                return newPeg;
 
             case "initialize":
                 image.color = common;
