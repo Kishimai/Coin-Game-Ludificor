@@ -16,7 +16,11 @@ public class CoinLogic : MonoBehaviour
     public GameObject rubyAppearance;
     public GameObject sapphireAppearance;
     public GameObject diamondAppearance;
-    public GameObject obsidianAppearance;
+    public GameObject uraniumAppearance;
+    public GameObject iridiumAppearance;
+    public GameObject thoriumAppearance;
+    public GameObject mithrilAppearance;
+    public GameObject adamantiteAppearance;
     public GameObject palladiumAppearance;
     public GameObject headCanvas;
     public GameObject tailCanvas;
@@ -252,14 +256,35 @@ public class CoinLogic : MonoBehaviour
                     GetComponent<MeshRenderer>().enabled = false;
                     break;
 
-                case "Obsidian Coin":
-                    obsidianAppearance.SetActive(true);
+                case "Uranium Coin":
+                    uraniumAppearance.SetActive(true);
+                    GetComponent<MeshRenderer>().enabled = false;
+                    headCanvas.transform.localPosition = new Vector3(0, 0, 1.4f);
+                    tailCanvas.transform.localPosition = new Vector3(0, 0, -1.4f);
+                    break;
+
+                case "Iridium Coin":
+                    iridiumAppearance.SetActive(true);
+                    GetComponent<MeshRenderer>().enabled = false;
+                    headCanvas.transform.localPosition = new Vector3(0, 0, 1.4f);
+                    tailCanvas.transform.localPosition = new Vector3(0, 0, -1.4f);
+                    break;
+
+                case "Thorium Coin":
+                    thoriumAppearance.SetActive(true);
+                    GetComponent<MeshRenderer>().enabled = false;
+                    headCanvas.transform.localPosition = new Vector3(0, 0, 1.4f);
+                    tailCanvas.transform.localPosition = new Vector3(0, 0, -1.4f);
+                    break;
+
+                case "Mithril Coin":
+                    mithrilAppearance.SetActive(true);
                     GetComponent<MeshRenderer>().enabled = false;
                     break;
 
-                case "BITCOIN":
-                    canvasTextHead.color = Color.black;
-                    canvasTextTail.color = Color.black;
+                case "Adamantite Coin":
+                    adamantiteAppearance.SetActive(true);
+                    GetComponent<MeshRenderer>().enabled = false;
                     break;
 
                 default:

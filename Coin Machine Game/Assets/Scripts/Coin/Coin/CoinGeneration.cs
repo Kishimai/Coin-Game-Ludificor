@@ -196,6 +196,21 @@ public class CoinGeneration : MonoBehaviour
         if (styrofoamCoins < 0)
         {
             styrofoamCoins = 0;
+            gameObject.GetComponent<ItemInventory>().RemoveStyroItems();
+        }
+    }
+
+    public void AddStyrofoam(int numToAdd = 1)
+    {
+        if (styrofoamCoins == 0)
+        {
+            // re-add items which affect styro
+            gameObject.GetComponent<ItemInventory>().AddStyroItems();
+            styrofoamCoins += numToAdd;
+        }
+        else
+        {
+            styrofoamCoins += numToAdd;
         }
     }
 

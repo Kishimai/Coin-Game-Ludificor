@@ -16,9 +16,15 @@ public class PegManager : MonoBehaviour
 
     public List<GameObject> disabledPegs = new List<GameObject>();
 
+    public List<GameObject> pegsToPopOut = new List<GameObject>();
+
     private GameObject eventManager;
 
+    private GameObject gameManager;
+
     public GameObject poppedPeg;
+
+    public int pauseInbetweenPegPop = 0;
 
     public bool allowPegEvent = false;
     public float regularPegValueModifier = 0;
@@ -29,17 +35,24 @@ public class PegManager : MonoBehaviour
 
     public AudioSource pegcombo;
 
+    private bool running = false;
+
     // Start is called before the first frame update
     void Start()
     {
         eventManager = GameObject.FindGameObjectWithTag("gameplay_event_system");
+        gameManager = GameObject.FindGameObjectWithTag("game_manager");
         CompilePegsAndRows();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (pegsToPopOut.Count > 0 && !running)
+        {
+            running = true;
+            StartCoroutine(PopOutPegs());
+        }
     }
 
     void CompilePegsAndRows()
@@ -103,8 +116,10 @@ public class PegManager : MonoBehaviour
 
     private void DeterminePegOutcome(string pegTyping, GameObject selectedPeg)
     {
-        GameObject popped = Instantiate(poppedPeg, selectedPeg.transform.position, Quaternion.identity);
-        popped.GetComponent<PegPop>().SetStartPos(selectedPeg.transform.position);
+        //GameObject popped = Instantiate(poppedPeg, selectedPeg.transform.position, Quaternion.identity);
+        //popped.GetComponent<PegPop>().SetStartPos(selectedPeg.transform.position);
+
+        pegsToPopOut.Add(selectedPeg);
 
         if (pegTyping == "gold")
         {
@@ -152,8 +167,9 @@ public class PegManager : MonoBehaviour
                 //pegToDisable.SetActive(false);
                 pegToDisable.GetComponent<Peg>().ConvertToDisabled();
 
-                GameObject popped = Instantiate(poppedPeg, pegToDisable.transform.position, Quaternion.identity);
-                popped.GetComponent<PegPop>().SetStartPos(pegToDisable.transform.position);
+                //GameObject popped = Instantiate(poppedPeg, pegToDisable.transform.position, Quaternion.identity);
+                //popped.GetComponent<PegPop>().SetStartPos(pegToDisable.transform.position);
+                pegsToPopOut.Add(pegToDisable);
             }
             else
             {
@@ -220,10 +236,12 @@ public class PegManager : MonoBehaviour
                         }
                     }
 
-                    GameObject popped = Instantiate(poppedPeg, chosenPeg.transform.position, Quaternion.identity);
-                    popped.GetComponent<PegPop>().SetStartPos(chosenPeg.transform.position);
-                    popped.transform.GetChild(0).gameObject.SetActive(false);
-                    popped.transform.GetChild(1).gameObject.SetActive(true);
+                    pegsToPopOut.Add(chosenPeg);
+
+                    //GameObject popped = Instantiate(poppedPeg, chosenPeg.transform.position, Quaternion.identity);
+                    //popped.GetComponent<PegPop>().SetStartPos(chosenPeg.transform.position);
+                    //popped.transform.GetChild(0).gameObject.SetActive(false);
+                    //popped.transform.GetChild(1).gameObject.SetActive(true);
 
                 }
             }
@@ -381,6 +399,59 @@ public class PegManager : MonoBehaviour
         }
 
         allowPegEvent = true;
+    }
+
+    public IEnumerator PopOutPegs()
+    {
+        bool finished = false;
+        //if peg was normal and turned gold DONT drop gold peg
+        // if peg becomes disabled, instantiate the peg object and have it wait until its turn to move
+        //      tell it to move when it is looked at in the loop below
+        // if a p
+        while (!finished)
+        {
+            if (gameManager.GetComponent<UI_Manager>().currentUIMenu == 4)
+            {
+                int i;
+                for (i = 0; i < pegsToPopOut.Count; i++)
+                {
+                    if (pegsToPopOut[i].GetComponent<Peg>().amDisabled)
+                    {
+                        GameObject popped = Instantiate(poppedPeg, pegsToPopOut[i].transform.position, Quaternion.identity);
+                        popped.GetComponent<PegPop>().SetStartPos(pegsToPopOut[i].transform.position);
+                        pegsToPopOut.Remove(pegsToPopOut[i]);
+                        i--;
+                    }
+                    else if (pegsToPopOut[i].GetComponent<Peg>().amGolden)
+                    {
+                        GameObject popped = Instantiate(poppedPeg, pegsToPopOut[i].transform.position, Quaternion.identity);
+                        popped.GetComponent<PegPop>().SetStartPos(pegsToPopOut[i].transform.position);
+                        popped.transform.GetChild(0).gameObject.SetActive(false);
+                        popped.transform.GetChild(1).gameObject.SetActive(true);
+                        pegsToPopOut.Remove(pegsToPopOut[i]);
+                        i--;
+                    }
+                    else
+                    {
+                        GameObject popped = Instantiate(poppedPeg, pegsToPopOut[i].transform.position, Quaternion.identity);
+                        popped.GetComponent<PegPop>().SetStartPos(pegsToPopOut[i].transform.position);
+                        pegsToPopOut.Remove(pegsToPopOut[i]);
+                        i--;
+                    }
+                    yield return new WaitForSeconds(pauseInbetweenPegPop);
+                    finished = true;
+                }
+            }
+            yield return new WaitForEndOfFrame();
+        }
+
+        //foreach (GameObject peg in pegsToPopOut)
+        //{
+
+        //}
+
+        running = false;
+
     }
 
 }

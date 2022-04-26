@@ -40,8 +40,8 @@ public class Peg : MonoBehaviour
     private float timeUntilObjectRemoval;
 
     public bool amModified = false;
-    private bool amDisabled = false;
-    private bool amGolden = false;
+    public bool amDisabled = false;
+    public bool amGolden = false;
     private bool amDiamond = false;
     private bool amCombo = false;
     private bool amPalladium = false;

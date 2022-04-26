@@ -30608,6 +30608,10 @@ PrefabInstance:
       propertyPath: regularPegMaterial
       value: 
       objectReference: {fileID: -876546973899608171, guid: 614ed036d645d3b44bf7785cfa29e26d, type: 3}
+    - target: {fileID: 8273043753980564935, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
+      propertyPath: pauseInbetweenPegPop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8931801586789544986, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -43900,7 +43904,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1329720532
 RectTransform:
   m_ObjectHideFlags: 0
@@ -57795,7 +57799,7 @@ MonoBehaviour:
   seven: {fileID: 21300000, guid: 8f4f6f7609f477e4eb2441692e5965d8, type: 3}
   eight: {fileID: 21300000, guid: 8b6b520c331ae8148997eb9f07b3e0b4, type: 3}
   nine: {fileID: 21300000, guid: f0aa36311c387fd4593df08073e0f700, type: 3}
-  gZero: {fileID: 21300000, guid: ebbde62b2c4e2074fa4f061e4dff0c21, type: 3}
+  gZero: {fileID: 21300000, guid: 7d687e7f5eb800848a5cd0b126dfe325, type: 3}
   gOne: {fileID: 21300000, guid: b8ad0085c491a2649a48db6af42d99aa, type: 3}
   gTwo: {fileID: 21300000, guid: a199b8e2b2da7074c8ca96800b0f725e, type: 3}
   gThree: {fileID: 21300000, guid: 300c402dce7837846864acfb5129d7d7, type: 3}
@@ -57805,7 +57809,19 @@ MonoBehaviour:
   gSeven: {fileID: 21300000, guid: 8cf2e6ff18464ad4d84a9888a99e7787, type: 3}
   gEight: {fileID: 21300000, guid: 1337a9b64d5e60a4c9769174f8130387, type: 3}
   gNine: {fileID: 21300000, guid: cbc251b7ed530d747b52db037bbfe1ab, type: 3}
+  rZero: {fileID: 21300000, guid: e0e3c492303ef8d43876298d789bd11a, type: 3}
+  rOne: {fileID: 21300000, guid: 9e16425a889041a4385337fad374f4e8, type: 3}
+  rTwo: {fileID: 21300000, guid: c5c6877ce35a8bf468e64bf7817618e5, type: 3}
+  rThree: {fileID: 21300000, guid: 1184a87418a853a47b04330d5f987ffe, type: 3}
+  rFour: {fileID: 21300000, guid: 880222c2fec08984abe18cf50df5e572, type: 3}
+  rFive: {fileID: 21300000, guid: 73cf034d4f288f743b5f4cb1e0943acf, type: 3}
+  rSix: {fileID: 21300000, guid: 5d23283ef3371bd4fb15c71242621ff4, type: 3}
+  rSeven: {fileID: 21300000, guid: 600e7c87a02912946b04326fdc484697, type: 3}
+  rEight: {fileID: 21300000, guid: cb826689577b41e4183f99621df05c85, type: 3}
+  rNine: {fileID: 21300000, guid: a886808a02aef8744b0b5c0a78934dfd, type: 3}
   shmoneySprite: {fileID: 21300000, guid: ffd962fb9818b4548b01ae5b0c7ca82e, type: 3}
+  sub: {fileID: 21300000, guid: 2e96176d1c11af940b93cd08365478f3, type: 3}
+  add: {fileID: 21300000, guid: db07ebb620d198648b446241397f470c, type: 3}
   moneyCount: []
   digitPlaces:
   - {fileID: 1722053569}
@@ -60496,7 +60512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1816412886
 RectTransform:
   m_ObjectHideFlags: 0

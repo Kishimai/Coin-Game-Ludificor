@@ -201,6 +201,10 @@ public class ItemRandomizer : MonoBehaviour
         {
             newDict = GetFromAvailable("common", "auto_drop");
         }
+        else if (item.Equals("golden_peg") && pegManager.GetComponent<PegManager>().unmodifiedPegs.Count() == 0)
+        {
+            newDict = GetFromAvailable("rare", "golden_peg");
+        }
 
 
         if (newDict != null)

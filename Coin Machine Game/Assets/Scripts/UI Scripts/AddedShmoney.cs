@@ -20,6 +20,8 @@ public class AddedShmoney : MonoBehaviour
 
     float objectAlpha = 1f;
 
+    Vector3 offset = new Vector3(0,16,0);
+
     void Start()
     {
         //startPos = transform.position;
@@ -66,7 +68,7 @@ public class AddedShmoney : MonoBehaviour
 
     public void SetStartPos(Vector3 pos)
     {
-        startPos = pos;
+        startPos = pos - offset;
         transform.localPosition = startPos;
     }
 }

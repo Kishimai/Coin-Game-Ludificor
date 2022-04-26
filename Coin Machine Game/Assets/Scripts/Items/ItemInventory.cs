@@ -295,7 +295,8 @@ public class ItemInventory : MonoBehaviour
 
             case "palladium_coin":
                 gameObject.GetComponent<CoinGeneration>().palladiumCoins += 1;
-                gameObject.GetComponent<CoinGeneration>().styrofoamCoins += 1;
+                //gameObject.GetComponent<CoinGeneration>().styrofoamCoins += 1;
+                gameObject.GetComponent<CoinGeneration>().AddStyrofoam(1);
                 collectionsMenu.GetComponent<Collections>().AddItem(palladiumCoin, "palladium_coin");
                 UnlockStyroAndPalladium();
                 return newItem;
@@ -308,7 +309,8 @@ public class ItemInventory : MonoBehaviour
                 return newItem;
 
             case "pollution":
-                gameObject.GetComponent<CoinGeneration>().styrofoamCoins += 3;
+                //gameObject.GetComponent<CoinGeneration>().styrofoamCoins += 3;
+                gameObject.GetComponent<CoinGeneration>().AddStyrofoam(3);
                 float value = gameObject.GetComponent<CoinGeneration>().GetStyrofoamValue() * 5;
                 gameObject.GetComponent<CoinGeneration>().IncreaseStyrofoamValue(value);
                 collectionsMenu.GetComponent<Collections>().AddItem(pollution, "pollution");
@@ -331,8 +333,8 @@ public class ItemInventory : MonoBehaviour
                 return newItem;
 
             case "more_styrofoam":
-                gameObject.GetComponent<CoinGeneration>().styrofoamCoins += 1;
-                collectionsMenu.GetComponent<Collections>().AddItem(moreStyrofoam, "more_styrofoam");
+                //gameObject.GetComponent<CoinGeneration>().styrofoamCoins += 1;
+                //collectionsMenu.GetComponent<Collections>().AddItem(moreStyrofoam, "more_styrofoam");
                 return newItem;
 
             // --------------- COOLDOWN ITEMS --------------- //
@@ -482,6 +484,20 @@ public class ItemInventory : MonoBehaviour
         string description = "";
 
         return description;
+    }
+
+    public void RemoveStyroItems()
+    {
+        commonItems.Remove("useful_materials");
+
+        rareItems.Remove("cleanup_initiative");
+    }
+
+    public void AddStyroItems()
+    {
+        commonItems.Add("useful_materials", "Makes styrofoam 10% more valuable");
+
+        rareItems.Add("cleanup_initiative", "Remove 1 styrofoam coin from drop pool");
     }
 
 }

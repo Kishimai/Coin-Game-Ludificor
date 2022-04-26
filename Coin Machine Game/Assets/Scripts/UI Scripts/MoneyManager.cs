@@ -18,7 +18,9 @@ public class MoneyManager : MonoBehaviour
 
     public Sprite zero, one, two, three, four, five, six, seven, eight, nine;
     public Sprite gZero, gOne, gTwo, gThree, gFour, gFive, gSix, gSeven, gEight, gNine;
+    public Sprite rZero, rOne, rTwo, rThree, rFour, rFive, rSix, rSeven, rEight, rNine;
     public Sprite shmoneySprite;
+    public Sprite sub, add;
 
     // Sprite images are put in here
     public List<Sprite> moneyCount = new List<Sprite>();
@@ -26,6 +28,8 @@ public class MoneyManager : MonoBehaviour
     public List<GameObject> digitPlaces = new List<GameObject>();
 
     public List<Sprite> newMoneyCount = new List<Sprite>();
+
+    private bool subtract = false;
 
     //public Vector3 location;
 
@@ -38,6 +42,11 @@ public class MoneyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentCoin > System.Math.Floor(uiManager._currentCoin))
+        {
+            subtract = true;
+        }
+
         currentCoin = System.Math.Floor(uiManager._currentCoin);
 
         // Prevents loops from running constantly if player isnt getting money
@@ -79,9 +88,26 @@ public class MoneyManager : MonoBehaviour
 
             newMoney.GetComponent<AddedShmoney>().SetEndPos(new Vector3(location.x, location.y + 64, location.z));
 
-            foreach (char digit in newString)
+            if (subtract)
             {
-                newMoneyCount.Add(CompareNumberToSpriteGreen(digit));
+
+                newMoney.transform.GetChild(0).GetComponent<Image>().sprite = sub;
+
+                foreach (char digit in newString)
+                {
+                    newMoneyCount.Add(CompareNumberToSpriteRed(digit));
+                }
+                subtract = false;
+            }
+            else
+            {
+
+                newMoney.transform.GetChild(0).GetComponent<Image>().sprite = add;
+
+                foreach (char digit in newString)
+                {
+                    newMoneyCount.Add(CompareNumberToSpriteGreen(digit));
+                }
             }
 
             int maxPlaceG = newMoneyCount.Count;
@@ -230,6 +256,46 @@ public class MoneyManager : MonoBehaviour
 
             case '9':
                 return gNine;
+
+            default:
+                Debug.LogError("New Shmoney number isnt 0-9");
+                return gZero;
+        }
+    }
+
+    private Sprite CompareNumberToSpriteRed(char number)
+    {
+        switch (number)
+        {
+            case '0':
+                return rZero;
+
+            case '1':
+                return rOne;
+
+            case '2':
+                return rTwo;
+
+            case '3':
+                return rThree;
+
+            case '4':
+                return rFour;
+
+            case '5':
+                return rFive;
+
+            case '6':
+                return rSix;
+
+            case '7':
+                return rSeven;
+
+            case '8':
+                return rEight;
+
+            case '9':
+                return rNine;
 
             default:
                 Debug.LogError("New Shmoney number isnt 0-9");

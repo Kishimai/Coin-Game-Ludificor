@@ -103,6 +103,9 @@ public class ShopSystem : MonoBehaviour
         {
             CoinGen.RemoveLowestTierCoin();
         }
+
+        ObjectContent.transform.GetChild(1).transform.GetChild(0).GetComponent<TMP_Text>().text = CurrentCoin.currentCost.ToString("$0");
+
     }
 
     public void UpgradeCoin(){
@@ -127,7 +130,7 @@ public class ShopSystem : MonoBehaviour
 
                 CurrentCoin.currentCost = CalculateValue(CurrentCoin.BaseCost, CurrentCoin.CurrentLevel, CurrentCoin.levelsForFree);
                 ObjectContent.transform.GetChild(3).GetComponent<TMP_Text>().text = $"${CurrentCoin.currentValue} > <color=green>${CurrentCoin.currentValue + CurrentCoin.AddPerLevel}</color>";
-                ObjectContent.transform.GetChild(1).transform.GetChild(0).GetComponent<TMP_Text>().text = CurrentCoin.currentCost.ToString("$0");
+                //ObjectContent.transform.GetChild(1).transform.GetChild(0).GetComponent<TMP_Text>().text = CurrentCoin.currentCost.ToString("$0");
                 //ObjectContent.transform.GetChild(1).transform.GetChild(0).GetComponent<TMP_Text>().text = $"${CurrentCoin.currentCost}";
 
                 UnlockVisualLevel(CurrentCoin.CurrentLevel);
@@ -140,7 +143,7 @@ public class ShopSystem : MonoBehaviour
                 // Might need to have elif for if coin is level 1, where its values should be base values and its current val is base
                 CurrentCoin.currentValue += CurrentCoin.AddPerLevel;
                 ObjectContent.transform.GetChild(3).GetComponent<TMP_Text>().text = $"${CurrentCoin.currentValue} > <color=green>${CurrentCoin.currentValue + CurrentCoin.AddPerLevel}</color>";
-                ObjectContent.transform.GetChild(1).transform.GetChild(0).GetComponent<TMP_Text>().text = CurrentCoin.currentCost.ToString("$0");
+                //ObjectContent.transform.GetChild(1).transform.GetChild(0).GetComponent<TMP_Text>().text = CurrentCoin.currentCost.ToString("$0");
                 //ObjectContent.transform.GetChild(1).transform.GetChild(0).GetComponent<TMP_Text>().text = $"${CurrentCoin.currentCost}";
 
                 UnlockVisualLevel(CurrentCoin.CurrentLevel);
