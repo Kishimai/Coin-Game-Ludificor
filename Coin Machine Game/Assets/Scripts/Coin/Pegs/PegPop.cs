@@ -6,7 +6,7 @@ public class PegPop : MonoBehaviour
 {
 
     private float elapsedTime = 0;
-    private float duration = 0.2f;
+    private float duration = 0.1f;
     public Vector3 startPos = Vector3.zero;
     public Vector3 endPos;
     private CapsuleCollider col;
@@ -31,7 +31,7 @@ public class PegPop : MonoBehaviour
                 col.isTrigger = false;
                 rb.useGravity = true;
                 happened = true;
-                int randForce = Random.Range(200, 250);
+                int randForce = Random.Range(250, 300);
                 rb.AddForce(transform.forward * randForce);
             }
             else

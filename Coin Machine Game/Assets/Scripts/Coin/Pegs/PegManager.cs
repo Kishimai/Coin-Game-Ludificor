@@ -24,7 +24,7 @@ public class PegManager : MonoBehaviour
 
     public GameObject poppedPeg;
 
-    public int pauseInbetweenPegPop = 0;
+    public float pauseInbetweenPegPop = 0;
 
     public bool allowPegEvent = false;
     public float regularPegValueModifier = 0;

@@ -39,6 +39,8 @@ public class CoinPlacement : MonoBehaviour
 
     // Shows the image of the currently selected coin so the player can visualize their placements better
     private GameObject coinGuide;
+    private GameObject coinPointer;
+    private GameObject blitzPointer;
     // Prevents the use of this script when gameplay is not ready yet
     // !(EventsManager is responsible for deciding game states)!
     public bool gameplayIsReady;
@@ -80,6 +82,9 @@ public class CoinPlacement : MonoBehaviour
 
         // Creates the coinGuide object (Change this so that the coinGuide constantly reflects the currently selected coin)!
         coinGuide = Instantiate(testCoin, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
+        coinPointer = coinGuide.transform.GetChild(0).gameObject;
+        blitzPointer = coinGuide.transform.GetChild(1).gameObject;
+        blitzPointer.SetActive(false);
 
         // Disables the coinGuide object so its not constantly shown in the scene
         coinGuide.SetActive(false);
@@ -103,6 +108,17 @@ public class CoinPlacement : MonoBehaviour
         else
         {
             gameplayPaused = false;
+        }
+
+        if (blitzEvent)
+        {
+            coinPointer.SetActive(false);
+            blitzPointer.SetActive(true);
+        }
+        else
+        {
+            coinPointer.SetActive(true);
+            blitzPointer.SetActive(false);
         }
 
         // Runs if gameplay is ready
@@ -224,7 +240,20 @@ public class CoinPlacement : MonoBehaviour
 
             spells.Remove(randomSpell);
 
-            newCoin = Instantiate(spellCoin, clampedPosition, Quaternion.Euler(90, 0, 0));
+            Vector3 blitzPosition;
+
+            float randX = Random.Range(minXDropClamp, maxXDropClamp);
+
+            blitzPosition = new Vector3(randX, clampedPosition.y, clampedPosition.z + 1.25f);
+
+            if (blitzEvent)
+            {
+                newCoin = Instantiate(spellCoin, blitzPosition, Quaternion.Euler(90, 0, 0));
+            }
+            else
+            {
+                newCoin = Instantiate(spellCoin, clampedPosition, Quaternion.Euler(90, 0, 0));
+            }
 
             if (randomSpell.Equals("bomb"))
             {

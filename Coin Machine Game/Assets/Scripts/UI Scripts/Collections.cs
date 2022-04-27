@@ -9,6 +9,7 @@ public class Collections : MonoBehaviour
 
     public List<Sprite> itemImages = new List<Sprite>();
     public List<string> itemNames = new List<string>();
+    public List<string> formattedName = new List<string>();
     public List<int> itemCounts = new List<int>();
     public GameObject[] menuItems;
     public GameObject menuCollection;
@@ -28,7 +29,7 @@ public class Collections : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void AddItem(Sprite image, string name)
@@ -49,9 +50,12 @@ public class Collections : MonoBehaviour
             {
                 itemImages.Add(image);
                 itemNames.Add(name);
+                formattedName.Add(FormatName(name));
                 itemCounts.Add(1);
 
                 menuCollection.transform.GetChild(itemMenuIndex).gameObject.SetActive(true);
+                menuCollection.transform.GetChild(itemMenuIndex).gameObject.GetComponent<ToolTipTrigger>().nameOfItem = itemNames[itemMenuIndex];
+                menuCollection.transform.GetChild(itemMenuIndex).gameObject.GetComponent<ToolTipTrigger>().formattedName = formattedName[itemMenuIndex];
 
                 GameObject itemSprite = menuItems[itemMenuIndex].transform.GetChild(0).gameObject;
                 GameObject itemCount = menuItems[itemMenuIndex].transform.GetChild(1).gameObject;
@@ -60,6 +64,7 @@ public class Collections : MonoBehaviour
                 itemCount.GetComponent<TextMeshProUGUI>().text = itemCounts[itemMenuIndex].ToString();
 
                 ++itemMenuIndex;
+
             }
         }
     }
@@ -84,6 +89,23 @@ public class Collections : MonoBehaviour
 
 
         return itemName;
+    }
+
+    public string FormatName(string itemName)
+    {
+        string formattedName = "";
+
+        string[] words = itemName.Split('_');
+
+        for (int i = 0; i < words.Length; ++i)
+        {
+            string capitalizedWord = char.ToUpper(words[i][0]) + words[i].Substring(1);
+            words[i] = capitalizedWord;
+        }
+
+        formattedName = string.Join(" ", words);
+
+        return formattedName;
     }
 
 }

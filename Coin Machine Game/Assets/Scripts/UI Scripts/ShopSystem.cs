@@ -24,6 +24,7 @@ public class ShopSystem : MonoBehaviour
 
     private int currentOrder;
     private int maxNumCoins = 5;
+    private bool finished = false;
 
 
     public void Start(){
@@ -110,7 +111,7 @@ public class ShopSystem : MonoBehaviour
 
     public void UpgradeCoin(){
         // try removing CurrentCoin.CurrentLevel != 10 // --------------------------
-        if(UI._currentCoin >= CurrentCoin.currentCost) {// && CurrentCoin.CurrentLevel != 10){
+        if(UI._currentCoin >= CurrentCoin.currentCost && !finished) {// && CurrentCoin.CurrentLevel != 10){
 
             CurrentCoin.CurrentLevel++;
 
@@ -124,7 +125,8 @@ public class ShopSystem : MonoBehaviour
                             CurrentCoin = _data;
                         }
                     } else{
-                        // Cant Upgrade Maxed out all coins.
+                        // Cant Upgrade Maxed out all coins
+                        finished = true;
                     }
                 }
 
