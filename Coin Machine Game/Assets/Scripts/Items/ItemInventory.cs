@@ -113,11 +113,15 @@ public class ItemInventory : MonoBehaviour
             {
                 collectedSpells.Add("bomb");
                 GetSpell("bomb");
+                playerCamera.GetComponent<CoinPlacement>().bombCoinCooldown = 0;
+                playerCamera.GetComponent<CoinPlacement>().IntakeBombCoin();
             }
             else if (newItem.Equals("tremor_voucher"))
             {
                 collectedSpells.Add("tremor");
                 GetSpell("tremor");
+                playerCamera.GetComponent<CoinPlacement>().tremorCoinCooldown = 0;
+                playerCamera.GetComponent<CoinPlacement>().IntakeTremorCoin();
             }
             else if (newItem.Equals("bulldoze_voucher"))
             {
@@ -495,9 +499,9 @@ public class ItemInventory : MonoBehaviour
             {
                 rareItems.Add("pollution", "Adds 3 styrofoam coins to drop pool and increases styrofoam value by 5X");
             }
-            if (!rareItems.ContainsKey("cleanup_initiative"))
+            if (!uncommonItems.ContainsKey("cleanup_initiative"))
             {
-                rareItems.Add("cleanup_initiative", "Remove 1 styrofoam coin from drop pool");
+                uncommonItems.Add("cleanup_initiative", "Remove 1 styrofoam coin from drop pool");
             }
 
             
@@ -517,7 +521,7 @@ public class ItemInventory : MonoBehaviour
     {
         commonItems.Remove("useful_materials");
 
-        rareItems.Remove("cleanup_initiative");
+        uncommonItems.Remove("cleanup_initiative");
     }
 
     public void AddStyroItems()
@@ -526,9 +530,9 @@ public class ItemInventory : MonoBehaviour
         {
             commonItems.Add("useful_materials", "Makes styrofoam 10% more valuable");
         }
-        if (!rareItems.ContainsKey("cleanup_initiative"))
+        if (!uncommonItems.ContainsKey("cleanup_initiative"))
         {
-            rareItems.Add("cleanup_initiative", "Remove 1 styrofoam coin from drop pool");
+            uncommonItems.Add("cleanup_initiative", "Remove 1 styrofoam coin from drop pool");
         }
     }
 

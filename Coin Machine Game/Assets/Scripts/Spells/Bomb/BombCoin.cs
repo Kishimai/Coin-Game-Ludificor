@@ -55,4 +55,9 @@ public class BombCoin : MonoBehaviour
 
         coinRb.AddForce(bumpForce);
     }
+
+    public void IncreaseExplosionRadius(float increase)
+    {
+        explosion.GetComponent<BombCoinExplosion>().radiusOfExplosion += increase;
+    }
 }

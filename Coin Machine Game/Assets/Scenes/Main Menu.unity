@@ -1042,6 +1042,14 @@ MonoBehaviour:
   additionalDropChance: 0
   guaranteedDrops: 0
   maxAdditionalDrops: 5
+  numBombCoins: 0
+  numTremorCoins: 0
+  bombCoinCooldown: 0
+  defaultBombCooldown: 180
+  tremorCoinCooldown: 0
+  defaultTremorCooldown: 180
+  radiusIncrease: 0.5
+  tremorDurationIncrease: 0
 --- !u!114 &41762029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30940,7 +30948,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7407526109638825064, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7407526109638825064, guid: 6f873bb70b0d7434fadd4881d7bffedb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -38668,7 +38676,7 @@ PrefabInstance:
     - target: {fileID: 3706826715266030755, guid: 6ed5f0ae06ea9534a80ea2cb04864215, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 76909da12af3b4b4e9db25e918336e84, type: 2}
+      objectReference: {fileID: 2100000, guid: 7a82bb6e8dfcb42498abf62ed567d598, type: 2}
     - target: {fileID: 3706826715266030757, guid: 6ed5f0ae06ea9534a80ea2cb04864215, type: 3}
       propertyPath: m_Name
       value: Temporary Coin Destroyer
@@ -79351,7 +79359,7 @@ PrefabInstance:
       objectReference: {fileID: 4449341051503090681, guid: 2daf12a50ae6a304ca0f75be3345d67a, type: 3}
     - target: {fileID: 8091604206496765973, guid: f798086d4b7640e4f96ea1748ecb619a, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8091604206496765973, guid: f798086d4b7640e4f96ea1748ecb619a, type: 3}
       propertyPath: m_LocalPosition.x

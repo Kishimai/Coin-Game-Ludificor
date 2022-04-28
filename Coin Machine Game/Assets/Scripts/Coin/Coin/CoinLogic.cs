@@ -300,6 +300,18 @@ public class CoinLogic : MonoBehaviour
         palladiumValue = gameManager.GetComponent<CoinGeneration>().GetPalladiumValue();
         GetComponent<MeshRenderer>().enabled = false;
         palladiumAppearance.SetActive(true);
+        adamantiteAppearance.SetActive(false);
+        mithrilAppearance.SetActive(false);
+        emeraldAppearance.SetActive(false);
+        rubyAppearance.SetActive(false);
+        sapphireAppearance.SetActive(false);
+        diamondAppearance.SetActive(false);
+        uraniumAppearance.SetActive(false);
+        iridiumAppearance.SetActive(false);
+        thoriumAppearance.SetActive(false);
+        mithrilAppearance.SetActive(false);
+        adamantiteAppearance.SetActive(false);
+        palladiumAppearance.SetActive(false);
         isPalladium = true;
     }
 }

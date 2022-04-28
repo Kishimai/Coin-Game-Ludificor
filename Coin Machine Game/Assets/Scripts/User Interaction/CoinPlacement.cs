@@ -19,6 +19,7 @@ public class CoinPlacement : MonoBehaviour
 
     public GameObject coinParent;
     public GameObject specialEffect;
+    public GameObject eventManager;
 
     public GameObject spellCoin;
     public GameObject bombCoin;
@@ -74,6 +75,18 @@ public class CoinPlacement : MonoBehaviour
     public int guaranteedDrops = 0;
     public int maxAdditionalDrops = 5;
 
+    public int numBombCoins = 0;
+    public int numTremorCoins = 0;
+
+    public float bombCoinCooldown = 0;
+    public float defaultBombCooldown = 180f;
+
+    public float tremorCoinCooldown = 0;
+    public float defaultTremorCooldown = 180f;
+
+    public float radiusIncrease = 0;
+    public float tremorDurationIncrease = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -96,11 +109,39 @@ public class CoinPlacement : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("game_manager");
 
         itemBuilder = GameObject.FindGameObjectWithTag("item_builder");
+
+        eventManager = GameObject.FindGameObjectWithTag("gameplay_event_system");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (bombCoinCooldown >= 0)
+        {
+            bombCoinCooldown -= Time.deltaTime;
+        }
+        else
+        {
+            bombCoinCooldown = defaultBombCooldown;
+            if (numBombCoins > 0 && !spells.Contains("bomb"))
+            {
+                spells.Add("bomb");
+            }
+        }
+
+        if (tremorCoinCooldown >= 0)
+        {
+            tremorCoinCooldown -= Time.deltaTime;
+        }
+        else
+        {
+            tremorCoinCooldown = defaultTremorCooldown;
+            if (numTremorCoins > 0 && !spells.Contains("tremor"))
+            {
+                spells.Add("tremor");
+            }
+        }
+
         if (gameManager.GetComponent<UI_Manager>().currentUIMenu != 4 || gameManager.GetComponent<UI_Manager>().ShopInGame.activeSelf)
         {
             gameplayPaused = true;
@@ -139,7 +180,7 @@ public class CoinPlacement : MonoBehaviour
         {
             detonateButton.SetActive(false);
         }
-
+        
         CalculateDropChance();
 
     }
@@ -207,7 +248,48 @@ public class CoinPlacement : MonoBehaviour
         GameObject newCoin;
         GameObject newEffect;
 
-        if (dropCooldown <= 0 && spells.Count > 0)
+        if (spells.Count == 0 && bombCoinCooldown > 0 && tremorCoinCooldown > 0)
+        {
+            if (dropCooldown <= 0 && blitzEvent == false)
+            {
+                generation.GetPlacementData();
+                // Places the currently selected coin >> Changing its Component every placement
+                newCoin = Instantiate(selectedCoin, clampedPosition, Quaternion.Euler(90, 0, 0));
+                dropCooldown = maxCooldown;
+
+                if (additionalDropChance > 0)
+                {
+                    AttemptAdditionalCoin(clampedPosition);
+                }
+
+                newCoin.transform.SetParent(coinParent.transform);
+            }
+            else if (dropCooldown <= 0 && blitzEvent == true)
+            {
+                generation.GetPlacementData();
+                //Vector3 blitzPosition = new Vector3(clampedPosition.x, clampedPosition.y, clampedPosition.z + 1.25f);
+
+                Vector3 blitzPosition;
+
+                float randX = Random.Range(minXDropClamp, maxXDropClamp);
+
+                blitzPosition = new Vector3(randX, clampedPosition.y, clampedPosition.z + 1.25f);
+
+                // !Play particle effect at instantiation position!
+                blitzSparkle.transform.position = blitzPosition;
+                blitzSparkle.GetComponent<ParticleSystem>().Play();
+                newCoin = Instantiate(selectedCoin, blitzPosition, Quaternion.Euler(90, 0, 0));
+                dropCooldown = blitzCooldown;
+
+                if (additionalDropChance > 0)
+                {
+                    AttemptAdditionalCoin(clampedPosition);
+                }
+
+                newCoin.transform.SetParent(coinParent.transform);
+            }
+        }
+        else if (dropCooldown <= 0 && spells.Count > 0)
         {
 
             string randomSpell = spells[Random.Range(0, spells.Count)];
@@ -279,7 +361,7 @@ public class CoinPlacement : MonoBehaviour
                 dropCooldown = maxCooldown;
             }
         }
-        else
+        else if (bombCoinCooldown > 0 && tremorCoinCooldown > 0)
         {
             if (dropCooldown <= 0 && blitzEvent == false)
             {
@@ -324,7 +406,18 @@ public class CoinPlacement : MonoBehaviour
 
     public void UseSpell(string spell)
     {
-        spells.Add(spell);
+        if (spell.Equals("bomb") && !spells.Contains("bomb"))
+        {
+            spells.Add(spell);
+        }
+        if (spell.Equals("tremor") && !spells.Contains("tremor"))
+        {
+            spells.Add(spell);
+        }
+        if (!spell.Equals("tremor") && !spell.Equals("bomb"))
+        {
+            spells.Add(spell);
+        }
 
         Debug.Log("Got Spell: " + spell);
     }
@@ -423,5 +516,20 @@ public class CoinPlacement : MonoBehaviour
     public void EnableAutoDrop()
     {
         enableAutoDrop = true;
+    }
+
+    public void IntakeBombCoin()
+    {
+        numBombCoins++;
+        bombCoin.GetComponent<BombCoin>().IncreaseExplosionRadius(radiusIncrease);
+    }
+
+    public void IntakeTremorCoin()
+    {
+        if (numTremorCoins > 0)
+        {
+            eventManager.GetComponent<TremorShake>().tremorDuration += 1;
+        }
+        numTremorCoins++;
     }
 }
