@@ -224,7 +224,7 @@ public class ItemButton : MonoBehaviour
                 return pollution;
 
             case "cleanup_initiative":
-                image.color = rare;
+                image.color = uncommon;
                 return cleanupInitiative;
 
             case "more_styrofoam":

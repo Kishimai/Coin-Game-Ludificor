@@ -9,6 +9,14 @@ public class TooltipSystem : MonoBehaviour
 
     public ToolTip tooltip;
 
+    public void Update()
+    {
+        if (gameObject.GetComponent<UI_Manager>().currentUIMenu == 8)
+        {
+            Hide();
+        }
+    }
+
     public void Awake()
     {
         current = this;

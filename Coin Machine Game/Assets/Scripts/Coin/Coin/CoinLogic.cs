@@ -30,6 +30,8 @@ public class CoinLogic : MonoBehaviour
     private RectTransform head;
     private RectTransform tail;
 
+    public Material styrofoamMaterial;
+
     private float gildedModifier = 1;
     private float crystalModifier = 1;
     private int comboMultiplier = 0;
@@ -311,7 +313,27 @@ public class CoinLogic : MonoBehaviour
         thoriumAppearance.SetActive(false);
         mithrilAppearance.SetActive(false);
         adamantiteAppearance.SetActive(false);
-        palladiumAppearance.SetActive(false);
         isPalladium = true;
+    }
+
+    public void ConvertToStyrofoam()
+    {
+        gameObject.transform.GetChild(0).gameObject.tag = "styrofoam_coin";
+        styrofoamValue = gameManager.GetComponent<CoinGeneration>().GetStyrofoamValue();
+        gameObject.GetComponent<MeshRenderer>().enabled = true;
+        gameObject.GetComponent<MeshRenderer>().material = styrofoamMaterial;
+        palladiumAppearance.SetActive(false);
+        adamantiteAppearance.SetActive(false);
+        mithrilAppearance.SetActive(false);
+        emeraldAppearance.SetActive(false);
+        rubyAppearance.SetActive(false);
+        sapphireAppearance.SetActive(false);
+        diamondAppearance.SetActive(false);
+        uraniumAppearance.SetActive(false);
+        iridiumAppearance.SetActive(false);
+        thoriumAppearance.SetActive(false);
+        mithrilAppearance.SetActive(false);
+        adamantiteAppearance.SetActive(false);
+        isStyrofoam = true;
     }
 }

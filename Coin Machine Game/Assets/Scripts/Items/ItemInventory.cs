@@ -151,7 +151,8 @@ public class ItemInventory : MonoBehaviour
             {"prize_rain", "Reduces cooldown on prize capsule drop by 1 second" },
             {"faster_falling", "Slightly increases gravity"},
             {"faster_pushing", "Slightly increases pusher speed"},
-            {"auto_drop", "Enables auto-dropping of coins (hold left click)"}
+            {"auto_drop", "Enables auto-dropping of coins (hold left click)"},
+            //{ "palladium_coin", "Adds 1 palladium coin, 1 styrofoam coin to drop pool, and unlocks new items" }
         };
 
         uncommonItems = new Dictionary<string, string>
@@ -493,6 +494,7 @@ public class ItemInventory : MonoBehaviour
             }
             if (!rareItems.ContainsKey("palladium_peg"))
             {
+                //commonItems.Add("palladium_peg", "Converts 1 normal peg to palladium, which turns coins into palladium coins");
                 rareItems.Add("palladium_peg", "Converts 1 normal peg to palladium, which turns coins into palladium coins");
             }
             if (!rareItems.ContainsKey("pollution"))

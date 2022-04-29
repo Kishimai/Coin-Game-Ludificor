@@ -288,7 +288,16 @@ public class Peg : MonoBehaviour
         {
             if (other.gameObject.tag != "palladium_coin" && other.gameObject.tag != "styrofoam_coin")
             {
-                other.transform.GetComponentInParent<CoinLogic>().ConvertToPalladium();
+                int outcome = 0;
+                outcome = Random.Range(0, 99);
+                if (outcome <= 24)
+                {
+                    other.transform.GetComponentInParent<CoinLogic>().ConvertToStyrofoam();
+                }
+                else
+                {
+                    other.transform.GetComponentInParent<CoinLogic>().ConvertToPalladium();
+                }
                 ++hitCounter;
             }
         }
