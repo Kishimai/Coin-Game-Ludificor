@@ -159,7 +159,7 @@ public class ItemInventory : MonoBehaviour
             //{"faster_falling", "Slightly increases gravity"},
             {"faster_pushing", "Slightly increases pusher speed"},
             {"auto_drop", "Enables auto-dropping of coins (hold left click)"},
-            { "best_friend", "A friend plays an adjacent machine, giving you all money earned" }
+            //{ "best_friend", "A friend plays an adjacent machine, giving you all money earned" }
             //{ "palladium_coin", "Adds 1 palladium coin, 1 styrofoam coin to drop pool, and unlocks new items" }
         };
 
@@ -185,7 +185,7 @@ public class ItemInventory : MonoBehaviour
             { "vip_voucher", "Removes lowest tier coin from drop pool (Additonally removes 1 styrofoam)" },
             { "palladium_coin", "Adds 1 palladium coin, 1 styrofoam coin to drop pool, and unlocks new items" },
             { "prize_storm", "Reduces cooldown on prize capsule drop by 5 seconds" },
-            //{ "best_friend", "A friend plays an adjacent machine, giving you all money earned" }
+            { "best_friend", "A friend plays an adjacent machine, giving you all money earned" }
         };
     }
 
