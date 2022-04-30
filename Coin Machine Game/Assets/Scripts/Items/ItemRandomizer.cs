@@ -29,6 +29,7 @@ public class ItemRandomizer : MonoBehaviour
     public GameObject eventManager;
     public GameObject coinPusher;
     public GameObject itemBuilder;
+    public GameObject friends;
 
     // Start is called before the first frame update
     void Start()
@@ -208,6 +209,14 @@ public class ItemRandomizer : MonoBehaviour
         else if (item.Equals("best_friend") && gameObject.GetComponent<ItemInventory>().numFriends > 1)
         {
             newDict = GetFromAvailable("rare", "best_friend");
+        }
+        else if (item.Equals("faster_friends") && friends.GetComponent<FriendActivator>().coinDropSpeed <= friends.GetComponent<FriendActivator>().minimumDropSpeed)
+        {
+            newDict = GetFromAvailable("common", "faster_friends");
+        }
+        else if (item.Equals("more_benefits") && friends.GetComponent<FriendActivator>().timeUntilItem <= 5)
+        {
+            newDict = GetFromAvailable("common", "more_benefits");
         }
 
         if (newDict != null)

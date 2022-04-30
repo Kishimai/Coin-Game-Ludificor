@@ -55,6 +55,9 @@ public class ItemButton : MonoBehaviour
     public Sprite fasterPushing;
     public Sprite autoDrop;
     public Sprite bestFriend;
+    public Sprite fasterFriends;
+    public Sprite friendsWithBenefits;
+    public Sprite moreBenefits;
 
     public Color32 common;
     public Color32 uncommon;
@@ -263,6 +266,18 @@ public class ItemButton : MonoBehaviour
             case "best_friend":
                 image.color = rare;
                 return bestFriend;
+
+            case "faster_friends":
+                image.color = common;
+                return fasterFriends;
+
+            case "friends_with_benefits":
+                image.color = uncommon;
+                return friendsWithBenefits;
+
+            case "more_benefits":
+                image.color = common;
+                return moreBenefits;
 
             case "initialize":
                 image.color = common;

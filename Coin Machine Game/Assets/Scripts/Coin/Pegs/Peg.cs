@@ -29,8 +29,11 @@ public class Peg : MonoBehaviour
     public Material palladiumFlash;
 
     public GameObject comboEventAppearance;
-
-    public AudioSource comboPing;
+    
+    public GameObject audioManager;
+    public GameObject comboAudio;
+    public GameObject goldAudio;
+    public GameObject crystalAudio;
 
     public GameObject comboSphere;
     public GameObject comboEventSphere;
@@ -75,6 +78,10 @@ public class Peg : MonoBehaviour
         timeUntilBump = bumpLimit;
 
         manager = GameObject.FindGameObjectWithTag("peg_manager");
+        audioManager = GameObject.FindGameObjectWithTag("audio_manager");
+        comboAudio = GameObject.FindGameObjectWithTag("combo_sound");
+        goldAudio = GameObject.FindGameObjectWithTag("gold_sound");
+        crystalAudio = GameObject.FindGameObjectWithTag("diamond_sound");
     }
 
     void Update()
@@ -265,20 +272,23 @@ public class Peg : MonoBehaviour
         {
             // Activate gilded bumper on coin and apply value modifier
             other.gameObject.GetComponentInParent<CoinLogic>().ActivateBumper(coinValueModifier);
+            goldAudio.GetComponent<GoldPing>().PlayAudio();
             ++hitCounter;
         }
         else if (amDiamond)
         {
             // Activate crystal shell on coin and apply value modifier
             other.gameObject.GetComponentInParent<CoinLogic>().ActivateCrystalShell(coinValueModifier);
+            crystalAudio.GetComponent<DiamondPing>().PlayAudio();
             ++hitCounter;
         }
         else if (amCombo)
         {
             // Multiply coin's current combo multiplier by itself
             other.gameObject.GetComponentInParent<CoinLogic>().ComboMultiplier();
+            comboAudio.GetComponent<ComboPing>().PlayAudio(hitCounter);
             ++hitCounter;
-            comboPing.Play();
+            //comboPing.Play();
         }
         else if (amComboEvent)
         {

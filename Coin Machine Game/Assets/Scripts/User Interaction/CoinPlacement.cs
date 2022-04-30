@@ -30,6 +30,7 @@ public class CoinPlacement : MonoBehaviour
     public GameObject bulldozeCoin;
     public GameObject blitzSparkle;
     public GameObject bombCoinMarker;
+    public GameObject shortFade, longFade;
     public List<string> spells = new List<string>();
     public List<GameObject> activeSpells = new List<GameObject>();
 
@@ -154,12 +155,16 @@ public class CoinPlacement : MonoBehaviour
         if (blitzEvent)
         {
             coinPointer.SetActive(false);
-            blitzPointer.SetActive(true);
+            //blitzPointer.SetActive(true);
+            shortFade.SetActive(true);
+            longFade.SetActive(true);
         }
         else
         {
             coinPointer.SetActive(true);
-            blitzPointer.SetActive(false);
+            //blitzPointer.SetActive(false);
+            shortFade.SetActive(false);
+            longFade.SetActive(false);
         }
 
         // Runs if gameplay is ready

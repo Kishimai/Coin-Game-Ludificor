@@ -10,15 +10,20 @@ public class BestFriend : MonoBehaviour
     public GameObject spotlight;
     public GameObject dropArea;
     public GameObject coin;
+    public GameObject dropper;
+    public List<GameObject> itemCapsules = new List<GameObject>();
     public CoinGeneration generation;
     public float xMin;
     public float xMax;
     public float yClamp;
     public float zClamp;
     public float dropCooldown;
-    public float defaultCooldown = 8f;
+    public float defaultCooldown;
     public float timeUntilReady;
     private bool readyToPlay = false;
+    private bool readyToDropItem = false;
+    private float timeUntilItem = 0;
+    private float itemCooldown;
 
     public List<GameObject> lights = new List<GameObject>();
 
@@ -43,6 +48,10 @@ public class BestFriend : MonoBehaviour
     {
         if (readyToPlay)
         {
+            defaultCooldown = transform.parent.GetComponent<FriendActivator>().coinDropSpeed;
+            itemCooldown = transform.parent.GetComponent<FriendActivator>().timeUntilItem;
+            readyToDropItem = transform.parent.GetComponent<FriendActivator>().dropItems;
+
             if (timeUntilReady > 0)
             {
                 timeUntilReady -= Time.deltaTime;
@@ -57,6 +66,20 @@ public class BestFriend : MonoBehaviour
                 {
                     DropCoin();
                     timeUntilReady = Random.Range(0.5f, 1.25f);
+                }
+
+                if (readyToDropItem)
+                {
+                    if (timeUntilItem <= 0)
+                    {
+                        float randTime = Random.Range(0, 1);
+                        timeUntilItem = itemCooldown + randTime;
+                        DropItem();
+                    }
+                    else
+                    {
+                        timeUntilItem -= Time.deltaTime;
+                    }
                 }
             }
         }
@@ -112,5 +135,14 @@ public class BestFriend : MonoBehaviour
         newCoin.transform.position = new Vector3(newCoin.transform.position.x + x, y, z);
 
         dropCooldown = defaultCooldown;
+    }
+
+    private void DropItem()
+    {
+        GameObject chosenItem;
+
+        chosenItem = itemCapsules[Random.Range(0, itemCapsules.Count)];
+
+        Instantiate(chosenItem, dropper.transform.position, Quaternion.identity);
     }
 }

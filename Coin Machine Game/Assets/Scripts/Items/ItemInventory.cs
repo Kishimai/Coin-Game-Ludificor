@@ -79,6 +79,9 @@ public class ItemInventory : MonoBehaviour
     public Sprite fasterPushing;
     public Sprite autoDrop;
     public Sprite bestFriend;
+    public Sprite fasterFriends;
+    public Sprite friendsWithBenefits;
+    public Sprite moreBenefits;
 
     // Start is called before the first frame update
     void Start()
@@ -151,9 +154,9 @@ public class ItemInventory : MonoBehaviour
             {"peg_remove_mk1", "Removes 1 normal peg from the backboard" },
             {"blitz_duration", "Increases duration of coin blitz by 1 second" },
             {"surge_duration", "Increases duration of power surge by 1 second" },
-            {"faster_dropping", "Increase rate at which you can drop coins by 0.1 seconds" },
+            {"faster_dropping", "Increase coin drop rate and coin gravity" },
             {"prize_rain", "Reduces cooldown on prize capsule drop by 1 second" },
-            {"faster_falling", "Slightly increases gravity"},
+            //{"faster_falling", "Slightly increases gravity"},
             {"faster_pushing", "Slightly increases pusher speed"},
             {"auto_drop", "Enables auto-dropping of coins (hold left click)"},
             { "best_friend", "A friend plays an adjacent machine, giving you all money earned" }
@@ -361,7 +364,8 @@ public class ItemInventory : MonoBehaviour
 
             case "faster_dropping":
                 // reduce placement time
-                playerCamera.GetComponent<CoinPlacement>().ReduceDropCooldown(0.1f);
+                playerCamera.GetComponent<CoinPlacement>().ReduceDropCooldown(0.05f);
+                eventManager.GetComponent<EventsManager>().IncreaseGravity(0.5f);
                 collectionsMenu.GetComponent<Collections>().AddItem(fasterDropping, "faster_dropping");
                 return newItem;
 
@@ -380,8 +384,8 @@ public class ItemInventory : MonoBehaviour
             // --------------- GAME SPEED ITEMS --------------- //
 
             case "faster_falling":
-                eventManager.GetComponent<EventsManager>().IncreaseGravity(0.5f);
-                collectionsMenu.GetComponent<Collections>().AddItem(fasterFalling, "faster_falling");
+                //eventManager.GetComponent<EventsManager>().IncreaseGravity(0.5f);
+                //collectionsMenu.GetComponent<Collections>().AddItem(fasterFalling, "faster_falling");
                 return newItem;
 
             case "faster_pushing":
@@ -407,6 +411,22 @@ public class ItemInventory : MonoBehaviour
                 numFriends += 1;
                 friends.GetComponent<FriendActivator>().ActivateFriend();
                 collectionsMenu.GetComponent<Collections>().AddItem(bestFriend, "best_friend");
+                return newItem;
+
+            case "faster_friends":
+                friends.GetComponent<FriendActivator>().FasterFriends(0.2f);
+                collectionsMenu.GetComponent<Collections>().AddItem(fasterFriends, "faster_friends");
+                return newItem;
+
+            case "friends_with_benefits":
+                friends.GetComponent<FriendActivator>().FriendsWithBenefits();
+                collectionsMenu.GetComponent<Collections>().AddItem(friendsWithBenefits, "friends_with_benefits");
+                FWB();
+                return newItem;
+
+            case "more_benefits":
+                friends.GetComponent<FriendActivator>().MoreBenefits(1f);
+                collectionsMenu.GetComponent<Collections>().AddItem(moreBenefits, "more_benefits");
                 return newItem;
         }
     }
@@ -565,6 +585,19 @@ public class ItemInventory : MonoBehaviour
         }
     }
 
+    public void AddFriendItems()
+    {
+        commonItems.Add("faster_friends", "Increases friend coin drop speed");
+        uncommonItems.Add("friends_with_benefits", "Friends now get item capsules");
+        //commonItems.Add("more_benefits", "Increases item drop frequency for friends");
+    }
+
+    public void FWB()
+    {
+        uncommonItems.Remove("friends_with_benefits");
+        commonItems.Add("more_benefits", "Increases item drop frequency for friends");
+    }
+
     public string GetDescription(string itemName)
     {
         string description = "NoDesc";
@@ -596,7 +629,20 @@ public class ItemInventory : MonoBehaviour
             }
         }
 
-        return "NoName";
+        if (itemName.Equals("friends_with_benefits"))
+        {
+            description = "Friends now get item capsules";
+        }
+        else if (itemName.Equals("useful_materials"))
+        {
+            description = "Makes styrofoam 10% more valuable";
+        }
+        else if (itemName.Equals("cleanup_initiative"))
+        {
+            description = "Remove 1 styrofoam coin from drop pool";
+        }
+
+        return description;
     }
 
 }
