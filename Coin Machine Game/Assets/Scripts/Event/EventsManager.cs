@@ -163,7 +163,9 @@ public class EventsManager : MonoBehaviour
             initializationPhase = false;
             gameplayPhase = true;
 
-            gameManager.GetComponent<UI_Manager>().Update_UI(3);
+            StartCoroutine(Wait(1));
+
+            //gameManager.GetComponent<UI_Manager>().Update_UI(3);
             // ^ Code I moved from UI_Manager ^
 
         }
@@ -178,6 +180,17 @@ public class EventsManager : MonoBehaviour
             // Tells the coin printer to start its initialization phase
             coinPrinter.GetComponent<CoinRowPrinter>().initializeCoins = true;
         }
+    }
+
+    private IEnumerator Wait(float seconds)
+    {
+        float timeRemaining = seconds;
+        while (timeRemaining > 0)
+        {
+            timeRemaining -= Time.deltaTime;
+            yield return null;
+        }
+        gameManager.GetComponent<UI_Manager>().Update_UI(3);
     }
 
     // Runs when player presses the "play" button

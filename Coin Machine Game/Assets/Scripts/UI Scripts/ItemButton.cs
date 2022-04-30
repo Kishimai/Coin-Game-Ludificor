@@ -54,6 +54,7 @@ public class ItemButton : MonoBehaviour
     public Sprite fasterFalling;
     public Sprite fasterPushing;
     public Sprite autoDrop;
+    public Sprite bestFriend;
 
     public Color32 common;
     public Color32 uncommon;
@@ -258,6 +259,10 @@ public class ItemButton : MonoBehaviour
             case "new_peg":
                 image.color = common;
                 return newPeg;
+
+            case "best_friend":
+                image.color = rare;
+                return bestFriend;
 
             case "initialize":
                 image.color = common;

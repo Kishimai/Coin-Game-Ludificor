@@ -203,7 +203,11 @@ public class ItemRandomizer : MonoBehaviour
         }
         else if (item.Equals("golden_peg") && pegManager.GetComponent<PegManager>().unmodifiedPegs.Count() == 0)
         {
-            newDict = GetFromAvailable("rare", "golden_peg");
+            newDict = GetFromAvailable("uncommon", "golden_peg");
+        }
+        else if (item.Equals("best_friend") && gameObject.GetComponent<ItemInventory>().numFriends > 1)
+        {
+            newDict = GetFromAvailable("rare", "best_friend");
         }
 
         if (newDict != null)

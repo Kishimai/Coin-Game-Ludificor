@@ -238,4 +238,13 @@ public class CoinGeneration : MonoBehaviour
         return palladiumValue;
     }
 
+    public CoinData GetFriendCoin()
+    {
+        CoinData data;
+
+        data = CoinsAvail[Random.Range(0, CoinsAvail.Count)];
+
+        return data;
+    }
+
 }   

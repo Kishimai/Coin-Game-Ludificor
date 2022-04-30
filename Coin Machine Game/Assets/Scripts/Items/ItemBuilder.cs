@@ -186,7 +186,7 @@ public class ItemBuilder : MonoBehaviour
         Vector3 planePos = playerMachinePlane.transform.position;
         Vector3 planeScale = playerMachinePlane.transform.localScale;
 
-        Vector3 boundry = new Vector3(planeScale.x - 1, 0, planeScale.z - 1);
+        Vector3 boundry = new Vector3(planeScale.x - 1.2f, 0, planeScale.z - 1.2f);
 
         Vector3 randomRotation;
 

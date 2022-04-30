@@ -40,6 +40,9 @@ public class ItemInventory : MonoBehaviour
 
     public GameObject collectionsMenu;
 
+    public GameObject friends;
+    public int numFriends = 0;
+
     private bool palladiumStyroUnlocked = false;
 
     public Sprite midasShard;
@@ -75,6 +78,7 @@ public class ItemInventory : MonoBehaviour
     public Sprite fasterFalling;
     public Sprite fasterPushing;
     public Sprite autoDrop;
+    public Sprite bestFriend;
 
     // Start is called before the first frame update
     void Start()
@@ -152,6 +156,7 @@ public class ItemInventory : MonoBehaviour
             {"faster_falling", "Slightly increases gravity"},
             {"faster_pushing", "Slightly increases pusher speed"},
             {"auto_drop", "Enables auto-dropping of coins (hold left click)"},
+            { "best_friend", "A friend plays an adjacent machine, giving you all money earned" }
             //{ "palladium_coin", "Adds 1 palladium coin, 1 styrofoam coin to drop pool, and unlocks new items" }
         };
 
@@ -176,7 +181,8 @@ public class ItemInventory : MonoBehaviour
             { "better_prizes", "Increases chance of getting uncommon items by 5%" },
             { "vip_voucher", "Removes lowest tier coin from drop pool (Additonally removes 1 styrofoam)" },
             { "palladium_coin", "Adds 1 palladium coin, 1 styrofoam coin to drop pool, and unlocks new items" },
-            { "prize_storm", "Reduces cooldown on prize capsule drop by 5 seconds" }
+            { "prize_storm", "Reduces cooldown on prize capsule drop by 5 seconds" },
+            //{ "best_friend", "A friend plays an adjacent machine, giving you all money earned" }
         };
     }
 
@@ -394,6 +400,14 @@ public class ItemInventory : MonoBehaviour
             default:
                 Debug.LogWarning("New item not known by IntakeItem() in script on: " + gameObject.name);
                 return string.Format("Unknown Item: {0}", newItem);
+
+            // --------------- BEST FRIEND ITEMS --------------- //
+
+            case "best_friend":
+                numFriends += 1;
+                friends.GetComponent<FriendActivator>().ActivateFriend();
+                collectionsMenu.GetComponent<Collections>().AddItem(bestFriend, "best_friend");
+                return newItem;
         }
     }
 
