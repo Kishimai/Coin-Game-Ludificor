@@ -43,6 +43,8 @@ public class ItemInventory : MonoBehaviour
     public GameObject friends;
     public int numFriends = 0;
 
+    public GameObject newItemCapsule;
+
     private bool palladiumStyroUnlocked = false;
 
     public Sprite midasShard;
@@ -141,6 +143,15 @@ public class ItemInventory : MonoBehaviour
             // Makes sure to remove item from newItem after its been added to the list
             newItem = "";
 
+        }
+
+        if (availablePrizes > 0)
+        {
+            newItemCapsule.SetActive(true);
+        }
+        else
+        {
+            newItemCapsule.SetActive(false);
         }
 
         collector.GetComponent<DeleteCoins>().valueModifier = coinValueModifier;
@@ -425,7 +436,7 @@ public class ItemInventory : MonoBehaviour
                 return newItem;
 
             case "more_benefits":
-                friends.GetComponent<FriendActivator>().MoreBenefits(1f);
+                friends.GetComponent<FriendActivator>().MoreBenefits(5f);
                 collectionsMenu.GetComponent<Collections>().AddItem(moreBenefits, "more_benefits");
                 return newItem;
         }

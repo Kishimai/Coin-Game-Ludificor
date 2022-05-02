@@ -22,6 +22,7 @@ public class CoinLogic : MonoBehaviour
     public GameObject mithrilAppearance;
     public GameObject adamantiteAppearance;
     public GameObject palladiumAppearance;
+    public GameObject cobaltAppearance;
     public GameObject headCanvas;
     public GameObject tailCanvas;
     public Text canvasTextHead;
@@ -36,6 +37,8 @@ public class CoinLogic : MonoBehaviour
     private float crystalModifier = 1;
     private int comboMultiplier = 0;
     private int comboEventMultiplier = 0;
+    public int comboChain = 0;
+    public int comboEventChain = 0;
     private float palladiumModifier = 0;
     private int combinedComboMulti;
     private float combinedSpecialMulti;
@@ -89,6 +92,7 @@ public class CoinLogic : MonoBehaviour
             coinCanvas.SetActive(true);
             canvasTextHead.text = string.Format("{0}{1}", totalValueModifier, "x");
             canvasTextTail.text = string.Format("{0}{1}", totalValueModifier, "x");
+            SetTransparency();
         }
         else
         {
@@ -120,6 +124,13 @@ public class CoinLogic : MonoBehaviour
             comboMultiplier *= 2;
         }
 
+        comboChain += 1;
+
+        if (comboChain > 4)
+        {
+            comboChain = 4;
+        }
+
     }
 
     public void ComboEvent()
@@ -133,6 +144,13 @@ public class CoinLogic : MonoBehaviour
         else
         {
             comboEventMultiplier *= 2;
+        }
+
+        comboEventChain += 1;
+
+        if (comboEventChain > 4)
+        {
+            comboEventChain = 4;
         }
 
     }
@@ -191,16 +209,19 @@ public class CoinLogic : MonoBehaviour
         if (combinedComboMulti > 0 && !Mathf.Approximately(combinedSpecialMulti, 2))
         {
             totalValueModifier = (comboMultiplier + comboEventMultiplier) * ((gildedModifier + crystalModifier) - 1);
+            SetTransparency();
         }
         // If combo multi is GREATER THAN zero, and special multi IS zero
         else if (combinedComboMulti > 0 && Mathf.Approximately(combinedSpecialMulti, 2))
         {
             totalValueModifier = comboMultiplier + comboEventMultiplier;
+            SetTransparency();
         }
         // If combo multi IS zero, and special multi is GREATER THAN zero
         else if (combinedComboMulti <= 0 && !Mathf.Approximately(combinedSpecialMulti, 2))
         {
             totalValueModifier = (gildedModifier + crystalModifier) - 1;
+            SetTransparency();
         }
         else
         {
@@ -211,6 +232,7 @@ public class CoinLogic : MonoBehaviour
         {
             float x = totalValueModifier * palladiumModifier;
             totalValueModifier += x;
+            SetTransparency();
         }
 
         // Rounds to first decimal place (0.0) so number fits on coin image
@@ -241,25 +263,40 @@ public class CoinLogic : MonoBehaviour
                 case "Emerald Coin":
                     emeraldAppearance.SetActive(true);
                     GetComponent<MeshRenderer>().enabled = false;
+                    //headCanvas.transform.localPosition = new Vector3(0, 0, 1.7f);
+                    //tailCanvas.transform.localPosition = new Vector3(0, 0, -1.7f);
                     break;
 
                 case "Ruby Coin":
                     rubyAppearance.SetActive(true);
                     GetComponent<MeshRenderer>().enabled = false;
+                    //headCanvas.transform.localPosition = new Vector3(0, 0, 1.7f);
+                    //tailCanvas.transform.localPosition = new Vector3(0, 0, -1.7f);
                     break;
 
                 case "Sapphire Coin":
                     sapphireAppearance.SetActive(true);
                     GetComponent<MeshRenderer>().enabled = false;
+                    //headCanvas.transform.localPosition = new Vector3(0, 0, 1.7f);
+                    //tailCanvas.transform.localPosition = new Vector3(0, 0, -1.7f);
                     break;
 
                 case "Diamond Coin":
                     diamondAppearance.SetActive(true);
                     GetComponent<MeshRenderer>().enabled = false;
+                    //headCanvas.transform.localPosition = new Vector3(0, 0, 1.7f);
+                    //tailCanvas.transform.localPosition = new Vector3(0, 0, -1.7f);
                     break;
 
                 case "Uranium Coin":
                     uraniumAppearance.SetActive(true);
+                    GetComponent<MeshRenderer>().enabled = false;
+                    headCanvas.transform.localPosition = new Vector3(0, 0, 1.4f);
+                    tailCanvas.transform.localPosition = new Vector3(0, 0, -1.4f);
+                    break;
+
+                case "Cobalt Coin":
+                    cobaltAppearance.SetActive(true);
                     GetComponent<MeshRenderer>().enabled = false;
                     headCanvas.transform.localPosition = new Vector3(0, 0, 1.4f);
                     tailCanvas.transform.localPosition = new Vector3(0, 0, -1.4f);
@@ -295,6 +332,44 @@ public class CoinLogic : MonoBehaviour
         }
     }
 
+    private void SetTransparency()
+    {
+        CoinData data = GetComponent<Data_Interp>().data;
+
+        Color objAppearance;
+
+        switch (data.Name)
+        {
+            case "Emerald Coin":
+                objAppearance = emeraldAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color;
+                objAppearance.a = 1;
+                emeraldAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = objAppearance;
+                //emeraldAppearance.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = objAppearance;
+                break;
+
+            case "Ruby Coin":
+                objAppearance = rubyAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color;
+                objAppearance.a = 1;
+                rubyAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = objAppearance;
+                //rubyAppearance.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = objAppearance;
+                break;
+
+            case "Sapphire Coin":
+                objAppearance = sapphireAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color;
+                objAppearance.a = 1;
+                sapphireAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = objAppearance;
+                //sapphireAppearance.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = objAppearance;
+                break;
+
+            case "Diamond Coin":
+                objAppearance = diamondAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color;
+                objAppearance.a = 1;
+                diamondAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = objAppearance;
+                //diamondAppearance.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = objAppearance;
+                break;
+        }
+    }
+
     public void ConvertToPalladium()
     {
         gameObject.GetComponent<Data_Interp>().data = gameManager.GetComponent<CoinGeneration>().GetHighestTierCoin();
@@ -313,6 +388,7 @@ public class CoinLogic : MonoBehaviour
         thoriumAppearance.SetActive(false);
         mithrilAppearance.SetActive(false);
         adamantiteAppearance.SetActive(false);
+        cobaltAppearance.SetActive(false);
         isPalladium = true;
     }
 
@@ -334,6 +410,7 @@ public class CoinLogic : MonoBehaviour
         thoriumAppearance.SetActive(false);
         mithrilAppearance.SetActive(false);
         adamantiteAppearance.SetActive(false);
+        cobaltAppearance.SetActive(false);
         isStyrofoam = true;
     }
 }

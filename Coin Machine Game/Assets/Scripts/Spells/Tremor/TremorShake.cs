@@ -6,6 +6,7 @@ public class TremorShake : MonoBehaviour
 {
     public GameObject theDirt;
     public GameObject dirtFriends;
+    public GameObject tremorSound;
 
     public float tremorPower;
     public float tremorDuration;
@@ -14,6 +15,12 @@ public class TremorShake : MonoBehaviour
 
     private bool active;
     private float remainingDuration;
+    private float soundTrackDuration;
+
+    public void Start()
+    {
+        soundTrackDuration = 0;
+    }
 
     public void Update()
     {
@@ -24,6 +31,15 @@ public class TremorShake : MonoBehaviour
         else
         {
             active = false;
+        }
+
+        if (soundTrackDuration > 0)
+        {
+            soundTrackDuration -= Time.deltaTime;
+        }
+        else
+        {
+            tremorSound.GetComponent<AudioSource>().Stop();
         }
     }
 
@@ -40,6 +56,8 @@ public class TremorShake : MonoBehaviour
                 coin.GetComponentInParent<CoinLogic>().TremorEvent(tremorDuration, tremorPower);
             }
         }
+
+        soundTrackDuration = tremorDuration;
 
         active = true;
         remainingDuration += tremorDuration;

@@ -18,22 +18,24 @@ public class Peg : MonoBehaviour
 
     public Material goldMaterial;
     public Material goldFlash;
+    public GameObject goldLight;
 
     public Material diamondMaterial;
     public Material diamondFlash;
+    public GameObject diamondLight;
 
     public Material comboMaterial;
     public Material comboFlash;
+    public GameObject comboLight;
 
     public Material palladiumMaterial;
     public Material palladiumFlash;
+    public GameObject palladiumLight;
 
     public GameObject comboEventAppearance;
+    public GameObject comboEventLight;
     
     public GameObject audioManager;
-    public GameObject comboAudio;
-    public GameObject goldAudio;
-    public GameObject crystalAudio;
 
     public GameObject comboSphere;
     public GameObject comboEventSphere;
@@ -79,9 +81,9 @@ public class Peg : MonoBehaviour
 
         manager = GameObject.FindGameObjectWithTag("peg_manager");
         audioManager = GameObject.FindGameObjectWithTag("audio_manager");
-        comboAudio = GameObject.FindGameObjectWithTag("combo_sound");
-        goldAudio = GameObject.FindGameObjectWithTag("gold_sound");
-        crystalAudio = GameObject.FindGameObjectWithTag("diamond_sound");
+        //comboAudio = GameObject.FindGameObjectWithTag("combo_sound");
+        //goldAudio = GameObject.FindGameObjectWithTag("gold_sound");
+        //crystalAudio = GameObject.FindGameObjectWithTag("diamond_sound");
     }
 
     void Update()
@@ -272,27 +274,28 @@ public class Peg : MonoBehaviour
         {
             // Activate gilded bumper on coin and apply value modifier
             other.gameObject.GetComponentInParent<CoinLogic>().ActivateBumper(coinValueModifier);
-            goldAudio.GetComponent<GoldPing>().PlayAudio();
+            audioManager.GetComponent<AudioManager>().PlayAudioClip("gold");
             ++hitCounter;
         }
         else if (amDiamond)
         {
             // Activate crystal shell on coin and apply value modifier
             other.gameObject.GetComponentInParent<CoinLogic>().ActivateCrystalShell(coinValueModifier);
-            crystalAudio.GetComponent<DiamondPing>().PlayAudio();
+            audioManager.GetComponent<AudioManager>().PlayAudioClip("diamond");
             ++hitCounter;
         }
         else if (amCombo)
         {
             // Multiply coin's current combo multiplier by itself
             other.gameObject.GetComponentInParent<CoinLogic>().ComboMultiplier();
-            comboAudio.GetComponent<ComboPing>().PlayAudio(hitCounter);
+            audioManager.GetComponent<AudioManager>().PlayAudioClip("combo", other.gameObject.GetComponentInParent<CoinLogic>().comboChain);
             ++hitCounter;
             //comboPing.Play();
         }
         else if (amComboEvent)
         {
             other.gameObject.GetComponentInParent<CoinLogic>().ComboEvent();
+            audioManager.GetComponent<AudioManager>().PlayAudioClip("combo", other.gameObject.GetComponentInParent<CoinLogic>().comboEventChain);
         }
         else if (amPalladium)
         {
@@ -450,12 +453,15 @@ public class Peg : MonoBehaviour
                 storedMaterial = goldMaterial;
 
                 goldRing.GetComponent<Renderer>().material = goldFlash;
+
+                goldLight.SetActive(true);
             }
             else if (amDiamond)
             {
                 storedMaterial = diamondMaterial;
 
                 diamondAppearance.GetComponent<Renderer>().material = diamondFlash;
+                diamondLight.SetActive(true);
             }
             else if (amCombo)
             {
@@ -463,14 +469,17 @@ public class Peg : MonoBehaviour
 
                 //comboAppearance.GetComponent<Renderer>().material = comboFlash;
                 comboSphere.SetActive(true);
+                comboLight.SetActive(true);
             }
             else if (amComboEvent)
             {
                 comboEventSphere.SetActive(true);
+                comboEventLight.SetActive(true);
             }
             else if (amPalladium)
             {
                 palladiumAppearance.GetComponent<Renderer>().material = palladiumFlash;
+                palladiumLight.SetActive(true);
             }
             else
             {
@@ -483,23 +492,28 @@ public class Peg : MonoBehaviour
         if (amGolden)
         {
             goldRing.GetComponent<Renderer>().material = goldMaterial;
+            goldLight.SetActive(false);
         }
         else if (amDiamond)
         {
             diamondAppearance.GetComponent<Renderer>().material = diamondMaterial;
+            diamondLight.SetActive(false);
         }
         else if (amCombo)
         {
             comboAppearance.GetComponent<Renderer>().material = comboMaterial;
             comboSphere.SetActive(false);
+            comboLight.SetActive(false);
         }
         else if (amComboEvent)
         {
             comboEventSphere.SetActive(false);
+            comboEventLight.SetActive(false);
         }
         else if (amPalladium)
         {
             palladiumAppearance.GetComponent<Renderer>().material = palladiumMaterial;
+            palladiumLight.SetActive(false);
         }
 
     }
@@ -540,6 +554,13 @@ public class Peg : MonoBehaviour
     {
         hitCounter = 0;
         manager.GetComponent<PegManager>().RelocatePeg(gameObject);
+
+        GameObject goldRing = goldAppearance.transform.GetChild(1).gameObject;
+        goldRing.GetComponent<Renderer>().material = goldMaterial;
+        diamondAppearance.GetComponent<Renderer>().material = diamondMaterial;
+        comboAppearance.GetComponent<Renderer>().material = comboMaterial;
+        palladiumAppearance.GetComponent<Renderer>().material = palladiumMaterial;
+
     }
 
     public void ResetHitCounter()
