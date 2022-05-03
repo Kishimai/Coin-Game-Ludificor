@@ -14,13 +14,13 @@ public class AddedShmoney : MonoBehaviour
 
     private float elapsedTime = 0;
 
-    private float duration = 0.5f;
+    private float duration = 0.7f; // 0.5f
 
     private Vector3 startPos;
 
     float objectAlpha = 1f;
 
-    Vector3 offset = new Vector3(0,16,0);
+    Vector3 offset = new Vector3(0,24,0);
 
     void Start()
     {
@@ -53,7 +53,7 @@ public class AddedShmoney : MonoBehaviour
                 number.color = c;
             }
 
-            if (Vector3.Distance(transform.position, endPos) < 0.1)
+            if (Vector3.Distance(transform.position, endPos) < 10f) // 0.1
             {
                 Destroy(gameObject);
             }

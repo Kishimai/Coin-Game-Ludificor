@@ -25,8 +25,26 @@ public class CoinLogic : MonoBehaviour
     public GameObject cobaltAppearance;
     public GameObject headCanvas;
     public GameObject tailCanvas;
+    public GameObject coinLight;
+    private Light pointLight;
     public Text canvasTextHead;
     public Text canvasTextTail;
+
+    public Color defaultLightColor;
+    public Color uranium;
+    public Color iridium;
+    public Color thorium;
+    public Color cobalt;
+    public Color mithril;
+    public Color adamantite;
+    public Color galaxy;
+    public Color god;
+
+    public Color whiteText;
+    public Color blackText;
+    public Color yellowText;
+    public Color greenText;
+    public Color blueText;
 
     private RectTransform head;
     private RectTransform tail;
@@ -44,6 +62,7 @@ public class CoinLogic : MonoBehaviour
     private float combinedSpecialMulti;
 
     public float totalValueModifier = 0;
+    private float maxValue = 500;
 
     public float styrofoamValue = 0;
     public float palladiumValue = 0;
@@ -60,6 +79,8 @@ public class CoinLogic : MonoBehaviour
     private bool shaking = false;
     private bool activateText = false;
 
+    private float intensityFromType = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +89,12 @@ public class CoinLogic : MonoBehaviour
         coinRb = GetComponent<Rigidbody>();
         eventManager = GameObject.FindGameObjectWithTag("gameplay_event_system");
         coinRb.constraints = RigidbodyConstraints.None;
+
+        pointLight = coinLight.GetComponent<Light>();
+        pointLight.color = defaultLightColor;
+
+        canvasTextHead = headCanvas.GetComponent<Text>();
+        canvasTextTail = tailCanvas.GetComponent<Text>();
 
         //CoinData data = GetComponent<Data_Interp>().data;
         CheckIdentity();
@@ -89,7 +116,9 @@ public class CoinLogic : MonoBehaviour
 
         if (totalValueModifier != 0)
         {
-            coinCanvas.SetActive(true);
+            //coinCanvas.SetActive(true);
+            headCanvas.SetActive(true);
+            tailCanvas.SetActive(true);
             canvasTextHead.text = string.Format("{0}{1}", totalValueModifier, "x");
             canvasTextTail.text = string.Format("{0}{1}", totalValueModifier, "x");
             SetTransparency();
@@ -98,6 +127,10 @@ public class CoinLogic : MonoBehaviour
         {
             coinCanvas.SetActive(false);
         }
+
+        float lightIntensity = totalValueModifier / maxValue;
+
+        pointLight.intensity = (lightIntensity + intensityFromType) * 10;
     }
 
     public void ActivateBumper(float multiplier)
@@ -238,9 +271,9 @@ public class CoinLogic : MonoBehaviour
         // Rounds to first decimal place (0.0) so number fits on coin image
         totalValueModifier = Mathf.Round(totalValueModifier * 10.0f) * 0.1f;
 
-        if (totalValueModifier > 500)
+        if (totalValueModifier > maxValue)
         {
-            totalValueModifier = 500;
+            totalValueModifier = maxValue;
         }
     }
 
@@ -291,39 +324,76 @@ public class CoinLogic : MonoBehaviour
                 case "Uranium Coin":
                     uraniumAppearance.SetActive(true);
                     GetComponent<MeshRenderer>().enabled = false;
-                    headCanvas.transform.localPosition = new Vector3(0, 0, 1.4f);
-                    tailCanvas.transform.localPosition = new Vector3(0, 0, -1.4f);
+                    headCanvas.transform.localPosition = new Vector3(0, 1.4f, 0);
+                    tailCanvas.transform.localPosition = new Vector3(0, -1.4f, 0);
+                    intensityFromType = 0.1f;
+                    pointLight.color = uranium;
+                    canvasTextHead.color = blackText;
+                    canvasTextTail.color = blackText;
                     break;
 
                 case "Cobalt Coin":
                     cobaltAppearance.SetActive(true);
                     GetComponent<MeshRenderer>().enabled = false;
-                    headCanvas.transform.localPosition = new Vector3(0, 0, 1.4f);
-                    tailCanvas.transform.localPosition = new Vector3(0, 0, -1.4f);
+                    headCanvas.transform.localPosition = new Vector3(0, 1.4f, 0);
+                    tailCanvas.transform.localPosition = new Vector3(0, -1.4f, 0);
+                    intensityFromType = 0.1f;
+                    pointLight.color = cobalt;
+                    canvasTextHead.color = whiteText;
+                    canvasTextTail.color = whiteText;
                     break;
 
                 case "Iridium Coin":
                     iridiumAppearance.SetActive(true);
                     GetComponent<MeshRenderer>().enabled = false;
-                    headCanvas.transform.localPosition = new Vector3(0, 0, 1.4f);
-                    tailCanvas.transform.localPosition = new Vector3(0, 0, -1.4f);
+                    headCanvas.transform.localPosition = new Vector3(0, 1.4f, 0);
+                    tailCanvas.transform.localPosition = new Vector3(0, -1.4f, 0);
+                    intensityFromType = 0.1f;
+                    pointLight.color = iridium;
+                    canvasTextHead.color = whiteText;
+                    canvasTextTail.color = whiteText;
                     break;
 
                 case "Thorium Coin":
                     thoriumAppearance.SetActive(true);
                     GetComponent<MeshRenderer>().enabled = false;
-                    headCanvas.transform.localPosition = new Vector3(0, 0, 1.4f);
-                    tailCanvas.transform.localPosition = new Vector3(0, 0, -1.4f);
+                    headCanvas.transform.localPosition = new Vector3(0, 1.4f, 0);
+                    tailCanvas.transform.localPosition = new Vector3(0, -1.4f, 0);
+                    intensityFromType = 0.1f;
+                    pointLight.color = thorium;
+                    canvasTextHead.color = blackText;
+                    canvasTextTail.color = blackText;
                     break;
 
                 case "Mithril Coin":
                     mithrilAppearance.SetActive(true);
                     GetComponent<MeshRenderer>().enabled = false;
+                    intensityFromType = 0.1f;
+                    pointLight.color = mithril;
+                    canvasTextHead.color = yellowText;
+                    canvasTextTail.color = yellowText;
                     break;
 
                 case "Adamantite Coin":
                     adamantiteAppearance.SetActive(true);
                     GetComponent<MeshRenderer>().enabled = false;
+                    intensityFromType = 0.1f;
+                    pointLight.color = adamantite;
+                    canvasTextHead.color = yellowText;
+                    canvasTextTail.color = yellowText;
+                    break;
+
+                case "Galaxy Coin":
+                    pointLight.color = galaxy;
+                    canvasTextHead.color = yellowText;
+                    canvasTextTail.color = yellowText;
+                    break;
+
+                case "God Coin":
+                    pointLight.color = god;
+                    intensityFromType = 0.1f;
+                    canvasTextHead.color = blackText;
+                    canvasTextTail.color = blackText;
                     break;
 
                 default:

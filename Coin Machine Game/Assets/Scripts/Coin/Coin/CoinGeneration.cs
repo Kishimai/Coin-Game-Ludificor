@@ -193,7 +193,7 @@ public class CoinGeneration : MonoBehaviour
             styrofoamCoins -= numToRemove;
         }
         
-        if (styrofoamCoins < 0)
+        if (styrofoamCoins <= 0)
         {
             styrofoamCoins = 0;
             gameObject.GetComponent<ItemInventory>().RemoveStyroItems();

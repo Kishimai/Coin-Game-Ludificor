@@ -566,9 +566,15 @@ public class ItemInventory : MonoBehaviour
 
     public void RemoveStyroItems()
     {
-        commonItems.Remove("useful_materials");
+        if (commonItems.ContainsKey("useful_materials"))
+        {
+            commonItems.Remove("useful_materials");
+        }
 
-        uncommonItems.Remove("cleanup_initiative");
+        if (uncommonItems.ContainsKey("cleanup_initiative"))
+        {
+            uncommonItems.Remove("cleanup_initiative");
+        }
     }
 
     public void AddStyroItems()
@@ -606,7 +612,10 @@ public class ItemInventory : MonoBehaviour
     public void FWB()
     {
         uncommonItems.Remove("friends_with_benefits");
-        commonItems.Add("more_benefits", "Increases item drop frequency for friends");
+        if (!commonItems.ContainsKey("more_benefits"))
+        {
+            commonItems.Add("more_benefits", "Increases item drop frequency for friends");
+        }
     }
 
     public string GetDescription(string itemName)
