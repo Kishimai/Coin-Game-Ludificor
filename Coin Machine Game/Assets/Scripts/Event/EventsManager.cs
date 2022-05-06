@@ -88,6 +88,8 @@ public class EventsManager : MonoBehaviour
 
     private AudioSource comboPing;
 
+    public GameObject sfxMaster;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -163,7 +165,7 @@ public class EventsManager : MonoBehaviour
             initializationPhase = false;
             gameplayPhase = true;
 
-            StartCoroutine(Wait(1));
+            StartCoroutine(Wait(2));
 
             //gameManager.GetComponent<UI_Manager>().Update_UI(3);
             // ^ Code I moved from UI_Manager ^
@@ -191,6 +193,7 @@ public class EventsManager : MonoBehaviour
             yield return null;
         }
         gameManager.GetComponent<UI_Manager>().Update_UI(3);
+        sfxMaster.GetComponent<AudioMuter>().MuteToggle();
     }
 
     // Runs when player presses the "play" button

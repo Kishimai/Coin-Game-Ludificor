@@ -87,26 +87,32 @@ public class ShopSystem : MonoBehaviour
     }
 
     public void UnlockVisualLevel(int UnlockTill){
-        var child = ObjectContent.transform.GetChild(4);
-        //child.GetChild(UnlockTill).transform.GetChild(0).gameObject.SetActive(true);
-
-        if (UnlockTill > 0)
+        if (CurrentCoin.CurrentLevel < 11)
         {
-            if (!CoinGen.CoinsAvail.Contains(CurrentCoin))
+            var child = ObjectContent.transform.GetChild(4);
+            //child.GetChild(UnlockTill).transform.GetChild(0).gameObject.SetActive(true);
+
+            if (UnlockTill > 0)
             {
-                CoinGen.CoinsAvail.Add(CurrentCoin);
+                if (!CoinGen.CoinsAvail.Contains(CurrentCoin))
+                {
+                    CoinGen.CoinsAvail.Add(CurrentCoin);
+                }
+                child.GetChild(UnlockTill - 1).transform.GetChild(0).gameObject.SetActive(true);
             }
-            child.GetChild(UnlockTill - 1).transform.GetChild(0).gameObject.SetActive(true);
-        }
 
-        // If player gets more than 5 coins at a time, remove lowest tier coin
-        if (CoinGen.CoinsAvail.Count > maxNumCoins)
+            // If player gets more than 5 coins at a time, remove lowest tier coin
+            if (CoinGen.CoinsAvail.Count > maxNumCoins)
+            {
+                CoinGen.RemoveLowestTierCoin();
+            }
+
+            ObjectContent.transform.GetChild(1).transform.GetChild(0).GetComponent<TMP_Text>().text = CurrentCoin.currentCost.ToString("$0");
+        }
+        else
         {
-            CoinGen.RemoveLowestTierCoin();
+            ObjectContent.transform.GetChild(1).transform.GetChild(0).GetComponent<TMP_Text>().text = CurrentCoin.currentCost.ToString("$0");
         }
-
-        ObjectContent.transform.GetChild(1).transform.GetChild(0).GetComponent<TMP_Text>().text = CurrentCoin.currentCost.ToString("$0");
-
     }
 
     public void UpgradeCoin(){
@@ -126,7 +132,7 @@ public class ShopSystem : MonoBehaviour
                         }
                     } else{
                         // Cant Upgrade Maxed out all coins
-                        finished = true;
+                        //finished = true;
                     }
                 }
 

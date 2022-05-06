@@ -293,4 +293,10 @@ public class ItemButton : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("game_manager").GetComponent<ItemInventory>().newItem = selectedItem;
     }
+
+    public void InitializeButtons()
+    {
+        itemImage = midasRelic;
+        image.color = rare;
+    }
 }

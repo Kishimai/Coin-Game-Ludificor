@@ -14,6 +14,16 @@ public class BombCoin : MonoBehaviour
 
     private GameObject boomAudioSource;
 
+    public float explosionForce = 0;
+
+    public GameObject audioManager;
+    public AudioManager audio;
+
+    private Vector3 currentVelocity = Vector3.zero;
+    private float currentSpeed = 0;
+    private float speedOfLastFrame = 0;
+    public float soundThreshold = 5;
+
     private void Start()
     {
         coinRb = GetComponent<Rigidbody>();
@@ -21,6 +31,24 @@ public class BombCoin : MonoBehaviour
         boomAudioSource = GameObject.FindGameObjectWithTag("bomb_sound");
 
         boom = boomAudioSource.GetComponent<AudioSource>();
+
+        audioManager = GameObject.FindGameObjectWithTag("audio_manager");
+        audio = audioManager.GetComponent<AudioManager>();
+    }
+
+    private void Update()
+    {
+        currentVelocity = coinRb.velocity;
+        currentSpeed = currentVelocity.magnitude;
+
+        float difference = Mathf.Abs(currentSpeed - speedOfLastFrame);
+
+        if (difference > soundThreshold)
+        {
+            audio.PlayAudioClip("coin");
+        }
+
+        speedOfLastFrame = currentSpeed;
     }
 
     public void Explode()
@@ -56,8 +84,11 @@ public class BombCoin : MonoBehaviour
         coinRb.AddForce(bumpForce);
     }
 
-    public void IncreaseExplosionRadius(float increase)
+    public void IncreaseExplosionRadius(float increase, float force)
     {
         explosion.GetComponent<BombCoinExplosion>().radiusOfExplosion += increase;
+        explosion.GetComponent<BombCoinExplosion>().explosionForce += force;
+        explosion.GetComponent<BombCoinExplosion>().upwardsForce += 0.5f;
+        explosion.GetComponent<BombCoinExplosion>().expansionRate += Vector3.one;
     }
 }

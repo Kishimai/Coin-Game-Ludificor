@@ -19,6 +19,8 @@ public class AudioMuter : MonoBehaviour
     {
         mainMenuToggle = mainMenuMute.GetComponent<Toggle>();
         ingameMenuToggle = ingameMenuMute.GetComponent<Toggle>();
+
+        MuteToggle();
     }
 
     public void MuteToggle(){

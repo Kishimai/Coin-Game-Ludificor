@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ItemInventory : MonoBehaviour
 {
@@ -39,6 +40,8 @@ public class ItemInventory : MonoBehaviour
     private GameObject eventManager;
 
     public GameObject collectionsMenu;
+
+    public GameObject remainingPrizes;
 
     public GameObject friends;
     public int numFriends = 0;
@@ -100,6 +103,7 @@ public class ItemInventory : MonoBehaviour
     {
 
         availablePrizesText.text = string.Format("Available Prizes: {0}", availablePrizes);
+        remainingPrizes.GetComponent<TextMeshProUGUI>().text = string.Format("Remaining Prizes: {0}", availablePrizes);
 
         // The name of the item that the player picks will be assigned to newItem
         // When newItem is assigned, it will add that item to the list of collected items and change variables like coinValueModifier

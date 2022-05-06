@@ -10,18 +10,7 @@ public class AudioManager : MonoBehaviour
     public GameObject diamondSound;
     public GameObject tremorSound;
     public GameObject bombSound;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GameObject coinSound;
 
     public void PlayAudioClip(string clipName, int index = 0)
     {
@@ -41,6 +30,11 @@ public class AudioManager : MonoBehaviour
             case "diamond":
                 audioSource = Instantiate(diamondSound, playerCamera.transform.position, Quaternion.identity);
                 audioSource.GetComponent<DiamondPing>().PlayAudio();
+                break;
+
+            case "coin":
+                audioSource = Instantiate(coinSound, playerCamera.transform.position, Quaternion.identity);
+                audioSource.GetComponent<CoinSound>().PlayAudio();
                 break;
 
             case "tremor":

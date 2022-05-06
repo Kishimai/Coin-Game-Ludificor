@@ -53,6 +53,8 @@ public class UI_Manager : MonoBehaviour
     [BoxGroup("Loading")]
     public List<string> loading_statements = new List<string>();
 
+    public List<GameObject> itemButtons = new List<GameObject>();
+
     /// <summary>
     /// Uses for Changing Panel.
     /// </summary>

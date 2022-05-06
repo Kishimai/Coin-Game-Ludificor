@@ -17,6 +17,7 @@ ScriptsOnlyBuild:
     - CoinPlacement
     - CoinPusher
     - CoinRowPrinter
+    - CoinSound
     - CollectionPlaceholder
     - Collections
     - CollectionsItem
@@ -50,6 +51,7 @@ ScriptsOnlyBuild:
     - PointerCollision
     - SFXPercentCalc
     - SFXVolControl
+    - SaveManager
     - ShopSystem
     - ToolTip
     - ToolTipTrigger
@@ -60,7 +62,6 @@ ScriptsOnlyBuild:
     Sirenix.OdinInspector.Editor.dll:
     - Sirenix.OdinInspector.Editor.ImportSettingsConfig
     - Sirenix.OdinInspector.Editor.InspectorConfig
-    - Sirenix.OdinInspector.Editor.Modules.OdinModuleConfig
     - Sirenix.Serialization.AOTGenerationConfig
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
@@ -208,189 +209,193 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2552}
     - Class: 114
-      Script: {instanceID: 2686}
+      Script: {instanceID: 2684}
     - Class: 114
-      Script: {instanceID: 2702}
+      Script: {instanceID: 2688}
     - Class: 114
-      Script: {instanceID: 2764}
+      Script: {instanceID: 2704}
     - Class: 114
-      Script: {instanceID: 2836}
+      Script: {instanceID: 2766}
     - Class: 114
-      Script: {instanceID: 2908}
+      Script: {instanceID: 2838}
     - Class: 114
-      Script: {instanceID: 2930}
+      Script: {instanceID: 2910}
     - Class: 114
-      Script: {instanceID: 3212}
+      Script: {instanceID: 2932}
     - Class: 114
-      Script: {instanceID: 3240}
+      Script: {instanceID: 3214}
     - Class: 114
-      Script: {instanceID: 3256}
+      Script: {instanceID: 3242}
     - Class: 114
-      Script: {instanceID: 3322}
+      Script: {instanceID: 3258}
     - Class: 114
-      Script: {instanceID: 3386}
+      Script: {instanceID: 3324}
     - Class: 114
-      Script: {instanceID: 3408}
+      Script: {instanceID: 3388}
     - Class: 114
-      Script: {instanceID: 3460}
+      Script: {instanceID: 3410}
     - Class: 114
-      Script: {instanceID: 3520}
+      Script: {instanceID: 3462}
     - Class: 114
-      Script: {instanceID: 3588}
+      Script: {instanceID: 3522}
     - Class: 114
-      Script: {instanceID: 3596}
+      Script: {instanceID: 3590}
     - Class: 114
-      Script: {instanceID: 3614}
+      Script: {instanceID: 3598}
     - Class: 114
-      Script: {instanceID: 3646}
+      Script: {instanceID: 3616}
     - Class: 114
-      Script: {instanceID: 3714}
+      Script: {instanceID: 3648}
     - Class: 114
-      Script: {instanceID: 3732}
+      Script: {instanceID: 3716}
     - Class: 114
-      Script: {instanceID: 3756}
+      Script: {instanceID: 3734}
     - Class: 114
-      Script: {instanceID: 4038}
+      Script: {instanceID: 3758}
     - Class: 114
-      Script: {instanceID: 4088}
+      Script: {instanceID: 4040}
     - Class: 114
-      Script: {instanceID: 4144}
+      Script: {instanceID: 4090}
     - Class: 114
-      Script: {instanceID: 4148}
+      Script: {instanceID: 4146}
     - Class: 114
-      Script: {instanceID: 4288}
+      Script: {instanceID: 4150}
     - Class: 114
-      Script: {instanceID: 4320}
+      Script: {instanceID: 4290}
     - Class: 114
-      Script: {instanceID: 4454}
+      Script: {instanceID: 4322}
     - Class: 114
-      Script: {instanceID: 4550}
+      Script: {instanceID: 4456}
     - Class: 114
-      Script: {instanceID: 4606}
+      Script: {instanceID: 4552}
     - Class: 114
-      Script: {instanceID: 4610}
+      Script: {instanceID: 4608}
     - Class: 114
-      Script: {instanceID: 4846}
+      Script: {instanceID: 4612}
     - Class: 114
-      Script: {instanceID: 4856}
+      Script: {instanceID: 4848}
     - Class: 114
-      Script: {instanceID: 4928}
+      Script: {instanceID: 4858}
     - Class: 114
-      Script: {instanceID: 5064}
+      Script: {instanceID: 4930}
     - Class: 114
-      Script: {instanceID: 5216}
+      Script: {instanceID: 5066}
     - Class: 114
       Script: {instanceID: 5218}
     - Class: 114
-      Script: {instanceID: 5222}
+      Script: {instanceID: 5220}
     - Class: 114
-      Script: {instanceID: 5230}
+      Script: {instanceID: 5224}
     - Class: 114
       Script: {instanceID: 5232}
     - Class: 114
-      Script: {instanceID: 5250}
+      Script: {instanceID: 5234}
     - Class: 114
-      Script: {instanceID: 5302}
+      Script: {instanceID: 5252}
     - Class: 114
-      Script: {instanceID: 5312}
+      Script: {instanceID: 5304}
     - Class: 114
-      Script: {instanceID: 5322}
+      Script: {instanceID: 5314}
     - Class: 114
-      Script: {instanceID: 5380}
+      Script: {instanceID: 5324}
     - Class: 114
-      Script: {instanceID: 5516}
+      Script: {instanceID: 5382}
     - Class: 114
       Script: {instanceID: 5518}
     - Class: 114
-      Script: {instanceID: 5538}
+      Script: {instanceID: 5520}
     - Class: 114
-      Script: {instanceID: 5644}
+      Script: {instanceID: 5540}
     - Class: 114
-      Script: {instanceID: 5698}
+      Script: {instanceID: 5646}
     - Class: 114
-      Script: {instanceID: 5732}
+      Script: {instanceID: 5700}
     - Class: 114
-      Script: {instanceID: 5782}
+      Script: {instanceID: 5734}
     - Class: 114
       Script: {instanceID: 5784}
     - Class: 114
-      Script: {instanceID: 5900}
+      Script: {instanceID: 5786}
     - Class: 114
-      Script: {instanceID: 5966}
+      Script: {instanceID: 5902}
     - Class: 114
-      Script: {instanceID: 6024}
+      Script: {instanceID: 5968}
     - Class: 114
-      Script: {instanceID: 6032}
+      Script: {instanceID: 6026}
     - Class: 114
-      Script: {instanceID: 6054}
+      Script: {instanceID: 6034}
     - Class: 114
-      Script: {instanceID: 6096}
+      Script: {instanceID: 6056}
     - Class: 114
-      Script: {instanceID: 6104}
+      Script: {instanceID: 6098}
     - Class: 114
-      Script: {instanceID: 6202}
+      Script: {instanceID: 6106}
     - Class: 114
-      Script: {instanceID: 6242}
+      Script: {instanceID: 6204}
     - Class: 114
-      Script: {instanceID: 6278}
+      Script: {instanceID: 6244}
     - Class: 114
-      Script: {instanceID: 6356}
+      Script: {instanceID: 6280}
     - Class: 114
-      Script: {instanceID: 6364}
+      Script: {instanceID: 6358}
     - Class: 114
-      Script: {instanceID: 6406}
+      Script: {instanceID: 6366}
     - Class: 114
-      Script: {instanceID: 6466}
+      Script: {instanceID: 6408}
     - Class: 114
-      Script: {instanceID: 6540}
+      Script: {instanceID: 6468}
     - Class: 114
-      Script: {instanceID: 6600}
+      Script: {instanceID: 6542}
     - Class: 114
-      Script: {instanceID: 6708}
+      Script: {instanceID: 6602}
     - Class: 114
-      Script: {instanceID: 6756}
+      Script: {instanceID: 6710}
     - Class: 114
-      Script: {instanceID: 6798}
+      Script: {instanceID: 6758}
     - Class: 114
-      Script: {instanceID: 6852}
+      Script: {instanceID: 6800}
     - Class: 114
-      Script: {instanceID: 7012}
+      Script: {instanceID: 6854}
     - Class: 114
-      Script: {instanceID: 7070}
+      Script: {instanceID: 7014}
     - Class: 114
-      Script: {instanceID: 7136}
+      Script: {instanceID: 7072}
     - Class: 114
-      Script: {instanceID: 7148}
+      Script: {instanceID: 7138}
     - Class: 114
-      Script: {instanceID: 7218}
+      Script: {instanceID: 7150}
     - Class: 114
-      Script: {instanceID: 7306}
+      Script: {instanceID: 7220}
     - Class: 114
-      Script: {instanceID: 7336}
+      Script: {instanceID: 7308}
     - Class: 114
-      Script: {instanceID: 7360}
+      Script: {instanceID: 7338}
     - Class: 114
-      Script: {instanceID: 7400}
+      Script: {instanceID: 7362}
     - Class: 114
-      Script: {instanceID: 7596}
+      Script: {instanceID: 7402}
     - Class: 114
-      Script: {instanceID: 7668}
+      Script: {instanceID: 7598}
     - Class: 114
-      Script: {instanceID: 7686}
+      Script: {instanceID: 7670}
     - Class: 114
-      Script: {instanceID: 7750}
+      Script: {instanceID: 7688}
     - Class: 114
-      Script: {instanceID: 7804}
+      Script: {instanceID: 7752}
     - Class: 114
-      Script: {instanceID: 7832}
+      Script: {instanceID: 7766}
     - Class: 114
-      Script: {instanceID: 7928}
+      Script: {instanceID: 7808}
     - Class: 114
-      Script: {instanceID: 7974}
+      Script: {instanceID: 7836}
     - Class: 114
-      Script: {instanceID: 7994}
+      Script: {instanceID: 7932}
     - Class: 114
-      Script: {instanceID: 8144}
+      Script: {instanceID: 7978}
+    - Class: 114
+      Script: {instanceID: 7998}
+    - Class: 114
+      Script: {instanceID: 8148}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -820,7 +825,7 @@ ScriptsOnlyBuild:
     className: ItemButton
   - hash:
       serializedVersion: 2
-      Hash: 315e41c945dc07fd0dba9808b6d9cd6f
+      Hash: cecbc698a65f56358b2f9a5f9b0a1ea3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BombCoin
@@ -848,6 +853,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
     className: XRSystemData
+  - hash:
+      serializedVersion: 2
+      Hash: 3c7a5fe13f62ae4dfee08103124e12a2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: SaveManager
   - hash:
       serializedVersion: 2
       Hash: 60dac68d7881257bc9bc1b2ba97fb3ea
@@ -970,7 +981,7 @@ ScriptsOnlyBuild:
     className: InstanceCreatorWindow
   - hash:
       serializedVersion: 2
-      Hash: 3d64c73f96dd4f886851e34abef72c6c
+      Hash: b2c0e05ed64ab50d1773f4b120bbdf5f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BombCoinExplosion
@@ -1114,13 +1125,13 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerToggleHistory
   - hash:
       serializedVersion: 2
-      Hash: cbe20c5d4993346c81551e1b561340c5
+      Hash: d31b1f9e2726041b13b85f1600af72db
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TremorCoin
   - hash:
       serializedVersion: 2
-      Hash: 3edaa287ef98c883d277e97ef2cca7c3
+      Hash: 76a111539d85c0bafbb8d0009ffa764d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UI_Manager
@@ -1468,7 +1479,7 @@ ScriptsOnlyBuild:
     className: ChannelMixer
   - hash:
       serializedVersion: 2
-      Hash: 320c4449a6981fa04592b163a367c953
+      Hash: 3fc8da08ab8e940118b2f05ae65975e7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AudioManager
@@ -1594,7 +1605,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: bc99b6661a77986f85323740bdb79735
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BulldozeCoin
@@ -1678,7 +1689,7 @@ ScriptsOnlyBuild:
     className: MarkerTrack
   - hash:
       serializedVersion: 2
-      Hash: 19eced1de063575d8ba1c60db89d8a2e
+      Hash: dce618fef488787d8b0507ad8ce03d36
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CoinLogic
@@ -1840,7 +1851,7 @@ ScriptsOnlyBuild:
     className: LoopAndDelay
   - hash:
       serializedVersion: 2
-      Hash: ccc7595d391809d26625174abbca9aa8
+      Hash: b4b0d0a4fc67f04cf3feabd27baaab33
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EventsManager
@@ -1900,7 +1911,7 @@ ScriptsOnlyBuild:
     className: ControlTrack
   - hash:
       serializedVersion: 2
-      Hash: a89be9fac259a1de59d921d4985bf1f1
+      Hash: dbe88610a00645f201b8b558d7202e90
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CoinPlacement
@@ -1912,7 +1923,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: bba247d56c67f31fd844a0ca00f4d895
+      Hash: 5dded51b0b248c8b115fda74bcefa524
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ItemInventory
@@ -1970,6 +1981,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
     className: ForwardRendererData
+  - hash:
+      serializedVersion: 2
+      Hash: 0880b30b97266268dd6c5edaaf8c4f61
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CoinSound
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -2051,4 +2068,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main Menu.unity
-  playerPath: I:/Unity Builds/Ludificor/Coin Game 5-3-2022/Coin Machine Game.exe
+  playerPath: I:/Unity Builds/Ludificor/Coin Game 5-5-2022/Coin Machine Game.exe

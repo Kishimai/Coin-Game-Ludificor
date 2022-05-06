@@ -86,6 +86,7 @@ public class CoinPlacement : MonoBehaviour
     public float defaultTremorCooldown = 180f;
 
     public float radiusIncrease = 0;
+    public float forceIncrease = 0;
     public float tremorDurationIncrease = 0;
 
     // Start is called before the first frame update
@@ -526,7 +527,7 @@ public class CoinPlacement : MonoBehaviour
     public void IntakeBombCoin()
     {
         numBombCoins++;
-        bombCoin.GetComponent<BombCoin>().IncreaseExplosionRadius(radiusIncrease);
+        bombCoin.GetComponent<BombCoin>().IncreaseExplosionRadius(radiusIncrease, forceIncrease);
     }
 
     public void IntakeTremorCoin()

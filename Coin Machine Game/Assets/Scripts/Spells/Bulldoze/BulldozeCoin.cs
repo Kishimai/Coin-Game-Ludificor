@@ -6,10 +6,34 @@ public class BulldozeCoin : MonoBehaviour
 {
 
     private Rigidbody coinRb;
+    public GameObject audioManager;
+    public AudioManager audio;
+
+    private Vector3 currentVelocity = Vector3.zero;
+    private float currentSpeed = 0;
+    private float speedOfLastFrame = 0;
+    public float soundThreshold = 5;
 
     private void Start()
     {
         coinRb = GetComponent<Rigidbody>();
+        audioManager = GameObject.FindGameObjectWithTag("audio_manager");
+        audio = audioManager.GetComponent<AudioManager>();
+    }
+
+    private void Update()
+    {
+        currentVelocity = coinRb.velocity;
+        currentSpeed = currentVelocity.magnitude;
+
+        float difference = Mathf.Abs(currentSpeed - speedOfLastFrame);
+
+        if (difference > soundThreshold)
+        {
+            audio.PlayAudioClip("coin");
+        }
+
+        speedOfLastFrame = currentSpeed;
     }
 
     private void OnTriggerEnter(Collider other)

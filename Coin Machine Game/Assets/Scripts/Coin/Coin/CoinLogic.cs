@@ -81,9 +81,19 @@ public class CoinLogic : MonoBehaviour
 
     private float intensityFromType = 0;
 
+    public GameObject audioManager;
+    public AudioManager audio;
+    private Vector3 currentVelocity = Vector3.zero;
+    private float currentSpeed = 0;
+    private float speedOfLastFrame = 0;
+    public float soundThreshold = 6;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("audio_manager");
+        audio = audioManager.GetComponent<AudioManager>();
+
         gameManager = GameObject.FindGameObjectWithTag("game_manager");
 
         coinRb = GetComponent<Rigidbody>();
@@ -106,6 +116,18 @@ public class CoinLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentVelocity = coinRb.velocity;
+        currentSpeed = currentVelocity.magnitude;
+
+        float difference = Mathf.Abs(currentSpeed - speedOfLastFrame);
+
+        if (difference > soundThreshold)
+        {
+            audio.PlayAudioClip("coin");
+        }
+
+        speedOfLastFrame = currentSpeed;
+
         CalculateTotalModifier();
 
         if (totalValueModifier > 9)
@@ -125,7 +147,7 @@ public class CoinLogic : MonoBehaviour
         }
         else
         {
-            coinCanvas.SetActive(false);
+            //coinCanvas.SetActive(false);
         }
 
         float lightIntensity = totalValueModifier / maxValue;
@@ -328,8 +350,8 @@ public class CoinLogic : MonoBehaviour
                     tailCanvas.transform.localPosition = new Vector3(0, -1.4f, 0);
                     intensityFromType = 0.1f;
                     pointLight.color = uranium;
-                    canvasTextHead.color = blackText;
-                    canvasTextTail.color = blackText;
+                    canvasTextHead.color = yellowText;
+                    canvasTextTail.color = yellowText;
                     break;
 
                 case "Cobalt Coin":
@@ -385,13 +407,14 @@ public class CoinLogic : MonoBehaviour
 
                 case "Galaxy Coin":
                     pointLight.color = galaxy;
+                    intensityFromType = 1f;
                     canvasTextHead.color = yellowText;
                     canvasTextTail.color = yellowText;
                     break;
 
                 case "God Coin":
                     pointLight.color = god;
-                    intensityFromType = 0.1f;
+                    intensityFromType = 0.6f;
                     canvasTextHead.color = blackText;
                     canvasTextTail.color = blackText;
                     break;
@@ -404,39 +427,42 @@ public class CoinLogic : MonoBehaviour
 
     private void SetTransparency()
     {
-        CoinData data = GetComponent<Data_Interp>().data;
-
-        Color objAppearance;
-
-        switch (data.Name)
+        if (!isPalladium && !isStyrofoam)
         {
-            case "Emerald Coin":
-                objAppearance = emeraldAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color;
-                objAppearance.a = 1;
-                emeraldAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = objAppearance;
-                //emeraldAppearance.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = objAppearance;
-                break;
+            CoinData data = GetComponent<Data_Interp>().data;
 
-            case "Ruby Coin":
-                objAppearance = rubyAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color;
-                objAppearance.a = 1;
-                rubyAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = objAppearance;
-                //rubyAppearance.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = objAppearance;
-                break;
+            Color objAppearance;
 
-            case "Sapphire Coin":
-                objAppearance = sapphireAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color;
-                objAppearance.a = 1;
-                sapphireAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = objAppearance;
-                //sapphireAppearance.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = objAppearance;
-                break;
+            switch (data.Name)
+            {
+                case "Emerald Coin":
+                    objAppearance = emeraldAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color;
+                    objAppearance.a = 1;
+                    emeraldAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = objAppearance;
+                    //emeraldAppearance.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = objAppearance;
+                    break;
 
-            case "Diamond Coin":
-                objAppearance = diamondAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color;
-                objAppearance.a = 1;
-                diamondAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = objAppearance;
-                //diamondAppearance.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = objAppearance;
-                break;
+                case "Ruby Coin":
+                    objAppearance = rubyAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color;
+                    objAppearance.a = 1;
+                    rubyAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = objAppearance;
+                    //rubyAppearance.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = objAppearance;
+                    break;
+
+                case "Sapphire Coin":
+                    objAppearance = sapphireAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color;
+                    objAppearance.a = 1;
+                    sapphireAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = objAppearance;
+                    //sapphireAppearance.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = objAppearance;
+                    break;
+
+                case "Diamond Coin":
+                    objAppearance = diamondAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color;
+                    objAppearance.a = 1;
+                    diamondAppearance.transform.GetChild(0).GetComponent<MeshRenderer>().material.color = objAppearance;
+                    //diamondAppearance.transform.GetChild(1).GetComponent<MeshRenderer>().material.color = objAppearance;
+                    break;
+            }
         }
     }
 
