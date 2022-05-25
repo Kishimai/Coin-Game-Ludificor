@@ -193,6 +193,7 @@ public class EventsManager : MonoBehaviour
             yield return null;
         }
         gameManager.GetComponent<UI_Manager>().Update_UI(3);
+        gameManager.GetComponent<ItemInventory>().startup = false;
         sfxMaster.GetComponent<AudioMuter>().MuteToggle();
     }
 

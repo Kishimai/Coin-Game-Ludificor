@@ -80,7 +80,7 @@ public class CoinGeneration : MonoBehaviour
         foreach(CoinData _data in CoinsAvail){
             numberHave++;
             if(numberHave == generatedNumber){
-                Debug.Log(_data.Name);
+                //Debug.Log(_data.Name);
                 CoinPrinter.currentItem.GetComponent<Data_Interp>().data = _data;
                 CoinPrinter.currentItem.GetComponent<Renderer>().material = _data.materialColor;
             }

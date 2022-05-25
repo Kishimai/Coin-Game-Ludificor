@@ -19,6 +19,7 @@ public class ItemInventory : MonoBehaviour
 
     // ------------------------- Item Inventory ------------------------- //
     public List<string> collectedItems = new List<string>();
+    public List<string> loadedItems = new List<string>();
     public List<string> collectedSpells = new List<string>();
     public float coinValueModifier;
     public string newItem = "";
@@ -49,6 +50,8 @@ public class ItemInventory : MonoBehaviour
     public GameObject newItemCapsule;
 
     private bool palladiumStyroUnlocked = false;
+
+    public bool startup = false;
 
     public Sprite midasShard;
     public Sprite midasCrystal;
@@ -91,6 +94,7 @@ public class ItemInventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        startup = true;
         availablePrizes = 0;
         coinValueModifier = 1.0f;
         collector = GameObject.FindGameObjectWithTag("coin_destroyer");
@@ -102,6 +106,13 @@ public class ItemInventory : MonoBehaviour
     void Update()
     {
 
+        if (loadedItems.Count > 0)
+        {
+            newItem = loadedItems[0];
+            loadedItems.RemoveAt(0);
+            availablePrizes++;
+        }
+
         availablePrizesText.text = string.Format("Available Prizes: {0}", availablePrizes);
         remainingPrizes.GetComponent<TextMeshProUGUI>().text = string.Format("Remaining Prizes: {0}", availablePrizes);
 
@@ -111,6 +122,9 @@ public class ItemInventory : MonoBehaviour
         // Runs if player picks an item from the 3 choices that the item capsule gives them
         if (newItem != "")
         {
+
+            Debug.Log(newItem);
+
             foreach (GameObject button in itemButtons)
             {
                 button.GetComponent<ItemButton>().RollNew();
@@ -454,7 +468,10 @@ public class ItemInventory : MonoBehaviour
 
             availablePrizes = 0;
 
-            GetComponent<UI_Manager>().Update_UI(4);
+            if (!startup)
+            {
+                GetComponent<UI_Manager>().Update_UI(4);
+            }
 
             if (collectedItems.Contains("combo_peg"))
             {
@@ -508,7 +525,10 @@ public class ItemInventory : MonoBehaviour
 
         if (availablePrizes > 0)
         {
-            GetComponent<UI_Manager>().Update_UI(8);
+            if (loadedItems.Count == 0)
+            {
+                GetComponent<UI_Manager>().Update_UI(8);
+            }
 
             foreach (GameObject button in itemButtons)
             {

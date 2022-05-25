@@ -60,6 +60,9 @@ public class UI_Manager : MonoBehaviour
     /// </summary>
     /// <param name="data">Specific Change to Panel</param>
     public void Update_UI(int data){
+
+        Debug.Log(data);
+
         switch(data){
             case 1: // Settings
                 Settings.SetActive(true);
