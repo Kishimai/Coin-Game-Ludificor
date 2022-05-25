@@ -203,7 +203,7 @@ public class CoinPlacement : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, dropZoneLayerMask))
         {
             // If coin is on cooldown, the coin guide dissapears
-            if (dropCooldown <= 0)
+            if (dropCooldown <= 0 && !blitzEvent)
             {
                 // Enables the coinGuide object so that the player can see where they are about to place a coin
                 coinGuide.SetActive(true);

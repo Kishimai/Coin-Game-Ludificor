@@ -26,6 +26,8 @@ public class ShopSystem : MonoBehaviour
     private int maxNumCoins = 5;
     private bool finished = false;
 
+    public double moneySpent = 0;
+
 
     public void Start(){
         RestartData();
@@ -118,6 +120,8 @@ public class ShopSystem : MonoBehaviour
     public void UpgradeCoin(){
         // try removing CurrentCoin.CurrentLevel != 10 // --------------------------
         if(UI._currentCoin >= CurrentCoin.currentCost && !finished) {// && CurrentCoin.CurrentLevel != 10){
+
+            moneySpent += CurrentCoin.currentCost;
 
             CurrentCoin.CurrentLevel++;
 

@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62af56d884ae84d498cced331fed057f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 11400000, guid: ac8519e06fdc1bc4a99885508ff5687b, type: 2}
+  data: {fileID: 11400000, guid: 27a55b3efc4f7564c939c4e0a85e8844, type: 2}
 --- !u!114 &6742849897512946101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,6 +363,7 @@ MonoBehaviour:
   headCanvas: {fileID: 7206363993699172662}
   tailCanvas: {fileID: 5092599115678328464}
   coinLight: {fileID: 2640907169515058594}
+  valueBeam: {fileID: 0}
   canvasTextHead: {fileID: 2092409704072176423}
   canvasTextTail: {fileID: 2997885283270708046}
   defaultLightColor: {r: 1, g: 1, b: 1, a: 1}
@@ -435,7 +436,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 120
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!1 &1552339247973335221
 GameObject:
   m_ObjectHideFlags: 0

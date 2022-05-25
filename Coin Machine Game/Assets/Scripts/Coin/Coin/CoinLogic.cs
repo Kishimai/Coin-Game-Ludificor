@@ -26,6 +26,7 @@ public class CoinLogic : MonoBehaviour
     public GameObject headCanvas;
     public GameObject tailCanvas;
     public GameObject coinLight;
+    public GameObject valueBeam;
     private Light pointLight;
     public Text canvasTextHead;
     public Text canvasTextTail;
@@ -144,6 +145,8 @@ public class CoinLogic : MonoBehaviour
             canvasTextHead.text = string.Format("{0}{1}", totalValueModifier, "x");
             canvasTextTail.text = string.Format("{0}{1}", totalValueModifier, "x");
             SetTransparency();
+            float modifier = totalValueModifier * maxValue;
+            //valueBeam.GetComponent<Material>().color = 
         }
         else
         {

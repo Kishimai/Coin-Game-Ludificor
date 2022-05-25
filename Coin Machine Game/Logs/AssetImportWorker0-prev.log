@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2020.3/staging' branch; Version is '2020.3.10f1 (297d780c91bc) revision 2719096'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Pro; OS build 19044.1645; Version 2009; 64bit' Language: 'en' Physical Memory: 16315 MB
+OS: 'Windows 10 Pro; OS build 19044.1706; Version 2009; 64bit' Language: 'en' Physical Memory: 16315 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
@@ -15,11 +15,11 @@ I:/Github/Coin Game/Coin-Game-Ludificor/Coin Machine Game
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-54516
+61417
 Successfully changed project path to: I:/Github/Coin Game/Coin-Game-Ludificor/Coin Machine Game
 I:/Github/Coin Game/Coin-Game-Ludificor/Coin Machine Game
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 62.45 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 66.37 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.10f1 (297d780c91bc)
 [Subsystems] Discovering subsystems at path S:/Unity Editor/2020.3.10f1/Editor/Data/Resources/UnitySubsystems
@@ -36,938 +36,164 @@ Initialize mono
 Mono path[0] = 'S:/Unity Editor/2020.3.10f1/Editor/Data/Managed'
 Mono path[1] = 'S:/Unity Editor/2020.3.10f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'S:/Unity Editor/2020.3.10f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56596
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56264
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: S:/Unity Editor/2020.3.10f1/Editor/Data/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
 Register platform support module: S:/Unity Editor/2020.3.10f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
 Register platform support module: S:/Unity Editor/2020.3.10f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
-Registered in 0.001493 seconds.
+Registered in 0.001337 seconds.
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 69.74 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 57.46 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.419 seconds
+- Completed reload, in  1.322 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.006409 seconds.
+Registered in 0.005857 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 67.98 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 64.73 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.837 seconds
+- Completed reload, in  1.715 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
-Refreshing native plugins compatible for Editor in 1.13 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.86 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3329 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 236.8 MB.
-System memory in use after: 237.0 MB.
-
-Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 3821.
-Total: 29.267400 ms (FindLiveObjects: 0.542700 ms CreateObjectMapping: 0.079400 ms MarkObjects: 28.605500 ms  DeleteObjects: 0.037600 ms)
-
-========================================================================
-Received Import Request.
-  path: Assets/Resources/Prefabs/Spell/BombCoin.prefab
-  artifactKey: Guid(a4722b937557946448cf4d0c181cfbed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Spell/BombCoin.prefab using Guid(a4722b937557946448cf4d0c181cfbed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf9cff93b634f398c1d45259465a245e') in 0.232511 seconds
-  Import took 0.239433 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000238 seconds.
-  path: Assets/Resources/Prefabs/Spell/BulldozeCoin.prefab
-  artifactKey: Guid(1e0e4cde857c09a4b978d0388540bd4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Spell/BulldozeCoin.prefab using Guid(1e0e4cde857c09a4b978d0388540bd4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e40cde509273fbf4be6da83a9b719ae1') in 0.014756 seconds
-  Import took 0.021110 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000190 seconds.
-  path: Assets/Resources/Prefabs/Spell/TremorCoin.prefab
-  artifactKey: Guid(eb62b6a5b9a52cf46a30669fed0034fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Spell/TremorCoin.prefab using Guid(eb62b6a5b9a52cf46a30669fed0034fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '815891de0401dde27ffb02c0c2ee191d') in 0.013585 seconds
-  Import took 0.019457 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005486 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.98 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.751 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.29 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3190 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 237.0 MB.
+Unloading 3333 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 237.1 MB.
 System memory in use after: 237.3 MB.
 
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3870.
-Total: 31.721600 ms (FindLiveObjects: 0.473300 ms CreateObjectMapping: 0.087000 ms MarkObjects: 31.118800 ms  DeleteObjects: 0.040200 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.374198 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.83 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.734 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.83 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3190 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 246.9 MB.
-System memory in use after: 247.1 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3873.
-Total: 27.449100 ms (FindLiveObjects: 0.451700 ms CreateObjectMapping: 0.083400 ms MarkObjects: 26.868700 ms  DeleteObjects: 0.042500 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005431 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.82 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.593 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 1.00 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3190 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 237.1 MB.
-System memory in use after: 237.4 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3876.
-Total: 28.384700 ms (FindLiveObjects: 0.425200 ms CreateObjectMapping: 0.085700 ms MarkObjects: 27.841900 ms  DeleteObjects: 0.030500 ms)
+Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 3825.
+Total: 31.976700 ms (FindLiveObjects: 0.537300 ms CreateObjectMapping: 0.089800 ms MarkObjects: 31.295700 ms  DeleteObjects: 0.052100 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 136.189825 seconds.
   path: Assets/Resources/Prefabs/Spell/Palladium Coin.prefab
   artifactKey: Guid(2a79ce0198b04d143ad1b7d748f7693a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Spell/Palladium Coin.prefab using Guid(2a79ce0198b04d143ad1b7d748f7693a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bdd32fa197a412a50e2af35fdb169dea') in 0.194947 seconds
-  Import took 0.202737 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.431834 seconds.
-  path: Assets/Resources/Prefabs/Spell/Styrofoam Coin.prefab
-  artifactKey: Guid(0521fc55dcabce14faee6e7e4835cfc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Spell/Styrofoam Coin.prefab using Guid(0521fc55dcabce14faee6e7e4835cfc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b1cdf0f18fe09a1b45d09b5ff88fad7') in 0.016225 seconds
-  Import took 0.022377 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.012488 seconds.
-  path: Assets/Resources/Prefabs/Spell/Styrofoam Coin.prefab
-  artifactKey: Guid(0521fc55dcabce14faee6e7e4835cfc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Spell/Styrofoam Coin.prefab using Guid(0521fc55dcabce14faee6e7e4835cfc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b1cdf0f18fe09a1b45d09b5ff88fad7') in 0.012355 seconds
-  Import took 0.018035 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.796501 seconds.
-  path: Assets/Resources/Prefabs/Spell/TremorCoin.prefab
-  artifactKey: Guid(eb62b6a5b9a52cf46a30669fed0034fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Spell/TremorCoin.prefab using Guid(eb62b6a5b9a52cf46a30669fed0034fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68a15af82247fad496ae23445fcb4aff') in 0.030281 seconds
-  Import took 0.036543 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.972902 seconds.
-  path: Assets/Resources/Prefabs/Spell/BulldozeCoin.prefab
-  artifactKey: Guid(1e0e4cde857c09a4b978d0388540bd4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Spell/BulldozeCoin.prefab using Guid(1e0e4cde857c09a4b978d0388540bd4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bbf1750facc8c63b475535c264d78df2') in 0.021805 seconds
-  Import took 0.028145 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 1.466266 seconds.
-  path: Assets/Resources/Prefabs/Spell/BombCoin.prefab
-  artifactKey: Guid(a4722b937557946448cf4d0c181cfbed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Spell/BombCoin.prefab using Guid(a4722b937557946448cf4d0c181cfbed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36c4fd4907227bd9426b9ead61b12e19') in 0.015213 seconds
-  Import took 0.021123 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.009426 seconds.
-  path: Assets/Resources/Prefabs/Spell/BombCoin.prefab
-  artifactKey: Guid(a4722b937557946448cf4d0c181cfbed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Prefabs/Spell/BombCoin.prefab using Guid(a4722b937557946448cf4d0c181cfbed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36c4fd4907227bd9426b9ead61b12e19') in 0.010822 seconds
-  Import took 0.016958 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.006132 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.87 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.657 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.80 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3190 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 247.2 MB.
-System memory in use after: 247.4 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3917.
-Total: 26.278600 ms (FindLiveObjects: 0.373500 ms CreateObjectMapping: 0.084000 ms MarkObjects: 25.778700 ms  DeleteObjects: 0.040000 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005152 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 1.27 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.588 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.83 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3190 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 237.5 MB.
-System memory in use after: 237.7 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3920.
-Total: 25.256500 ms (FindLiveObjects: 0.415700 ms CreateObjectMapping: 0.085300 ms MarkObjects: 24.713700 ms  DeleteObjects: 0.039400 ms)
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.005645 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for LinuxStandalone target not found
-Native extension for WindowsStandalone target not found
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 1.16 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.529 seconds
-Platform modules already initialized, skipping
-Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.90 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3190 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 237.5 MB.
-System memory in use after: 237.7 MB.
-
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3923.
-Total: 29.563100 ms (FindLiveObjects: 0.417900 ms CreateObjectMapping: 0.086300 ms MarkObjects: 29.025400 ms  DeleteObjects: 0.031900 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 520.354011 seconds.
-  path: Assets/Art/CoinARt
-  artifactKey: Guid(31402d161a3fae94caeb2a765aa3e14c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt using Guid(31402d161a3fae94caeb2a765aa3e14c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c73c8c1ed88d1842bdf27ebdef149137') in 0.010497 seconds
-  Import took 0.017118 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 16.195667 seconds.
-  path: Assets/Art/CoinARt/adamantite.png
-  artifactKey: Guid(943083f9969513d4fa70b56f97ddd1ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/adamantite.png using Guid(943083f9969513d4fa70b56f97ddd1ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3daa195bc53131bcb82cc0a8d7bcaed0') in 0.076368 seconds
-  Import took 0.083249 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000174 seconds.
-  path: Assets/Art/CoinARt/iridium.png
-  artifactKey: Guid(31edf15a02df6bf47a9c2ae31fd79cfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/iridium.png using Guid(31edf15a02df6bf47a9c2ae31fd79cfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63bc3b47f2da991bf6de504af4623779') in 0.009322 seconds
-  Import took 0.014473 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000238 seconds.
-  path: Assets/Art/CoinARt/mithril.png
-  artifactKey: Guid(170cef64633a73b4aaf474636ea78c25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/mithril.png using Guid(170cef64633a73b4aaf474636ea78c25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85eea5f5776ba0b95f870bfea9ed8559') in 0.009607 seconds
-  Import took 0.014582 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000170 seconds.
-  path: Assets/Art/CoinARt/copper.png
-  artifactKey: Guid(51f587d283f07d5479cca2472d2ab170) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/copper.png using Guid(51f587d283f07d5479cca2472d2ab170) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '29aec1547a150c5f96b97f44efae79ad') in 0.008319 seconds
-  Import took 0.013475 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000180 seconds.
-  path: Assets/Art/CoinARt/cobalt.png
-  artifactKey: Guid(58bd38330adfb8f46bd1038b92a94d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/cobalt.png using Guid(58bd38330adfb8f46bd1038b92a94d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b3e638e96d2fd2d58c852107b9c25fc') in 0.008845 seconds
-  Import took 0.014080 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000282 seconds.
-  path: Assets/Art/CoinARt/emerald.png
-  artifactKey: Guid(da39374c59fc9be419eb6b45ea443e20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/emerald.png using Guid(da39374c59fc9be419eb6b45ea443e20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e791b6357535d273e70dea39a6975463') in 0.008811 seconds
-  Import took 0.014384 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000173 seconds.
-  path: Assets/Art/CoinARt/galaxy1.png
-  artifactKey: Guid(7efc61595507b07479208d9a95d4d509) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/galaxy1.png using Guid(7efc61595507b07479208d9a95d4d509) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '759b325ce78ec9c0a39d1dd771255b9e') in 0.008839 seconds
-  Import took 0.014323 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000177 seconds.
-  path: Assets/Art/CoinARt/thorium.png
-  artifactKey: Guid(1ea7bb85f0c8ce04a94cc5980996de92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/thorium.png using Guid(1ea7bb85f0c8ce04a94cc5980996de92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06860091f9ddd91e50c17c222d2e3397') in 0.009097 seconds
-  Import took 0.014655 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000186 seconds.
-  path: Assets/Art/CoinARt/rosegold.png
-  artifactKey: Guid(0f4320eb90f45bc479df6947eb720578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/rosegold.png using Guid(0f4320eb90f45bc479df6947eb720578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7885d609d1c1a08f66ee048af8db5337') in 0.008854 seconds
-  Import took 0.013677 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000199 seconds.
-  path: Assets/Art/CoinARt/silver.png
-  artifactKey: Guid(69d1228939297d54abc8baa3aae483af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/silver.png using Guid(69d1228939297d54abc8baa3aae483af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4647c7d8e959edfd49841b7e975a22c1') in 0.008580 seconds
-  Import took 0.014335 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000218 seconds.
-  path: Assets/Art/CoinARt/god.png
-  artifactKey: Guid(75c252b951dcec84a8310bb35d844cf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/god.png using Guid(75c252b951dcec84a8310bb35d844cf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55840e9b5e220636970b9dae02a12d05') in 0.008841 seconds
-  Import took 0.014122 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000173 seconds.
-  path: Assets/Art/CoinARt/diamond.png
-  artifactKey: Guid(78276486c54742a41be91931f334feaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/diamond.png using Guid(78276486c54742a41be91931f334feaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6eeaf040f8840f3661471388e79f8aee') in 0.009394 seconds
-  Import took 0.014278 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000201 seconds.
-  path: Assets/Art/CoinARt/gold.png
-  artifactKey: Guid(2247d094a04008c4ebe644f650b6cde2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/gold.png using Guid(2247d094a04008c4ebe644f650b6cde2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bced766fec0642c7ac2a370f49c7807e') in 0.009016 seconds
-  Import took 0.014676 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000184 seconds.
-  path: Assets/Art/CoinARt/god.png
-  artifactKey: Guid(75c252b951dcec84a8310bb35d844cf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/god.png using Guid(75c252b951dcec84a8310bb35d844cf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '55840e9b5e220636970b9dae02a12d05') in 0.005586 seconds
-  Import took 0.010745 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000222 seconds.
-  path: Assets/Art/CoinARt/ruby.png
-  artifactKey: Guid(c88a09bc1fb15c44aa5658f166799281) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/ruby.png using Guid(c88a09bc1fb15c44aa5658f166799281) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd26311076bd7778860b1ff62187bcc2c') in 0.009490 seconds
-  Import took 0.014620 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000171 seconds.
-  path: Assets/Art/CoinARt/gold.png
-  artifactKey: Guid(2247d094a04008c4ebe644f650b6cde2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/gold.png using Guid(2247d094a04008c4ebe644f650b6cde2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bced766fec0642c7ac2a370f49c7807e') in 0.005190 seconds
-  Import took 0.010153 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000206 seconds.
-  path: Assets/Art/CoinARt/uranium.png
-  artifactKey: Guid(37cff4e7035ade94fa72520bf2110f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/uranium.png using Guid(37cff4e7035ade94fa72520bf2110f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9545b03300452cfec93f8a8472c55b85') in 0.009339 seconds
-  Import took 0.014638 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000224 seconds.
-  path: Assets/Art/CoinARt/sapphire.png
-  artifactKey: Guid(72724072aa75fe84c9d9ba3e452c0b8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/sapphire.png using Guid(72724072aa75fe84c9d9ba3e452c0b8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e10c368b37be8e04f937bd589b1ad21') in 0.008478 seconds
-  Import took 0.014734 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.041305 seconds.
-  path: Assets/Art/CoinARt/ruby.png
-  artifactKey: Guid(c88a09bc1fb15c44aa5658f166799281) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/ruby.png using Guid(c88a09bc1fb15c44aa5658f166799281) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd26311076bd7778860b1ff62187bcc2c') in 0.007732 seconds
-  Import took 0.014059 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 8.488455 seconds.
-  path: Assets/Art/CoinARt/adamantite.png
-  artifactKey: Guid(943083f9969513d4fa70b56f97ddd1ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/adamantite.png using Guid(943083f9969513d4fa70b56f97ddd1ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '957296a9dd45bab83964c68b2439df99') in 0.044553 seconds
-  Import took 0.050592 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000217 seconds.
-  path: Assets/Art/CoinARt/iridium.png
-  artifactKey: Guid(31edf15a02df6bf47a9c2ae31fd79cfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/iridium.png using Guid(31edf15a02df6bf47a9c2ae31fd79cfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '88dcc2c44f39d3371934d3fd3eca911a') in 0.023227 seconds
-  Import took 0.028870 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000223 seconds.
-  path: Assets/Art/CoinARt/mithril.png
-  artifactKey: Guid(170cef64633a73b4aaf474636ea78c25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/mithril.png using Guid(170cef64633a73b4aaf474636ea78c25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60ea69d13be1b00b35e06b1d61e69f4e') in 0.014447 seconds
-  Import took 0.020148 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000235 seconds.
-  path: Assets/Art/CoinARt/copper.png
-  artifactKey: Guid(51f587d283f07d5479cca2472d2ab170) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/copper.png using Guid(51f587d283f07d5479cca2472d2ab170) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b9ef9c4c7d0feca93c9e13813f8c7b1') in 0.011678 seconds
-  Import took 0.016744 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000191 seconds.
-  path: Assets/Art/CoinARt/cobalt.png
-  artifactKey: Guid(58bd38330adfb8f46bd1038b92a94d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/cobalt.png using Guid(58bd38330adfb8f46bd1038b92a94d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ee2175da6ff8107eab4dea69243d3978') in 0.012500 seconds
-  Import took 0.017494 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000204 seconds.
-  path: Assets/Art/CoinARt/emerald.png
-  artifactKey: Guid(da39374c59fc9be419eb6b45ea443e20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/emerald.png using Guid(da39374c59fc9be419eb6b45ea443e20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b6ecbd829155e46b01ed6c8b5cff1cf') in 0.012129 seconds
-  Import took 0.017042 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000234 seconds.
-  path: Assets/Art/CoinARt/galaxy1.png
-  artifactKey: Guid(7efc61595507b07479208d9a95d4d509) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/galaxy1.png using Guid(7efc61595507b07479208d9a95d4d509) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd30d4e5bffcf455476808a38a57ff7ae') in 0.012245 seconds
-  Import took 0.017147 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000205 seconds.
-  path: Assets/Art/CoinARt/thorium.png
-  artifactKey: Guid(1ea7bb85f0c8ce04a94cc5980996de92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/thorium.png using Guid(1ea7bb85f0c8ce04a94cc5980996de92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9206a1148dc8620c75d892e57d56fdb8') in 0.011947 seconds
-  Import took 0.017068 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000183 seconds.
-  path: Assets/Art/CoinARt/rosegold.png
-  artifactKey: Guid(0f4320eb90f45bc479df6947eb720578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/rosegold.png using Guid(0f4320eb90f45bc479df6947eb720578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '64696c32c97122bf2dae17334c4ef298') in 0.010524 seconds
-  Import took 0.016308 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000239 seconds.
-  path: Assets/Art/CoinARt/silver.png
-  artifactKey: Guid(69d1228939297d54abc8baa3aae483af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/silver.png using Guid(69d1228939297d54abc8baa3aae483af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f6216624c9d349f1ae67d57f11ea610d') in 0.011830 seconds
-  Import took 0.017155 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000188 seconds.
-  path: Assets/Art/CoinARt/god.png
-  artifactKey: Guid(75c252b951dcec84a8310bb35d844cf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/god.png using Guid(75c252b951dcec84a8310bb35d844cf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f59b177064cba6a5eabf1ea1fbdcd05') in 0.011617 seconds
-  Import took 0.016461 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000230 seconds.
-  path: Assets/Art/CoinARt/diamond.png
-  artifactKey: Guid(78276486c54742a41be91931f334feaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/diamond.png using Guid(78276486c54742a41be91931f334feaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4dbc3f2a69af24c9fba5e9324ffa15ce') in 0.010192 seconds
-  Import took 0.015350 seconds .
+Start importing Assets/Resources/Prefabs/Spell/Palladium Coin.prefab using Guid(2a79ce0198b04d143ad1b7d748f7693a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '055741a846041d004a220087f0183d9a') in 0.265384 seconds
+  Import took 0.271832 seconds .
 
 ========================================================================
 Received Import Request.
   Time since last request: 0.000178 seconds.
-  path: Assets/Art/CoinARt/gold.png
-  artifactKey: Guid(2247d094a04008c4ebe644f650b6cde2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/gold.png using Guid(2247d094a04008c4ebe644f650b6cde2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4b097a9a9d4006c5c437a7a98e84905') in 0.010115 seconds
-  Import took 0.014790 seconds .
+  path: Assets/Resources/Prefabs/Spell/Styrofoam Coin.prefab
+  artifactKey: Guid(0521fc55dcabce14faee6e7e4835cfc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Spell/Styrofoam Coin.prefab using Guid(0521fc55dcabce14faee6e7e4835cfc2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6ce80b3fc2e020f9e140ae3195b54db6') in 0.016885 seconds
+  Import took 0.022133 seconds .
 
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000163 seconds.
-  path: Assets/Art/CoinARt/ruby.png
-  artifactKey: Guid(c88a09bc1fb15c44aa5658f166799281) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/ruby.png using Guid(c88a09bc1fb15c44aa5658f166799281) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b113a59d21e1b4540ed1a9ea4f30728a') in 0.010515 seconds
-  Import took 0.015147 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000173 seconds.
-  path: Assets/Art/CoinARt/gold.png
-  artifactKey: Guid(2247d094a04008c4ebe644f650b6cde2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/gold.png using Guid(2247d094a04008c4ebe644f650b6cde2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd4b097a9a9d4006c5c437a7a98e84905') in 0.009326 seconds
-  Import took 0.014623 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000220 seconds.
-  path: Assets/Art/CoinARt/uranium.png
-  artifactKey: Guid(37cff4e7035ade94fa72520bf2110f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/uranium.png using Guid(37cff4e7035ade94fa72520bf2110f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d09744340c6a8bbaac60aa7eaa46995') in 0.013113 seconds
-  Import took 0.018170 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000183 seconds.
-  path: Assets/Art/CoinARt/sapphire.png
-  artifactKey: Guid(72724072aa75fe84c9d9ba3e452c0b8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/sapphire.png using Guid(72724072aa75fe84c9d9ba3e452c0b8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '819dfbe3dc391a0ad35fc491250f9497') in 0.011395 seconds
-  Import took 0.016682 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 12.344971 seconds.
-  path: Assets/Art/CoinARt/adamantiteARt.png
-  artifactKey: Guid(943083f9969513d4fa70b56f97ddd1ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/adamantiteARt.png using Guid(943083f9969513d4fa70b56f97ddd1ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2274ae0bac3453731ab5da6ebea9ea2a') in 0.011943 seconds
-  Import took 0.018069 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.554143 seconds.
-  path: Assets/Art/CoinARt/cobaltArt.png
-  artifactKey: Guid(58bd38330adfb8f46bd1038b92a94d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/cobaltArt.png using Guid(58bd38330adfb8f46bd1038b92a94d03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dce6566b0c23eb294655821d6ef9c7ca') in 0.012187 seconds
-  Import took 0.018176 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.358058 seconds.
-  path: Assets/Art/CoinARt/copperArt.png
-  artifactKey: Guid(51f587d283f07d5479cca2472d2ab170) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/copperArt.png using Guid(51f587d283f07d5479cca2472d2ab170) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6423bbc8fec8e1ea191d8928549d533e') in 0.011567 seconds
-  Import took 0.017558 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.034084 seconds.
-  path: Assets/Art/CoinARt/diamondArt.png
-  artifactKey: Guid(78276486c54742a41be91931f334feaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/diamondArt.png using Guid(78276486c54742a41be91931f334feaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '628910a28d901ac1de36e19ffa02a5f9') in 0.010663 seconds
-  Import took 0.015982 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001626 seconds.
-  path: Assets/Art/CoinARt/diamondArt.png
-  artifactKey: Guid(78276486c54742a41be91931f334feaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/diamondArt.png using Guid(78276486c54742a41be91931f334feaf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '628910a28d901ac1de36e19ffa02a5f9') in 0.010762 seconds
-  Import took 0.015994 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 5.437087 seconds.
-  path: Assets/Art/CoinARt/emeraldArt.png
-  artifactKey: Guid(da39374c59fc9be419eb6b45ea443e20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/emeraldArt.png using Guid(da39374c59fc9be419eb6b45ea443e20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fe902df422ec5c1052bbc9ec56758ce') in 0.011460 seconds
-  Import took 0.016720 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000600 seconds.
-  path: Assets/Art/CoinARt/emeraldArt.png
-  artifactKey: Guid(da39374c59fc9be419eb6b45ea443e20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/emeraldArt.png using Guid(da39374c59fc9be419eb6b45ea443e20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0fe902df422ec5c1052bbc9ec56758ce') in 0.010387 seconds
-  Import took 0.015612 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.455661 seconds.
-  path: Assets/Art/CoinARt/galaxyArt.png
-  artifactKey: Guid(7efc61595507b07479208d9a95d4d509) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/galaxyArt.png using Guid(7efc61595507b07479208d9a95d4d509) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9aef9c8f1d611e9df4055f06470e4b10') in 0.012400 seconds
-  Import took 0.017866 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.798006 seconds.
-  path: Assets/Art/CoinARt/godArt.png
-  artifactKey: Guid(75c252b951dcec84a8310bb35d844cf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/godArt.png using Guid(75c252b951dcec84a8310bb35d844cf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a091a36cf71fe91ab6189e9bc83e289f') in 0.011940 seconds
-  Import took 0.017191 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001133 seconds.
-  path: Assets/Art/CoinARt/godArt.png
-  artifactKey: Guid(75c252b951dcec84a8310bb35d844cf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/godArt.png using Guid(75c252b951dcec84a8310bb35d844cf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a091a36cf71fe91ab6189e9bc83e289f') in 0.010621 seconds
-  Import took 0.016667 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.289889 seconds.
-  path: Assets/Art/CoinARt/goldArt.png
-  artifactKey: Guid(2247d094a04008c4ebe644f650b6cde2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/goldArt.png using Guid(2247d094a04008c4ebe644f650b6cde2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5f69346c0952464c15f9b5a4e548472') in 0.011828 seconds
-  Import took 0.017606 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001979 seconds.
-  path: Assets/Art/CoinARt/goldArt.png
-  artifactKey: Guid(2247d094a04008c4ebe644f650b6cde2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/goldArt.png using Guid(2247d094a04008c4ebe644f650b6cde2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5f69346c0952464c15f9b5a4e548472') in 0.009529 seconds
-  Import took 0.014836 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.397424 seconds.
-  path: Assets/Art/CoinARt/iridiumArt.png
-  artifactKey: Guid(31edf15a02df6bf47a9c2ae31fd79cfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/iridiumArt.png using Guid(31edf15a02df6bf47a9c2ae31fd79cfa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '877a55ebb7ec904eb19d6a7c053fc497') in 0.011693 seconds
-  Import took 0.017493 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.027420 seconds.
-  path: Assets/Art/CoinARt/mithrilARt.png
-  artifactKey: Guid(170cef64633a73b4aaf474636ea78c25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/mithrilARt.png using Guid(170cef64633a73b4aaf474636ea78c25) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '636f7ee8e3c5bb06c88bf0a920dae452') in 0.012631 seconds
-  Import took 0.018318 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.432435 seconds.
-  path: Assets/Art/CoinARt/rosegoldArt.png
-  artifactKey: Guid(0f4320eb90f45bc479df6947eb720578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/rosegoldArt.png using Guid(0f4320eb90f45bc479df6947eb720578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd49a3c05eea95ecce6538b816cea8e57') in 0.011206 seconds
-  Import took 0.016734 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000874 seconds.
-  path: Assets/Art/CoinARt/rosegoldArt.png
-  artifactKey: Guid(0f4320eb90f45bc479df6947eb720578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/rosegoldArt.png using Guid(0f4320eb90f45bc479df6947eb720578) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd49a3c05eea95ecce6538b816cea8e57') in 0.010318 seconds
-  Import took 0.015717 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.761838 seconds.
-  path: Assets/Art/CoinARt/rubyArt.png
-  artifactKey: Guid(c88a09bc1fb15c44aa5658f166799281) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/rubyArt.png using Guid(c88a09bc1fb15c44aa5658f166799281) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1766c9ba28c18316a94d7bde0eec409') in 0.012694 seconds
-  Import took 0.019522 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000489 seconds.
-  path: Assets/Art/CoinARt/rubyArt.png
-  artifactKey: Guid(c88a09bc1fb15c44aa5658f166799281) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/rubyArt.png using Guid(c88a09bc1fb15c44aa5658f166799281) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c1766c9ba28c18316a94d7bde0eec409') in 0.010314 seconds
-  Import took 0.015718 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.077214 seconds.
-  path: Assets/Art/CoinARt/sapphireArt.png
-  artifactKey: Guid(72724072aa75fe84c9d9ba3e452c0b8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/sapphireArt.png using Guid(72724072aa75fe84c9d9ba3e452c0b8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '921e53d773fc95b79bbf74dbaf73ce61') in 0.011413 seconds
-  Import took 0.017044 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.004277 seconds.
-  path: Assets/Art/CoinARt/sapphireArt.png
-  artifactKey: Guid(72724072aa75fe84c9d9ba3e452c0b8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/sapphireArt.png using Guid(72724072aa75fe84c9d9ba3e452c0b8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '921e53d773fc95b79bbf74dbaf73ce61') in 0.011433 seconds
-  Import took 0.016669 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.109872 seconds.
-  path: Assets/Art/CoinARt/silverArt.png
-  artifactKey: Guid(69d1228939297d54abc8baa3aae483af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/silverArt.png using Guid(69d1228939297d54abc8baa3aae483af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cc10c9036ca432d7c271b6b0ca0a36c') in 0.010259 seconds
-  Import took 0.016455 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.002304 seconds.
-  path: Assets/Art/CoinARt/silverArt.png
-  artifactKey: Guid(69d1228939297d54abc8baa3aae483af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/silverArt.png using Guid(69d1228939297d54abc8baa3aae483af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cc10c9036ca432d7c271b6b0ca0a36c') in 0.010563 seconds
-  Import took 0.015905 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 2.783019 seconds.
-  path: Assets/Art/CoinARt/thoriumArt.png
-  artifactKey: Guid(1ea7bb85f0c8ce04a94cc5980996de92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/thoriumArt.png using Guid(1ea7bb85f0c8ce04a94cc5980996de92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bcebae32307660681aa5700d16944df') in 0.012069 seconds
-  Import took 0.017531 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000510 seconds.
-  path: Assets/Art/CoinARt/thoriumArt.png
-  artifactKey: Guid(1ea7bb85f0c8ce04a94cc5980996de92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/thoriumArt.png using Guid(1ea7bb85f0c8ce04a94cc5980996de92) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0bcebae32307660681aa5700d16944df') in 0.010541 seconds
-  Import took 0.016426 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 3.242914 seconds.
-  path: Assets/Art/CoinARt/uraniumArt.png
-  artifactKey: Guid(37cff4e7035ade94fa72520bf2110f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/uraniumArt.png using Guid(37cff4e7035ade94fa72520bf2110f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b802eb0f44264d02577ee2ba5ef7fca') in 0.012059 seconds
-  Import took 0.018395 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.004124 seconds.
-  path: Assets/Art/CoinARt/uraniumArt.png
-  artifactKey: Guid(37cff4e7035ade94fa72520bf2110f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Art/CoinARt/uraniumArt.png using Guid(37cff4e7035ade94fa72520bf2110f47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b802eb0f44264d02577ee2ba5ef7fca') in 0.011965 seconds
-  Import took 0.017462 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 91.371857 seconds.
-  path: Assets/Datas/Coins/Uranium.asset
-  artifactKey: Guid(1c29b06c36a445841822d60098594398) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Datas/Coins/Uranium.asset using Guid(1c29b06c36a445841822d60098594398) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fec85e64dd16db4dc88a6b26b2696764') in 0.012117 seconds
-  Import took 0.017932 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000800 seconds.
-  path: Assets/Datas/Coins/Adamantite.asset
-  artifactKey: Guid(3de2607a428d4864db3edc5bb17a64cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Datas/Coins/Adamantite.asset using Guid(3de2607a428d4864db3edc5bb17a64cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '354bc440fb7fecf993e3b4912ebcfaeb') in 0.009682 seconds
-  Import took 0.015361 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000164 seconds.
-  path: Assets/Datas/Coins/Silver.asset
-  artifactKey: Guid(846725d0655117c4e97108ba1d372a99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Datas/Coins/Silver.asset using Guid(846725d0655117c4e97108ba1d372a99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dacb3a13dfb27c7e34f6bf631e4ec528') in 0.009388 seconds
-  Import took 0.014157 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000172 seconds.
-  path: Assets/Datas/Coins/Ruby.asset
-  artifactKey: Guid(6fcf0f11343bbde49a3868e112ffc79f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Datas/Coins/Ruby.asset using Guid(6fcf0f11343bbde49a3868e112ffc79f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '849ed00c59128b08d628b88aed2a0b96') in 0.011045 seconds
-  Import took 0.017079 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000184 seconds.
-  path: Assets/Datas/Coins/Gold.asset
-  artifactKey: Guid(bff77f7296d74064db035329ce0edb2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Datas/Coins/Gold.asset using Guid(bff77f7296d74064db035329ce0edb2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d4530e301f1aa5567771812a2488ff3') in 0.009337 seconds
-  Import took 0.015380 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000193 seconds.
-  path: Assets/Datas/Coins/Diamond.asset
-  artifactKey: Guid(80848947f3b7dc6409311507ed910e41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Datas/Coins/Diamond.asset using Guid(80848947f3b7dc6409311507ed910e41) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3902b8e95b7f34015c36ed0cae92390c') in 0.009979 seconds
-  Import took 0.015766 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000208 seconds.
-  path: Assets/Datas/Coins/Thorium.asset
-  artifactKey: Guid(27a55b3efc4f7564c939c4e0a85e8844) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Datas/Coins/Thorium.asset using Guid(27a55b3efc4f7564c939c4e0a85e8844) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7371cc7b74df3becef7563e47ab72820') in 0.009493 seconds
-  Import took 0.015006 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000230 seconds.
-  path: Assets/Datas/Coins/Iridium.asset
-  artifactKey: Guid(6333cb6cdc1f1bd40a1e56a6e4698231) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Datas/Coins/Iridium.asset using Guid(6333cb6cdc1f1bd40a1e56a6e4698231) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '779f28ba6e48ff75e7f9aeb36cb61c1b') in 0.010403 seconds
-  Import took 0.015582 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000162 seconds.
-  path: Assets/Datas/Coins/Copper.asset
-  artifactKey: Guid(ac8519e06fdc1bc4a99885508ff5687b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Datas/Coins/Copper.asset using Guid(ac8519e06fdc1bc4a99885508ff5687b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4e30cc3673ad5f2e5234240db7b29f3b') in 0.005915 seconds
-  Import took 0.010785 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000206 seconds.
-  path: Assets/Datas/Coins/Mithril.asset
-  artifactKey: Guid(b9db44aee7300464c93f63a8acc35f0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Datas/Coins/Mithril.asset using Guid(b9db44aee7300464c93f63a8acc35f0d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9a9adc6d3256221f8b6db68014166ed7') in 0.010411 seconds
-  Import took 0.016253 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000199 seconds.
-  path: Assets/Datas/Coins/Sappihre.asset
-  artifactKey: Guid(9ad83f246c015ec44b5a2f8718aa8e78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Datas/Coins/Sappihre.asset using Guid(9ad83f246c015ec44b5a2f8718aa8e78) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ec73d29f10e9cabcf5314b384f59db0') in 0.010342 seconds
-  Import took 0.015722 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000186 seconds.
-  path: Assets/Datas/Coins/Galaxy.asset
-  artifactKey: Guid(f958be77c99dd8a44b7bb9867bc9a452) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Datas/Coins/Galaxy.asset using Guid(f958be77c99dd8a44b7bb9867bc9a452) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c693ff5640d24738c54489b9ebbb984') in 0.011096 seconds
-  Import took 0.017159 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000233 seconds.
-  path: Assets/Datas/Coins/God.asset
-  artifactKey: Guid(9b0845c0a2ca98147b70f8250743107c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Datas/Coins/God.asset using Guid(9b0845c0a2ca98147b70f8250743107c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b49ace31df5510becc4482c2c51085d1') in 0.010550 seconds
-  Import took 0.016159 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000221 seconds.
-  path: Assets/Datas/Coins/Emerald.asset
-  artifactKey: Guid(75b04885ad0dea04dbb395595d9c88be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Datas/Coins/Emerald.asset using Guid(75b04885ad0dea04dbb395595d9c88be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '646a30d19cbcea4aae8c17d80cd34132') in 0.010252 seconds
-  Import took 0.015572 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000224 seconds.
-  path: Assets/Datas/Coins/Cobalt.asset
-  artifactKey: Guid(4ddb180df103e4944816f83434658da3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Datas/Coins/Cobalt.asset using Guid(4ddb180df103e4944816f83434658da3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53ec729a1530b2fb875a9e86f0d67803') in 0.010226 seconds
-  Import took 0.015492 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000201 seconds.
-  path: Assets/Datas/Coins/Rose Gold.asset
-  artifactKey: Guid(ff1ae0110dd180d4592ac1e75c773b95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Datas/Coins/Rose Gold.asset using Guid(ff1ae0110dd180d4592ac1e75c773b95) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ba955c8fe4e897cf1232231b97861a46') in 0.009957 seconds
-  Import took 0.015657 seconds .
+  Time since last request: 1.069672 seconds.
+  path: Assets/Resources/Prefabs/Spell/Palladium Coin.prefab
+  artifactKey: Guid(2a79ce0198b04d143ad1b7d748f7693a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Resources/Prefabs/Spell/Palladium Coin.prefab using Guid(2a79ce0198b04d143ad1b7d748f7693a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd6ac9958a458d23fe7d932a40bf782a') in 0.020867 seconds
+  Import took 0.027575 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.005448 seconds.
+Registered in 0.006511 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.91 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.86 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.796 seconds
+- Completed reload, in  1.659 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.93 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 1.02 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3190 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 247.3 MB.
-System memory in use after: 247.5 MB.
+Unloading 3194 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 247.1 MB.
+System memory in use after: 247.3 MB.
 
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3929.
-Total: 31.211600 ms (FindLiveObjects: 0.424200 ms CreateObjectMapping: 0.089300 ms MarkObjects: 30.667800 ms  DeleteObjects: 0.027900 ms)
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3875.
+Total: 27.662600 ms (FindLiveObjects: 0.410500 ms CreateObjectMapping: 0.085200 ms MarkObjects: 27.128400 ms  DeleteObjects: 0.036900 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.005038 seconds.
+Registered in 0.005295 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for LinuxStandalone target not found
 Native extension for WindowsStandalone target not found
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.82 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.89 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.359 seconds
+- Completed reload, in  1.597 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.84 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.94 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3190 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 237.6 MB.
-System memory in use after: 237.8 MB.
+Unloading 3194 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 247.2 MB.
+System memory in use after: 247.4 MB.
 
-Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3932.
-Total: 27.560400 ms (FindLiveObjects: 0.568400 ms CreateObjectMapping: 0.202000 ms MarkObjects: 26.756400 ms  DeleteObjects: 0.031200 ms)
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3878.
+Total: 24.943700 ms (FindLiveObjects: 0.395800 ms CreateObjectMapping: 0.087200 ms MarkObjects: 24.424900 ms  DeleteObjects: 0.033100 ms)
 
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006185 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 1.25 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.861 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.88 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3194 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 237.4 MB.
+System memory in use after: 237.7 MB.
+
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 3881.
+Total: 31.053600 ms (FindLiveObjects: 0.377300 ms CreateObjectMapping: 0.083400 ms MarkObjects: 30.561600 ms  DeleteObjects: 0.029600 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 76090.368538 seconds.
+  path: Assets/Scripts/Saving/SaveManager.cs
+  artifactKey: Guid(eae7118693c45014ca3f5508f6ba981a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Saving/SaveManager.cs using Guid(eae7118693c45014ca3f5508f6ba981a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4b6dd426e3bb16662cc30c6a44a46a0') in 0.209446 seconds
+  Import took 0.318512 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 468.009609 seconds.
+  path: Assets/saves
+  artifactKey: Guid(f363460f34bd91d459d077f491f71263) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/saves using Guid(f363460f34bd91d459d077f491f71263) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cfe506dc4295edc1a65e6bfe6de42884') in 0.010938 seconds
+  Import took 0.016488 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.399616 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.88 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.715 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
