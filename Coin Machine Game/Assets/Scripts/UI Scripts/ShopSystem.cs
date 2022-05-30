@@ -28,6 +28,9 @@ public class ShopSystem : MonoBehaviour
 
     public double moneySpent = 0;
 
+    public bool loadUpgrades = false;
+    public double loadedCost = 0;
+
 
     public void Start(){
         RestartData();
@@ -36,6 +39,11 @@ public class ShopSystem : MonoBehaviour
     private void Update() {
         if(UpdatedCoin != CurrentCoin){
             ApplyInfoData();
+        }
+
+        if (loadUpgrades && moneySpent < loadedCost)
+        {
+            UpgradeCoin();
         }
     }
     

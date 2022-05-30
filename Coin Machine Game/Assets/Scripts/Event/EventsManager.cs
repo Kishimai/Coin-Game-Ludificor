@@ -37,6 +37,10 @@ public class EventsManager : MonoBehaviour
     public GameObject falsePusher1;
     public GameObject falsePusher2;
 
+    public GameObject blitzIcon;
+    public GameObject surgeIcon;
+    public GameObject comboIcon;
+
     public float itemGravity;
     public float maxGravity = -40;
 
@@ -311,11 +315,15 @@ public class EventsManager : MonoBehaviour
         //chosenEvent = possibleEvents[Random.Range(0, possibleEvents.Length)];
         chosenEvent = GetComponent<EventRandomizer>().RollNewEvent();
         Invoke(chosenEvent, 0);
+        StartCoroutine(FlashEventName(chosenEvent));
     }
 
     void EndEvent()
     {
-
+        StopAllCoroutines();
+        blitzIcon.SetActive(false);
+        surgeIcon.SetActive(false);
+        comboIcon.SetActive(false);
         playerCamera.GetComponent<CoinPlacement>().blitzEvent = false;
         coinPusher.GetComponent<CoinPusher>().surgeEvent = false;
 
@@ -390,5 +398,31 @@ public class EventsManager : MonoBehaviour
     public void IncreasePushSpeed(float speed)
     {
         coinPusher.GetComponent<CoinPusher>().IncreasePushSpeed(speed);
+    }
+
+    private IEnumerator FlashEventName(string eventType)
+    {
+        GameObject image = blitzIcon;
+
+        if (eventType.Equals("CoinBlitz"))
+        {
+            image = blitzIcon;
+        }
+        else if (eventType.Equals("PowerSurge"))
+        {
+            image = surgeIcon;
+        }
+        else if (eventType.Equals("PegCombo"))
+        {
+            image = comboIcon;
+        }
+
+        while (true)
+        {
+            image.SetActive(true);
+            yield return new WaitForSeconds(0.3f);
+            image.SetActive(false);
+            yield return new WaitForSeconds(0.3f);
+        }
     }
 }

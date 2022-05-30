@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using System;
 
 public class SaveManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class SaveManager : MonoBehaviour
     public double currentCoin = 0;
     public double moneySpentOnUpgrades = 0;
     public bool upgradeCoins = false;
+    public bool getMoney = false;
 
     public List<string> collectedItems = new List<string>();
     public bool intakeItems = false;
@@ -82,6 +84,29 @@ public class SaveManager : MonoBehaviour
         }
     }
 
+    public void DeleteData()
+    {
+        string saveFileName = saveDir + "save" + ".txt";
+
+        if (File.Exists(saveFileName))
+        {
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+            File.WriteAllText(saveFileName, "[ITEMS]\n");
+
+            File.AppendAllText(saveFileName, "[MONEY_SPENT]\n");
+
+            File.AppendAllText(saveFileName, "0\n");
+
+            File.AppendAllText(saveFileName, "[MONEY_SPENT]\n");
+
+            File.AppendAllText(saveFileName, "0\n");
+
+        }
+
+    }
+
     private IEnumerator Load()
     {
 
@@ -98,15 +123,16 @@ public class SaveManager : MonoBehaviour
                 intakeItems = true;
                 ++i;
             }
-            else if (fileLines[i].Equals("[MONEY_SPENT]"))
+            if (fileLines[i].Equals("[MONEY_SPENT]"))
             {
                 intakeItems = false;
                 upgradeCoins = true;
                 ++i;
             }
-            else if (fileLines[i].Equals("[MONEY]"))
+            if (fileLines[i].Equals("[MONEY]"))
             {
                 upgradeCoins = false;
+                getMoney = true;
                 ++i;
             }
 
@@ -114,9 +140,23 @@ public class SaveManager : MonoBehaviour
             {
                 collectedItems.Add(fileLines[i]);
             }
+            if (upgradeCoins)
+            {
+                moneySpentOnUpgrades = Convert.ToDouble(fileLines[i]);
+            }
+            if (getMoney)
+            {
+                currentCoin = Convert.ToDouble(fileLines[i]);
+            }
         }
 
         GetComponent<ItemInventory>().loadedItems = collectedItems;
+
+        GetComponent<ShopSystem>().loadedCost = moneySpentOnUpgrades;
+        GetComponent<ShopSystem>().loadUpgrades = true;
+
+        GetComponent<UI_Manager>()._currentCoin = currentCoin;
+
     }
 
 }

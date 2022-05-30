@@ -32,6 +32,7 @@ public class CoinRowPrinter : MonoBehaviour
     public int planeIndex = 0;
     // Holds the currently selected item which should be created
     public GameObject currentItem;
+    public CoinData copperData;
     public GameObject coinParent;
     // Holds the position for the new printer surface
     public Vector3 newPosition;
@@ -218,7 +219,12 @@ public class CoinRowPrinter : MonoBehaviour
                 // Randomly alters the position of the coin/item by a slight margin (allows for more unique locations)
                 Vector3 positionalNoise = new Vector3(Random.Range(-0.2f, 0.2f), Random.Range(0, 0.1f), Random.Range(-0.2f, 0.2f));
 
-                generation.returnObject();
+                //generation.returnObject();
+
+                // TEMPORARY, RECORD ALL COIN DATAS ON BOARD AND SPAWN COINS WITH THOSE DATAS
+                currentItem.GetComponent<Data_Interp>().data = copperData;
+                currentItem.GetComponent<MeshRenderer>().material = copperData.materialColor;
+
                 // Creates the current coin/item at the extruder's position, plus the random margin
                 newCoin = Instantiate(currentItem, extruder.transform.position + positionalNoise, Quaternion.identity);
 
