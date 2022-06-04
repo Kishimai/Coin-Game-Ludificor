@@ -97,6 +97,8 @@ public class EventsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerIsReady = true;
+
         // Locates and assigns the player camera to playerCamera
         playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
         // Locates and assigns the coin pusher to coinPusher

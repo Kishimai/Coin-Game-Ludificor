@@ -64,27 +64,35 @@ public class BombCoinExplosion : MonoBehaviour
         if (other.gameObject.tag == "coin")
         {
             //other.GetComponentInParent<Rigidbody>().AddForce(new Vector3(0, 500, 0));
-            other.GetComponentInParent<Rigidbody>().AddExplosionForce(explosionForce, gameObject.transform.position, gameObject.transform.localScale.x, 3f);
+            other.GetComponentInParent<Rigidbody>().AddExplosionForce(explosionForce * 0.8f, gameObject.transform.position, gameObject.transform.localScale.x, 3f);
+        }
+        if (other.gameObject.tag == "item")
+        {
+            other.GetComponentInParent<Rigidbody>().AddExplosionForce(explosionForce / 2, gameObject.transform.position, gameObject.transform.localScale.x, 3f);
+        }
+        if (other.gameObject.tag == "popped_peg")
+        {
+            other.GetComponent<Rigidbody>().AddExplosionForce(explosionForce * 0.75f, gameObject.transform.position, gameObject.transform.localScale.x, 3f);
         }
         if (other.gameObject.tag == "bomb_coin")
         {
-            other.GetComponentInParent<Rigidbody>().AddExplosionForce(explosionForce, gameObject.transform.position, gameObject.transform.localScale.x, 3f);
+            other.GetComponentInParent<Rigidbody>().AddExplosionForce(explosionForce * 0.8f, gameObject.transform.position, gameObject.transform.localScale.x, 3f);
         }
         if (other.gameObject.tag == "tremor_coin")
         {
-            other.GetComponentInParent<Rigidbody>().AddExplosionForce(explosionForce, gameObject.transform.position, gameObject.transform.localScale.x, 3f);
+            other.GetComponentInParent<Rigidbody>().AddExplosionForce(explosionForce * 0.8f, gameObject.transform.position, gameObject.transform.localScale.x, 3f);
         }
         if (other.gameObject.tag == "bulldoze_coin")
         {
-            other.GetComponentInParent<Rigidbody>().AddExplosionForce(explosionForce, gameObject.transform.position, gameObject.transform.localScale.x, 3f);
+            other.GetComponentInParent<Rigidbody>().AddExplosionForce(explosionForce * 0.8f, gameObject.transform.position, gameObject.transform.localScale.x, 3f);
         }
         if (other.gameObject.tag == "palladium_coin")
         {
-            other.GetComponentInParent<Rigidbody>().AddExplosionForce(explosionForce, gameObject.transform.position, gameObject.transform.localScale.x, 3f);
+            other.GetComponentInParent<Rigidbody>().AddExplosionForce(explosionForce * 0.75f, gameObject.transform.position, gameObject.transform.localScale.x, 3f);
         }
         if (other.gameObject.tag == "styrofoam_coin")
         {
-            other.GetComponentInParent<Rigidbody>().AddExplosionForce(explosionForce, gameObject.transform.position, gameObject.transform.localScale.x, 3f);
+            other.GetComponentInParent<Rigidbody>().AddExplosionForce(explosionForce * 1.2f, gameObject.transform.position, gameObject.transform.localScale.x, 3f);
         }
     }
 }

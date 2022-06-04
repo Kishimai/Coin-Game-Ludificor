@@ -22,6 +22,8 @@ public class ShopSystem : MonoBehaviour
     [BoxGroup("Output")]
     public CoinData UpdatedCoin;
 
+    public GameObject audioManager;
+
     private int currentOrder;
     private int maxNumCoins = 5;
     private bool finished = false;
@@ -31,12 +33,21 @@ public class ShopSystem : MonoBehaviour
     public bool loadUpgrades = false;
     public double loadedCost = 0;
 
+    private float soundCooldown = 0;
+
 
     public void Start(){
+        audioManager = GameObject.FindGameObjectWithTag("audio_manager");
         RestartData();
     }
 
     private void Update() {
+
+        if (soundCooldown > 0)
+        {
+            soundCooldown -= Time.deltaTime;
+        }
+
         if(UpdatedCoin != CurrentCoin){
             ApplyInfoData();
         }
@@ -133,6 +144,12 @@ public class ShopSystem : MonoBehaviour
 
             CurrentCoin.CurrentLevel++;
 
+            if (soundCooldown <= 0)
+            {
+                audioManager.GetComponent<AudioManager>().ShopSound();
+                soundCooldown = 0.3f;
+            }
+
             if (CurrentCoin.CurrentLevel == 10){
 
                 ++currentOrder;
@@ -170,7 +187,7 @@ public class ShopSystem : MonoBehaviour
             }
 
         } else{
-            // Cant Upgrade anymore 10 has been reached
+            audioManager.GetComponent<AudioManager>().PlayAudioClip("denied");
         }
     }
 

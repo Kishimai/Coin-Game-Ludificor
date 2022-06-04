@@ -35,11 +35,14 @@ public class PegManager : MonoBehaviour
 
     public AudioSource pegcombo;
 
+    public GameObject audioManager;
+
     private bool running = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("audio_manager");
         eventManager = GameObject.FindGameObjectWithTag("gameplay_event_system");
         gameManager = GameObject.FindGameObjectWithTag("game_manager");
         CompilePegsAndRows();
@@ -482,6 +485,7 @@ public class PegManager : MonoBehaviour
                             pegsToPopOut.Remove(pegsToPopOut[i]);
                             idlePegs.Remove(idlePegs[x]);
                             i--;
+                            audioManager.GetComponent<AudioManager>().PlayAudioClip("pop");
                             break;
                         }
                     }

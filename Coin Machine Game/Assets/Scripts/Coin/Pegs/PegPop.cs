@@ -12,6 +12,12 @@ public class PegPop : MonoBehaviour
     private CapsuleCollider col;
     private Rigidbody rb;
     private bool happened = false;
+    private GameObject audioManager;
+
+    private Vector3 currentVelocity = Vector3.zero;
+    private float currentSpeed = 0;
+    private float speedOfLastFrame = 0;
+    public float soundThreshold = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -19,11 +25,24 @@ public class PegPop : MonoBehaviour
         col = GetComponent<CapsuleCollider>();
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
+        audioManager = GameObject.FindGameObjectWithTag("audio_manager");
     }
 
     // Update is called once per frame
     void Update()
     {
+        currentVelocity = rb.velocity;
+        currentSpeed = currentVelocity.magnitude;
+
+        float difference = Mathf.Abs(currentSpeed - speedOfLastFrame);
+
+        if (difference > soundThreshold)
+        {
+            audioManager.GetComponent<AudioManager>().PlayAudioClip("peg");
+        }
+
+        speedOfLastFrame = currentSpeed;
+
         if (!happened && startPos != Vector3.zero)
         {
             if (Vector3.Distance(transform.position, endPos) < 0.5)

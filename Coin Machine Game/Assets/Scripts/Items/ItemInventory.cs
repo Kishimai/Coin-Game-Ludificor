@@ -53,6 +53,8 @@ public class ItemInventory : MonoBehaviour
 
     public bool startup = false;
 
+    public GameObject audioManager;
+
     public Sprite midasShard;
     public Sprite midasCrystal;
     public Sprite midasRelic;
@@ -94,6 +96,7 @@ public class ItemInventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioManager = GameObject.FindGameObjectWithTag("audio_manager");
         startup = true;
         availablePrizes = 0;
         coinValueModifier = 1.0f;
@@ -525,6 +528,8 @@ public class ItemInventory : MonoBehaviour
 
         if (availablePrizes > 0)
         {
+            audioManager.GetComponent<AudioManager>().PlayAudioClip("open_capsule");
+
             if (loadedItems.Count == 0)
             {
                 GetComponent<UI_Manager>().Update_UI(8);
@@ -534,6 +539,11 @@ public class ItemInventory : MonoBehaviour
             {
                 button.GetComponent<ItemButton>().RollNew();
             }
+        }
+
+        else
+        {
+            audioManager.GetComponent<AudioManager>().PlayAudioClip("denied");
         }
 
     }
