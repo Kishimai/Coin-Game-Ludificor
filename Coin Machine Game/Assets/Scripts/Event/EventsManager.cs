@@ -40,6 +40,7 @@ public class EventsManager : MonoBehaviour
     public GameObject blitzIcon;
     public GameObject surgeIcon;
     public GameObject comboIcon;
+    public GameObject background;
 
     public float itemGravity;
     public float maxGravity = -40;
@@ -328,6 +329,8 @@ public class EventsManager : MonoBehaviour
     {
         StopAllCoroutines();
 
+        background.SetActive(false);
+
         gameManager.GetComponent<DotLightManager>().Idle();
 
         blitzIcon.SetActive(false);
@@ -434,6 +437,8 @@ public class EventsManager : MonoBehaviour
             image = comboIcon;
         }
 
+        background.SetActive(true);
+
         while (true)
         {
             image.SetActive(true);
@@ -441,5 +446,6 @@ public class EventsManager : MonoBehaviour
             image.SetActive(false);
             yield return new WaitForSeconds(0.3f);
         }
+
     }
 }

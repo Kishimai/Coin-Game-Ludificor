@@ -10,9 +10,11 @@ public class SaveManager : MonoBehaviour
 {
 
     public double currentCoin = 0;
-    public double moneySpentOnUpgrades = 0;
+    public int upgradesGot = 0;
     public bool upgradeCoins = false;
     public bool getMoney = false;
+    public bool getCapsules = false;
+    public int unclaimedCapsules = 0;
 
     public List<string> collectedItems = new List<string>();
     public bool intakeItems = false;
@@ -23,12 +25,14 @@ public class SaveManager : MonoBehaviour
 
     public bool happenOnce = false;
 
+    public GameObject savedIcon;
+
     // Start is called before the first frame update
     void Start()
     {
         saveDir = Application.streamingAssetsPath + "/saves/";
         Directory.CreateDirectory(saveDir);
-
+        
         string saveFileName = saveDir + "save" + ".txt";
 
         if (File.Exists(saveFileName))
@@ -51,9 +55,11 @@ public class SaveManager : MonoBehaviour
 
         currentCoin = GetComponent<UI_Manager>()._currentCoin;
 
-        moneySpentOnUpgrades = GetComponent<ShopSystem>().moneySpent;
+        upgradesGot = GetComponent<ShopSystem>().currentUpgrades;
 
         collectedItems = GetComponent<ItemInventory>().collectedItems;
+
+        unclaimedCapsules = GetComponent<ItemInventory>().availablePrizes;
 
         File.WriteAllText(saveFileName, "[ITEMS]\n");
 
@@ -64,12 +70,25 @@ public class SaveManager : MonoBehaviour
 
         File.AppendAllText(saveFileName, "[MONEY_SPENT]\n");
 
-        File.AppendAllText(saveFileName, moneySpentOnUpgrades.ToString() + "\n");
+        File.AppendAllText(saveFileName, upgradesGot.ToString() + "\n");
 
         File.AppendAllText(saveFileName, "[MONEY]\n");
 
         File.AppendAllText(saveFileName, currentCoin.ToString() + "\n");
 
+        File.AppendAllText(saveFileName, "[CAPSULES]\n");
+
+        File.AppendAllText(saveFileName, unclaimedCapsules.ToString() + "\n");
+
+        StartCoroutine(ShowIcon());
+
+    }
+
+    public IEnumerator ShowIcon()
+    {
+        savedIcon.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        savedIcon.SetActive(false);
     }
 
     public void LoadData()
@@ -100,6 +119,10 @@ public class SaveManager : MonoBehaviour
             File.AppendAllText(saveFileName, "0\n");
 
             File.AppendAllText(saveFileName, "[MONEY_SPENT]\n");
+
+            File.AppendAllText(saveFileName, "0\n");
+
+            File.AppendAllText(saveFileName, "[CAPSULES]\n");
 
             File.AppendAllText(saveFileName, "0\n");
 
@@ -135,6 +158,12 @@ public class SaveManager : MonoBehaviour
                 getMoney = true;
                 ++i;
             }
+            if (fileLines[i].Equals("[CAPSULES]"))
+            {
+                getMoney = false;
+                getCapsules = true;
+                ++i;
+            }
 
             if (intakeItems)
             {
@@ -142,21 +171,26 @@ public class SaveManager : MonoBehaviour
             }
             if (upgradeCoins)
             {
-                moneySpentOnUpgrades = Convert.ToDouble(fileLines[i]);
+                upgradesGot = Convert.ToInt32(fileLines[i]);
             }
             if (getMoney)
             {
                 currentCoin = Convert.ToDouble(fileLines[i]);
             }
+            if (getCapsules)
+            {
+                unclaimedCapsules = Convert.ToInt32(fileLines[i]);
+            }
         }
 
         GetComponent<ItemInventory>().loadedItems = collectedItems;
 
-        GetComponent<ShopSystem>().loadedCost = moneySpentOnUpgrades;
+        GetComponent<ShopSystem>().loadedUpgrades = upgradesGot;
         GetComponent<ShopSystem>().loadUpgrades = true;
 
         GetComponent<UI_Manager>()._currentCoin = currentCoin;
 
+        GetComponent<ItemInventory>().availablePrizes = unclaimedCapsules;
     }
 
 }

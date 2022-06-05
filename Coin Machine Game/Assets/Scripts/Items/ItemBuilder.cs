@@ -32,8 +32,8 @@ public class ItemBuilder : MonoBehaviour
 
     // Used to drop item every 60 seconds
     public float timeUntilNextItem;
-    public float maxTimeUntilItem = 120f;
-    public float limit = 30f;
+    public float maxTimeUntilItem = 60f;
+    public float limit = 10f;
 
     public bool isPaused = false;
 

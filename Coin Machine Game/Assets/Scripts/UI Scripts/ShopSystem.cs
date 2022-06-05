@@ -28,7 +28,8 @@ public class ShopSystem : MonoBehaviour
     private int maxNumCoins = 5;
     private bool finished = false;
 
-    public double moneySpent = 0;
+    public int loadedUpgrades = 0;
+    public int currentUpgrades = 0;
 
     public bool loadUpgrades = false;
     public double loadedCost = 0;
@@ -52,8 +53,9 @@ public class ShopSystem : MonoBehaviour
             ApplyInfoData();
         }
 
-        if (loadUpgrades && moneySpent < loadedCost)
+        if (loadUpgrades && currentUpgrades < loadedUpgrades)
         {
+            UI._currentCoin += (CurrentCoin.currentCost + 1);
             UpgradeCoin();
         }
     }
@@ -140,7 +142,7 @@ public class ShopSystem : MonoBehaviour
         // try removing CurrentCoin.CurrentLevel != 10 // --------------------------
         if(UI._currentCoin >= CurrentCoin.currentCost && !finished) {// && CurrentCoin.CurrentLevel != 10){
 
-            moneySpent += CurrentCoin.currentCost;
+            currentUpgrades++;
 
             CurrentCoin.CurrentLevel++;
 

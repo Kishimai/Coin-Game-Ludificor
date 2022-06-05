@@ -312,6 +312,8 @@ public class Peg : MonoBehaviour
                     other.transform.GetComponentInParent<CoinLogic>().ConvertToPalladium();
                 }
                 ++hitCounter;
+
+                audioManager.GetComponent<AudioManager>().PlayAudioClip("palladium");
             }
         }
 

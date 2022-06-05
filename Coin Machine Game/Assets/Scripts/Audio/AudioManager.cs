@@ -29,6 +29,8 @@ public class AudioManager : MonoBehaviour
 
     public GameObject coinBlitz;
 
+    public GameObject palladium;
+
     public void PlayAudioClip(string clipName, int index = 0)
     {
         GameObject audioSource;
@@ -124,6 +126,11 @@ public class AudioManager : MonoBehaviour
             case "blitz":
                 audioSource = Instantiate(coinBlitz, playerCamera.transform.position, Quaternion.identity);
                 audioSource.GetComponent<CoinBlitzAudio>().PlayAudio();
+                break;
+
+            case "palladium":
+                audioSource = Instantiate(palladium, playerCamera.transform.position, Quaternion.identity);
+                audioSource.GetComponent<PalladiumSound>().PlayAudio();
                 break;
         }
     }

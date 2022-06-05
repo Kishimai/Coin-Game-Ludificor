@@ -74,7 +74,7 @@ public class CoinPlacement : MonoBehaviour
 
     public int additionalDropChance = 0;
     public int guaranteedDrops = 0;
-    public int maxAdditionalDrops = 5;
+    public int maxAdditionalDrops = 69;
 
     public int numBombCoins = 0;
     public int numTremorCoins = 0;
