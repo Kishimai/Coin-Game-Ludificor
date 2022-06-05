@@ -40,6 +40,7 @@ public class BulldozeCoin : MonoBehaviour
     {
         if (other.gameObject.tag == "coin_pusher")
         {
+            audio.PlayAudioClip("bulldoze");
             other.transform.GetComponent<CoinPusher>().StartBulldoze();
             GameObject lightning = GameObject.FindGameObjectWithTag("bulldoze_lightning");
             lightning.GetComponent<Lightning>().LightningStrike(gameObject.transform.position);

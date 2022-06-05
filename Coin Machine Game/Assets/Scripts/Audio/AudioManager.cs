@@ -21,6 +21,13 @@ public class AudioManager : MonoBehaviour
     public GameObject denied;
     public GameObject getItem;
     public GameObject upgradeCoin;
+    public GameObject bulldozeSound;
+
+    public GameObject powerSurgeClick;
+    public GameObject powerSurgeDrone;
+    private GameObject surgeCopy;
+
+    public GameObject coinBlitz;
 
     public void PlayAudioClip(string clipName, int index = 0)
     {
@@ -92,10 +99,41 @@ public class AudioManager : MonoBehaviour
                 audioSource.GetComponent<UpgradeCoinSound>().PlayAudio();
                 break;
 
+            case "surge_click":
+                audioSource = Instantiate(powerSurgeClick, playerCamera.transform.position, Quaternion.identity);
+                audioSource.GetComponent<PowerSurgeClick>().PlayAudio();
+                break;
+
+            case "surge_drone":
+                audioSource = Instantiate(powerSurgeDrone, playerCamera.transform.position, Quaternion.identity);
+                surgeCopy = audioSource;
+                surgeCopy.GetComponent<PowerSurgeDrone>().PlayAudio();
+                break;
+
             case "tremor":
                 break;
 
             case "bomb":
+                break;
+
+            case "bulldoze":
+                audioSource = Instantiate(bulldozeSound, playerCamera.transform.position, Quaternion.identity);
+                audioSource.GetComponent<BulldozeSound>().PlayAudio();
+                break;
+
+            case "blitz":
+                audioSource = Instantiate(coinBlitz, playerCamera.transform.position, Quaternion.identity);
+                audioSource.GetComponent<CoinBlitzAudio>().PlayAudio();
+                break;
+        }
+    }
+
+    public void StopAudioClip(string clipName)
+    {
+        switch (clipName)
+        {
+            case "surge_drone":
+                surgeCopy.GetComponent<PowerSurgeDrone>().DestroySelf();
                 break;
         }
     }

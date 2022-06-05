@@ -19,9 +19,9 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Inspector
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 875, y: 371}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -45,8 +45,8 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 678, y: 321}
-  m_MaxSize: {x: 12003, y: 8021}
+  m_MinSize: {x: 678, y: 492}
+  m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
   controlID: 47
 --- !u!114 &3
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ConsoleWindow
+  m_Name: ProjectBrowser
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -120,15 +120,15 @@ MonoBehaviour:
     y: 671
     width: 1531
     height: 276
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 25}
+  m_MinSize: {x: 231, y: 271}
+  m_MaxSize: {x: 10001, y: 10021}
+  m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
   - {fileID: 25}
   - {fileID: 20}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -151,7 +151,7 @@ MonoBehaviour:
     y: 0
     width: 1920
     height: 997
-  m_MinSize: {x: 875, y: 371}
+  m_MinSize: {x: 875, y: 542}
   m_MaxSize: {x: 10000, y: 10000}
   m_UseTopView: 1
   m_TopViewHeight: 30
@@ -224,8 +224,8 @@ MonoBehaviour:
     y: 0
     width: 1531
     height: 947
-  m_MinSize: {x: 402, y: 321}
-  m_MaxSize: {x: 8002, y: 8021}
+  m_MinSize: {x: 402, y: 492}
+  m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
   controlID: 48
 --- !u!114 &10
@@ -3880,22 +3880,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Audio/SFX/Buttons
+    - Assets/Audio/SFX
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Audio/SFX/Buttons
+  - Assets/Audio/SFX
   m_LastFoldersGridSize: -1
   m_LastProjectPath: I:\Github\Coin Game\Coin-Game-Ludificor\Coin Machine Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 18eb0500
-    m_LastClickedID: 387864
-    m_ExpandedIDs: 00000000fe8600000087000002870000048700001287000024870000288700007687000000ca9a3b
+    m_SelectedIDs: ae880000
+    m_LastClickedID: 34990
+    m_ExpandedIDs: 000000008a8700008c8700008e87000090870000a4870000ba870000ae88000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -3923,7 +3923,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000fe860000008700000287000004870000
+    m_ExpandedIDs: 000000008a8700008c8700008e87000090870000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -3948,8 +3948,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 06ceffff
-    m_LastClickedInstanceID: -12794
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000305e0000686b000000000000a87c0000
     m_RenameOverlay:
@@ -4046,7 +4046,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: f4a7d9fff4aad9fffcb6d9ff1c0bdaff2465daff2468daff0ca8dbff0cdedbff52e4ffff54e4ffff52fbffffa250000032560000665600002057000070590000ba590000685a0000085b0000525d0000b25d0000f65f0000cc61000016620000
+      m_ExpandedIDs: 3672d7ffb272d7ff9c75d7ff54e4ffff52fbffff54560000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -4106,9 +4106,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -2.127749, y: -21.853525, z: 15.0584135}
+    m_Target: {x: -0.23224497, y: 2.750126, z: -4.7107544}
     speed: 2
-    m_Value: {x: -2.127749, y: -21.853525, z: 15.0584135}
+    m_Value: {x: -0.23224497, y: 2.750126, z: -4.7107544}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -4155,13 +4155,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.08138039, y: -0.8617178, z: 0.47896945, w: 0.14640439}
+    m_Target: {x: 0.018078886, y: -0.97456926, z: 0.20650901, w: 0.08528797}
     speed: 2
-    m_Value: {x: 0.081379324, y: -0.8617065, z: 0.47896317, w: 0.14640246}
+    m_Value: {x: 0.018078595, y: -0.9745536, z: 0.20650569, w: 0.0852866}
   m_Size:
-    m_Target: 13.92226
+    m_Target: 14.933353
     speed: 2
-    m_Value: 13.92226
+    m_Value: 14.933353
   m_Ortho:
     m_Target: 0
     speed: 2

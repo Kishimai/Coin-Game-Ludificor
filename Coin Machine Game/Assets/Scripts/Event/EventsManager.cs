@@ -94,10 +94,14 @@ public class EventsManager : MonoBehaviour
 
     public GameObject sfxMaster;
 
+    public GameObject audioManager;
+
     // Start is called before the first frame update
     void Start()
     {
         playerIsReady = true;
+
+        audioManager = GameObject.FindGameObjectWithTag("audio_manager");
 
         // Locates and assigns the player camera to playerCamera
         playerCamera = GameObject.FindGameObjectWithTag("MainCamera");
@@ -323,6 +327,9 @@ public class EventsManager : MonoBehaviour
     void EndEvent()
     {
         StopAllCoroutines();
+
+        gameManager.GetComponent<DotLightManager>().Idle();
+
         blitzIcon.SetActive(false);
         surgeIcon.SetActive(false);
         comboIcon.SetActive(false);
@@ -332,6 +339,10 @@ public class EventsManager : MonoBehaviour
         if (chosenEvent == "CoinBlitz")
         {
             StartCoroutine(glassPanel.GetComponent<GlassRemover>().RebuildGlass());
+        }
+        if (chosenEvent.Equals("PowerSurge"))
+        {
+            audioManager.GetComponent<AudioManager>().StopAudioClip("surge_drone");
         }
         
         //gameManager.GetComponent<DotLightManager>().Idle();
@@ -351,10 +362,14 @@ public class EventsManager : MonoBehaviour
         StartCoroutine(glassPanel.GetComponent<GlassRemover>().RemoveGlass());
 
         StartCoroutine(gameManager.GetComponent<DotLightManager>().Flash(coinBlitzDuration));
+
+        audioManager.GetComponent<AudioManager>().PlayAudioClip("blitz");
     }
 
     void PowerSurge()
     {
+        audioManager.GetComponent<AudioManager>().PlayAudioClip("surge_click");
+        audioManager.GetComponent<AudioManager>().PlayAudioClip("surge_drone");
         //coinPusher.GetComponent<CoinPusher>().surgeSpeed = surgePusherSpeed;
 
         coinPusher.GetComponent<CoinPusher>().surgeEvent = true;
