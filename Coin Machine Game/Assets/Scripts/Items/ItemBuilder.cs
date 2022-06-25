@@ -37,6 +37,8 @@ public class ItemBuilder : MonoBehaviour
 
     public bool isPaused = false;
 
+    public List<GameObject> coinsToBuild = new List<GameObject>();
+
     void Start()
     {
         builder = gameObject;
@@ -55,6 +57,8 @@ public class ItemBuilder : MonoBehaviour
         }
 
         allPrinterPlanes = temp.ToArray();
+
+        StartCoroutine(GenerateCoins());
     }
 
     private void FixedUpdate()
@@ -70,7 +74,7 @@ public class ItemBuilder : MonoBehaviour
             initialBuildFinished = true;
         }
         
-        if (timeUntilNextItem > 0 && itemRainEvent == false && !isPaused)
+        if (timeUntilNextItem > 0 && itemRainEvent == false)
         {
             timeUntilNextItem -= Time.fixedDeltaTime;
         }
@@ -179,39 +183,9 @@ public class ItemBuilder : MonoBehaviour
         newItem.transform.SetParent(capsuleParent.transform);
     }
 
-    public void BuildCoin(GameObject styrofoam = null)
+    public void BuildCoin(GameObject coin)
     {
-        GameObject newCoin;
-
-        Vector3 planePos = playerMachinePlane.transform.position;
-        Vector3 planeScale = playerMachinePlane.transform.localScale;
-
-        Vector3 boundry = new Vector3(planeScale.x - 1.2f, 0, planeScale.z - 1.2f);
-
-        Vector3 randomRotation;
-
-        // Picks random X position within the boundry of the plane
-        float randomXPosition = Random.Range(-boundry.x, boundry.x);
-        // Picks random Z position within the boundry of the plane
-        float randomZPosition = Random.Range(-boundry.z, boundry.z);
-
-        Vector3 position = new Vector3(planePos.x + randomXPosition / 2, 27, planePos.z + randomZPosition / 2);
-        randomRotation = new Vector3(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
-
-        if (styrofoam == null)
-        {
-            generation.GetPlacementData();
-
-            newCoin = Instantiate(coin, position, Quaternion.Euler(randomRotation));
-
-            newCoin.transform.SetParent(coinParent.transform);
-        }
-        else
-        {
-            newCoin = Instantiate(styrofoam, position, Quaternion.Euler(randomRotation));
-
-            newCoin.transform.SetParent(coinParent.transform);
-        }
+        coinsToBuild.Add(coin);
     }
 
     public void ReduceBuildCooldown(float value)
@@ -221,6 +195,42 @@ public class ItemBuilder : MonoBehaviour
         if (maxTimeUntilItem < limit)
         {
             maxTimeUntilItem = limit;
+        }
+    }
+
+    private IEnumerator GenerateCoins()
+    {
+        while (true)
+        {
+            if (coinsToBuild.Count > 0)
+            {
+                GameObject chosenCoin;
+
+                Vector3 planePos = playerMachinePlane.transform.position;
+                Vector3 planeScale = playerMachinePlane.transform.localScale;
+
+                Vector3 boundry = new Vector3(planeScale.x - 1.2f, 0, planeScale.z - 1.2f);
+
+                Vector3 randomRotation;
+
+                // Picks random X position within the boundry of the plane
+                float randomXPosition = Random.Range(-boundry.x, boundry.x);
+                // Picks random Z position within the boundry of the plane
+                float randomZPosition = Random.Range(-boundry.z, boundry.z);
+
+                Vector3 position = new Vector3(planePos.x + randomXPosition / 2, 27, planePos.z + randomZPosition / 2);
+                randomRotation = new Vector3(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
+
+                chosenCoin = Instantiate(coinsToBuild[0], position, Quaternion.Euler(randomRotation));
+
+                chosenCoin.transform.SetParent(coinParent.transform);
+
+                coinsToBuild.RemoveAt(0);
+
+            }
+
+            yield return new WaitForSeconds(0.1f);
+
         }
     }
 }

@@ -97,6 +97,8 @@ public class EventsManager : MonoBehaviour
 
     public GameObject audioManager;
 
+    private float eventTracker = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -128,6 +130,19 @@ public class EventsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (chosenEvent.Equals("CoinBlitz"))
+        {
+            eventTracker += Time.deltaTime;
+            if (eventTracker > coinBlitzDuration + 1f)
+            {
+                EndEvent();
+            }
+        }
+        else
+        {
+            eventTracker = 0;
+        }
+
         // Makes the if statement in InitializeGameBoard easier to read
         // It sets printerIsFinished to initialBuildFinished in the coin printer. This is used to accurately track when the coin printer has completed its initialization tasks
         printerIsFinished = coinPrinter.GetComponent<CoinRowPrinter>().initialBuildFinished;
@@ -329,7 +344,7 @@ public class EventsManager : MonoBehaviour
     {
         StopAllCoroutines();
 
-        background.SetActive(false);
+        //background.SetActive(false);
 
         gameManager.GetComponent<DotLightManager>().Idle();
 
@@ -338,6 +353,7 @@ public class EventsManager : MonoBehaviour
         comboIcon.SetActive(false);
         playerCamera.GetComponent<CoinPlacement>().blitzEvent = false;
         coinPusher.GetComponent<CoinPusher>().surgeEvent = false;
+        itemBuilder.GetComponent<ItemBuilder>().itemRainEvent = false;
 
         if (chosenEvent == "CoinBlitz")
         {
@@ -437,7 +453,7 @@ public class EventsManager : MonoBehaviour
             image = comboIcon;
         }
 
-        background.SetActive(true);
+        //background.SetActive(true);
 
         while (true)
         {

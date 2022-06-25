@@ -21,8 +21,8 @@ public class BestFriend : MonoBehaviour
     public float defaultCooldown;
     public float timeUntilReady;
     private bool readyToPlay = false;
-    private bool readyToDropItem = false;
-    private float timeUntilItem = 0;
+    public float itemDropCooldown = 0;
+    public bool readyToDropItem = false;
     private float itemCooldown;
 
     public List<GameObject> lights = new List<GameObject>();
@@ -46,11 +46,27 @@ public class BestFriend : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
+
         if (readyToPlay)
         {
             defaultCooldown = transform.parent.GetComponent<FriendActivator>().coinDropSpeed;
             itemCooldown = transform.parent.GetComponent<FriendActivator>().timeUntilItem;
-            readyToDropItem = transform.parent.GetComponent<FriendActivator>().dropItems;
+
+            if (itemDropCooldown <= 0)
+            {
+                itemDropCooldown = itemCooldown;
+                readyToDropItem = true;
+            }
+            else if (itemDropCooldown > itemCooldown)
+            {
+                itemDropCooldown = itemCooldown - 0.5f;
+            }
+            else
+            {
+                itemDropCooldown -= Time.deltaTime;
+            }
 
             if (timeUntilReady > 0)
             {
@@ -67,20 +83,12 @@ public class BestFriend : MonoBehaviour
                     DropCoin();
                     timeUntilReady = Random.Range(0.5f, 1.25f);
                 }
+            }
 
-                if (readyToDropItem)
-                {
-                    if (timeUntilItem <= 0)
-                    {
-                        float randTime = Random.Range(0, 1);
-                        timeUntilItem = itemCooldown + randTime;
-                        DropItem();
-                    }
-                    else
-                    {
-                        timeUntilItem -= Time.deltaTime;
-                    }
-                }
+            if (readyToDropItem)
+            {
+                DropItem();
+                readyToDropItem = false;
             }
         }
     }

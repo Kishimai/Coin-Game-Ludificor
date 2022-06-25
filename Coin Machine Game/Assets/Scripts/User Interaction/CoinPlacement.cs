@@ -26,6 +26,7 @@ public class CoinPlacement : MonoBehaviour
     public GameObject tremorCoin;
     public GameObject palladiumCoin;
     public GameObject styrofoamCoin;
+    public GameObject blackHoleCoin;
     public GameObject detonateButton;
     public GameObject bulldozeCoin;
     public GameObject blitzSparkle;
@@ -78,12 +79,20 @@ public class CoinPlacement : MonoBehaviour
 
     public int numBombCoins = 0;
     public int numTremorCoins = 0;
+    public int numBulldozeCoins = 0;
+    public int numBlackHoleCoins = 0;
 
     public float bombCoinCooldown = 0;
     public float defaultBombCooldown = 180f;
 
     public float tremorCoinCooldown = 0;
     public float defaultTremorCooldown = 180f;
+
+    public float bulldozeCoinCooldown = 0;
+    public float defaultBulldozeCoinCooldown = 300f;
+
+    public float blackHoleCoinCooldown = 0;
+    public float defaultBlackholeCooldown = 180f;
 
     public float radiusIncrease = 0;
     public float forceIncrease = 0;
@@ -141,6 +150,32 @@ public class CoinPlacement : MonoBehaviour
             if (numTremorCoins > 0 && !spells.Contains("tremor"))
             {
                 spells.Add("tremor");
+            }
+        }
+
+        if (bulldozeCoinCooldown >= 0)
+        {
+            bulldozeCoinCooldown -= Time.deltaTime;
+        }
+        else
+        {
+            bulldozeCoinCooldown = defaultBulldozeCoinCooldown;
+            if (numBulldozeCoins > 0 && !spells.Contains("bulldoze"))
+            {
+                spells.Add("bulldoze");
+            }
+        }
+
+        if (blackHoleCoinCooldown >= 0)
+        {
+            blackHoleCoinCooldown -= Time.deltaTime;
+        }
+        else
+        {
+            blackHoleCoinCooldown = defaultBlackholeCooldown;
+            if (numBlackHoleCoins > 0 && !spells.Contains("blackhole"))
+            {
+                spells.Add("blackhole");
             }
         }
 
@@ -254,25 +289,25 @@ public class CoinPlacement : MonoBehaviour
         GameObject newCoin;
         GameObject newEffect;
 
-        if (spells.Count == 0 && bombCoinCooldown > 0 && tremorCoinCooldown > 0)
+        if (dropCooldown <= 0)
+        {
+            generation.GetPlacementData();
+        }
+
+        if (spells.Count == 0 && dropCooldown <= 0)
         {
             if (dropCooldown <= 0 && blitzEvent == false)
             {
-                generation.GetPlacementData();
+                //generation.GetPlacementData();
                 // Places the currently selected coin >> Changing its Component every placement
                 newCoin = Instantiate(selectedCoin, clampedPosition, Quaternion.Euler(90, 0, 0));
                 dropCooldown = maxCooldown;
-
-                if (additionalDropChance > 0)
-                {
-                    AttemptAdditionalCoin(clampedPosition);
-                }
 
                 newCoin.transform.SetParent(coinParent.transform);
             }
             else if (dropCooldown <= 0 && blitzEvent == true)
             {
-                generation.GetPlacementData();
+                //generation.GetPlacementData();
                 //Vector3 blitzPosition = new Vector3(clampedPosition.x, clampedPosition.y, clampedPosition.z + 1.25f);
 
                 Vector3 blitzPosition;
@@ -287,17 +322,17 @@ public class CoinPlacement : MonoBehaviour
                 newCoin = Instantiate(selectedCoin, blitzPosition, Quaternion.Euler(90, 0, 0));
                 dropCooldown = blitzCooldown;
 
-                if (additionalDropChance > 0)
-                {
-                    AttemptAdditionalCoin(clampedPosition);
-                }
-
                 newCoin.transform.SetParent(coinParent.transform);
             }
-        }
-        else if (dropCooldown <= 0 && spells.Count > 0)
-        {
 
+            if (additionalDropChance > 0)
+            {
+                AttemptAdditionalCoin(clampedPosition);
+            }
+
+        }
+        else if (dropCooldown <= 0)
+        {
             string randomSpell = spells[Random.Range(0, spells.Count)];
 
             if (randomSpell.Equals("bomb"))
@@ -305,25 +340,36 @@ public class CoinPlacement : MonoBehaviour
                 spellCoin = bombCoin;
                 activeSpells.Add(spellCoin);
                 specialEffect = bombCoinMarker;
+                spells.Remove("bomb");
             }
-            else if (randomSpell.Equals("tremor"))
-            {
-                spellCoin = tremorCoin;
-            }
+            //else if (randomSpell.Equals("tremor"))
+            //{
+            //    spellCoin = tremorCoin;
+            //}
             else if (randomSpell.Equals("bulldoze"))
             {
                 spellCoin = bulldozeCoin;
+                spells.Remove("bulldoze");
             }
             else if (randomSpell.Equals("palladium"))
             {
                 spellCoin = palladiumCoin;
                 spellCoin.GetComponent<Data_Interp>().data = generation.GetHighestTierCoin();
                 spellCoin.GetComponent<CoinLogic>().palladiumValue = generation.GetPalladiumValue();
+                spells.Remove("palladium");
             }
             else if (randomSpell.Equals("styrofoam"))
             {
                 spellCoin = styrofoamCoin;
                 spellCoin.GetComponent<CoinLogic>().styrofoamValue = generation.GetStyrofoamValue();
+                spells.Remove("styrofoam");
+            }
+            else if (randomSpell.Equals("blackhole"))
+            {
+                spellCoin = blackHoleCoin;
+                spells.Remove("blackhole");
+                // Make marker for black hole coin appear
+                // Make detonate button appear for black hole
             }
 
             spells.Remove(randomSpell);
@@ -366,46 +412,10 @@ public class CoinPlacement : MonoBehaviour
             {
                 dropCooldown = maxCooldown;
             }
-        }
-        else if (bombCoinCooldown > 0 && tremorCoinCooldown > 0)
-        {
-            if (dropCooldown <= 0 && blitzEvent == false)
+
+            if (additionalDropChance > 0)
             {
-                generation.GetPlacementData();
-                // Places the currently selected coin >> Changing its Component every placement
-                newCoin = Instantiate(selectedCoin, clampedPosition, Quaternion.Euler(90, 0, 0));
-                dropCooldown = maxCooldown;
-
-                if (additionalDropChance > 0)
-                {
-                    AttemptAdditionalCoin(clampedPosition);
-                }
-
-                newCoin.transform.SetParent(coinParent.transform);
-            }
-            else if (dropCooldown <= 0 && blitzEvent == true)
-            {
-                generation.GetPlacementData();
-                //Vector3 blitzPosition = new Vector3(clampedPosition.x, clampedPosition.y, clampedPosition.z + 1.25f);
-
-                Vector3 blitzPosition;
-
-                float randX = Random.Range(minXDropClamp, maxXDropClamp);
-
-                blitzPosition = new Vector3(randX, clampedPosition.y, clampedPosition.z + 1.25f);
-
-                // !Play particle effect at instantiation position!
-                blitzSparkle.transform.position = blitzPosition;
-                blitzSparkle.GetComponent<ParticleSystem>().Play();
-                newCoin = Instantiate(selectedCoin, blitzPosition, Quaternion.Euler(90, 0, 0));
-                dropCooldown = blitzCooldown;
-
-                if (additionalDropChance > 0)
-                {
-                    AttemptAdditionalCoin(clampedPosition);
-                }
-
-                newCoin.transform.SetParent(coinParent.transform);
+                AttemptAdditionalCoin(clampedPosition);
             }
         }
     }
@@ -450,6 +460,7 @@ public class CoinPlacement : MonoBehaviour
             blitzSparkle.GetComponent<ParticleSystem>().Play();
         }
 
+        
         // Builds coins equal to additionalDrops
         for (int i = 0; i < additionalDrops; ++i)
         {
@@ -472,15 +483,16 @@ public class CoinPlacement : MonoBehaviour
                 }
                 else
                 {
-                    itemBuilder.GetComponent<ItemBuilder>().BuildCoin();
+                    itemBuilder.GetComponent<ItemBuilder>().BuildCoin(selectedCoin);
                 }
 
             }
             else
             {
-                itemBuilder.GetComponent<ItemBuilder>().BuildCoin();
+                itemBuilder.GetComponent<ItemBuilder>().BuildCoin(selectedCoin);
             }
         }
+        
     }
 
     private void CalculateDropChance()
@@ -537,5 +549,20 @@ public class CoinPlacement : MonoBehaviour
             eventManager.GetComponent<TremorShake>().tremorDuration += 1;
         }
         numTremorCoins++;
+    }
+
+    public void IntakeBulldozeCoin()
+    {
+        numBulldozeCoins++;
+        if (defaultBulldozeCoinCooldown > 30)
+        {
+            defaultBulldozeCoinCooldown -= 30;
+        }
+    }
+
+    public void IntakeBlackHoleCoin()
+    {
+        numBlackHoleCoins++;
+        // Increase black hole stats
     }
 }

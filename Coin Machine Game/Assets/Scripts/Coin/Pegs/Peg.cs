@@ -306,14 +306,14 @@ public class Peg : MonoBehaviour
                 if (outcome <= 24)
                 {
                     other.transform.GetComponentInParent<CoinLogic>().ConvertToStyrofoam();
+                    audioManager.GetComponent<AudioManager>().PlayAudioClip("gwomp");
                 }
                 else
                 {
                     other.transform.GetComponentInParent<CoinLogic>().ConvertToPalladium();
+                    audioManager.GetComponent<AudioManager>().PlayAudioClip("palladium");
                 }
                 ++hitCounter;
-
-                audioManager.GetComponent<AudioManager>().PlayAudioClip("palladium");
             }
         }
 

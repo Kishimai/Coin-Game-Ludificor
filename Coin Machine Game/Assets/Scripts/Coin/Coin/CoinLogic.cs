@@ -124,7 +124,14 @@ public class CoinLogic : MonoBehaviour
 
         if (difference > soundThreshold)
         {
-            audio.PlayAudioClip("coin");
+            if (isStyrofoam)
+            {
+                audio.PlayAudioClip("styro");
+            }
+            else
+            {
+                audio.PlayAudioClip("coin");
+            }
         }
 
         speedOfLastFrame = currentSpeed;
@@ -316,6 +323,8 @@ public class CoinLogic : MonoBehaviour
         {
             CoinData data = GetComponent<Data_Interp>().data;
 
+            GetComponent<MeshRenderer>().material = data.materialColor;
+
             switch (data.Name)
             {
                 case "Emerald Coin":
@@ -413,6 +422,7 @@ public class CoinLogic : MonoBehaviour
                     intensityFromType = 1f;
                     canvasTextHead.color = yellowText;
                     canvasTextTail.color = yellowText;
+                    //GetComponent<MeshRenderer>().enabled = true;
                     break;
 
                 case "God Coin":
@@ -420,6 +430,7 @@ public class CoinLogic : MonoBehaviour
                     intensityFromType = 0.6f;
                     canvasTextHead.color = blackText;
                     canvasTextTail.color = blackText;
+                    //GetComponent<MeshRenderer>().enabled = true;
                     break;
 
                 default:

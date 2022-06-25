@@ -22,6 +22,8 @@ public class AudioManager : MonoBehaviour
     public GameObject getItem;
     public GameObject upgradeCoin;
     public GameObject bulldozeSound;
+    public GameObject styroSound;
+    public GameObject gwompSound;
 
     public GameObject powerSurgeClick;
     public GameObject powerSurgeDrone;
@@ -131,6 +133,16 @@ public class AudioManager : MonoBehaviour
             case "palladium":
                 audioSource = Instantiate(palladium, playerCamera.transform.position, Quaternion.identity);
                 audioSource.GetComponent<PalladiumSound>().PlayAudio();
+                break;
+
+            case "styro":
+                audioSource = Instantiate(styroSound, playerCamera.transform.position, Quaternion.identity);
+                audioSource.GetComponent<StyroSound>().PlayAudio();
+                break;
+
+            case "gwomp":
+                audioSource = Instantiate(gwompSound, playerCamera.transform.position, Quaternion.identity);
+                audioSource.GetComponent<GwompSound>().PlayAudio();
                 break;
         }
     }
