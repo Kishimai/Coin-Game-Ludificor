@@ -98,9 +98,27 @@ public class DeleteCoins : MonoBehaviour
         {
             gameManager.GetComponent<ItemInventory>().GetSpell("bomb");
 
-            cam.GetComponent<CoinPlacement>().activeSpells.RemoveAt(0);
+            if (cam.GetComponent<CoinPlacement>().activeBombs.Count > 0)
+            {
+                cam.GetComponent<CoinPlacement>().activeBombs.RemoveAt(0);
+            }
 
             Destroy(other.gameObject.transform.parent.gameObject);
+        }
+
+        if (other.gameObject.tag == "black_hole")
+        {
+            // get spell
+            gameManager.GetComponent<ItemInventory>().GetSpell("blackhole");
+
+            if (cam.GetComponent<CoinPlacement>().activeBlackHoles.Count > 0)
+            {
+                cam.GetComponent<CoinPlacement>().activeBlackHoles.RemoveAt(0);
+            }
+
+            Destroy(other.gameObject.transform.parent.gameObject);
+            // remove active instances
+            // destroy
         }
 
         if (other.gameObject.tag == "tremor_coin" && eventManager.GetComponent<EventsManager>().playerIsReady)
@@ -160,6 +178,7 @@ public class DeleteCoins : MonoBehaviour
             Destroy(other.gameObject.transform.parent.gameObject);
         }
 
+        
 
     }
 

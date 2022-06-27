@@ -263,10 +263,16 @@ public class UI_Manager : MonoBehaviour
         windowed = windowedToggle.isOn;
 
         if(Input.GetKeyDown(KeyCode.Escape)){
-            if(currentUIMenu == 5){
-                Update_UI(4);
-            } else {
-                Update_UI(5);
+            if (currentUIMenu != 8)
+            {
+                if (currentUIMenu == 5)
+                {
+                    Update_UI(4);
+                }
+                else
+                {
+                    Update_UI(5);
+                }
             }
         }
 

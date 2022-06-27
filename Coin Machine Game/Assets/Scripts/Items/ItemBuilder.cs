@@ -221,11 +221,11 @@ public class ItemBuilder : MonoBehaviour
                 Vector3 position = new Vector3(planePos.x + randomXPosition / 2, 27, planePos.z + randomZPosition / 2);
                 randomRotation = new Vector3(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360));
 
-                chosenCoin = Instantiate(coinsToBuild[0], position, Quaternion.Euler(randomRotation));
+                chosenCoin = Instantiate(coinsToBuild[coinsToBuild.Count - 1], position, Quaternion.Euler(randomRotation));
 
                 chosenCoin.transform.SetParent(coinParent.transform);
 
-                coinsToBuild.RemoveAt(0);
+                coinsToBuild.RemoveAt(coinsToBuild.Count - 1);
 
             }
 

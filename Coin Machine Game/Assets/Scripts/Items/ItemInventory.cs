@@ -92,6 +92,7 @@ public class ItemInventory : MonoBehaviour
     public Sprite fasterFriends;
     public Sprite friendsWithBenefits;
     public Sprite moreBenefits;
+    public Sprite blackHoleVoucher;
 
     // Start is called before the first frame update
     void Start()
@@ -312,6 +313,10 @@ public class ItemInventory : MonoBehaviour
 
             case "bulldoze_voucher":
                 collectionsMenu.GetComponent<Collections>().AddItem(bulldozeVoucher, "bulldoze_voucher");
+                return newItem;
+
+            case "black_hole_voucher":
+                collectionsMenu.GetComponent<Collections>().AddItem(blackHoleVoucher, "black_hole_voucher");
                 return newItem;
 
             // --------------- ADDITIONAL COIN DROP ITEMS --------------- //

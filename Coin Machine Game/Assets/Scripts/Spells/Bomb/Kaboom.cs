@@ -19,6 +19,6 @@ public class Kaboom : MonoBehaviour
 
         gameObject.SetActive(false);
 
-        cam.GetComponent<CoinPlacement>().activeSpells = new List<GameObject>();
+        cam.GetComponent<CoinPlacement>().activeBombs = new List<GameObject>();
     }
 }

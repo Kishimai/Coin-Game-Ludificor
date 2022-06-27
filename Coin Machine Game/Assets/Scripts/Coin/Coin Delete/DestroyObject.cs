@@ -41,5 +41,10 @@ public class DestroyObject : MonoBehaviour
         {
             Destroy(other.gameObject.transform.parent.gameObject);
         }
+
+        if (other.gameObject.tag == "black_hole")
+        {
+            Destroy(other.gameObject.transform.parent.gameObject);
+        }
     }
 }

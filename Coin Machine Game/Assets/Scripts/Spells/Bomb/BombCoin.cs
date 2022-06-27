@@ -34,6 +34,8 @@ public class BombCoin : MonoBehaviour
 
         audioManager = GameObject.FindGameObjectWithTag("audio_manager");
         audio = audioManager.GetComponent<AudioManager>();
+
+        
     }
 
     private void Update()
@@ -53,7 +55,7 @@ public class BombCoin : MonoBehaviour
 
     public void Explode()
     {
-        Instantiate(explosion, transform.position, Quaternion.identity);
+        GameObject newExplosion = Instantiate(explosion, transform.position, Quaternion.identity);
         boom.Play();
         Destroy(gameObject);
     }

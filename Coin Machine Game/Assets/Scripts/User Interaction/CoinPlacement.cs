@@ -28,12 +28,14 @@ public class CoinPlacement : MonoBehaviour
     public GameObject styrofoamCoin;
     public GameObject blackHoleCoin;
     public GameObject detonateButton;
+    public GameObject succButton;
     public GameObject bulldozeCoin;
     public GameObject blitzSparkle;
     public GameObject bombCoinMarker;
     public GameObject shortFade, longFade;
     public List<string> spells = new List<string>();
-    public List<GameObject> activeSpells = new List<GameObject>();
+    public List<GameObject> activeBombs = new List<GameObject>();
+    public List<GameObject> activeBlackHoles = new List<GameObject>();
 
     private GameObject itemBuilder;
 
@@ -94,9 +96,14 @@ public class CoinPlacement : MonoBehaviour
     public float blackHoleCoinCooldown = 0;
     public float defaultBlackholeCooldown = 180f;
 
-    public float radiusIncrease = 0;
-    public float forceIncrease = 0;
+    public float radiusIncrease = 0.25f;
+    public float forceIncrease = 150;
     public float tremorDurationIncrease = 0;
+
+    public float radiusOfExplosion = 6;
+    public float explosionForce = 1200;
+    public float upwardsForce = 0.1f;
+    public Vector3 expansionRate = new Vector3(20,20,20);
 
     // Start is called before the first frame update
     void Start()
@@ -217,9 +224,13 @@ public class CoinPlacement : MonoBehaviour
             MouseTracking();
         }
 
-        if (activeSpells.Count == 0)
+        if (activeBombs.Count == 0)
         {
             detonateButton.SetActive(false);
+        }
+        if (activeBlackHoles.Count == 0)
+        {
+            succButton.SetActive(false);
         }
         
         CalculateDropChance();
@@ -338,7 +349,7 @@ public class CoinPlacement : MonoBehaviour
             if (randomSpell.Equals("bomb"))
             {
                 spellCoin = bombCoin;
-                activeSpells.Add(spellCoin);
+                activeBombs.Add(spellCoin);
                 specialEffect = bombCoinMarker;
                 spells.Remove("bomb");
             }
@@ -368,6 +379,7 @@ public class CoinPlacement : MonoBehaviour
             {
                 spellCoin = blackHoleCoin;
                 spells.Remove("blackhole");
+                activeBlackHoles.Add(spellCoin);
                 // Make marker for black hole coin appear
                 // Make detonate button appear for black hole
             }
@@ -401,6 +413,10 @@ public class CoinPlacement : MonoBehaviour
             {
                 detonateButton.SetActive(true);
             }
+            if (identification.gameObject.tag == "black_hole")
+            {
+                succButton.SetActive(true);
+            }
 
             newCoin.transform.SetParent(coinParent.transform);
 
@@ -430,7 +446,11 @@ public class CoinPlacement : MonoBehaviour
         {
             spells.Add(spell);
         }
-        if (!spell.Equals("tremor") && !spell.Equals("bomb"))
+        if (spell.Equals("bulldoze") && !spells.Contains("bulldoze"))
+        {
+            spells.Add(spell);
+        }
+        if (spell.Equals("blackhole") && !spells.Contains("blackhole"))
         {
             spells.Add(spell);
         }
@@ -539,7 +559,11 @@ public class CoinPlacement : MonoBehaviour
     public void IntakeBombCoin()
     {
         numBombCoins++;
-        bombCoin.GetComponent<BombCoin>().IncreaseExplosionRadius(radiusIncrease, forceIncrease);
+        //bombCoin.GetComponent<BombCoin>().IncreaseExplosionRadius(radiusIncrease, forceIncrease);
+        radiusOfExplosion += radiusIncrease;
+        explosionForce += forceIncrease;
+        upwardsForce = 0.5f;
+        expansionRate += Vector3.one;
     }
 
     public void IntakeTremorCoin()

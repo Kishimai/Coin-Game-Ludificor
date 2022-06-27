@@ -42,6 +42,7 @@ ScriptsOnlyBuild:
     - GetItemSound
     - GlassRemover
     - GoldPing
+    - GwompSound
     - IngamePointer
     - ItemBuilder
     - ItemButton
@@ -53,6 +54,7 @@ ScriptsOnlyBuild:
     - MoneyManager
     - MusicVolControl
     - PalladiumSound
+    - PauseManager
     - Peg
     - PegCollide
     - PegManager
@@ -67,6 +69,7 @@ ScriptsOnlyBuild:
     - ShopInteract
     - ShopOpenClose
     - ShopSystem
+    - StyroSound
     - ToolTip
     - ToolTipTrigger
     - TooltipSystem
@@ -77,6 +80,7 @@ ScriptsOnlyBuild:
     Sirenix.OdinInspector.Editor.dll:
     - Sirenix.OdinInspector.Editor.ImportSettingsConfig
     - Sirenix.OdinInspector.Editor.InspectorConfig
+    - Sirenix.OdinInspector.Editor.Modules.OdinModuleConfig
     - Sirenix.Serialization.AOTGenerationConfig
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
@@ -120,6 +124,7 @@ ScriptsOnlyBuild:
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.ShaderGraph.Editor.dll:
+    - UnityEditor.Graphing.GraphObject
     - UnityEditor.ShaderGraph.Drawing.MaterialGraphEditWindow
     Unity.TextMeshPro.dll:
     - TMPro.TMP_FontAsset
@@ -374,73 +379,79 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 6430}
     - Class: 114
-      Script: {instanceID: 6450}
+      Script: {instanceID: 6438}
     - Class: 114
-      Script: {instanceID: 6492}
+      Script: {instanceID: 6452}
     - Class: 114
-      Script: {instanceID: 6566}
+      Script: {instanceID: 6494}
     - Class: 114
-      Script: {instanceID: 6598}
+      Script: {instanceID: 6552}
     - Class: 114
-      Script: {instanceID: 6624}
+      Script: {instanceID: 6570}
     - Class: 114
-      Script: {instanceID: 6630}
+      Script: {instanceID: 6602}
     - Class: 114
-      Script: {instanceID: 6738}
+      Script: {instanceID: 6628}
     - Class: 114
-      Script: {instanceID: 6786}
+      Script: {instanceID: 6634}
     - Class: 114
-      Script: {instanceID: 6808}
+      Script: {instanceID: 6742}
     - Class: 114
-      Script: {instanceID: 6830}
+      Script: {instanceID: 6790}
     - Class: 114
-      Script: {instanceID: 6884}
+      Script: {instanceID: 6812}
     - Class: 114
-      Script: {instanceID: 7046}
+      Script: {instanceID: 6834}
     - Class: 114
-      Script: {instanceID: 7104}
+      Script: {instanceID: 6888}
     - Class: 114
-      Script: {instanceID: 7170}
+      Script: {instanceID: 7050}
     - Class: 114
-      Script: {instanceID: 7182}
+      Script: {instanceID: 7108}
     - Class: 114
-      Script: {instanceID: 7252}
+      Script: {instanceID: 7174}
     - Class: 114
-      Script: {instanceID: 7340}
+      Script: {instanceID: 7186}
     - Class: 114
-      Script: {instanceID: 7370}
+      Script: {instanceID: 7256}
     - Class: 114
-      Script: {instanceID: 7394}
+      Script: {instanceID: 7344}
     - Class: 114
-      Script: {instanceID: 7434}
+      Script: {instanceID: 7374}
     - Class: 114
-      Script: {instanceID: 7630}
+      Script: {instanceID: 7398}
     - Class: 114
-      Script: {instanceID: 7702}
+      Script: {instanceID: 7400}
     - Class: 114
-      Script: {instanceID: 7720}
+      Script: {instanceID: 7440}
     - Class: 114
-      Script: {instanceID: 7746}
+      Script: {instanceID: 7636}
     - Class: 114
-      Script: {instanceID: 7786}
+      Script: {instanceID: 7708}
     - Class: 114
-      Script: {instanceID: 7800}
+      Script: {instanceID: 7726}
     - Class: 114
-      Script: {instanceID: 7842}
+      Script: {instanceID: 7752}
     - Class: 114
-      Script: {instanceID: 7870}
+      Script: {instanceID: 7792}
     - Class: 114
-      Script: {instanceID: 7966}
+      Script: {instanceID: 7806}
     - Class: 114
-      Script: {instanceID: 8000}
+      Script: {instanceID: 7848}
     - Class: 114
-      Script: {instanceID: 8014}
+      Script: {instanceID: 7876}
     - Class: 114
-      Script: {instanceID: 8034}
+      Script: {instanceID: 7972}
     - Class: 114
-      Script: {instanceID: 8184}
+      Script: {instanceID: 8006}
     - Class: 114
-      Script: {instanceID: 245666}
+      Script: {instanceID: 8020}
+    - Class: 114
+      Script: {instanceID: 8040}
+    - Class: 114
+      Script: {instanceID: 8190}
+    - Class: 114
+      Script: {instanceID: 35600}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -458,6 +469,8 @@ ScriptsOnlyBuild:
     - Class: 198
       Script: {instanceID: 0}
     - Class: 199
+      Script: {instanceID: 0}
+    - Class: 212
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -624,7 +637,7 @@ ScriptsOnlyBuild:
     className: VFXUIDropdownBinder
   - hash:
       serializedVersion: 2
-      Hash: e39041db63065a2286365a06f8d30221
+      Hash: 9f3964836a96d2d4ee4ab1e7e53ac7da
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BestFriend
@@ -1584,7 +1597,7 @@ ScriptsOnlyBuild:
     className: ChannelMixer
   - hash:
       serializedVersion: 2
-      Hash: 1115977ec5c51a2b2fd99b28443145c2
+      Hash: 297968e43b6eb785cbf5dcc0cd8d10ce
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AudioManager
@@ -1806,6 +1819,12 @@ ScriptsOnlyBuild:
     className: CoinLogic
   - hash:
       serializedVersion: 2
+      Hash: 0880b30b97266268dd6c5edaaf8c4f61
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GwompSound
+  - hash:
+      serializedVersion: 2
       Hash: 8e6ceabfd38a184413d69b7db56c89cc
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
@@ -1828,6 +1847,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
     className: DebugUIHandlerCanvas
+  - hash:
+      serializedVersion: 2
+      Hash: 0880b30b97266268dd6c5edaaf8c4f61
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PalladiumSound
   - hash:
       serializedVersion: 2
       Hash: 5c293a73b8423b585d674bb29b6320a3
@@ -2052,10 +2077,16 @@ ScriptsOnlyBuild:
     className: ControlTrack
   - hash:
       serializedVersion: 2
-      Hash: dbe88610a00645f201b8b558d7202e90
+      Hash: b01060caac8cda1889fff5d1ee302265
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: CoinPlacement
+  - hash:
+      serializedVersion: 2
+      Hash: 0880b30b97266268dd6c5edaaf8c4f61
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StyroSound
   - hash:
       serializedVersion: 2
       Hash: 040dd48e3a027d5424519a5fa2009df4
@@ -2094,7 +2125,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerButton
   - hash:
       serializedVersion: 2
-      Hash: fb071148555722db137e1fcf477c15b3
+      Hash: c26614c48927ab30d2c357ad9a1a584d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ItemBuilder
@@ -2220,11 +2251,29 @@ ScriptsOnlyBuild:
     className: VFXRaycastBinder
   - hash:
       serializedVersion: 2
-      Hash: 0880b30b97266268dd6c5edaaf8c4f61
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: PalladiumSound
+    className: PauseManager
+  - hash:
+      serializedVersion: 2
+      Hash: bc99b6661a77986f85323740bdb79735
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BlackHoleCoin
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Succ
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: BlackHole
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main Menu.unity
-  playerPath: I:/Unity Builds/Ludificor/Coin Game 6-5-2022/Coin Machine Game.exe
+  playerPath: I:/Unity Builds/Ludificor/Coin Game 6-25-2022/Coin Machine Game.exe

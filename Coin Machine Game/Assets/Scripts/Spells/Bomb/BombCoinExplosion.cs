@@ -6,16 +6,16 @@ public class BombCoinExplosion : MonoBehaviour
 {
     public GameObject forceBubble;
 
-    public float explosionDuration;
-    public float forceDuration;
+    public float explosionDuration = 0.3f;
+    public float forceDuration = 0.3f;
 
     private float elapsedTime;
 
-    public float radiusOfExplosion;
-    public float radiusOfForce;
-    public Vector3 expansionRate;
-    public float rateModifier;
-    public float explosionForce;
+    public float radiusOfExplosion = 3;
+    public float radiusOfForce = 10;
+    public Vector3 expansionRate = Vector3.one;
+    public float rateModifier = 1.2f;
+    public float explosionForce = 100;
     public float upwardsForce = 3f;
 
     private Vector3 startRadius = Vector3.zero;
@@ -24,14 +24,23 @@ public class BombCoinExplosion : MonoBehaviour
 
     private void Start()
     {
+        GameObject playerCam = GameObject.FindGameObjectWithTag("MainCamera");
+
+        radiusOfExplosion = playerCam.GetComponent<CoinPlacement>().radiusOfExplosion;
+        explosionForce = playerCam.GetComponent<CoinPlacement>().explosionForce;
+        upwardsForce = playerCam.GetComponent<CoinPlacement>().upwardsForce;
+        expansionRate = playerCam.GetComponent<CoinPlacement>().expansionRate;
+
         gameObject.transform.localScale = startRadius;
         endRadius = new Vector3(radiusOfExplosion, radiusOfExplosion, radiusOfExplosion);
         endRadiusForForce = new Vector3(radiusOfExplosion, radiusOfExplosion, radiusOfExplosion);
+        //StartCoroutine(Expand());
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         elapsedTime += Time.deltaTime;
 
         float fractComplete = elapsedTime / explosionDuration;
@@ -52,6 +61,24 @@ public class BombCoinExplosion : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
+    }
+
+    private IEnumerator Expand()
+    {
+        while (gameObject.transform.localScale.x < endRadius.x - 0.1)
+        {
+            elapsedTime += Time.fixedDeltaTime;
+
+            float fractComplete = elapsedTime / explosionDuration;
+            float fractCompleteForForce = elapsedTime / forceDuration;
+
+            gameObject.transform.localScale += expansionRate * Time.fixedDeltaTime;
+
+            yield return new WaitForFixedUpdate();
+        }
+
+        Destroy(gameObject);
     }
 
     private void LateUpdate()
@@ -91,6 +118,10 @@ public class BombCoinExplosion : MonoBehaviour
             other.GetComponentInParent<Rigidbody>().AddExplosionForce(explosionForce * 0.75f, gameObject.transform.position, gameObject.transform.localScale.x, 3f);
         }
         if (other.gameObject.tag == "styrofoam_coin")
+        {
+            other.GetComponentInParent<Rigidbody>().AddExplosionForce(explosionForce * 1.2f, gameObject.transform.position, gameObject.transform.localScale.x, 3f);
+        }
+        if (other.gameObject.tag == "black_hole")
         {
             other.GetComponentInParent<Rigidbody>().AddExplosionForce(explosionForce * 1.2f, gameObject.transform.position, gameObject.transform.localScale.x, 3f);
         }
