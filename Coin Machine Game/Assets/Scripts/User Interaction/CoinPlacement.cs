@@ -103,13 +103,18 @@ public class CoinPlacement : MonoBehaviour
     public float radiusOfExplosion = 6;
     public float explosionForce = 1200;
     public float upwardsForce = 0.1f;
-    public Vector3 expansionRate = new Vector3(20,20,20);
+    public Vector3 expansionRate = new Vector3(25,25,25);
+
+    public Vector3 blackHoleSize = new Vector3(0,0,0);
+    public Vector3 defaultBlackHoleSize = new Vector3(2,2,2);
 
     // Start is called before the first frame update
     void Start()
     {
         // Makes sure this script knows that gameplay is not yet ready
         gameplayIsReady = false;
+
+        blackHoleSize = defaultBlackHoleSize;
 
         // Creates the coinGuide object (Change this so that the coinGuide constantly reflects the currently selected coin)!
         coinGuide = Instantiate(testCoin, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
@@ -588,5 +593,6 @@ public class CoinPlacement : MonoBehaviour
     {
         numBlackHoleCoins++;
         // Increase black hole stats
+        blackHoleSize += Vector3.one;
     }
 }

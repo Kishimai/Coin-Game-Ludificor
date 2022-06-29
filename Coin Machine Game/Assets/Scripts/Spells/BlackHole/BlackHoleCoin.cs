@@ -53,7 +53,9 @@ public class BlackHoleCoin : MonoBehaviour
     public void Absorb()
     {
         Debug.LogWarning("Black hole not fully implemented");
-        Instantiate(blackHoleObject, transform.position, Quaternion.identity);
+        GameObject blackHole = Instantiate(blackHoleObject, transform.position, Quaternion.identity);
+        Vector3 newPosition = new Vector3(blackHole.transform.position.x, 1.5f, blackHole.transform.position.z);
+        blackHole.transform.position = newPosition;
         Destroy(gameObject);
     }
 }

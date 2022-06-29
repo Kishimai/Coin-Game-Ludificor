@@ -25,6 +25,10 @@ public class AudioManager : MonoBehaviour
     public GameObject styroSound;
     public GameObject gwompSound;
 
+    public GameObject blackHoleOpen;
+    public GameObject blackHoleDrone;
+    public GameObject blackHoleClose;
+
     public GameObject powerSurgeClick;
     public GameObject powerSurgeDrone;
     private GameObject surgeCopy;
@@ -143,6 +147,21 @@ public class AudioManager : MonoBehaviour
             case "gwomp":
                 audioSource = Instantiate(gwompSound, playerCamera.transform.position, Quaternion.identity);
                 audioSource.GetComponent<GwompSound>().PlayAudio();
+                break;
+
+            case "black_hole_open":
+                audioSource = Instantiate(blackHoleOpen, playerCamera.transform.position, Quaternion.identity);
+                audioSource.GetComponent<BlackHoleOpen>().PlayAudio();
+                break;
+
+            case "black_hole_drone":
+                audioSource = Instantiate(blackHoleDrone, playerCamera.transform.position, Quaternion.identity);
+                audioSource.GetComponent<BlackHoleDrone>().PlayAudio();
+                break;
+
+            case "black_hole_close":
+                audioSource = Instantiate(blackHoleClose, playerCamera.transform.position, Quaternion.identity);
+                audioSource.GetComponent<BlackHoleClose>().PlayAudio();
                 break;
         }
     }
