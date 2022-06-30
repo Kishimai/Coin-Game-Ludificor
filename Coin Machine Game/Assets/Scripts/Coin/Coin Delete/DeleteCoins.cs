@@ -73,7 +73,7 @@ public class DeleteCoins : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // Runs if object that collides with Coin Destroyer is a coin
-        if (other.gameObject.tag == "coin" && eventManager.GetComponent<EventsManager>().playerIsReady)
+        if (other.CompareTag("coin") && eventManager.GetComponent<EventsManager>().playerIsReady)
         {
             System.Math.Floor(_manager._currentCoin += other.GetComponentInParent<Data_Interp>().data.currentValue * CalculateModifier(other));
             ++coinCounter;
@@ -84,7 +84,7 @@ public class DeleteCoins : MonoBehaviour
             Destroy(other.gameObject.transform.parent.gameObject);
         }
 
-        if (other.gameObject.tag == "item" && eventManager.GetComponent<EventsManager>().playerIsReady)
+        if (other.CompareTag("item") && eventManager.GetComponent<EventsManager>().playerIsReady)
         {
 
             // Adds 1 available prize to ItemInventory
@@ -94,7 +94,7 @@ public class DeleteCoins : MonoBehaviour
             Destroy(other.gameObject.transform.parent.gameObject);
         }
 
-        if (other.gameObject.tag == "bomb_coin" && eventManager.GetComponent<EventsManager>().playerIsReady)
+        if (other.CompareTag("bomb_coin") && eventManager.GetComponent<EventsManager>().playerIsReady)
         {
             gameManager.GetComponent<ItemInventory>().GetSpell("bomb");
 
@@ -106,7 +106,7 @@ public class DeleteCoins : MonoBehaviour
             Destroy(other.gameObject.transform.parent.gameObject);
         }
 
-        if (other.gameObject.tag == "black_hole")
+        if (other.CompareTag("black_hole"))
         {
             // get spell
             gameManager.GetComponent<ItemInventory>().GetSpell("blackhole");
@@ -128,14 +128,14 @@ public class DeleteCoins : MonoBehaviour
             Destroy(other.gameObject.transform.parent.gameObject);
         }
         
-        if (other.gameObject.tag == "bulldoze_coin" && eventManager.GetComponent<EventsManager>().playerIsReady)
+        if (other.CompareTag("bulldoze_coin") && eventManager.GetComponent<EventsManager>().playerIsReady)
         {
             gameManager.GetComponent<ItemInventory>().GetSpell("bulldoze");
 
             Destroy(other.gameObject.transform.parent.gameObject);
         }
 
-        if (other.gameObject.tag == "palladium_coin")
+        if (other.CompareTag("palladium_coin"))
         {
             double dataValue = other.GetComponentInParent<Data_Interp>().data.currentValue;
             float palladiumModifier = other.GetComponentInParent<CoinLogic>().palladiumValue;
@@ -156,7 +156,7 @@ public class DeleteCoins : MonoBehaviour
             Destroy(other.gameObject.transform.parent.gameObject);
         }
 
-        if (other.gameObject.tag == "styrofoam_coin")
+        if (other.CompareTag("styrofoam_coin"))
         {
             // Calculate modifier
             // If value is 0, do not add coins
@@ -198,6 +198,12 @@ public class DeleteCoins : MonoBehaviour
 
             _manager._currentCoin += coinValue;
 
+            Destroy(collision.gameObject);
+        }
+
+        if (collision.gameObject.tag == "dark_matter")
+        {
+            _manager._currentCoin += collision.gameObject.GetComponent<DarkMatter>().value;
             Destroy(collision.gameObject);
         }
     }

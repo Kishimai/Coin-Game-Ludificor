@@ -58,6 +58,7 @@ public class ItemButton : MonoBehaviour
     public Sprite fasterFriends;
     public Sprite friendsWithBenefits;
     public Sprite moreBenefits;
+    public Sprite blackHoleVoucher;
 
     public Color32 common;
     public Color32 uncommon;
@@ -278,6 +279,10 @@ public class ItemButton : MonoBehaviour
             case "more_benefits":
                 image.color = common;
                 return moreBenefits;
+
+            case "black_hole_voucher":
+                image.color = uncommon;
+                return blackHoleVoucher;
 
             case "initialize":
                 image.color = common;

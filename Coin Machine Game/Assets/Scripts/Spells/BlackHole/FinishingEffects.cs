@@ -5,7 +5,7 @@ using UnityEngine;
 public class FinishingEffects : MonoBehaviour
 {
 
-    private float timeUntilDeletion = 0.5f;
+    private float timeUntilDeletion = 1f;
 
     private void Start()
     {

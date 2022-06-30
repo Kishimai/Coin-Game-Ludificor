@@ -213,6 +213,7 @@ public class ItemInventory : MonoBehaviour
             { "golden_peg", "Converts 1 normal peg to a gilded version, doubling value of coins that touch it" },
             { "more_coins", "Adds 5% chance to drop an additional coin each coin placement (Effect stacks past 100%)" },
             { "bomb_voucher", "Gives regenerating bomb coin which can be detonated" },
+            { "black_hole_voucher", "Gives regenerating black hole coin which can be activated" }
             //{ "tremor_voucher", "Gives tremor coin which will shake the machine when placed" },
         };
 
