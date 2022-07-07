@@ -192,7 +192,8 @@ public class CoinPusher : MonoBehaviour
         {
             if (allowingMovement)
             {
-                pusherSpeed = -defaultSpeed;
+                //pusherSpeed = -defaultSpeed;
+                pusherSpeed = -bulldozeSpeed * 0.4f;
                 pusherRb.velocity = new Vector3(0, 0, pusherSpeed);
             }
             yield return new WaitForFixedUpdate();

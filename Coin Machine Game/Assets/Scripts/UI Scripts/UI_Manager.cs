@@ -61,7 +61,7 @@ public class UI_Manager : MonoBehaviour
     /// <param name="data">Specific Change to Panel</param>
     public void Update_UI(int data){
 
-        Debug.Log(data);
+        //Debug.Log(data);
 
         switch(data){
             case 1: // Settings
@@ -308,6 +308,9 @@ public class UI_Manager : MonoBehaviour
     }
 
     public void QuitGame(){
+
+        GetComponent<SaveManager>().SaveData();
+
         Application.Quit();
     }
 

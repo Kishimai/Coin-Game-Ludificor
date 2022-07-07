@@ -43,7 +43,8 @@ public class BulldozeCoin : MonoBehaviour
             audio.PlayAudioClip("bulldoze");
             other.transform.GetComponent<CoinPusher>().StartBulldoze();
             GameObject lightning = GameObject.FindGameObjectWithTag("bulldoze_lightning");
-            lightning.GetComponent<Lightning>().LightningStrike(gameObject.transform.position);
+            Vector3 pos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z + 2f);
+            lightning.GetComponent<Lightning>().LightningStrike(pos);
             Destroy(gameObject);
         }
     }

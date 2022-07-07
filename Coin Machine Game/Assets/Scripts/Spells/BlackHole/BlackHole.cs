@@ -12,7 +12,7 @@ public class BlackHole : MonoBehaviour
     private float timeUntilCollapse = 4f;
 
     private float succForce = 60;
-    private float swirlingForce = 30;
+    private float swirlingForce = 20;
     private float eventHorizon = 0;
     //private Vector3 collapseSpeed = new Vector3(0.3f, 0.3f, 0.3f);
     public GameObject swirlingObject;
@@ -31,8 +31,10 @@ public class BlackHole : MonoBehaviour
     private float expandDuration = 0.25f;
     private float expandElapsedTime = 0;
 
-    public int totalCombinedModifier = 0;
-    public double totalCombinedValue = 0;
+    //public int totalCombinedModifier = 0;
+    //public double totalCombinedValue = 0;
+
+    private List<double> coinValues = new List<double>();
 
     private GameObject audioManager;
     
@@ -114,15 +116,17 @@ public class BlackHole : MonoBehaviour
 
             GameObject dankMatter = Instantiate(darkMatter, transform.position, Quaternion.identity);
 
-            if (totalCombinedModifier < 1)
+            //double newValue = totalCombinedValue * totalCombinedModifier;
+
+            //double half = newValue / 2;
+            //double finalValue = newValue + half;
+
+            double finalValue = 0;
+
+            foreach (double value in coinValues)
             {
-                totalCombinedModifier = 1;
+                finalValue += value;
             }
-
-            double newValue = totalCombinedValue * totalCombinedModifier;
-
-            double half = newValue / 2;
-            double finalValue = newValue + half;
 
             dankMatter.GetComponent<DarkMatter>().value = finalValue;
 
@@ -140,8 +144,15 @@ public class BlackHole : MonoBehaviour
 
                 if (Vector3.Distance(coin.transform.position, transform.position) < eventHorizon)
                 {
-                    totalCombinedValue += coin.GetComponent<Data_Interp>().data.currentValue;
-                    totalCombinedModifier += (int) coin.GetComponent<CoinLogic>().totalValueModifier;
+                    int modifier = 1;
+
+                    if ((int)coin.GetComponent<CoinLogic>().totalValueModifier > 1)
+                    {
+                        modifier = (int)coin.GetComponent<CoinLogic>().totalValueModifier;
+                    }
+
+                    coinValues.Add(coin.GetComponent<Data_Interp>().data.currentValue * modifier);
+
                     Destroy(coin);
                 }
                 else
@@ -157,8 +168,14 @@ public class BlackHole : MonoBehaviour
 
                 if (Vector3.Distance(coin.transform.position, transform.position) < eventHorizon)
                 {
-                    totalCombinedValue += coin.GetComponent<Data_Interp>().data.currentValue;
-                    totalCombinedModifier += (int) coin.GetComponent<CoinLogic>().totalValueModifier;
+                    int modifier = 1;
+
+                    if ((int)coin.GetComponent<CoinLogic>().totalValueModifier > 1)
+                    {
+                        modifier = (int)coin.GetComponent<CoinLogic>().totalValueModifier;
+                    }
+
+                    coinValues.Add(coin.GetComponent<Data_Interp>().data.currentValue * modifier);
                     Destroy(coin);
                 }
                 else
@@ -174,8 +191,14 @@ public class BlackHole : MonoBehaviour
 
                 if (Vector3.Distance(coin.transform.position, transform.position) < eventHorizon)
                 {
-                    totalCombinedValue += coin.GetComponent<Data_Interp>().data.currentValue;
-                    totalCombinedModifier += (int) coin.GetComponent<CoinLogic>().totalValueModifier;
+                    int modifier = 1;
+
+                    if ((int)coin.GetComponent<CoinLogic>().totalValueModifier > 1)
+                    {
+                        modifier = (int)coin.GetComponent<CoinLogic>().totalValueModifier;
+                    }
+
+                    coinValues.Add(coin.GetComponent<Data_Interp>().data.currentValue * modifier);
                     Destroy(coin);
                 }
                 else
@@ -198,8 +221,14 @@ public class BlackHole : MonoBehaviour
 
                 if (Vector3.Distance(coin.transform.position, transform.position) < eventHorizon)
                 {
-                    totalCombinedValue += coin.GetComponent<Data_Interp>().data.currentValue;
-                    totalCombinedModifier += (int) coin.GetComponent<CoinLogic>().totalValueModifier;
+                    int modifier = 1;
+
+                    if ((int)coin.GetComponent<CoinLogic>().totalValueModifier > 1)
+                    {
+                        modifier = (int)coin.GetComponent<CoinLogic>().totalValueModifier;
+                    }
+
+                    coinValues.Add(coin.GetComponent<Data_Interp>().data.currentValue * modifier);
                     Destroy(coin);
                 }
                 else
@@ -215,8 +244,14 @@ public class BlackHole : MonoBehaviour
 
                 if (Vector3.Distance(coin.transform.position, transform.position) < eventHorizon)
                 {
-                    totalCombinedValue += coin.GetComponent<Data_Interp>().data.currentValue;
-                    totalCombinedModifier += (int) coin.GetComponent<CoinLogic>().totalValueModifier;
+                    int modifier = 1;
+
+                    if ((int)coin.GetComponent<CoinLogic>().totalValueModifier > 1)
+                    {
+                        modifier = (int)coin.GetComponent<CoinLogic>().totalValueModifier;
+                    }
+
+                    coinValues.Add(coin.GetComponent<Data_Interp>().data.currentValue * modifier);
                     Destroy(coin);
                 }
                 else
@@ -232,8 +267,14 @@ public class BlackHole : MonoBehaviour
 
                 if (Vector3.Distance(coin.transform.position, transform.position) < eventHorizon)
                 {
-                    totalCombinedValue += coin.GetComponent<Data_Interp>().data.currentValue;
-                    totalCombinedModifier += (int) coin.GetComponent<CoinLogic>().totalValueModifier;
+                    int modifier = 1;
+
+                    if ((int)coin.GetComponent<CoinLogic>().totalValueModifier > 1)
+                    {
+                        modifier = (int)coin.GetComponent<CoinLogic>().totalValueModifier;
+                    }
+
+                    coinValues.Add(coin.GetComponent<Data_Interp>().data.currentValue * modifier);
                     Destroy(coin);
                 }
                 else

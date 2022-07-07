@@ -460,7 +460,7 @@ public class CoinPlacement : MonoBehaviour
             spells.Add(spell);
         }
 
-        Debug.Log("Got Spell: " + spell);
+        //Debug.Log("Got Spell: " + spell);
     }
 
     public void AttemptAdditionalCoin(Vector3 clampedPosition)

@@ -128,7 +128,7 @@ public class ItemInventory : MonoBehaviour
         if (newItem != "")
         {
 
-            Debug.Log(newItem);
+            //Debug.Log(newItem);
 
             foreach (GameObject button in itemButtons)
             {

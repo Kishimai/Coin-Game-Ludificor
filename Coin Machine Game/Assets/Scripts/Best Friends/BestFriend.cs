@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BestFriend : MonoBehaviour
 {
@@ -32,6 +33,10 @@ public class BestFriend : MonoBehaviour
 
     public Material lightRailOff;
     public Material lightRailOn;
+
+    public GameObject backgroundImage;
+
+    public List<GameObject> collidersToDisable = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -95,11 +100,16 @@ public class BestFriend : MonoBehaviour
 
     public void ActivateFriend()
     {
+        backgroundImage.GetComponent<Image>().color = Color.white;
         readyToPlay = true;
         TurnRailOn();
         lightBar.GetComponent<MeshRenderer>().material = lightBarOn;
         spotlight.SetActive(true);
         deleter.SetActive(false);
+        foreach (GameObject collider in collidersToDisable)
+        {
+            collider.SetActive(false);
+        }
     }
 
     private void CompileLights()

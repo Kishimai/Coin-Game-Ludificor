@@ -23,6 +23,7 @@ public class ShopSystem : MonoBehaviour
     public CoinData UpdatedCoin;
 
     public GameObject audioManager;
+    public GameObject exclamation;
 
     private int currentOrder;
     private int maxNumCoins = 5;
@@ -43,6 +44,15 @@ public class ShopSystem : MonoBehaviour
     }
 
     private void Update() {
+
+        if (UI._currentCoin >= CurrentCoin.currentCost)
+        {
+            exclamation.SetActive(true);
+        }
+        else
+        {
+            exclamation.SetActive(false);
+        }
 
         if (soundCooldown > 0)
         {
