@@ -14,7 +14,7 @@ public class DarkMatter : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
 
-        float randX = Random.Range(-20, 20);
+        float randX = Random.Range(-20, -5);
         float randZ = Random.Range(-20, 20);
 
         Vector3 newRotation = new Vector3(transform.rotation.x + randX, transform.rotation.y, transform.rotation.z + randZ);

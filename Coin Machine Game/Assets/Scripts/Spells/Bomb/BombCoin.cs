@@ -24,6 +24,8 @@ public class BombCoin : MonoBehaviour
     private float speedOfLastFrame = 0;
     public float soundThreshold = 5;
 
+    private GameObject gameManager;
+
     private void Start()
     {
         coinRb = GetComponent<Rigidbody>();
@@ -35,7 +37,8 @@ public class BombCoin : MonoBehaviour
         audioManager = GameObject.FindGameObjectWithTag("audio_manager");
         audio = audioManager.GetComponent<AudioManager>();
 
-        
+        gameManager = GameObject.FindGameObjectWithTag("game_manager");
+
     }
 
     private void Update()
@@ -55,6 +58,7 @@ public class BombCoin : MonoBehaviour
 
     public void Explode()
     {
+        gameManager.GetComponent<SaveManager>().bombsExploded += 1;
         GameObject newExplosion = Instantiate(explosion, transform.position, Quaternion.identity);
         boom.Play();
         Destroy(gameObject);

@@ -24,6 +24,7 @@ public class ShopSystem : MonoBehaviour
 
     public GameObject audioManager;
     public GameObject exclamation;
+    private GameObject steamManager;
 
     private int currentOrder;
     private int maxNumCoins = 5;
@@ -39,6 +40,7 @@ public class ShopSystem : MonoBehaviour
 
 
     public void Start(){
+        steamManager = GameObject.FindGameObjectWithTag("steam_manager");
         audioManager = GameObject.FindGameObjectWithTag("audio_manager");
         RestartData();
     }
@@ -67,6 +69,11 @@ public class ShopSystem : MonoBehaviour
         {
             UI._currentCoin += (CurrentCoin.currentCost + 1);
             UpgradeCoin();
+        }
+        else if (finished == false && loadUpgrades)
+        {
+            finished = true;
+            UI._currentCoin = UI.coim;
         }
     }
     
@@ -146,11 +153,17 @@ public class ShopSystem : MonoBehaviour
         {
             ObjectContent.transform.GetChild(1).transform.GetChild(0).GetComponent<TMP_Text>().text = CurrentCoin.currentCost.ToString("$0");
         }
+
+        if (CurrentCoin.Name.Equals("God Coin"))
+        {
+            GodProgress();
+        }
+
     }
 
     public void UpgradeCoin(){
         // try removing CurrentCoin.CurrentLevel != 10 // --------------------------
-        if(UI._currentCoin >= CurrentCoin.currentCost && !finished) {// && CurrentCoin.CurrentLevel != 10){
+        if(UI._currentCoin >= CurrentCoin.currentCost) {// && CurrentCoin.CurrentLevel != 10){
 
             currentUpgrades++;
 
@@ -170,6 +183,7 @@ public class ShopSystem : MonoBehaviour
                     if(CurrentCoin.Order != 16){
                         if(currentOrder == _data.Order){ // Now tracks current order in shop and compares to data in list
                             CurrentCoin = _data;
+                            CheckUpgradeProgress();
                         }
                     } else{
                         // Cant Upgrade Maxed out all coins
@@ -213,5 +227,54 @@ public class ShopSystem : MonoBehaviour
 
         return System.Math.Floor(coinValue);
     }
+
+    private void CheckUpgradeProgress()
+    {
+        if (CurrentCoin.Name.Equals("Emerald Coin"))
+        {
+            // metal coin achievement
+            steamManager.GetComponent<SteamManager>().CheckAchievement("Heavy");
+        }
+        if (CurrentCoin.Name.Equals("Uranium Coin"))
+        {
+            // gem achievement
+            steamManager.GetComponent<SteamManager>().CheckAchievement("Sparkly");
+        }
+        if (CurrentCoin.Name.Equals("Mithril Coin"))
+        {
+            // radioactive achievement
+            steamManager.GetComponent<SteamManager>().CheckAchievement("Radioactive");
+        }
+        if (CurrentCoin.Name.Equals("Mithril Coin"))
+        {
+            // mithril achievement
+            steamManager.GetComponent<SteamManager>().CheckAchievement("Mythic");
+        }
+        if (CurrentCoin.Name.Equals("Adamantite Coin"))
+        {
+            // adamantite achievement
+            steamManager.GetComponent<SteamManager>().CheckAchievement("NewHeights");
+        }
+        if (CurrentCoin.Name.Equals("Galaxy Coin"))
+        {
+            // galaxy achievement
+            steamManager.GetComponent<SteamManager>().CheckAchievement("FullOfStars");
+        }
+        if (CurrentCoin.Name.Equals("God Coin"))
+        {
+            // god achievement
+            steamManager.GetComponent<SteamManager>().CheckAchievement("ToInfinity");
+        }
+    }
     
+    private void GodProgress()
+    {
+        gameObject.GetComponent<SaveManager>().godLevels += 1;
+
+        if (gameObject.GetComponent<SaveManager>().godLevels == 100)
+        {
+            steamManager.GetComponent<SteamManager>().CheckAchievement("AndBeyond");
+        }
+    }
+
 }

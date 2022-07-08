@@ -191,7 +191,7 @@ public class EventsManager : MonoBehaviour
             initializationPhase = false;
             gameplayPhase = true;
 
-            StartCoroutine(Wait(2));
+            StartCoroutine(Wait(8));
 
             //gameManager.GetComponent<UI_Manager>().Update_UI(3);
             // ^ Code I moved from UI_Manager ^
@@ -440,27 +440,30 @@ public class EventsManager : MonoBehaviour
     {
         GameObject image = blitzIcon;
 
-        if (eventType.Equals("CoinBlitz"))
+        if (!eventType.Equals("ItemRain"))
         {
-            image = blitzIcon;
-        }
-        else if (eventType.Equals("PowerSurge"))
-        {
-            image = surgeIcon;
-        }
-        else if (eventType.Equals("PegCombo"))
-        {
-            image = comboIcon;
-        }
+            if (eventType.Equals("CoinBlitz"))
+            {
+                image = blitzIcon;
+            }
+            else if (eventType.Equals("PowerSurge"))
+            {
+                image = surgeIcon;
+            }
+            else if (eventType.Equals("PegCombo"))
+            {
+                image = comboIcon;
+            }
 
-        //background.SetActive(true);
+            //background.SetActive(true);
 
-        while (true)
-        {
-            image.SetActive(true);
-            yield return new WaitForSeconds(0.3f);
-            image.SetActive(false);
-            yield return new WaitForSeconds(0.3f);
+            while (true)
+            {
+                image.SetActive(true);
+                yield return new WaitForSeconds(0.3f);
+                image.SetActive(false);
+                yield return new WaitForSeconds(0.3f);
+            }
         }
 
     }

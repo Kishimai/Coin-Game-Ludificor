@@ -31,6 +31,8 @@ public class DeleteCoins : MonoBehaviour
 
     public GameObject eventManager;
 
+    private GameObject steamManager;
+
     // Manager Script used for getting Coin Variable
     public UI_Manager _manager;
 
@@ -46,6 +48,8 @@ public class DeleteCoins : MonoBehaviour
         eventManager = GameObject.FindGameObjectWithTag("gameplay_event_system");
 
         cam = GameObject.FindGameObjectWithTag("MainCamera");
+
+        steamManager = GameObject.FindGameObjectWithTag("steam_manager");
     }
 
     // Update is called once per frame
@@ -64,6 +68,11 @@ public class DeleteCoins : MonoBehaviour
         float modifier = 0;
 
         float valueFromPegEffects = other.GetComponentInParent<CoinLogic>().totalValueModifier;
+
+        if (valueFromPegEffects >= 500)
+        {
+            steamManager.GetComponent<SteamManager>().CheckAchievement("ComboTime");
+        }
 
         modifier = valueModifier + valueFromPegEffects;
 

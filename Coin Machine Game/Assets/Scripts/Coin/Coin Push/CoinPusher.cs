@@ -184,7 +184,7 @@ public class CoinPusher : MonoBehaviour
 
         //gameObject.GetComponent<Renderer>().material = bulldozeMaterial;
 
-        bulldozeEffect.SetActive(true);
+        //bulldozeEffect.SetActive(true);
 
         pusherRb.velocity = Vector3.zero;
 
@@ -223,7 +223,7 @@ public class CoinPusher : MonoBehaviour
 
         //gameObject.GetComponent<Renderer>().material = defaultAppearance;
 
-        bulldozeEffect.SetActive(false);
+        //bulldozeEffect.SetActive(false);
 
         bulldoze = false;
     }

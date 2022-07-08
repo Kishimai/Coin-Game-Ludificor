@@ -45,6 +45,7 @@ public class UI_Manager : MonoBehaviour
 
     [BoxGroup("Current Datas")]
     public double _currentCoin;
+    public double coim;
     [BoxGroup("Current Datas")]
     public int currentUIMenu;
 

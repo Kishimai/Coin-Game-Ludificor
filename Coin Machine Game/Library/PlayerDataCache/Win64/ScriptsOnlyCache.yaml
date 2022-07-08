@@ -90,6 +90,7 @@ ScriptsOnlyBuild:
     Sirenix.OdinInspector.Editor.dll:
     - Sirenix.OdinInspector.Editor.ImportSettingsConfig
     - Sirenix.OdinInspector.Editor.InspectorConfig
+    - Sirenix.OdinInspector.Editor.Modules.OdinModuleConfig
     - Sirenix.Serialization.AOTGenerationConfig
     Unity.RenderPipelines.Core.Runtime.dll:
     - UnityEngine.Rendering.UI.DebugUIHandlerBitField
@@ -138,9 +139,6 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
-    Unity.VisualEffectGraph.Editor.dll:
-    - UnityEditor.VFX.UI.VFXGraphUndoCursor
-    - UnityEditor.VFX.VFXResources
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -972,7 +970,7 @@ ScriptsOnlyBuild:
     className: TestAudioThree
   - hash:
       serializedVersion: 2
-      Hash: b077b6ab0421e0315a9513f16ca36a70
+      Hash: f07c5dcabf72f0c719c3540109ec7eae
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SaveManager
@@ -1272,7 +1270,7 @@ ScriptsOnlyBuild:
     className: TremorCoin
   - hash:
       serializedVersion: 2
-      Hash: 76a111539d85c0bafbb8d0009ffa764d
+      Hash: 8f0e708db774ea531a91b6ad0958149f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UI_Manager
@@ -1818,7 +1816,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: bc99b6661a77986f85323740bdb79735
+      Hash: 8a0ef3eb34cb7e4ee8990ae423cd627d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BulldozeCoin
@@ -2232,7 +2230,7 @@ ScriptsOnlyBuild:
     className: CinemachineUniversalPixelPerfect
   - hash:
       serializedVersion: 2
-      Hash: cdbb71d4313110ea8eb28712b7358313
+      Hash: 6574ba76651c9487087088e10004f014
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ShopSystem
@@ -2347,4 +2345,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main Menu.unity
-  playerPath: I:/Unity Builds/Ludificor/Coin Game 7-5-2022/Coin Machine Game.exe
+  playerPath: I:/Unity Builds/Ludificor/Coin Game 7-7-2022/Coin Machine Game.exe

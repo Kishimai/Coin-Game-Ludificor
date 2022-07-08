@@ -30,4 +30,26 @@ public class SteamManager : MonoBehaviour
     {
         Steamworks.SteamClient.RunCallbacks();
     }
+
+    public void CheckAchievement(string id)
+    {
+        var achievement = new Steamworks.Data.Achievement(id);
+
+        if (achievement.State == false)
+        {
+            UnlockAchievement(id);
+        }
+    }
+
+    public void UnlockAchievement(string id)
+    {
+        var achievement = new Steamworks.Data.Achievement(id);
+        achievement.Trigger();
+    }
+
+    public void DevRemoveAchievement(string id)
+    {
+        var achievement = new Steamworks.Data.Achievement(id);
+        achievement.Clear();
+    }
 }

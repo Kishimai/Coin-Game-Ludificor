@@ -9,6 +9,8 @@ public class BulldozeCoin : MonoBehaviour
     public GameObject audioManager;
     public AudioManager audio;
 
+    public GameObject steamManager;
+
     private Vector3 currentVelocity = Vector3.zero;
     private float currentSpeed = 0;
     private float speedOfLastFrame = 0;
@@ -19,6 +21,7 @@ public class BulldozeCoin : MonoBehaviour
         coinRb = GetComponent<Rigidbody>();
         audioManager = GameObject.FindGameObjectWithTag("audio_manager");
         audio = audioManager.GetComponent<AudioManager>();
+        steamManager = GameObject.FindGameObjectWithTag("steam_manager");
     }
 
     private void Update()
@@ -40,6 +43,7 @@ public class BulldozeCoin : MonoBehaviour
     {
         if (other.gameObject.tag == "coin_pusher")
         {
+            steamManager.GetComponent<SteamManager>().CheckAchievement("Jackpot");
             audio.PlayAudioClip("bulldoze");
             other.transform.GetComponent<CoinPusher>().StartBulldoze();
             GameObject lightning = GameObject.FindGameObjectWithTag("bulldoze_lightning");

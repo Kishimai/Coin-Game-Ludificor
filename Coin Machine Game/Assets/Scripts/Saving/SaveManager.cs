@@ -14,7 +14,11 @@ public class SaveManager : MonoBehaviour
     public bool upgradeCoins = false;
     public bool getMoney = false;
     public bool getCapsules = false;
+    public bool getGodLevels = false;
+    public bool getBombCount = false;
     public int unclaimedCapsules = 0;
+    public int godLevels = 0;
+    public int bombsExploded = 0;
 
     public List<string> collectedItems = new List<string>();
     public bool intakeItems = false;
@@ -27,11 +31,23 @@ public class SaveManager : MonoBehaviour
 
     public GameObject savedIcon;
 
+    private GameObject steamManager;
+
     // Start is called before the first frame update
     void Start()
     {
+
+        currentCoin = 0;
+        upgradesGot = 0;
+        unclaimedCapsules = 0;
+        godLevels = 0;
+        bombsExploded = 0;
+
         saveDir = Application.streamingAssetsPath + "/saves/";
-        Directory.CreateDirectory(saveDir);
+        if (!Directory.Exists(saveDir))
+        {
+            Directory.CreateDirectory(saveDir);
+        }
         
         string saveFileName = saveDir + "save" + ".txt";
 
@@ -39,12 +55,18 @@ public class SaveManager : MonoBehaviour
         {
             StartCoroutine(Load());
         }
+
+        steamManager = GameObject.FindGameObjectWithTag("steam_manager");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (bombsExploded == 100)
+        {
+            bombsExploded += 1;
+            steamManager.GetComponent<SteamManager>().CheckAchievement("MainGoal");
+        }
     }
 
     public void SaveData()
@@ -79,6 +101,14 @@ public class SaveManager : MonoBehaviour
         File.AppendAllText(saveFileName, "[CAPSULES]\n");
 
         File.AppendAllText(saveFileName, unclaimedCapsules.ToString() + "\n");
+
+        File.AppendAllText(saveFileName, "[GOD_LEVELS]\n");
+
+        File.AppendAllText(saveFileName, godLevels.ToString() + "\n");
+
+        File.AppendAllText(saveFileName, "[BOMBS]\n");
+
+        File.AppendAllText(saveFileName, bombsExploded.ToString() + "\n");
 
         StartCoroutine(ShowIcon());
 
@@ -118,11 +148,19 @@ public class SaveManager : MonoBehaviour
 
             File.AppendAllText(saveFileName, "0\n");
 
-            File.AppendAllText(saveFileName, "[MONEY_SPENT]\n");
+            File.AppendAllText(saveFileName, "[MONEY]\n");
 
             File.AppendAllText(saveFileName, "0\n");
 
             File.AppendAllText(saveFileName, "[CAPSULES]\n");
+
+            File.AppendAllText(saveFileName, "0\n");
+
+            File.AppendAllText(saveFileName, "[GOD_LEVELS]\n");
+
+            File.AppendAllText(saveFileName, "0\n");
+
+            File.AppendAllText(saveFileName, "[BOMBS]\n");
 
             File.AppendAllText(saveFileName, "0\n");
 
@@ -164,6 +202,18 @@ public class SaveManager : MonoBehaviour
                 getCapsules = true;
                 ++i;
             }
+            if (fileLines[i].Equals("[GOD_LEVELS]"))
+            {
+                getCapsules = false;
+                getGodLevels = true;
+                ++i;
+            }
+            if (fileLines[i].Equals("[BOMBS]"))
+            {
+                getGodLevels = false;
+                getBombCount = true;
+                ++i;
+            }
 
             if (intakeItems)
             {
@@ -181,6 +231,14 @@ public class SaveManager : MonoBehaviour
             {
                 unclaimedCapsules = Convert.ToInt32(fileLines[i]);
             }
+            if (getGodLevels)
+            {
+                godLevels = Convert.ToInt32(fileLines[i]);
+            }
+            if (getBombCount)
+            {
+                bombsExploded = Convert.ToInt32(fileLines[i]);
+            }
         }
 
         GetComponent<ItemInventory>().loadedItems = collectedItems;
@@ -188,7 +246,9 @@ public class SaveManager : MonoBehaviour
         GetComponent<ShopSystem>().loadedUpgrades = upgradesGot;
         GetComponent<ShopSystem>().loadUpgrades = true;
 
-        GetComponent<UI_Manager>()._currentCoin = currentCoin;
+        //GetComponent<UI_Manager>()._currentCoin = currentCoin;
+
+        GetComponent<UI_Manager>().coim = currentCoin;
 
         GetComponent<ItemInventory>().availablePrizes = unclaimedCapsules;
     }
